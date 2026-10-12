@@ -1,0 +1,248 @@
+{
+  "aggregate": [
+    {
+      "independent_seeds": 3,
+      "mean_J": 0.9851727059662349,
+      "median_J": 1.0,
+      "std_J": 0.025681626605244184,
+      "variant": "full_dense"
+    },
+    {
+      "independent_seeds": 3,
+      "mean_J": 0.9851727059662349,
+      "median_J": 1.0,
+      "std_J": 0.025681626605244184,
+      "variant": "compact_dense"
+    },
+    {
+      "independent_seeds": 3,
+      "mean_J": 0.9851727059662349,
+      "median_J": 1.0,
+      "std_J": 0.025681626605244184,
+      "variant": "dnn_dense"
+    },
+    {
+      "independent_seeds": 3,
+      "mean_J": 0.9851727059662349,
+      "median_J": 1.0,
+      "std_J": 0.025681626605244184,
+      "variant": "hardware_dense"
+    },
+    {
+      "independent_seeds": 3,
+      "mean_J": 1.0,
+      "median_J": 1.0,
+      "std_J": 0.0,
+      "variant": "no_attribution_dense"
+    },
+    {
+      "independent_seeds": 3,
+      "mean_J": 0.9851727059662349,
+      "median_J": 1.0,
+      "std_J": 0.025681626605244184,
+      "variant": "no_criticality_dense"
+    },
+    {
+      "independent_seeds": 3,
+      "mean_J": 0.9933533844276309,
+      "median_J": 1.0,
+      "std_J": 0.011512275869721936,
+      "variant": "independent_dense"
+    },
+    {
+      "independent_seeds": 3,
+      "mean_J": 0.9851727059662349,
+      "median_J": 1.0,
+      "std_J": 0.025681626605244184,
+      "variant": "full_terminal"
+    },
+    {
+      "independent_seeds": 3,
+      "mean_J": 0.9851727059662349,
+      "median_J": 1.0,
+      "std_J": 0.025681626605244184,
+      "variant": "full_best_potential"
+    },
+    {
+      "independent_seeds": 3,
+      "mean_J": 0.9851727059662349,
+      "median_J": 1.0,
+      "std_J": 0.025681626605244184,
+      "variant": "full_bottleneck_potential"
+    }
+  ],
+  "comparisons": [
+    {
+      "bootstrap_samples": 10000,
+      "bootstrap_seed": 1234,
+      "hypothesis": "H1",
+      "interpretation": "lower normalized EDP is better; negative left-minus-right favors left",
+      "left": "full_dense",
+      "paired_bootstrap_ci95": [
+        0.0,
+        0.0
+      ],
+      "paired_mean_difference": 0.0,
+      "paired_median_difference": 0.0,
+      "paired_std": 0.0,
+      "pairs": 3,
+      "right": "compact_dense",
+      "status": "EXPLORATORY_ONLY_NO_FORMAL_HYPOTHESIS_ACCEPTANCE",
+      "ties": 3,
+      "wins": 0
+    },
+    {
+      "bootstrap_samples": 10000,
+      "bootstrap_seed": 1234,
+      "hypothesis": "H1",
+      "interpretation": "lower normalized EDP is better; negative left-minus-right favors left",
+      "left": "full_dense",
+      "paired_bootstrap_ci95": [
+        0.0,
+        0.0
+      ],
+      "paired_mean_difference": 0.0,
+      "paired_median_difference": 0.0,
+      "paired_std": 0.0,
+      "pairs": 3,
+      "right": "dnn_dense",
+      "status": "EXPLORATORY_ONLY_NO_FORMAL_HYPOTHESIS_ACCEPTANCE",
+      "ties": 3,
+      "wins": 0
+    },
+    {
+      "bootstrap_samples": 10000,
+      "bootstrap_seed": 1234,
+      "hypothesis": "H1",
+      "interpretation": "lower normalized EDP is better; negative left-minus-right favors left",
+      "left": "full_dense",
+      "paired_bootstrap_ci95": [
+        0.0,
+        0.0
+      ],
+      "paired_mean_difference": 0.0,
+      "paired_median_difference": 0.0,
+      "paired_std": 0.0,
+      "pairs": 3,
+      "right": "hardware_dense",
+      "status": "EXPLORATORY_ONLY_NO_FORMAL_HYPOTHESIS_ACCEPTANCE",
+      "ties": 3,
+      "wins": 0
+    },
+    {
+      "bootstrap_samples": 10000,
+      "bootstrap_seed": 1234,
+      "hypothesis": "H1",
+      "interpretation": "lower normalized EDP is better; negative left-minus-right favors left",
+      "left": "full_dense",
+      "paired_bootstrap_ci95": [
+        -0.044481882101295556,
+        0.0
+      ],
+      "paired_mean_difference": -0.014827294033765185,
+      "paired_median_difference": 0.0,
+      "paired_std": 0.025681626605244187,
+      "pairs": 3,
+      "right": "no_attribution_dense",
+      "status": "EXPLORATORY_ONLY_NO_FORMAL_HYPOTHESIS_ACCEPTANCE",
+      "ties": 2,
+      "wins": 1
+    },
+    {
+      "bootstrap_samples": 10000,
+      "bootstrap_seed": 1234,
+      "hypothesis": "H1",
+      "interpretation": "lower normalized EDP is better; negative left-minus-right favors left",
+      "left": "full_dense",
+      "paired_bootstrap_ci95": [
+        0.0,
+        0.0
+      ],
+      "paired_mean_difference": 0.0,
+      "paired_median_difference": 0.0,
+      "paired_std": 0.0,
+      "pairs": 3,
+      "right": "no_criticality_dense",
+      "status": "EXPLORATORY_ONLY_NO_FORMAL_HYPOTHESIS_ACCEPTANCE",
+      "ties": 3,
+      "wins": 0
+    },
+    {
+      "bootstrap_samples": 10000,
+      "bootstrap_seed": 1234,
+      "hypothesis": "H2",
+      "interpretation": "lower normalized EDP is better; negative left-minus-right favors left",
+      "left": "full_dense",
+      "paired_bootstrap_ci95": [
+        -0.044481882101295556,
+        0.01993984671710758
+      ],
+      "paired_mean_difference": -0.008180678461395993,
+      "paired_median_difference": 0.0,
+      "paired_std": 0.032980788514747936,
+      "pairs": 3,
+      "right": "independent_dense",
+      "status": "EXPLORATORY_ONLY_NO_FORMAL_HYPOTHESIS_ACCEPTANCE",
+      "ties": 1,
+      "wins": 1
+    },
+    {
+      "bootstrap_samples": 10000,
+      "bootstrap_seed": 1234,
+      "hypothesis": "H3",
+      "interpretation": "lower normalized EDP is better; negative left-minus-right favors left",
+      "left": "full_best_potential",
+      "paired_bootstrap_ci95": [
+        0.0,
+        0.0
+      ],
+      "paired_mean_difference": 0.0,
+      "paired_median_difference": 0.0,
+      "paired_std": 0.0,
+      "pairs": 3,
+      "right": "full_terminal",
+      "status": "EXPLORATORY_ONLY_NO_FORMAL_HYPOTHESIS_ACCEPTANCE",
+      "ties": 3,
+      "wins": 0
+    },
+    {
+      "bootstrap_samples": 10000,
+      "bootstrap_seed": 1234,
+      "hypothesis": "H3",
+      "interpretation": "lower normalized EDP is better; negative left-minus-right favors left",
+      "left": "full_bottleneck_potential",
+      "paired_bootstrap_ci95": [
+        0.0,
+        0.0
+      ],
+      "paired_mean_difference": 0.0,
+      "paired_median_difference": 0.0,
+      "paired_std": 0.0,
+      "pairs": 3,
+      "right": "full_best_potential",
+      "status": "EXPLORATORY_ONLY_NO_FORMAL_HYPOTHESIS_ACCEPTANCE",
+      "ties": 3,
+      "wins": 0
+    },
+    {
+      "bootstrap_samples": 10000,
+      "bootstrap_seed": 1234,
+      "hypothesis": "H3",
+      "interpretation": "lower normalized EDP is better; negative left-minus-right favors left",
+      "left": "full_bottleneck_potential",
+      "paired_bootstrap_ci95": [
+        0.0,
+        0.0
+      ],
+      "paired_mean_difference": 0.0,
+      "paired_median_difference": 0.0,
+      "paired_std": 0.0,
+      "pairs": 3,
+      "right": "full_dense",
+      "status": "EXPLORATORY_ONLY_NO_FORMAL_HYPOTHESIS_ACCEPTANCE",
+      "ties": 3,
+      "wins": 0
+    }
+  ],
+  "hypotheses_status": "H1/H2/H3 NOT ESTABLISHED BY THIS PILOT"
+}

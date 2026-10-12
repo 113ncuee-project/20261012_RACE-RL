@@ -13,4 +13,5 @@ jobs:
       - run: python -m unittest discover -s tests -v
       - run: race-rl evaluate --out experiments/runs/ci_evaluation
       - run: race-rl train --episodes 1 --budget 4 --out experiments/runs/ci_training
-      - run: race-rl validate-cnn --model resnet18 --input-size 32 --precision float64 --out experiments/runs/ci_cnn
+      - run: race-rl validate-cnn --model resnet18 --input-size 32 --precision float64 --analytical-check --guarded-memory --out experiments/runs/ci_cnn
+      - run: race-rl search-mesh --model resnet18 --input-size 32 --compute-counts 2 16 --episodes 1 --budget 2 --max-scope 1 --out experiments/runs/ci_joint_search

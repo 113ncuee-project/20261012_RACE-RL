@@ -1,0 +1,153 @@
+[
+  {
+    "action": {
+      "compute_target": "",
+      "count": 1,
+      "kind": "cut_migrate",
+      "root": "residual:0",
+      "scope": [
+        "residual:0"
+      ],
+      "target": "c1"
+    },
+    "best_objective": 1.0,
+    "cache_hits": 0,
+    "candidate_compute_count": 2,
+    "candidate_hardware_hash": "e3369d0b53eba55aa89ff8d34a6d9866888b677b7d41a69d56a4d1672c841ac5",
+    "candidate_mapping_hash": "0833a4587c3f9b305ff4916b0557bbc8ab87ee039cc0cf13513acb8a82b4d925",
+    "compute_count": 2,
+    "current_objective": 1.2213238902021732,
+    "evaluations": 2,
+    "feasible": true,
+    "requests": 2,
+    "reward": 0.0,
+    "termination": null
+  },
+  {
+    "action": {
+      "distribute": false,
+      "kind": "retile_operator",
+      "operator": "conv_b",
+      "parts": 8,
+      "target": "c0"
+    },
+    "best_objective": 1.0,
+    "cache_hits": 0,
+    "candidate_compute_count": 2,
+    "candidate_hardware_hash": "e3369d0b53eba55aa89ff8d34a6d9866888b677b7d41a69d56a4d1672c841ac5",
+    "candidate_mapping_hash": "273906d6919a7a4cce9d7372b32659d6cf6f3bd5bbacba93a3a0680622df4429",
+    "compute_count": 2,
+    "current_objective": 1.929599280286487,
+    "evaluations": 3,
+    "feasible": true,
+    "requests": 3,
+    "reward": 0.0,
+    "termination": null
+  },
+  {
+    "action": {
+      "distribute": false,
+      "kind": "retile_operator",
+      "operator": "conv_a",
+      "parts": 2,
+      "target": "c1"
+    },
+    "best_objective": 1.0,
+    "cache_hits": 0,
+    "candidate_compute_count": 2,
+    "candidate_hardware_hash": "e3369d0b53eba55aa89ff8d34a6d9866888b677b7d41a69d56a4d1672c841ac5",
+    "candidate_mapping_hash": "530db35def71ff97d6ce9cfc3060e0b1c456fbd594548d63e91fbb469dc96d20",
+    "compute_count": 2,
+    "current_objective": 2.174656776536772,
+    "evaluations": 4,
+    "feasible": true,
+    "requests": 4,
+    "reward": 0.0,
+    "termination": null
+  },
+  {
+    "action": {
+      "compute_target": "c1",
+      "count": 1,
+      "kind": "memory_affinity",
+      "root": "conv_a:1",
+      "scope": [
+        "conv_a:1",
+        "residual:0"
+      ],
+      "target": "dram0"
+    },
+    "best_objective": 1.0,
+    "cache_hits": 0,
+    "candidate_compute_count": 2,
+    "candidate_hardware_hash": "e3369d0b53eba55aa89ff8d34a6d9866888b677b7d41a69d56a4d1672c841ac5",
+    "candidate_mapping_hash": "2374e13e6c099f9515fdb79452d7ce3887b0655c3cc3f3c0e6668974538b1a28",
+    "compute_count": 2,
+    "current_objective": 2.174656776536772,
+    "evaluations": 5,
+    "feasible": true,
+    "requests": 5,
+    "reward": 0.0,
+    "termination": null
+  },
+  {
+    "action": {
+      "compute_count": 16,
+      "kind": "resize_mesh"
+    },
+    "best_objective": 1.0,
+    "cache_hits": 0,
+    "candidate_compute_count": 16,
+    "candidate_hardware_hash": "af90634b5ebc2da97d266926f91f0ba85dca6969bdbbbe58dc9c9a672eb702cb",
+    "candidate_mapping_hash": "2374e13e6c099f9515fdb79452d7ce3887b0655c3cc3f3c0e6668974538b1a28",
+    "compute_count": 16,
+    "current_objective": 5.978245496544886,
+    "evaluations": 6,
+    "feasible": true,
+    "requests": 6,
+    "reward": 0.0,
+    "termination": null
+  },
+  {
+    "action": {
+      "distribute": false,
+      "kind": "retile_operator",
+      "operator": "conv_a",
+      "parts": 2,
+      "target": "c15"
+    },
+    "best_objective": 1.0,
+    "cache_hits": 0,
+    "candidate_compute_count": 16,
+    "candidate_hardware_hash": "af90634b5ebc2da97d266926f91f0ba85dca6969bdbbbe58dc9c9a672eb702cb",
+    "candidate_mapping_hash": "cf5688a39ed8fe7388dac5067b30e873e46b28e08e64b1dc1f9733c1fe7bf2ac",
+    "compute_count": 16,
+    "current_objective": 6.386215744063678,
+    "evaluations": 7,
+    "feasible": true,
+    "requests": 7,
+    "reward": 0.0,
+    "termination": null
+  },
+  {
+    "action": {
+      "distribute": true,
+      "kind": "retile_operator",
+      "operator": "residual",
+      "parts": 2,
+      "target": "c2"
+    },
+    "best_objective": 1.0,
+    "cache_hits": 0,
+    "candidate_compute_count": 16,
+    "candidate_hardware_hash": "af90634b5ebc2da97d266926f91f0ba85dca6969bdbbbe58dc9c9a672eb702cb",
+    "candidate_mapping_hash": "09e36b6e6640602067aa27dd1ab22aea0d4c94fee6d5d9beb276bdc6b71e1ca6",
+    "compute_count": 16,
+    "current_objective": 5.897156484722616,
+    "evaluations": 8,
+    "feasible": true,
+    "requests": 8,
+    "reward": 0.0,
+    "termination": "budget_exhausted"
+  }
+]

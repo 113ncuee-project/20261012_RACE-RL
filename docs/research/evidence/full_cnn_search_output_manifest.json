@@ -1,0 +1,27 @@
+{
+  "scope": "current full output, including raw ledgers/checkpoints, kept locally under ignored runs",
+  "files_sha256": {
+    "config.json": "036472af84f3eab0cb56aaf0a221cf2e32f349ecbec88e38c8e1c5a6d6a8ee2f",
+    "workload.json": "b9d19755340a5fc0c82c0d28322b40d2b572c34db2a1300f494024f2986936b1",
+    "parameter_manifest.json": "014d479b22e6627042d432fd54229f85025e551f388cac06845872c06fccd327",
+    "numerical_validation.json": "af52da1ba25bc641ea1871d8f12258ba60243ed0f2e0a85558ccedaec46ba101",
+    "search/summary.json": "9f8b19db7a039356926b1276e1b25e444e27c145d27494b72574b284e66ca37b",
+    "search/config.json": "7496c46fa7a41c5f14ed5e1c54d79a904d7f111664801e6778719ad1fa34c194",
+    "search/best_hardware.json": "07ed3c146d25907ffa1480e938ffe8a18c881bfde9a51827e666838c18fda35a",
+    "search/training_curve.json": "d375dc29e74786a14b3b386e715b21cb050de4103ebb4e50cc9d041e12225b1b",
+    "search/best_mapping.json": "53661f69884a50a1e159b316d8027f48f491f51e325d90ea656a126e4f889a67",
+    "search/checkpoint.pt": "355d0d649f3a2f8a4d2b3effd015b28dc5134d9780a3fc5d0587ece9fc81c8f0",
+    "search/candidate_metrics.json": "9a56ea8eaa127b2ebbd01cf5e2586098210e9995e5209fee2323bd54f5d5793b",
+    "search/pareto_frontier.json": "bca13baa20d701d6f5f06a09c0e05c4e6bf5f45e7121710c218c8b3e60e252e2",
+    "search/best_evaluation.json": "9551732af54e073623ed19176f2ea4cba792ce449254b8d685e06ef6aa7ada77",
+    "search/episode_0001/summary.json": "75e20158fb4a0e4a719013d815c411fc4f828b5b85e3bfccb66b5dde9e641c24",
+    "search/episode_0001/best_hardware.json": "07ed3c146d25907ffa1480e938ffe8a18c881bfde9a51827e666838c18fda35a",
+    "search/episode_0001/raw_evaluations.json": "11342bba55f31f595d9748f30272a85e3a41ccb772a937b90b9af11ed98936ed",
+    "search/episode_0001/compiler.json": "4cf9646ba28d700a1fce166d4e1569e84a8953fa9765ecaf8f6bd5e8f736db71",
+    "search/episode_0001/best_mapping.json": "53661f69884a50a1e159b316d8027f48f491f51e325d90ea656a126e4f889a67",
+    "search/episode_0001/search_trace.json": "a74b1b0b89401dc61b593fd46b355646de0fb23fad00db47a2b2cea19b0a6a91",
+    "search/episode_0001/best_evaluation.json": "9551732af54e073623ed19176f2ea4cba792ce449254b8d685e06ef6aa7ada77",
+    "search/episode_0001/query_accounting.json": "da2dd80f9496398e42e8669ef55f0a9dd7bdba58ed821e1a27d148a5280d2ce7",
+    "search/episode_0001/environment.json": "aa425e36def5ebb2f29af8e49582839faceef26bc08ca25deb20a4c8c079e3e9"
+  }
+}

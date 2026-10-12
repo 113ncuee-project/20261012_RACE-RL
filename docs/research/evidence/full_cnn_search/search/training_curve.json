@@ -1,0 +1,23 @@
+[
+  {
+    "actor_loss": -0.12784031022480194,
+    "best_edp_js": 0.15131392498717594,
+    "best_objective": 0.9995457451728459,
+    "cache_hits": 0,
+    "compute_count": 16,
+    "entropy": 7.256186679989651,
+    "episode": 0,
+    "initial_action_support": 14350,
+    "max_action_support": 14350,
+    "mean_action_support": 14227.666666666666,
+    "oracle_evaluations": 4,
+    "oracle_requests": 4,
+    "parameter_updates": 4,
+    "resize_steps": 0,
+    "retile_steps": 1,
+    "return": 0.0004543580321336216,
+    "steps": 3,
+    "termination": "budget_exhausted",
+    "value_loss": 0.051165065910612435
+  }
+]

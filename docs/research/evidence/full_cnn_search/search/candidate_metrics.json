@@ -1,0 +1,62 @@
+[
+  {
+    "area_mm2": 16,
+    "average_power_w": 0.020735568189028754,
+    "compute_count": 16,
+    "design_hash": "21e29127af5c80c7e2cd91e02d255e65dfed3f7f4c452ce5d146acea2c1b741e",
+    "edp_js": 0.151382691305449,
+    "energy_j": 0.05602683391199996,
+    "episode": 1,
+    "feasible": true,
+    "hardware_hash": "af90634b5ebc2da97d266926f91f0ba85dca6969bdbbbe58dc9c9a672eb702cb",
+    "latency_s": 2.7019676239999977,
+    "mapping_hash": "d16bb95afb4e21ea13269ef30647d65dbd248f2e733b694b0ea0b09d787360d1",
+    "total_chiplets": 16,
+    "violations": []
+  },
+  {
+    "area_mm2": 16,
+    "average_power_w": 0.020733191217294885,
+    "compute_count": 16,
+    "design_hash": "df8e2b1a1dfffc05b7097e34531a6a1851386a1daeae7dabf6ab95c37d7a0602",
+    "edp_js": 0.15136533679617054,
+    "energy_j": 0.05602041120399997,
+    "episode": 1,
+    "feasible": true,
+    "hardware_hash": "af90634b5ebc2da97d266926f91f0ba85dca6969bdbbbe58dc9c9a672eb702cb",
+    "latency_s": 2.7019676139999977,
+    "mapping_hash": "817380f63157aa8a419d1cdad6352db62a4b464bdf5240928ee9f72a37f0a1a7",
+    "total_chiplets": 16,
+    "violations": []
+  },
+  {
+    "area_mm2": 16,
+    "average_power_w": 0.020734233680660772,
+    "compute_count": 16,
+    "design_hash": "30c752cad71d181fee389139bbce4fdff92213279f766175109b235fe7a2a6b3",
+    "edp_js": 0.15131392498717594,
+    "energy_j": 0.056012304717999964,
+    "episode": 1,
+    "feasible": true,
+    "hardware_hash": "af90634b5ebc2da97d266926f91f0ba85dca6969bdbbbe58dc9c9a672eb702cb",
+    "latency_s": 2.7014407949999977,
+    "mapping_hash": "ca8ddf83cde8cca5aded0538c10caafd8f4c5e2d1649ea59cae22d91c1dd29a4",
+    "total_chiplets": 16,
+    "violations": []
+  },
+  {
+    "area_mm2": 16,
+    "average_power_w": 0.020765474612717095,
+    "compute_count": 16,
+    "design_hash": "8ee4692eb2b84c831b479f6ebda0e54fb0e4d3144007d3cc72378958f63c0a98",
+    "edp_js": 0.15228921505735304,
+    "energy_j": 0.05623484532799996,
+    "episode": 1,
+    "feasible": true,
+    "hardware_hash": "af90634b5ebc2da97d266926f91f0ba85dca6969bdbbbe58dc9c9a672eb702cb",
+    "latency_s": 2.7080934279999975,
+    "mapping_hash": "7fb8fb13d061f68d1d0bf39d8e104b1f3d6be6e13f0fa1bf7dae4de26bfb1570",
+    "total_chiplets": 16,
+    "violations": []
+  }
+]

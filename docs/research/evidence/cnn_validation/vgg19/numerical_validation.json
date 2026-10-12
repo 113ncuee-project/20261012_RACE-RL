@@ -1,0 +1,824 @@
+{
+  "atol": 1e-09,
+  "compiled_tile_count": 92,
+  "dtype": "torch.float64",
+  "input_sha256": "6cd6affff31531af85190827b6ea70bafdca8a981a40bf1e018fca1e5440c6a7",
+  "input_value_float32_sha256": "4a44936c8a6d3199da1f8242fe7fac16cf01d9d26bf404e888b9fcd4a967e997",
+  "layers": [
+    {
+      "finite": true,
+      "kind": "Conv",
+      "max_absolute_error": 0.0,
+      "mean_absolute_error": 0.0,
+      "mismatched_elements": 0,
+      "numpy_sha256": "461370b2d9ee1d28beca355ea3eddaa46f0437223cf3164ad3d073b2bd6cf2e6",
+      "operator": "features_0",
+      "passed": true,
+      "reference_sha256": "461370b2d9ee1d28beca355ea3eddaa46f0437223cf3164ad3d073b2bd6cf2e6",
+      "shape": [
+        1,
+        64,
+        224,
+        224
+      ]
+    },
+    {
+      "finite": true,
+      "kind": "ReLU",
+      "max_absolute_error": 0.0,
+      "mean_absolute_error": 0.0,
+      "mismatched_elements": 0,
+      "numpy_sha256": "c73960cec2e955e200d7ad8745e7470a894bf924974cb55072a28b83be6b3e78",
+      "operator": "features_1",
+      "passed": true,
+      "reference_sha256": "c73960cec2e955e200d7ad8745e7470a894bf924974cb55072a28b83be6b3e78",
+      "shape": [
+        1,
+        64,
+        224,
+        224
+      ]
+    },
+    {
+      "finite": true,
+      "kind": "Conv",
+      "max_absolute_error": 0.0,
+      "mean_absolute_error": 0.0,
+      "mismatched_elements": 0,
+      "numpy_sha256": "b0189e6b567fc3fbbdc72e847a303f19d7b0af2d3642fbfefb65de150dcda6c5",
+      "operator": "features_2",
+      "passed": true,
+      "reference_sha256": "b0189e6b567fc3fbbdc72e847a303f19d7b0af2d3642fbfefb65de150dcda6c5",
+      "shape": [
+        1,
+        64,
+        224,
+        224
+      ]
+    },
+    {
+      "finite": true,
+      "kind": "ReLU",
+      "max_absolute_error": 0.0,
+      "mean_absolute_error": 0.0,
+      "mismatched_elements": 0,
+      "numpy_sha256": "9a4a9115124c78443316d2f56f6497d40bd5a02624c42e783257f96ae2e62857",
+      "operator": "features_3",
+      "passed": true,
+      "reference_sha256": "9a4a9115124c78443316d2f56f6497d40bd5a02624c42e783257f96ae2e62857",
+      "shape": [
+        1,
+        64,
+        224,
+        224
+      ]
+    },
+    {
+      "finite": true,
+      "kind": "MaxPool",
+      "max_absolute_error": 0.0,
+      "mean_absolute_error": 0.0,
+      "mismatched_elements": 0,
+      "numpy_sha256": "6879186730047eaad8bb67d509219827a606f7ca03168a9ad95bfe0f1e5886c7",
+      "operator": "features_4",
+      "passed": true,
+      "reference_sha256": "6879186730047eaad8bb67d509219827a606f7ca03168a9ad95bfe0f1e5886c7",
+      "shape": [
+        1,
+        64,
+        112,
+        112
+      ]
+    },
+    {
+      "finite": true,
+      "kind": "Conv",
+      "max_absolute_error": 0.0,
+      "mean_absolute_error": 0.0,
+      "mismatched_elements": 0,
+      "numpy_sha256": "0d712d394ce43b37140fe2d296bd8ff0dc1099a4f1e12de4d3290f5981d72921",
+      "operator": "features_5",
+      "passed": true,
+      "reference_sha256": "0d712d394ce43b37140fe2d296bd8ff0dc1099a4f1e12de4d3290f5981d72921",
+      "shape": [
+        1,
+        128,
+        112,
+        112
+      ]
+    },
+    {
+      "finite": true,
+      "kind": "ReLU",
+      "max_absolute_error": 0.0,
+      "mean_absolute_error": 0.0,
+      "mismatched_elements": 0,
+      "numpy_sha256": "8e27e17b2fef61daf2358fc7e70a1a6b115f78dc05912adea161107e122a4a5c",
+      "operator": "features_6",
+      "passed": true,
+      "reference_sha256": "8e27e17b2fef61daf2358fc7e70a1a6b115f78dc05912adea161107e122a4a5c",
+      "shape": [
+        1,
+        128,
+        112,
+        112
+      ]
+    },
+    {
+      "finite": true,
+      "kind": "Conv",
+      "max_absolute_error": 0.0,
+      "mean_absolute_error": 0.0,
+      "mismatched_elements": 0,
+      "numpy_sha256": "5ad8a0ca48e38e106a87ddb812538a397008a51e528de1947958a1299a9f0223",
+      "operator": "features_7",
+      "passed": true,
+      "reference_sha256": "5ad8a0ca48e38e106a87ddb812538a397008a51e528de1947958a1299a9f0223",
+      "shape": [
+        1,
+        128,
+        112,
+        112
+      ]
+    },
+    {
+      "finite": true,
+      "kind": "ReLU",
+      "max_absolute_error": 0.0,
+      "mean_absolute_error": 0.0,
+      "mismatched_elements": 0,
+      "numpy_sha256": "eda0a378c10a163c8c780d04512b737d351dfea79ec34aae76b6a6ea399f18c1",
+      "operator": "features_8",
+      "passed": true,
+      "reference_sha256": "eda0a378c10a163c8c780d04512b737d351dfea79ec34aae76b6a6ea399f18c1",
+      "shape": [
+        1,
+        128,
+        112,
+        112
+      ]
+    },
+    {
+      "finite": true,
+      "kind": "MaxPool",
+      "max_absolute_error": 0.0,
+      "mean_absolute_error": 0.0,
+      "mismatched_elements": 0,
+      "numpy_sha256": "99b664ecbaec9601298db0f9f3472a23887db7793c9836276579722eb8309d07",
+      "operator": "features_9",
+      "passed": true,
+      "reference_sha256": "99b664ecbaec9601298db0f9f3472a23887db7793c9836276579722eb8309d07",
+      "shape": [
+        1,
+        128,
+        56,
+        56
+      ]
+    },
+    {
+      "finite": true,
+      "kind": "Conv",
+      "max_absolute_error": 0.0,
+      "mean_absolute_error": 0.0,
+      "mismatched_elements": 0,
+      "numpy_sha256": "560c58284f872950ef28938075ec180cf32e3f502b540e0fafa8e23ded712b15",
+      "operator": "features_10",
+      "passed": true,
+      "reference_sha256": "560c58284f872950ef28938075ec180cf32e3f502b540e0fafa8e23ded712b15",
+      "shape": [
+        1,
+        256,
+        56,
+        56
+      ]
+    },
+    {
+      "finite": true,
+      "kind": "ReLU",
+      "max_absolute_error": 0.0,
+      "mean_absolute_error": 0.0,
+      "mismatched_elements": 0,
+      "numpy_sha256": "cff9cc81fd0fde6d88df19e5e5890feffe259c5ebe07fd7a41032ccd74aa37c7",
+      "operator": "features_11",
+      "passed": true,
+      "reference_sha256": "cff9cc81fd0fde6d88df19e5e5890feffe259c5ebe07fd7a41032ccd74aa37c7",
+      "shape": [
+        1,
+        256,
+        56,
+        56
+      ]
+    },
+    {
+      "finite": true,
+      "kind": "Conv",
+      "max_absolute_error": 0.0,
+      "mean_absolute_error": 0.0,
+      "mismatched_elements": 0,
+      "numpy_sha256": "6496ed0086a9b3c909b28cf20d574db41e1579007012d0ff71b906f1fe1836fa",
+      "operator": "features_12",
+      "passed": true,
+      "reference_sha256": "6496ed0086a9b3c909b28cf20d574db41e1579007012d0ff71b906f1fe1836fa",
+      "shape": [
+        1,
+        256,
+        56,
+        56
+      ]
+    },
+    {
+      "finite": true,
+      "kind": "ReLU",
+      "max_absolute_error": 0.0,
+      "mean_absolute_error": 0.0,
+      "mismatched_elements": 0,
+      "numpy_sha256": "2f8beddeee1120e5808a1b5acd27399d4f19d3d0a6a13bae3a5197fa125c34c2",
+      "operator": "features_13",
+      "passed": true,
+      "reference_sha256": "2f8beddeee1120e5808a1b5acd27399d4f19d3d0a6a13bae3a5197fa125c34c2",
+      "shape": [
+        1,
+        256,
+        56,
+        56
+      ]
+    },
+    {
+      "finite": true,
+      "kind": "Conv",
+      "max_absolute_error": 0.0,
+      "mean_absolute_error": 0.0,
+      "mismatched_elements": 0,
+      "numpy_sha256": "73280eca8fb4f23351ed458813aa5d425f4936e06a8fe70b56a02d5633632f04",
+      "operator": "features_14",
+      "passed": true,
+      "reference_sha256": "73280eca8fb4f23351ed458813aa5d425f4936e06a8fe70b56a02d5633632f04",
+      "shape": [
+        1,
+        256,
+        56,
+        56
+      ]
+    },
+    {
+      "finite": true,
+      "kind": "ReLU",
+      "max_absolute_error": 0.0,
+      "mean_absolute_error": 0.0,
+      "mismatched_elements": 0,
+      "numpy_sha256": "2f6fbd907527ca728e976a4f3990ab7b808484b87e589289137f9b35f6dde263",
+      "operator": "features_15",
+      "passed": true,
+      "reference_sha256": "2f6fbd907527ca728e976a4f3990ab7b808484b87e589289137f9b35f6dde263",
+      "shape": [
+        1,
+        256,
+        56,
+        56
+      ]
+    },
+    {
+      "finite": true,
+      "kind": "Conv",
+      "max_absolute_error": 0.0,
+      "mean_absolute_error": 0.0,
+      "mismatched_elements": 0,
+      "numpy_sha256": "7676fc380cc6e57197735a060e67d9c5b04133638bae3f366f3528bbea4fae3d",
+      "operator": "features_16",
+      "passed": true,
+      "reference_sha256": "7676fc380cc6e57197735a060e67d9c5b04133638bae3f366f3528bbea4fae3d",
+      "shape": [
+        1,
+        256,
+        56,
+        56
+      ]
+    },
+    {
+      "finite": true,
+      "kind": "ReLU",
+      "max_absolute_error": 0.0,
+      "mean_absolute_error": 0.0,
+      "mismatched_elements": 0,
+      "numpy_sha256": "f37ed02a3cc19b45f6c3099a0e8e5ac2af3081d92a0ef061ab7bcbf35facb06c",
+      "operator": "features_17",
+      "passed": true,
+      "reference_sha256": "f37ed02a3cc19b45f6c3099a0e8e5ac2af3081d92a0ef061ab7bcbf35facb06c",
+      "shape": [
+        1,
+        256,
+        56,
+        56
+      ]
+    },
+    {
+      "finite": true,
+      "kind": "MaxPool",
+      "max_absolute_error": 0.0,
+      "mean_absolute_error": 0.0,
+      "mismatched_elements": 0,
+      "numpy_sha256": "975896bed08f0c9f31341b0ad51faf460423c27368016622c6b0236e59004b4e",
+      "operator": "features_18",
+      "passed": true,
+      "reference_sha256": "975896bed08f0c9f31341b0ad51faf460423c27368016622c6b0236e59004b4e",
+      "shape": [
+        1,
+        256,
+        28,
+        28
+      ]
+    },
+    {
+      "finite": true,
+      "kind": "Conv",
+      "max_absolute_error": 2.1649348980190553e-15,
+      "mean_absolute_error": 3.2367314021902915e-18,
+      "mismatched_elements": 0,
+      "numpy_sha256": "54a969baebc09f02b0975b7c47fbeab5c719c428ebe2f43c2f64d0fef138d89d",
+      "operator": "features_19",
+      "passed": true,
+      "reference_sha256": "c9635d73c499c319335fc25d68c6ec1017e0ce7c32bca51968d549e7dea2253a",
+      "shape": [
+        1,
+        512,
+        28,
+        28
+      ]
+    },
+    {
+      "finite": true,
+      "kind": "ReLU",
+      "max_absolute_error": 2.1649348980190553e-15,
+      "mean_absolute_error": 1.5514887225322911e-18,
+      "mismatched_elements": 0,
+      "numpy_sha256": "1fefacfaffdbbdcefe06c11f6307ed9838754c4ecaf47d4542d6998895b89156",
+      "operator": "features_20",
+      "passed": true,
+      "reference_sha256": "8c3bd68ef649ba24383eda429929351ff633ecd6a22b61c187707d45b1889ea3",
+      "shape": [
+        1,
+        512,
+        28,
+        28
+      ]
+    },
+    {
+      "finite": true,
+      "kind": "Conv",
+      "max_absolute_error": 2.220446049250313e-15,
+      "mean_absolute_error": 1.0231648396269976e-17,
+      "mismatched_elements": 0,
+      "numpy_sha256": "6e69a2fd95b6f1151e5c7a63024980265d73254acb8b49aff0429fb60341076d",
+      "operator": "features_21",
+      "passed": true,
+      "reference_sha256": "d09e3cd3c01897c0e3cad7090eed390a62469eadb15353326ed4a5af66e06978",
+      "shape": [
+        1,
+        512,
+        28,
+        28
+      ]
+    },
+    {
+      "finite": true,
+      "kind": "ReLU",
+      "max_absolute_error": 1.887379141862766e-15,
+      "mean_absolute_error": 5.051038836487623e-18,
+      "mismatched_elements": 0,
+      "numpy_sha256": "04005e5607179d1018333b7e9b652991897228997ad1e0fc02d9f1481c9236cb",
+      "operator": "features_22",
+      "passed": true,
+      "reference_sha256": "fb4aea7cdbbbf5925e20b8d43cc068e8e2890fe5eb2d79159f5acc97e9be1291",
+      "shape": [
+        1,
+        512,
+        28,
+        28
+      ]
+    },
+    {
+      "finite": true,
+      "kind": "Conv",
+      "max_absolute_error": 2.7755575615628914e-15,
+      "mean_absolute_error": 2.0692811596465167e-17,
+      "mismatched_elements": 0,
+      "numpy_sha256": "314f19173a7d2eb4f138e82432036a0dcfb21c394d55e55561bb093cc72a84c1",
+      "operator": "features_23",
+      "passed": true,
+      "reference_sha256": "0dabfbfe9ef015630b334fa247b8e54fdbb993fbc089c4ceac6bed6e2b1d5398",
+      "shape": [
+        1,
+        512,
+        28,
+        28
+      ]
+    },
+    {
+      "finite": true,
+      "kind": "ReLU",
+      "max_absolute_error": 2.7755575615628914e-15,
+      "mean_absolute_error": 1.0642391736791999e-17,
+      "mismatched_elements": 0,
+      "numpy_sha256": "aca5d295a2a300efb24528257b8038b322a513061f5badf532393f35298a2f67",
+      "operator": "features_24",
+      "passed": true,
+      "reference_sha256": "95be317895c8588d35b4a45e276976ff5d03ed2fb9bc058354a49aee3fa66828",
+      "shape": [
+        1,
+        512,
+        28,
+        28
+      ]
+    },
+    {
+      "finite": true,
+      "kind": "Conv",
+      "max_absolute_error": 3.885780586188048e-15,
+      "mean_absolute_error": 3.749282419481817e-17,
+      "mismatched_elements": 0,
+      "numpy_sha256": "6a10bf2c43d35b9f00a17319907659ed6e211de9e48d7643184172b57cd1fc18",
+      "operator": "features_25",
+      "passed": true,
+      "reference_sha256": "e1cf43bc47d71f9de61f5bbb789591ecbbf8f791390a7b46746c350d7edf9792",
+      "shape": [
+        1,
+        512,
+        28,
+        28
+      ]
+    },
+    {
+      "finite": true,
+      "kind": "ReLU",
+      "max_absolute_error": 3.885780586188048e-15,
+      "mean_absolute_error": 1.9208684922179736e-17,
+      "mismatched_elements": 0,
+      "numpy_sha256": "02553562e3436936654c67b8645e0f665d60cde59137044554020f5aebfae913",
+      "operator": "features_26",
+      "passed": true,
+      "reference_sha256": "96220718808934f652ea68c85a4f814223f1e9c5a339c79a28fc65ee7e37dd7b",
+      "shape": [
+        1,
+        512,
+        28,
+        28
+      ]
+    },
+    {
+      "finite": true,
+      "kind": "MaxPool",
+      "max_absolute_error": 2.55351295663786e-15,
+      "mean_absolute_error": 2.33203809494682e-17,
+      "mismatched_elements": 0,
+      "numpy_sha256": "77755817433d390e8deea59a8b892faec4d5776833a9ad609955715d73f5837b",
+      "operator": "features_27",
+      "passed": true,
+      "reference_sha256": "c6360859ddfa87e62580db0883b17babb885b956fe907c5f501356a16dd15c74",
+      "shape": [
+        1,
+        512,
+        14,
+        14
+      ]
+    },
+    {
+      "finite": true,
+      "kind": "Conv",
+      "max_absolute_error": 2.7755575615628914e-15,
+      "mean_absolute_error": 8.100949592496234e-17,
+      "mismatched_elements": 0,
+      "numpy_sha256": "6b7fd9bece6aff880b674db983b94e62529d652b4e3696cf9ba8409973e2b04b",
+      "operator": "features_28",
+      "passed": true,
+      "reference_sha256": "eb3dc8dfaaf42f46f071fc03d32fb8bee45b9eb18830fec579059cbc45a3ecf3",
+      "shape": [
+        1,
+        512,
+        14,
+        14
+      ]
+    },
+    {
+      "finite": true,
+      "kind": "ReLU",
+      "max_absolute_error": 2.7755575615628914e-15,
+      "mean_absolute_error": 3.980087830691673e-17,
+      "mismatched_elements": 0,
+      "numpy_sha256": "dc14585ccc5acc49fe887eb67c76858b8248b5a314ed662a179d5c8f24138723",
+      "operator": "features_29",
+      "passed": true,
+      "reference_sha256": "49f451bc38283b2b6b2091d41d5fe1eb197771329fb7fdb01e55dd6a6a0d7677",
+      "shape": [
+        1,
+        512,
+        14,
+        14
+      ]
+    },
+    {
+      "finite": true,
+      "kind": "Conv",
+      "max_absolute_error": 2.7755575615628914e-15,
+      "mean_absolute_error": 1.3090586719689274e-16,
+      "mismatched_elements": 0,
+      "numpy_sha256": "fe041b350a9bba68ab4c58e2203ea17503616e0f0c43635f3c92aee480e0ffd0",
+      "operator": "features_30",
+      "passed": true,
+      "reference_sha256": "b13106d405c8874b0ca06150ffa4d6bb7361d0f3840c9989ac7b4c7fb6348121",
+      "shape": [
+        1,
+        512,
+        14,
+        14
+      ]
+    },
+    {
+      "finite": true,
+      "kind": "ReLU",
+      "max_absolute_error": 2.7755575615628914e-15,
+      "mean_absolute_error": 6.775667773133155e-17,
+      "mismatched_elements": 0,
+      "numpy_sha256": "3795ce9381c8c71c5cfd2d9850c98022119bbc9b632f3bb3f874ee971139cc04",
+      "operator": "features_31",
+      "passed": true,
+      "reference_sha256": "850de160071ecc475822b411eebe57e7b58a13c8fd12e6c22267bd0728cdba3d",
+      "shape": [
+        1,
+        512,
+        14,
+        14
+      ]
+    },
+    {
+      "finite": true,
+      "kind": "Conv",
+      "max_absolute_error": 3.219646771412954e-15,
+      "mean_absolute_error": 1.944340063517918e-16,
+      "mismatched_elements": 0,
+      "numpy_sha256": "bdd2b0bfa9de4bf80a5cf23983cb79f8c06ed3aa3aff61142ec49f2c5d01de87",
+      "operator": "features_32",
+      "passed": true,
+      "reference_sha256": "213d420f74b7ea2c19a650144d5d5b206d8986f74f4d93174199ce7dd47c3e74",
+      "shape": [
+        1,
+        512,
+        14,
+        14
+      ]
+    },
+    {
+      "finite": true,
+      "kind": "ReLU",
+      "max_absolute_error": 3.219646771412954e-15,
+      "mean_absolute_error": 9.399898089415663e-17,
+      "mismatched_elements": 0,
+      "numpy_sha256": "56315024ffe595ced8839db5afaa7ff99ce7e9349e0353efbe3860fcf45f4e29",
+      "operator": "features_33",
+      "passed": true,
+      "reference_sha256": "fd0aa0bca3c10f15e831584d674e6b4fefb0e13d8b7ac129936e0140ae80944f",
+      "shape": [
+        1,
+        512,
+        14,
+        14
+      ]
+    },
+    {
+      "finite": true,
+      "kind": "Conv",
+      "max_absolute_error": 3.552713678800501e-15,
+      "mean_absolute_error": 2.5512763055285537e-16,
+      "mismatched_elements": 0,
+      "numpy_sha256": "2293a53165d8a9c5fb1b3c31a27eca6da098845e00be25e51c2f03d8a64ccf15",
+      "operator": "features_34",
+      "passed": true,
+      "reference_sha256": "23d6c208d48e768f2de89fc534eb95cd940d94297071022d01c18b7768011916",
+      "shape": [
+        1,
+        512,
+        14,
+        14
+      ]
+    },
+    {
+      "finite": true,
+      "kind": "ReLU",
+      "max_absolute_error": 3.552713678800501e-15,
+      "mean_absolute_error": 1.221069292764207e-16,
+      "mismatched_elements": 0,
+      "numpy_sha256": "a14d6416cc4bf032cabfc8ec62491b7a23771ca0ab649ca00cb5a199b26da3f4",
+      "operator": "features_35",
+      "passed": true,
+      "reference_sha256": "fc0a82b343da82ceac2373fcc7c0b2c27966b710c447bbc4519567cf23168eaf",
+      "shape": [
+        1,
+        512,
+        14,
+        14
+      ]
+    },
+    {
+      "finite": true,
+      "kind": "MaxPool",
+      "max_absolute_error": 3.0531133177191805e-15,
+      "mean_absolute_error": 1.505992197616476e-16,
+      "mismatched_elements": 0,
+      "numpy_sha256": "b10f28a33a8b8b9ff7c94343d52f657bf3ecafb7c3f3c8679dcfec7f900ec445",
+      "operator": "features_36",
+      "passed": true,
+      "reference_sha256": "1fc703e95e83893c215f240c7eeb8f9321ea1dc838cb92b3dc33932beeb9bb46",
+      "shape": [
+        1,
+        512,
+        7,
+        7
+      ]
+    },
+    {
+      "finite": true,
+      "kind": "AdaptiveAvgPool",
+      "max_absolute_error": 3.0531133177191805e-15,
+      "mean_absolute_error": 1.505992197616476e-16,
+      "mismatched_elements": 0,
+      "numpy_sha256": "b10f28a33a8b8b9ff7c94343d52f657bf3ecafb7c3f3c8679dcfec7f900ec445",
+      "operator": "avgpool",
+      "passed": true,
+      "reference_sha256": "1fc703e95e83893c215f240c7eeb8f9321ea1dc838cb92b3dc33932beeb9bb46",
+      "shape": [
+        1,
+        512,
+        7,
+        7
+      ]
+    },
+    {
+      "finite": true,
+      "kind": "Flatten",
+      "max_absolute_error": 3.0531133177191805e-15,
+      "mean_absolute_error": 1.505992197616476e-16,
+      "mismatched_elements": 0,
+      "numpy_sha256": "0671ebe36054ee2651c6f39cc923e2c0c2d6c6fc412d07c568a3ade0a202274c",
+      "operator": "flatten",
+      "passed": true,
+      "reference_sha256": "2adb73c4de7c475b131dd038124728d674fb51e063c651241772ab1f17cc8e0b",
+      "shape": [
+        1,
+        25088
+      ]
+    },
+    {
+      "finite": true,
+      "kind": "Linear",
+      "max_absolute_error": 2.3314683517128287e-15,
+      "mean_absolute_error": 5.119844062866519e-16,
+      "mismatched_elements": 0,
+      "numpy_sha256": "5a1f5612d63c3e576f2c1dced152e99fc1226c08a772f95b6a6fab3ce1788489",
+      "operator": "classifier_0",
+      "passed": true,
+      "reference_sha256": "9ffc1b261a7579441e788a55992f6f21f09854e0b4fcc5e2906465b01cacf475",
+      "shape": [
+        1,
+        4096
+      ]
+    },
+    {
+      "finite": true,
+      "kind": "ReLU",
+      "max_absolute_error": 1.942890293094024e-15,
+      "mean_absolute_error": 2.5048543019498895e-16,
+      "mismatched_elements": 0,
+      "numpy_sha256": "ce447b6ad6ba5ab7cccf8e742d34d5d098992052a0f9167c6e8aad8d2b54f6fc",
+      "operator": "classifier_1",
+      "passed": true,
+      "reference_sha256": "b9e7bfc1b48bfa354d63866b18b561b247307a92da1bf1c94a17ae69e018eb86",
+      "shape": [
+        1,
+        4096
+      ]
+    },
+    {
+      "finite": true,
+      "kind": "Identity",
+      "max_absolute_error": 1.942890293094024e-15,
+      "mean_absolute_error": 2.5048543019498895e-16,
+      "mismatched_elements": 0,
+      "numpy_sha256": "ce447b6ad6ba5ab7cccf8e742d34d5d098992052a0f9167c6e8aad8d2b54f6fc",
+      "operator": "classifier_2",
+      "passed": true,
+      "reference_sha256": "b9e7bfc1b48bfa354d63866b18b561b247307a92da1bf1c94a17ae69e018eb86",
+      "shape": [
+        1,
+        4096
+      ]
+    },
+    {
+      "finite": true,
+      "kind": "Linear",
+      "max_absolute_error": 1.0824674490095276e-15,
+      "mean_absolute_error": 2.39547905505331e-16,
+      "mismatched_elements": 0,
+      "numpy_sha256": "721a24da37e1ab6179d5a356c3008e4fc004908e96360e0d804656a93931bcb6",
+      "operator": "classifier_3",
+      "passed": true,
+      "reference_sha256": "fdeda1000a3489c39135ec8112ee5b4f62f557b8072ebe7f2cd1cedf051ddbeb",
+      "shape": [
+        1,
+        4096
+      ]
+    },
+    {
+      "finite": true,
+      "kind": "ReLU",
+      "max_absolute_error": 1.0824674490095276e-15,
+      "mean_absolute_error": 1.209937860758301e-16,
+      "mismatched_elements": 0,
+      "numpy_sha256": "0b108f4487246bc00544f1221c633ac4a877005ee88c62376fc174f56d86c0a2",
+      "operator": "classifier_4",
+      "passed": true,
+      "reference_sha256": "f4ad59bdf64df062575fb05b76bdbd9ebf0c8c3dec6c693703ecd7e841243f6e",
+      "shape": [
+        1,
+        4096
+      ]
+    },
+    {
+      "finite": true,
+      "kind": "Identity",
+      "max_absolute_error": 1.0824674490095276e-15,
+      "mean_absolute_error": 1.209937860758301e-16,
+      "mismatched_elements": 0,
+      "numpy_sha256": "0b108f4487246bc00544f1221c633ac4a877005ee88c62376fc174f56d86c0a2",
+      "operator": "classifier_5",
+      "passed": true,
+      "reference_sha256": "f4ad59bdf64df062575fb05b76bdbd9ebf0c8c3dec6c693703ecd7e841243f6e",
+      "shape": [
+        1,
+        4096
+      ]
+    },
+    {
+      "finite": true,
+      "kind": "Linear",
+      "max_absolute_error": 4.718447854656915e-16,
+      "mean_absolute_error": 1.1159909801827794e-16,
+      "mismatched_elements": 0,
+      "numpy_sha256": "1d0da7ac816126abd5eb28f75e808ee981d79b85ead0c5e77c0e78183b714589",
+      "operator": "classifier_6",
+      "passed": true,
+      "reference_sha256": "62a07afebdb59505e1edb5ebd89ad88a336d02a555f57c6686c43d5854be751d",
+      "shape": [
+        1,
+        1000
+      ]
+    }
+  ],
+  "model": "vgg19",
+  "modeled_operations": 19667955688,
+  "operator_count": 46,
+  "operator_kinds": {
+    "AdaptiveAvgPool": 1,
+    "Conv": 16,
+    "Flatten": 1,
+    "Identity": 2,
+    "Linear": 3,
+    "MaxPool": 5,
+    "ReLU": 18
+  },
+  "parameter_bytes": 1149337920,
+  "rtol": 1e-07,
+  "scope": "numerical inference/parser verification; no trained accuracy or calibrated PPA claim",
+  "source_hashes": {
+    "__init__.py": "d38f3783eb516d35b4b0d44b96511ca11b7b37cf0c384f97d6a8e8f5c7a59856",
+    "actions.py": "99a29720868d3fbd2f609d4b8f0db720733a88bf4ab5693f0c64cc2e830ac306",
+    "architecture.py": "22421508f83dac809c20c5a1daa9e3450b9ce203ce53195edb1bc91f85230233",
+    "baselines.py": "8307c943e26ccb00a0559238651e150af41e2868986c1584e00a4cc4fa3b5371",
+    "cli.py": "399242291c7aac3145c04dea4cf1405446c5b0aa90379857f8ac605b81d0746e",
+    "cnn_fixture.py": "a955a1dba481253c85d8787b67a29d4b035892eb12bfbd7d84d24b167682fc5e",
+    "environment.py": "aafeec0df8022493b1c5fff75c7b6e49f99eda4defdad51435e3333a42d3c6c7",
+    "examples.py": "cc016a3444cfe399050f9628b656a29e0bd45a98f6266bcfbc8191aa3f87e41d",
+    "frontend.py": "790134b5c9853b0b62b24b561dc3aa8d96ed0fad76583d018b28be44526ad3db",
+    "hardware.py": "ba74fef0c8f4e95d0ec5a9abd97ef90e5a38126cb85b545404525d792969f2d8",
+    "initialization.py": "bfa4124a6e3f1372af22a3a8c2f39b51fb5e90b402cccfbff0d10024490e2a7a",
+    "mapping.py": "dffe139aacb76409ecbec94af60e95af23fd8c7cf5769e20e1a4a79e729bb8ca",
+    "mesh.py": "08c36358ad23e80aa76db10885e0c813fe516ea7411e36d66fcd22952bf573bf",
+    "model_validation.py": "01d565999d3a2046fcafe1b63e5db451326880ed726463705cbd951f3d70e899",
+    "network.py": "284e4e63647fbc5f980b602db2ef989570069cebc14bd56a1128e8e848312efa",
+    "observation.py": "5314c3d95c4e8136d3dee42841776781586968d91d8183ea45f6636365f8efe8",
+    "oracle.py": "60150d04a657c223125ae33cd69cec2989613812f38518e25689273367470c26",
+    "parameters.py": "abb59819a0e3000c4381a8b1df4c70c6fd4e0c54d54a2517adea3589c3939126",
+    "policy.py": "6401093a1d9ac045c325623680c6f67dedbf6223b81489dafe1305d57d8a6340",
+    "reference.py": "caab84d5d1574953c4af7ea1b0a2e14fa4562cdd255594dd3b7939a15ab8daf4",
+    "rewards.py": "2c0ce3ef0068cc2193dab28cabee7858a283e612d387ba09cd8481a90ee3e9ce",
+    "schedule.py": "e061b5af06f53dfb71d36a773e32f7997994062d3cf500dea574cf000fc5f5dd",
+    "serialization.py": "fce7b4132b42ec16600dfdc22de08ad41019ccd8c9b437570f55955d0c3b21aa",
+    "statistics.py": "5378166aba31e7839c716f7da146e6fe18bdf7b8f5ce00896e7bab917b228b2f",
+    "tiles.py": "2a1d0ffa325c3a384cd880beef6891fe2af80897b9259fce549a2f8cce2b5c08",
+    "training.py": "6067287d77689005f6dfc4b296c0b6f64e4d90699f71e608f5ad68046da7fff4",
+    "workload.py": "7ae1e8a0fe48717d78b3541df2a832ba88da2e14c5db279b0b26b31ab27ee391"
+  },
+  "status": "PASSED",
+  "tile_count_requested": 2,
+  "total_macs": 19632062464,
+  "wall_time_s": 3.5303081669844687,
+  "workload_hash": "75ec3f9cdb6c68208f48e1972b1fe88896fcc78e62076008c8b9ec8aa683acb4"
+}

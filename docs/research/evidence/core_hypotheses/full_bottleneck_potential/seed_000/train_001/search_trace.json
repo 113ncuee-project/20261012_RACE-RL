@@ -1,0 +1,158 @@
+[
+  {
+    "action": {
+      "compute_target": "",
+      "count": 1,
+      "kind": "work_share",
+      "root": "residual:0",
+      "scope": [
+        "conv_b:0",
+        "residual:0"
+      ],
+      "target": "c0"
+    },
+    "best_objective": 1.0,
+    "cache_hits": 0,
+    "candidate_compute_count": 2,
+    "candidate_hardware_hash": "e3369d0b53eba55aa89ff8d34a6d9866888b677b7d41a69d56a4d1672c841ac5",
+    "candidate_mapping_hash": "1166b9aff66eff34e3d376b946056fb94290c6feac778b4cb8e0fa4922fb2998",
+    "compute_count": 2,
+    "current_objective": 1.0506783521328251,
+    "evaluations": 2,
+    "feasible": true,
+    "requests": 2,
+    "reward": 0.00024064867021742105,
+    "termination": null
+  },
+  {
+    "action": {
+      "compute_target": "",
+      "count": 1,
+      "kind": "cut_migrate",
+      "root": "residual:0",
+      "scope": [
+        "residual:0"
+      ],
+      "target": "c0"
+    },
+    "best_objective": 0.8461873921402554,
+    "cache_hits": 0,
+    "candidate_compute_count": 2,
+    "candidate_hardware_hash": "e3369d0b53eba55aa89ff8d34a6d9866888b677b7d41a69d56a4d1672c841ac5",
+    "candidate_mapping_hash": "58230f618c74152bfd13f745bda8c4408835ff07aa95d77f9d07d162d45b5caf",
+    "compute_count": 2,
+    "current_objective": 0.8461873921402554,
+    "evaluations": 3,
+    "feasible": true,
+    "requests": 3,
+    "reward": 0.16960906129582332,
+    "termination": null
+  },
+  {
+    "action": {
+      "compute_target": "c1",
+      "count": 1,
+      "kind": "memory_affinity",
+      "root": "residual:0",
+      "scope": [
+        "conv_a:0",
+        "residual:0"
+      ],
+      "target": "dram1"
+    },
+    "best_objective": 0.8461873921402554,
+    "cache_hits": 0,
+    "candidate_compute_count": 2,
+    "candidate_hardware_hash": "e3369d0b53eba55aa89ff8d34a6d9866888b677b7d41a69d56a4d1672c841ac5",
+    "candidate_mapping_hash": "7c84655edc98f7f179736f5716ec485c295f8886a61173d8b91c2ebb6d461350",
+    "compute_count": 2,
+    "current_objective": 0.9800601532828924,
+    "evaluations": 4,
+    "feasible": true,
+    "requests": 4,
+    "reward": -0.002935719380735391,
+    "termination": null
+  },
+  {
+    "action": {
+      "compute_count": 4,
+      "kind": "resize_mesh"
+    },
+    "best_objective": 0.8461873921402554,
+    "cache_hits": 0,
+    "candidate_compute_count": 4,
+    "candidate_hardware_hash": "ec937318a8d9f704d5e7627b1735decf2f12581ff075ae10c3d9ac1ec5c410d3",
+    "candidate_mapping_hash": "7c84655edc98f7f179736f5716ec485c295f8886a61173d8b91c2ebb6d461350",
+    "compute_count": 4,
+    "current_objective": 1.787804859215692,
+    "evaluations": 5,
+    "feasible": true,
+    "requests": 5,
+    "reward": 0.001566885080515279,
+    "termination": null
+  },
+  {
+    "action": {
+      "distribute": true,
+      "kind": "retile_operator",
+      "operator": "conv_a",
+      "parts": 2,
+      "target": "c1"
+    },
+    "best_objective": 0.8461873921402554,
+    "cache_hits": 0,
+    "candidate_compute_count": 4,
+    "candidate_hardware_hash": "ec937318a8d9f704d5e7627b1735decf2f12581ff075ae10c3d9ac1ec5c410d3",
+    "candidate_mapping_hash": "b46a6b9c180f3fd1c5202dd675929d6824dcea886f755f7fbbc4f161f91ce912",
+    "compute_count": 4,
+    "current_objective": 1.6763657831416854,
+    "evaluations": 6,
+    "feasible": true,
+    "requests": 6,
+    "reward": -0.000500695200363499,
+    "termination": null
+  },
+  {
+    "action": {
+      "compute_target": "",
+      "count": 1,
+      "kind": "cut_migrate",
+      "root": "residual:0",
+      "scope": [
+        "conv_a:1",
+        "residual:0"
+      ],
+      "target": "c0"
+    },
+    "best_objective": 0.8461873921402554,
+    "cache_hits": 0,
+    "candidate_compute_count": 4,
+    "candidate_hardware_hash": "ec937318a8d9f704d5e7627b1735decf2f12581ff075ae10c3d9ac1ec5c410d3",
+    "candidate_mapping_hash": "00caf94e8ac8f4394547f2a830df60f90c5dd752c21885a0b2d7ca289e8bb42d",
+    "compute_count": 4,
+    "current_objective": 1.7658958118079413,
+    "evaluations": 7,
+    "feasible": true,
+    "requests": 7,
+    "reward": 6.84003330864158e-06,
+    "termination": null
+  },
+  {
+    "action": {
+      "compute_count": 12,
+      "kind": "resize_mesh"
+    },
+    "best_objective": 0.8461873921402554,
+    "cache_hits": 0,
+    "candidate_compute_count": 12,
+    "candidate_hardware_hash": "cc5c2d9662e6cf752feba52b5149da0177bd9ef806de7676f87292e18fb9a915",
+    "candidate_mapping_hash": "00caf94e8ac8f4394547f2a830df60f90c5dd752c21885a0b2d7ca289e8bb42d",
+    "compute_count": 12,
+    "current_objective": 3.5615060107449628,
+    "evaluations": 8,
+    "feasible": true,
+    "requests": 8,
+    "reward": 0.009185343929517531,
+    "termination": "budget_exhausted"
+  }
+]

@@ -1,0 +1,148 @@
+[
+  {
+    "action": {
+      "compute_count": 16,
+      "kind": "resize_mesh"
+    },
+    "best_objective": 1.0,
+    "cache_hits": 0,
+    "candidate_compute_count": 16,
+    "candidate_hardware_hash": "af90634b5ebc2da97d266926f91f0ba85dca6969bdbbbe58dc9c9a672eb702cb",
+    "candidate_mapping_hash": "ab236e5a1c11b976415f785a94266ee021f546667ad12edcca672eeae801f490",
+    "compute_count": 16,
+    "current_objective": 2.859721808594503,
+    "evaluations": 2,
+    "feasible": true,
+    "requests": 2,
+    "reward": 0.0,
+    "termination": null
+  },
+  {
+    "action": {
+      "kind": "place_tile",
+      "operator": "",
+      "parts": 0,
+      "storage": "",
+      "target": "c2",
+      "tile": "residual:0"
+    },
+    "best_objective": 1.0,
+    "cache_hits": 0,
+    "candidate_compute_count": 16,
+    "candidate_hardware_hash": "af90634b5ebc2da97d266926f91f0ba85dca6969bdbbbe58dc9c9a672eb702cb",
+    "candidate_mapping_hash": "42662a36194276f879069b5b492aea66f4982d986d38d1983fe1ca6052cfed9b",
+    "compute_count": 16,
+    "current_objective": 3.5426925262139615,
+    "evaluations": 3,
+    "feasible": true,
+    "requests": 3,
+    "reward": 0.0,
+    "termination": null
+  },
+  {
+    "action": {
+      "kind": "partition_operator",
+      "operator": "conv_a",
+      "parts": 8,
+      "storage": "",
+      "target": "",
+      "tile": ""
+    },
+    "best_objective": 1.0,
+    "cache_hits": 0,
+    "candidate_compute_count": 16,
+    "candidate_hardware_hash": "af90634b5ebc2da97d266926f91f0ba85dca6969bdbbbe58dc9c9a672eb702cb",
+    "candidate_mapping_hash": "1874cd1bedc612b30dd8c2c19390ad7504d5a6bd783ff08e53c84de296c3567f",
+    "compute_count": 16,
+    "current_objective": 6.381087780784317,
+    "evaluations": 4,
+    "feasible": true,
+    "requests": 4,
+    "reward": 0.0,
+    "termination": null
+  },
+  {
+    "action": {
+      "kind": "place_tile",
+      "operator": "",
+      "parts": 0,
+      "storage": "",
+      "target": "c2",
+      "tile": "conv_a:6"
+    },
+    "best_objective": 1.0,
+    "cache_hits": 0,
+    "candidate_compute_count": 16,
+    "candidate_hardware_hash": "af90634b5ebc2da97d266926f91f0ba85dca6969bdbbbe58dc9c9a672eb702cb",
+    "candidate_mapping_hash": "68275e16292269b54238af62c9d23b27091b674144178d1df8736dbd671e8246",
+    "compute_count": 16,
+    "current_objective": 6.033220953171849,
+    "evaluations": 5,
+    "feasible": true,
+    "requests": 5,
+    "reward": 0.0,
+    "termination": null
+  },
+  {
+    "action": {
+      "kind": "place_tile",
+      "operator": "",
+      "parts": 0,
+      "storage": "",
+      "target": "c6",
+      "tile": "residual:0"
+    },
+    "best_objective": 1.0,
+    "cache_hits": 0,
+    "candidate_compute_count": 16,
+    "candidate_hardware_hash": "af90634b5ebc2da97d266926f91f0ba85dca6969bdbbbe58dc9c9a672eb702cb",
+    "candidate_mapping_hash": "f24edfe15c0e9882d7514b48e69c7b4c213f847d4ac7b606e5dc9a2e460fc1d8",
+    "compute_count": 16,
+    "current_objective": 5.354586148295673,
+    "evaluations": 6,
+    "feasible": true,
+    "requests": 6,
+    "reward": 0.0,
+    "termination": null
+  },
+  {
+    "action": {
+      "kind": "place_tile",
+      "operator": "",
+      "parts": 0,
+      "storage": "",
+      "target": "c6",
+      "tile": "conv_a:7"
+    },
+    "best_objective": 1.0,
+    "cache_hits": 0,
+    "candidate_compute_count": 16,
+    "candidate_hardware_hash": "af90634b5ebc2da97d266926f91f0ba85dca6969bdbbbe58dc9c9a672eb702cb",
+    "candidate_mapping_hash": "55e1806d3b527d72b9280700bf6421fccec65877c009fdae1d48b50e3ab28f6e",
+    "compute_count": 16,
+    "current_objective": 5.326988745612945,
+    "evaluations": 7,
+    "feasible": true,
+    "requests": 7,
+    "reward": 0.0,
+    "termination": null
+  },
+  {
+    "action": {
+      "compute_count": 12,
+      "kind": "resize_mesh"
+    },
+    "best_objective": 1.0,
+    "cache_hits": 0,
+    "candidate_compute_count": 12,
+    "candidate_hardware_hash": "cc5c2d9662e6cf752feba52b5149da0177bd9ef806de7676f87292e18fb9a915",
+    "candidate_mapping_hash": "55e1806d3b527d72b9280700bf6421fccec65877c009fdae1d48b50e3ab28f6e",
+    "compute_count": 12,
+    "current_objective": 4.404812424351688,
+    "evaluations": 8,
+    "feasible": true,
+    "requests": 8,
+    "reward": 0.0,
+    "termination": "budget_exhausted"
+  }
+]

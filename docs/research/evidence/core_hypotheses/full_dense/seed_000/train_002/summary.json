@@ -1,0 +1,23 @@
+{
+  "actor_loss": -0.002683105806967147,
+  "best_objective": 1.0,
+  "cache_hits": 0,
+  "entropy": 5.003202396789531,
+  "episode": 1,
+  "initial_action_support": 119,
+  "max_action_support": 2884,
+  "mean_action_support": 1000.2857142857143,
+  "native_hardware_context_builds": 2,
+  "native_setup_time_s": 0.012756292009726167,
+  "oracle_evaluations": 8,
+  "oracle_requests": 8,
+  "parameter_updates": 4,
+  "physical_failures": 0,
+  "return": 0.0,
+  "steps": 7,
+  "structural_invalid_proposals": 0,
+  "structural_validation_time_s": 1.8614532079081982,
+  "termination": "budget_exhausted",
+  "unique_mapping_evaluation_time_s": 0.11311954399570823,
+  "value_loss": 0.004663409772282608
+}

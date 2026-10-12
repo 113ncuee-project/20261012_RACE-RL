@@ -1,0 +1,7 @@
+resnet18: PASSED
+resnet34: PASSED
+resnet50: PASSED
+vgg16: PASSED
+vgg19: PASSED
+mobilenet_v2: PASSED
+alexnet: PASSED

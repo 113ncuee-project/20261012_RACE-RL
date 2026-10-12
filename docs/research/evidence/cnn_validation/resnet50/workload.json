@@ -1,0 +1,7233 @@
+{
+  "name": "resnet50",
+  "operators": [
+    {
+      "affine": true,
+      "bias": false,
+      "ceil_mode": false,
+      "count_include_pad": true,
+      "dilation": [
+        1,
+        1
+      ],
+      "divisor_override": null,
+      "epsilon": 1e-05,
+      "groups": 1,
+      "id": "conv1",
+      "inputs": [
+        "x"
+      ],
+      "kernel": [
+        7,
+        7
+      ],
+      "kind": "Conv",
+      "output": "conv1",
+      "padding": [
+        3,
+        3
+      ],
+      "stride": [
+        2,
+        2
+      ]
+    },
+    {
+      "affine": true,
+      "bias": false,
+      "ceil_mode": false,
+      "count_include_pad": true,
+      "dilation": [
+        1,
+        1
+      ],
+      "divisor_override": null,
+      "epsilon": 1e-05,
+      "groups": 1,
+      "id": "bn1",
+      "inputs": [
+        "conv1"
+      ],
+      "kernel": [
+        1,
+        1
+      ],
+      "kind": "BatchNorm",
+      "output": "bn1",
+      "padding": [
+        0,
+        0
+      ],
+      "stride": [
+        1,
+        1
+      ]
+    },
+    {
+      "affine": true,
+      "bias": false,
+      "ceil_mode": false,
+      "count_include_pad": true,
+      "dilation": [
+        1,
+        1
+      ],
+      "divisor_override": null,
+      "epsilon": 1e-05,
+      "groups": 1,
+      "id": "relu",
+      "inputs": [
+        "bn1"
+      ],
+      "kernel": [
+        1,
+        1
+      ],
+      "kind": "ReLU",
+      "output": "relu",
+      "padding": [
+        0,
+        0
+      ],
+      "stride": [
+        1,
+        1
+      ]
+    },
+    {
+      "affine": true,
+      "bias": false,
+      "ceil_mode": false,
+      "count_include_pad": true,
+      "dilation": [
+        1,
+        1
+      ],
+      "divisor_override": null,
+      "epsilon": 1e-05,
+      "groups": 1,
+      "id": "maxpool",
+      "inputs": [
+        "relu"
+      ],
+      "kernel": [
+        3,
+        3
+      ],
+      "kind": "MaxPool",
+      "output": "maxpool",
+      "padding": [
+        1,
+        1
+      ],
+      "stride": [
+        2,
+        2
+      ]
+    },
+    {
+      "affine": true,
+      "bias": false,
+      "ceil_mode": false,
+      "count_include_pad": true,
+      "dilation": [
+        1,
+        1
+      ],
+      "divisor_override": null,
+      "epsilon": 1e-05,
+      "groups": 1,
+      "id": "layer1_0_conv1",
+      "inputs": [
+        "maxpool"
+      ],
+      "kernel": [
+        1,
+        1
+      ],
+      "kind": "Conv",
+      "output": "layer1_0_conv1",
+      "padding": [
+        0,
+        0
+      ],
+      "stride": [
+        1,
+        1
+      ]
+    },
+    {
+      "affine": true,
+      "bias": false,
+      "ceil_mode": false,
+      "count_include_pad": true,
+      "dilation": [
+        1,
+        1
+      ],
+      "divisor_override": null,
+      "epsilon": 1e-05,
+      "groups": 1,
+      "id": "layer1_0_bn1",
+      "inputs": [
+        "layer1_0_conv1"
+      ],
+      "kernel": [
+        1,
+        1
+      ],
+      "kind": "BatchNorm",
+      "output": "layer1_0_bn1",
+      "padding": [
+        0,
+        0
+      ],
+      "stride": [
+        1,
+        1
+      ]
+    },
+    {
+      "affine": true,
+      "bias": false,
+      "ceil_mode": false,
+      "count_include_pad": true,
+      "dilation": [
+        1,
+        1
+      ],
+      "divisor_override": null,
+      "epsilon": 1e-05,
+      "groups": 1,
+      "id": "layer1_0_relu",
+      "inputs": [
+        "layer1_0_bn1"
+      ],
+      "kernel": [
+        1,
+        1
+      ],
+      "kind": "ReLU",
+      "output": "layer1_0_relu",
+      "padding": [
+        0,
+        0
+      ],
+      "stride": [
+        1,
+        1
+      ]
+    },
+    {
+      "affine": true,
+      "bias": false,
+      "ceil_mode": false,
+      "count_include_pad": true,
+      "dilation": [
+        1,
+        1
+      ],
+      "divisor_override": null,
+      "epsilon": 1e-05,
+      "groups": 1,
+      "id": "layer1_0_conv2",
+      "inputs": [
+        "layer1_0_relu"
+      ],
+      "kernel": [
+        3,
+        3
+      ],
+      "kind": "Conv",
+      "output": "layer1_0_conv2",
+      "padding": [
+        1,
+        1
+      ],
+      "stride": [
+        1,
+        1
+      ]
+    },
+    {
+      "affine": true,
+      "bias": false,
+      "ceil_mode": false,
+      "count_include_pad": true,
+      "dilation": [
+        1,
+        1
+      ],
+      "divisor_override": null,
+      "epsilon": 1e-05,
+      "groups": 1,
+      "id": "layer1_0_bn2",
+      "inputs": [
+        "layer1_0_conv2"
+      ],
+      "kernel": [
+        1,
+        1
+      ],
+      "kind": "BatchNorm",
+      "output": "layer1_0_bn2",
+      "padding": [
+        0,
+        0
+      ],
+      "stride": [
+        1,
+        1
+      ]
+    },
+    {
+      "affine": true,
+      "bias": false,
+      "ceil_mode": false,
+      "count_include_pad": true,
+      "dilation": [
+        1,
+        1
+      ],
+      "divisor_override": null,
+      "epsilon": 1e-05,
+      "groups": 1,
+      "id": "layer1_0_relu_1",
+      "inputs": [
+        "layer1_0_bn2"
+      ],
+      "kernel": [
+        1,
+        1
+      ],
+      "kind": "ReLU",
+      "output": "layer1_0_relu_1",
+      "padding": [
+        0,
+        0
+      ],
+      "stride": [
+        1,
+        1
+      ]
+    },
+    {
+      "affine": true,
+      "bias": false,
+      "ceil_mode": false,
+      "count_include_pad": true,
+      "dilation": [
+        1,
+        1
+      ],
+      "divisor_override": null,
+      "epsilon": 1e-05,
+      "groups": 1,
+      "id": "layer1_0_conv3",
+      "inputs": [
+        "layer1_0_relu_1"
+      ],
+      "kernel": [
+        1,
+        1
+      ],
+      "kind": "Conv",
+      "output": "layer1_0_conv3",
+      "padding": [
+        0,
+        0
+      ],
+      "stride": [
+        1,
+        1
+      ]
+    },
+    {
+      "affine": true,
+      "bias": false,
+      "ceil_mode": false,
+      "count_include_pad": true,
+      "dilation": [
+        1,
+        1
+      ],
+      "divisor_override": null,
+      "epsilon": 1e-05,
+      "groups": 1,
+      "id": "layer1_0_bn3",
+      "inputs": [
+        "layer1_0_conv3"
+      ],
+      "kernel": [
+        1,
+        1
+      ],
+      "kind": "BatchNorm",
+      "output": "layer1_0_bn3",
+      "padding": [
+        0,
+        0
+      ],
+      "stride": [
+        1,
+        1
+      ]
+    },
+    {
+      "affine": true,
+      "bias": false,
+      "ceil_mode": false,
+      "count_include_pad": true,
+      "dilation": [
+        1,
+        1
+      ],
+      "divisor_override": null,
+      "epsilon": 1e-05,
+      "groups": 1,
+      "id": "layer1_0_downsample_0",
+      "inputs": [
+        "maxpool"
+      ],
+      "kernel": [
+        1,
+        1
+      ],
+      "kind": "Conv",
+      "output": "layer1_0_downsample_0",
+      "padding": [
+        0,
+        0
+      ],
+      "stride": [
+        1,
+        1
+      ]
+    },
+    {
+      "affine": true,
+      "bias": false,
+      "ceil_mode": false,
+      "count_include_pad": true,
+      "dilation": [
+        1,
+        1
+      ],
+      "divisor_override": null,
+      "epsilon": 1e-05,
+      "groups": 1,
+      "id": "layer1_0_downsample_1",
+      "inputs": [
+        "layer1_0_downsample_0"
+      ],
+      "kernel": [
+        1,
+        1
+      ],
+      "kind": "BatchNorm",
+      "output": "layer1_0_downsample_1",
+      "padding": [
+        0,
+        0
+      ],
+      "stride": [
+        1,
+        1
+      ]
+    },
+    {
+      "affine": true,
+      "bias": false,
+      "ceil_mode": false,
+      "count_include_pad": true,
+      "dilation": [
+        1,
+        1
+      ],
+      "divisor_override": null,
+      "epsilon": 1e-05,
+      "groups": 1,
+      "id": "add",
+      "inputs": [
+        "layer1_0_bn3",
+        "layer1_0_downsample_1"
+      ],
+      "kernel": [
+        1,
+        1
+      ],
+      "kind": "Add",
+      "output": "add",
+      "padding": [
+        0,
+        0
+      ],
+      "stride": [
+        1,
+        1
+      ]
+    },
+    {
+      "affine": true,
+      "bias": false,
+      "ceil_mode": false,
+      "count_include_pad": true,
+      "dilation": [
+        1,
+        1
+      ],
+      "divisor_override": null,
+      "epsilon": 1e-05,
+      "groups": 1,
+      "id": "layer1_0_relu_2",
+      "inputs": [
+        "add"
+      ],
+      "kernel": [
+        1,
+        1
+      ],
+      "kind": "ReLU",
+      "output": "layer1_0_relu_2",
+      "padding": [
+        0,
+        0
+      ],
+      "stride": [
+        1,
+        1
+      ]
+    },
+    {
+      "affine": true,
+      "bias": false,
+      "ceil_mode": false,
+      "count_include_pad": true,
+      "dilation": [
+        1,
+        1
+      ],
+      "divisor_override": null,
+      "epsilon": 1e-05,
+      "groups": 1,
+      "id": "layer1_1_conv1",
+      "inputs": [
+        "layer1_0_relu_2"
+      ],
+      "kernel": [
+        1,
+        1
+      ],
+      "kind": "Conv",
+      "output": "layer1_1_conv1",
+      "padding": [
+        0,
+        0
+      ],
+      "stride": [
+        1,
+        1
+      ]
+    },
+    {
+      "affine": true,
+      "bias": false,
+      "ceil_mode": false,
+      "count_include_pad": true,
+      "dilation": [
+        1,
+        1
+      ],
+      "divisor_override": null,
+      "epsilon": 1e-05,
+      "groups": 1,
+      "id": "layer1_1_bn1",
+      "inputs": [
+        "layer1_1_conv1"
+      ],
+      "kernel": [
+        1,
+        1
+      ],
+      "kind": "BatchNorm",
+      "output": "layer1_1_bn1",
+      "padding": [
+        0,
+        0
+      ],
+      "stride": [
+        1,
+        1
+      ]
+    },
+    {
+      "affine": true,
+      "bias": false,
+      "ceil_mode": false,
+      "count_include_pad": true,
+      "dilation": [
+        1,
+        1
+      ],
+      "divisor_override": null,
+      "epsilon": 1e-05,
+      "groups": 1,
+      "id": "layer1_1_relu",
+      "inputs": [
+        "layer1_1_bn1"
+      ],
+      "kernel": [
+        1,
+        1
+      ],
+      "kind": "ReLU",
+      "output": "layer1_1_relu",
+      "padding": [
+        0,
+        0
+      ],
+      "stride": [
+        1,
+        1
+      ]
+    },
+    {
+      "affine": true,
+      "bias": false,
+      "ceil_mode": false,
+      "count_include_pad": true,
+      "dilation": [
+        1,
+        1
+      ],
+      "divisor_override": null,
+      "epsilon": 1e-05,
+      "groups": 1,
+      "id": "layer1_1_conv2",
+      "inputs": [
+        "layer1_1_relu"
+      ],
+      "kernel": [
+        3,
+        3
+      ],
+      "kind": "Conv",
+      "output": "layer1_1_conv2",
+      "padding": [
+        1,
+        1
+      ],
+      "stride": [
+        1,
+        1
+      ]
+    },
+    {
+      "affine": true,
+      "bias": false,
+      "ceil_mode": false,
+      "count_include_pad": true,
+      "dilation": [
+        1,
+        1
+      ],
+      "divisor_override": null,
+      "epsilon": 1e-05,
+      "groups": 1,
+      "id": "layer1_1_bn2",
+      "inputs": [
+        "layer1_1_conv2"
+      ],
+      "kernel": [
+        1,
+        1
+      ],
+      "kind": "BatchNorm",
+      "output": "layer1_1_bn2",
+      "padding": [
+        0,
+        0
+      ],
+      "stride": [
+        1,
+        1
+      ]
+    },
+    {
+      "affine": true,
+      "bias": false,
+      "ceil_mode": false,
+      "count_include_pad": true,
+      "dilation": [
+        1,
+        1
+      ],
+      "divisor_override": null,
+      "epsilon": 1e-05,
+      "groups": 1,
+      "id": "layer1_1_relu_1",
+      "inputs": [
+        "layer1_1_bn2"
+      ],
+      "kernel": [
+        1,
+        1
+      ],
+      "kind": "ReLU",
+      "output": "layer1_1_relu_1",
+      "padding": [
+        0,
+        0
+      ],
+      "stride": [
+        1,
+        1
+      ]
+    },
+    {
+      "affine": true,
+      "bias": false,
+      "ceil_mode": false,
+      "count_include_pad": true,
+      "dilation": [
+        1,
+        1
+      ],
+      "divisor_override": null,
+      "epsilon": 1e-05,
+      "groups": 1,
+      "id": "layer1_1_conv3",
+      "inputs": [
+        "layer1_1_relu_1"
+      ],
+      "kernel": [
+        1,
+        1
+      ],
+      "kind": "Conv",
+      "output": "layer1_1_conv3",
+      "padding": [
+        0,
+        0
+      ],
+      "stride": [
+        1,
+        1
+      ]
+    },
+    {
+      "affine": true,
+      "bias": false,
+      "ceil_mode": false,
+      "count_include_pad": true,
+      "dilation": [
+        1,
+        1
+      ],
+      "divisor_override": null,
+      "epsilon": 1e-05,
+      "groups": 1,
+      "id": "layer1_1_bn3",
+      "inputs": [
+        "layer1_1_conv3"
+      ],
+      "kernel": [
+        1,
+        1
+      ],
+      "kind": "BatchNorm",
+      "output": "layer1_1_bn3",
+      "padding": [
+        0,
+        0
+      ],
+      "stride": [
+        1,
+        1
+      ]
+    },
+    {
+      "affine": true,
+      "bias": false,
+      "ceil_mode": false,
+      "count_include_pad": true,
+      "dilation": [
+        1,
+        1
+      ],
+      "divisor_override": null,
+      "epsilon": 1e-05,
+      "groups": 1,
+      "id": "add_1",
+      "inputs": [
+        "layer1_1_bn3",
+        "layer1_0_relu_2"
+      ],
+      "kernel": [
+        1,
+        1
+      ],
+      "kind": "Add",
+      "output": "add_1",
+      "padding": [
+        0,
+        0
+      ],
+      "stride": [
+        1,
+        1
+      ]
+    },
+    {
+      "affine": true,
+      "bias": false,
+      "ceil_mode": false,
+      "count_include_pad": true,
+      "dilation": [
+        1,
+        1
+      ],
+      "divisor_override": null,
+      "epsilon": 1e-05,
+      "groups": 1,
+      "id": "layer1_1_relu_2",
+      "inputs": [
+        "add_1"
+      ],
+      "kernel": [
+        1,
+        1
+      ],
+      "kind": "ReLU",
+      "output": "layer1_1_relu_2",
+      "padding": [
+        0,
+        0
+      ],
+      "stride": [
+        1,
+        1
+      ]
+    },
+    {
+      "affine": true,
+      "bias": false,
+      "ceil_mode": false,
+      "count_include_pad": true,
+      "dilation": [
+        1,
+        1
+      ],
+      "divisor_override": null,
+      "epsilon": 1e-05,
+      "groups": 1,
+      "id": "layer1_2_conv1",
+      "inputs": [
+        "layer1_1_relu_2"
+      ],
+      "kernel": [
+        1,
+        1
+      ],
+      "kind": "Conv",
+      "output": "layer1_2_conv1",
+      "padding": [
+        0,
+        0
+      ],
+      "stride": [
+        1,
+        1
+      ]
+    },
+    {
+      "affine": true,
+      "bias": false,
+      "ceil_mode": false,
+      "count_include_pad": true,
+      "dilation": [
+        1,
+        1
+      ],
+      "divisor_override": null,
+      "epsilon": 1e-05,
+      "groups": 1,
+      "id": "layer1_2_bn1",
+      "inputs": [
+        "layer1_2_conv1"
+      ],
+      "kernel": [
+        1,
+        1
+      ],
+      "kind": "BatchNorm",
+      "output": "layer1_2_bn1",
+      "padding": [
+        0,
+        0
+      ],
+      "stride": [
+        1,
+        1
+      ]
+    },
+    {
+      "affine": true,
+      "bias": false,
+      "ceil_mode": false,
+      "count_include_pad": true,
+      "dilation": [
+        1,
+        1
+      ],
+      "divisor_override": null,
+      "epsilon": 1e-05,
+      "groups": 1,
+      "id": "layer1_2_relu",
+      "inputs": [
+        "layer1_2_bn1"
+      ],
+      "kernel": [
+        1,
+        1
+      ],
+      "kind": "ReLU",
+      "output": "layer1_2_relu",
+      "padding": [
+        0,
+        0
+      ],
+      "stride": [
+        1,
+        1
+      ]
+    },
+    {
+      "affine": true,
+      "bias": false,
+      "ceil_mode": false,
+      "count_include_pad": true,
+      "dilation": [
+        1,
+        1
+      ],
+      "divisor_override": null,
+      "epsilon": 1e-05,
+      "groups": 1,
+      "id": "layer1_2_conv2",
+      "inputs": [
+        "layer1_2_relu"
+      ],
+      "kernel": [
+        3,
+        3
+      ],
+      "kind": "Conv",
+      "output": "layer1_2_conv2",
+      "padding": [
+        1,
+        1
+      ],
+      "stride": [
+        1,
+        1
+      ]
+    },
+    {
+      "affine": true,
+      "bias": false,
+      "ceil_mode": false,
+      "count_include_pad": true,
+      "dilation": [
+        1,
+        1
+      ],
+      "divisor_override": null,
+      "epsilon": 1e-05,
+      "groups": 1,
+      "id": "layer1_2_bn2",
+      "inputs": [
+        "layer1_2_conv2"
+      ],
+      "kernel": [
+        1,
+        1
+      ],
+      "kind": "BatchNorm",
+      "output": "layer1_2_bn2",
+      "padding": [
+        0,
+        0
+      ],
+      "stride": [
+        1,
+        1
+      ]
+    },
+    {
+      "affine": true,
+      "bias": false,
+      "ceil_mode": false,
+      "count_include_pad": true,
+      "dilation": [
+        1,
+        1
+      ],
+      "divisor_override": null,
+      "epsilon": 1e-05,
+      "groups": 1,
+      "id": "layer1_2_relu_1",
+      "inputs": [
+        "layer1_2_bn2"
+      ],
+      "kernel": [
+        1,
+        1
+      ],
+      "kind": "ReLU",
+      "output": "layer1_2_relu_1",
+      "padding": [
+        0,
+        0
+      ],
+      "stride": [
+        1,
+        1
+      ]
+    },
+    {
+      "affine": true,
+      "bias": false,
+      "ceil_mode": false,
+      "count_include_pad": true,
+      "dilation": [
+        1,
+        1
+      ],
+      "divisor_override": null,
+      "epsilon": 1e-05,
+      "groups": 1,
+      "id": "layer1_2_conv3",
+      "inputs": [
+        "layer1_2_relu_1"
+      ],
+      "kernel": [
+        1,
+        1
+      ],
+      "kind": "Conv",
+      "output": "layer1_2_conv3",
+      "padding": [
+        0,
+        0
+      ],
+      "stride": [
+        1,
+        1
+      ]
+    },
+    {
+      "affine": true,
+      "bias": false,
+      "ceil_mode": false,
+      "count_include_pad": true,
+      "dilation": [
+        1,
+        1
+      ],
+      "divisor_override": null,
+      "epsilon": 1e-05,
+      "groups": 1,
+      "id": "layer1_2_bn3",
+      "inputs": [
+        "layer1_2_conv3"
+      ],
+      "kernel": [
+        1,
+        1
+      ],
+      "kind": "BatchNorm",
+      "output": "layer1_2_bn3",
+      "padding": [
+        0,
+        0
+      ],
+      "stride": [
+        1,
+        1
+      ]
+    },
+    {
+      "affine": true,
+      "bias": false,
+      "ceil_mode": false,
+      "count_include_pad": true,
+      "dilation": [
+        1,
+        1
+      ],
+      "divisor_override": null,
+      "epsilon": 1e-05,
+      "groups": 1,
+      "id": "add_2",
+      "inputs": [
+        "layer1_2_bn3",
+        "layer1_1_relu_2"
+      ],
+      "kernel": [
+        1,
+        1
+      ],
+      "kind": "Add",
+      "output": "add_2",
+      "padding": [
+        0,
+        0
+      ],
+      "stride": [
+        1,
+        1
+      ]
+    },
+    {
+      "affine": true,
+      "bias": false,
+      "ceil_mode": false,
+      "count_include_pad": true,
+      "dilation": [
+        1,
+        1
+      ],
+      "divisor_override": null,
+      "epsilon": 1e-05,
+      "groups": 1,
+      "id": "layer1_2_relu_2",
+      "inputs": [
+        "add_2"
+      ],
+      "kernel": [
+        1,
+        1
+      ],
+      "kind": "ReLU",
+      "output": "layer1_2_relu_2",
+      "padding": [
+        0,
+        0
+      ],
+      "stride": [
+        1,
+        1
+      ]
+    },
+    {
+      "affine": true,
+      "bias": false,
+      "ceil_mode": false,
+      "count_include_pad": true,
+      "dilation": [
+        1,
+        1
+      ],
+      "divisor_override": null,
+      "epsilon": 1e-05,
+      "groups": 1,
+      "id": "layer2_0_conv1",
+      "inputs": [
+        "layer1_2_relu_2"
+      ],
+      "kernel": [
+        1,
+        1
+      ],
+      "kind": "Conv",
+      "output": "layer2_0_conv1",
+      "padding": [
+        0,
+        0
+      ],
+      "stride": [
+        1,
+        1
+      ]
+    },
+    {
+      "affine": true,
+      "bias": false,
+      "ceil_mode": false,
+      "count_include_pad": true,
+      "dilation": [
+        1,
+        1
+      ],
+      "divisor_override": null,
+      "epsilon": 1e-05,
+      "groups": 1,
+      "id": "layer2_0_bn1",
+      "inputs": [
+        "layer2_0_conv1"
+      ],
+      "kernel": [
+        1,
+        1
+      ],
+      "kind": "BatchNorm",
+      "output": "layer2_0_bn1",
+      "padding": [
+        0,
+        0
+      ],
+      "stride": [
+        1,
+        1
+      ]
+    },
+    {
+      "affine": true,
+      "bias": false,
+      "ceil_mode": false,
+      "count_include_pad": true,
+      "dilation": [
+        1,
+        1
+      ],
+      "divisor_override": null,
+      "epsilon": 1e-05,
+      "groups": 1,
+      "id": "layer2_0_relu",
+      "inputs": [
+        "layer2_0_bn1"
+      ],
+      "kernel": [
+        1,
+        1
+      ],
+      "kind": "ReLU",
+      "output": "layer2_0_relu",
+      "padding": [
+        0,
+        0
+      ],
+      "stride": [
+        1,
+        1
+      ]
+    },
+    {
+      "affine": true,
+      "bias": false,
+      "ceil_mode": false,
+      "count_include_pad": true,
+      "dilation": [
+        1,
+        1
+      ],
+      "divisor_override": null,
+      "epsilon": 1e-05,
+      "groups": 1,
+      "id": "layer2_0_conv2",
+      "inputs": [
+        "layer2_0_relu"
+      ],
+      "kernel": [
+        3,
+        3
+      ],
+      "kind": "Conv",
+      "output": "layer2_0_conv2",
+      "padding": [
+        1,
+        1
+      ],
+      "stride": [
+        2,
+        2
+      ]
+    },
+    {
+      "affine": true,
+      "bias": false,
+      "ceil_mode": false,
+      "count_include_pad": true,
+      "dilation": [
+        1,
+        1
+      ],
+      "divisor_override": null,
+      "epsilon": 1e-05,
+      "groups": 1,
+      "id": "layer2_0_bn2",
+      "inputs": [
+        "layer2_0_conv2"
+      ],
+      "kernel": [
+        1,
+        1
+      ],
+      "kind": "BatchNorm",
+      "output": "layer2_0_bn2",
+      "padding": [
+        0,
+        0
+      ],
+      "stride": [
+        1,
+        1
+      ]
+    },
+    {
+      "affine": true,
+      "bias": false,
+      "ceil_mode": false,
+      "count_include_pad": true,
+      "dilation": [
+        1,
+        1
+      ],
+      "divisor_override": null,
+      "epsilon": 1e-05,
+      "groups": 1,
+      "id": "layer2_0_relu_1",
+      "inputs": [
+        "layer2_0_bn2"
+      ],
+      "kernel": [
+        1,
+        1
+      ],
+      "kind": "ReLU",
+      "output": "layer2_0_relu_1",
+      "padding": [
+        0,
+        0
+      ],
+      "stride": [
+        1,
+        1
+      ]
+    },
+    {
+      "affine": true,
+      "bias": false,
+      "ceil_mode": false,
+      "count_include_pad": true,
+      "dilation": [
+        1,
+        1
+      ],
+      "divisor_override": null,
+      "epsilon": 1e-05,
+      "groups": 1,
+      "id": "layer2_0_conv3",
+      "inputs": [
+        "layer2_0_relu_1"
+      ],
+      "kernel": [
+        1,
+        1
+      ],
+      "kind": "Conv",
+      "output": "layer2_0_conv3",
+      "padding": [
+        0,
+        0
+      ],
+      "stride": [
+        1,
+        1
+      ]
+    },
+    {
+      "affine": true,
+      "bias": false,
+      "ceil_mode": false,
+      "count_include_pad": true,
+      "dilation": [
+        1,
+        1
+      ],
+      "divisor_override": null,
+      "epsilon": 1e-05,
+      "groups": 1,
+      "id": "layer2_0_bn3",
+      "inputs": [
+        "layer2_0_conv3"
+      ],
+      "kernel": [
+        1,
+        1
+      ],
+      "kind": "BatchNorm",
+      "output": "layer2_0_bn3",
+      "padding": [
+        0,
+        0
+      ],
+      "stride": [
+        1,
+        1
+      ]
+    },
+    {
+      "affine": true,
+      "bias": false,
+      "ceil_mode": false,
+      "count_include_pad": true,
+      "dilation": [
+        1,
+        1
+      ],
+      "divisor_override": null,
+      "epsilon": 1e-05,
+      "groups": 1,
+      "id": "layer2_0_downsample_0",
+      "inputs": [
+        "layer1_2_relu_2"
+      ],
+      "kernel": [
+        1,
+        1
+      ],
+      "kind": "Conv",
+      "output": "layer2_0_downsample_0",
+      "padding": [
+        0,
+        0
+      ],
+      "stride": [
+        2,
+        2
+      ]
+    },
+    {
+      "affine": true,
+      "bias": false,
+      "ceil_mode": false,
+      "count_include_pad": true,
+      "dilation": [
+        1,
+        1
+      ],
+      "divisor_override": null,
+      "epsilon": 1e-05,
+      "groups": 1,
+      "id": "layer2_0_downsample_1",
+      "inputs": [
+        "layer2_0_downsample_0"
+      ],
+      "kernel": [
+        1,
+        1
+      ],
+      "kind": "BatchNorm",
+      "output": "layer2_0_downsample_1",
+      "padding": [
+        0,
+        0
+      ],
+      "stride": [
+        1,
+        1
+      ]
+    },
+    {
+      "affine": true,
+      "bias": false,
+      "ceil_mode": false,
+      "count_include_pad": true,
+      "dilation": [
+        1,
+        1
+      ],
+      "divisor_override": null,
+      "epsilon": 1e-05,
+      "groups": 1,
+      "id": "add_3",
+      "inputs": [
+        "layer2_0_bn3",
+        "layer2_0_downsample_1"
+      ],
+      "kernel": [
+        1,
+        1
+      ],
+      "kind": "Add",
+      "output": "add_3",
+      "padding": [
+        0,
+        0
+      ],
+      "stride": [
+        1,
+        1
+      ]
+    },
+    {
+      "affine": true,
+      "bias": false,
+      "ceil_mode": false,
+      "count_include_pad": true,
+      "dilation": [
+        1,
+        1
+      ],
+      "divisor_override": null,
+      "epsilon": 1e-05,
+      "groups": 1,
+      "id": "layer2_0_relu_2",
+      "inputs": [
+        "add_3"
+      ],
+      "kernel": [
+        1,
+        1
+      ],
+      "kind": "ReLU",
+      "output": "layer2_0_relu_2",
+      "padding": [
+        0,
+        0
+      ],
+      "stride": [
+        1,
+        1
+      ]
+    },
+    {
+      "affine": true,
+      "bias": false,
+      "ceil_mode": false,
+      "count_include_pad": true,
+      "dilation": [
+        1,
+        1
+      ],
+      "divisor_override": null,
+      "epsilon": 1e-05,
+      "groups": 1,
+      "id": "layer2_1_conv1",
+      "inputs": [
+        "layer2_0_relu_2"
+      ],
+      "kernel": [
+        1,
+        1
+      ],
+      "kind": "Conv",
+      "output": "layer2_1_conv1",
+      "padding": [
+        0,
+        0
+      ],
+      "stride": [
+        1,
+        1
+      ]
+    },
+    {
+      "affine": true,
+      "bias": false,
+      "ceil_mode": false,
+      "count_include_pad": true,
+      "dilation": [
+        1,
+        1
+      ],
+      "divisor_override": null,
+      "epsilon": 1e-05,
+      "groups": 1,
+      "id": "layer2_1_bn1",
+      "inputs": [
+        "layer2_1_conv1"
+      ],
+      "kernel": [
+        1,
+        1
+      ],
+      "kind": "BatchNorm",
+      "output": "layer2_1_bn1",
+      "padding": [
+        0,
+        0
+      ],
+      "stride": [
+        1,
+        1
+      ]
+    },
+    {
+      "affine": true,
+      "bias": false,
+      "ceil_mode": false,
+      "count_include_pad": true,
+      "dilation": [
+        1,
+        1
+      ],
+      "divisor_override": null,
+      "epsilon": 1e-05,
+      "groups": 1,
+      "id": "layer2_1_relu",
+      "inputs": [
+        "layer2_1_bn1"
+      ],
+      "kernel": [
+        1,
+        1
+      ],
+      "kind": "ReLU",
+      "output": "layer2_1_relu",
+      "padding": [
+        0,
+        0
+      ],
+      "stride": [
+        1,
+        1
+      ]
+    },
+    {
+      "affine": true,
+      "bias": false,
+      "ceil_mode": false,
+      "count_include_pad": true,
+      "dilation": [
+        1,
+        1
+      ],
+      "divisor_override": null,
+      "epsilon": 1e-05,
+      "groups": 1,
+      "id": "layer2_1_conv2",
+      "inputs": [
+        "layer2_1_relu"
+      ],
+      "kernel": [
+        3,
+        3
+      ],
+      "kind": "Conv",
+      "output": "layer2_1_conv2",
+      "padding": [
+        1,
+        1
+      ],
+      "stride": [
+        1,
+        1
+      ]
+    },
+    {
+      "affine": true,
+      "bias": false,
+      "ceil_mode": false,
+      "count_include_pad": true,
+      "dilation": [
+        1,
+        1
+      ],
+      "divisor_override": null,
+      "epsilon": 1e-05,
+      "groups": 1,
+      "id": "layer2_1_bn2",
+      "inputs": [
+        "layer2_1_conv2"
+      ],
+      "kernel": [
+        1,
+        1
+      ],
+      "kind": "BatchNorm",
+      "output": "layer2_1_bn2",
+      "padding": [
+        0,
+        0
+      ],
+      "stride": [
+        1,
+        1
+      ]
+    },
+    {
+      "affine": true,
+      "bias": false,
+      "ceil_mode": false,
+      "count_include_pad": true,
+      "dilation": [
+        1,
+        1
+      ],
+      "divisor_override": null,
+      "epsilon": 1e-05,
+      "groups": 1,
+      "id": "layer2_1_relu_1",
+      "inputs": [
+        "layer2_1_bn2"
+      ],
+      "kernel": [
+        1,
+        1
+      ],
+      "kind": "ReLU",
+      "output": "layer2_1_relu_1",
+      "padding": [
+        0,
+        0
+      ],
+      "stride": [
+        1,
+        1
+      ]
+    },
+    {
+      "affine": true,
+      "bias": false,
+      "ceil_mode": false,
+      "count_include_pad": true,
+      "dilation": [
+        1,
+        1
+      ],
+      "divisor_override": null,
+      "epsilon": 1e-05,
+      "groups": 1,
+      "id": "layer2_1_conv3",
+      "inputs": [
+        "layer2_1_relu_1"
+      ],
+      "kernel": [
+        1,
+        1
+      ],
+      "kind": "Conv",
+      "output": "layer2_1_conv3",
+      "padding": [
+        0,
+        0
+      ],
+      "stride": [
+        1,
+        1
+      ]
+    },
+    {
+      "affine": true,
+      "bias": false,
+      "ceil_mode": false,
+      "count_include_pad": true,
+      "dilation": [
+        1,
+        1
+      ],
+      "divisor_override": null,
+      "epsilon": 1e-05,
+      "groups": 1,
+      "id": "layer2_1_bn3",
+      "inputs": [
+        "layer2_1_conv3"
+      ],
+      "kernel": [
+        1,
+        1
+      ],
+      "kind": "BatchNorm",
+      "output": "layer2_1_bn3",
+      "padding": [
+        0,
+        0
+      ],
+      "stride": [
+        1,
+        1
+      ]
+    },
+    {
+      "affine": true,
+      "bias": false,
+      "ceil_mode": false,
+      "count_include_pad": true,
+      "dilation": [
+        1,
+        1
+      ],
+      "divisor_override": null,
+      "epsilon": 1e-05,
+      "groups": 1,
+      "id": "add_4",
+      "inputs": [
+        "layer2_1_bn3",
+        "layer2_0_relu_2"
+      ],
+      "kernel": [
+        1,
+        1
+      ],
+      "kind": "Add",
+      "output": "add_4",
+      "padding": [
+        0,
+        0
+      ],
+      "stride": [
+        1,
+        1
+      ]
+    },
+    {
+      "affine": true,
+      "bias": false,
+      "ceil_mode": false,
+      "count_include_pad": true,
+      "dilation": [
+        1,
+        1
+      ],
+      "divisor_override": null,
+      "epsilon": 1e-05,
+      "groups": 1,
+      "id": "layer2_1_relu_2",
+      "inputs": [
+        "add_4"
+      ],
+      "kernel": [
+        1,
+        1
+      ],
+      "kind": "ReLU",
+      "output": "layer2_1_relu_2",
+      "padding": [
+        0,
+        0
+      ],
+      "stride": [
+        1,
+        1
+      ]
+    },
+    {
+      "affine": true,
+      "bias": false,
+      "ceil_mode": false,
+      "count_include_pad": true,
+      "dilation": [
+        1,
+        1
+      ],
+      "divisor_override": null,
+      "epsilon": 1e-05,
+      "groups": 1,
+      "id": "layer2_2_conv1",
+      "inputs": [
+        "layer2_1_relu_2"
+      ],
+      "kernel": [
+        1,
+        1
+      ],
+      "kind": "Conv",
+      "output": "layer2_2_conv1",
+      "padding": [
+        0,
+        0
+      ],
+      "stride": [
+        1,
+        1
+      ]
+    },
+    {
+      "affine": true,
+      "bias": false,
+      "ceil_mode": false,
+      "count_include_pad": true,
+      "dilation": [
+        1,
+        1
+      ],
+      "divisor_override": null,
+      "epsilon": 1e-05,
+      "groups": 1,
+      "id": "layer2_2_bn1",
+      "inputs": [
+        "layer2_2_conv1"
+      ],
+      "kernel": [
+        1,
+        1
+      ],
+      "kind": "BatchNorm",
+      "output": "layer2_2_bn1",
+      "padding": [
+        0,
+        0
+      ],
+      "stride": [
+        1,
+        1
+      ]
+    },
+    {
+      "affine": true,
+      "bias": false,
+      "ceil_mode": false,
+      "count_include_pad": true,
+      "dilation": [
+        1,
+        1
+      ],
+      "divisor_override": null,
+      "epsilon": 1e-05,
+      "groups": 1,
+      "id": "layer2_2_relu",
+      "inputs": [
+        "layer2_2_bn1"
+      ],
+      "kernel": [
+        1,
+        1
+      ],
+      "kind": "ReLU",
+      "output": "layer2_2_relu",
+      "padding": [
+        0,
+        0
+      ],
+      "stride": [
+        1,
+        1
+      ]
+    },
+    {
+      "affine": true,
+      "bias": false,
+      "ceil_mode": false,
+      "count_include_pad": true,
+      "dilation": [
+        1,
+        1
+      ],
+      "divisor_override": null,
+      "epsilon": 1e-05,
+      "groups": 1,
+      "id": "layer2_2_conv2",
+      "inputs": [
+        "layer2_2_relu"
+      ],
+      "kernel": [
+        3,
+        3
+      ],
+      "kind": "Conv",
+      "output": "layer2_2_conv2",
+      "padding": [
+        1,
+        1
+      ],
+      "stride": [
+        1,
+        1
+      ]
+    },
+    {
+      "affine": true,
+      "bias": false,
+      "ceil_mode": false,
+      "count_include_pad": true,
+      "dilation": [
+        1,
+        1
+      ],
+      "divisor_override": null,
+      "epsilon": 1e-05,
+      "groups": 1,
+      "id": "layer2_2_bn2",
+      "inputs": [
+        "layer2_2_conv2"
+      ],
+      "kernel": [
+        1,
+        1
+      ],
+      "kind": "BatchNorm",
+      "output": "layer2_2_bn2",
+      "padding": [
+        0,
+        0
+      ],
+      "stride": [
+        1,
+        1
+      ]
+    },
+    {
+      "affine": true,
+      "bias": false,
+      "ceil_mode": false,
+      "count_include_pad": true,
+      "dilation": [
+        1,
+        1
+      ],
+      "divisor_override": null,
+      "epsilon": 1e-05,
+      "groups": 1,
+      "id": "layer2_2_relu_1",
+      "inputs": [
+        "layer2_2_bn2"
+      ],
+      "kernel": [
+        1,
+        1
+      ],
+      "kind": "ReLU",
+      "output": "layer2_2_relu_1",
+      "padding": [
+        0,
+        0
+      ],
+      "stride": [
+        1,
+        1
+      ]
+    },
+    {
+      "affine": true,
+      "bias": false,
+      "ceil_mode": false,
+      "count_include_pad": true,
+      "dilation": [
+        1,
+        1
+      ],
+      "divisor_override": null,
+      "epsilon": 1e-05,
+      "groups": 1,
+      "id": "layer2_2_conv3",
+      "inputs": [
+        "layer2_2_relu_1"
+      ],
+      "kernel": [
+        1,
+        1
+      ],
+      "kind": "Conv",
+      "output": "layer2_2_conv3",
+      "padding": [
+        0,
+        0
+      ],
+      "stride": [
+        1,
+        1
+      ]
+    },
+    {
+      "affine": true,
+      "bias": false,
+      "ceil_mode": false,
+      "count_include_pad": true,
+      "dilation": [
+        1,
+        1
+      ],
+      "divisor_override": null,
+      "epsilon": 1e-05,
+      "groups": 1,
+      "id": "layer2_2_bn3",
+      "inputs": [
+        "layer2_2_conv3"
+      ],
+      "kernel": [
+        1,
+        1
+      ],
+      "kind": "BatchNorm",
+      "output": "layer2_2_bn3",
+      "padding": [
+        0,
+        0
+      ],
+      "stride": [
+        1,
+        1
+      ]
+    },
+    {
+      "affine": true,
+      "bias": false,
+      "ceil_mode": false,
+      "count_include_pad": true,
+      "dilation": [
+        1,
+        1
+      ],
+      "divisor_override": null,
+      "epsilon": 1e-05,
+      "groups": 1,
+      "id": "add_5",
+      "inputs": [
+        "layer2_2_bn3",
+        "layer2_1_relu_2"
+      ],
+      "kernel": [
+        1,
+        1
+      ],
+      "kind": "Add",
+      "output": "add_5",
+      "padding": [
+        0,
+        0
+      ],
+      "stride": [
+        1,
+        1
+      ]
+    },
+    {
+      "affine": true,
+      "bias": false,
+      "ceil_mode": false,
+      "count_include_pad": true,
+      "dilation": [
+        1,
+        1
+      ],
+      "divisor_override": null,
+      "epsilon": 1e-05,
+      "groups": 1,
+      "id": "layer2_2_relu_2",
+      "inputs": [
+        "add_5"
+      ],
+      "kernel": [
+        1,
+        1
+      ],
+      "kind": "ReLU",
+      "output": "layer2_2_relu_2",
+      "padding": [
+        0,
+        0
+      ],
+      "stride": [
+        1,
+        1
+      ]
+    },
+    {
+      "affine": true,
+      "bias": false,
+      "ceil_mode": false,
+      "count_include_pad": true,
+      "dilation": [
+        1,
+        1
+      ],
+      "divisor_override": null,
+      "epsilon": 1e-05,
+      "groups": 1,
+      "id": "layer2_3_conv1",
+      "inputs": [
+        "layer2_2_relu_2"
+      ],
+      "kernel": [
+        1,
+        1
+      ],
+      "kind": "Conv",
+      "output": "layer2_3_conv1",
+      "padding": [
+        0,
+        0
+      ],
+      "stride": [
+        1,
+        1
+      ]
+    },
+    {
+      "affine": true,
+      "bias": false,
+      "ceil_mode": false,
+      "count_include_pad": true,
+      "dilation": [
+        1,
+        1
+      ],
+      "divisor_override": null,
+      "epsilon": 1e-05,
+      "groups": 1,
+      "id": "layer2_3_bn1",
+      "inputs": [
+        "layer2_3_conv1"
+      ],
+      "kernel": [
+        1,
+        1
+      ],
+      "kind": "BatchNorm",
+      "output": "layer2_3_bn1",
+      "padding": [
+        0,
+        0
+      ],
+      "stride": [
+        1,
+        1
+      ]
+    },
+    {
+      "affine": true,
+      "bias": false,
+      "ceil_mode": false,
+      "count_include_pad": true,
+      "dilation": [
+        1,
+        1
+      ],
+      "divisor_override": null,
+      "epsilon": 1e-05,
+      "groups": 1,
+      "id": "layer2_3_relu",
+      "inputs": [
+        "layer2_3_bn1"
+      ],
+      "kernel": [
+        1,
+        1
+      ],
+      "kind": "ReLU",
+      "output": "layer2_3_relu",
+      "padding": [
+        0,
+        0
+      ],
+      "stride": [
+        1,
+        1
+      ]
+    },
+    {
+      "affine": true,
+      "bias": false,
+      "ceil_mode": false,
+      "count_include_pad": true,
+      "dilation": [
+        1,
+        1
+      ],
+      "divisor_override": null,
+      "epsilon": 1e-05,
+      "groups": 1,
+      "id": "layer2_3_conv2",
+      "inputs": [
+        "layer2_3_relu"
+      ],
+      "kernel": [
+        3,
+        3
+      ],
+      "kind": "Conv",
+      "output": "layer2_3_conv2",
+      "padding": [
+        1,
+        1
+      ],
+      "stride": [
+        1,
+        1
+      ]
+    },
+    {
+      "affine": true,
+      "bias": false,
+      "ceil_mode": false,
+      "count_include_pad": true,
+      "dilation": [
+        1,
+        1
+      ],
+      "divisor_override": null,
+      "epsilon": 1e-05,
+      "groups": 1,
+      "id": "layer2_3_bn2",
+      "inputs": [
+        "layer2_3_conv2"
+      ],
+      "kernel": [
+        1,
+        1
+      ],
+      "kind": "BatchNorm",
+      "output": "layer2_3_bn2",
+      "padding": [
+        0,
+        0
+      ],
+      "stride": [
+        1,
+        1
+      ]
+    },
+    {
+      "affine": true,
+      "bias": false,
+      "ceil_mode": false,
+      "count_include_pad": true,
+      "dilation": [
+        1,
+        1
+      ],
+      "divisor_override": null,
+      "epsilon": 1e-05,
+      "groups": 1,
+      "id": "layer2_3_relu_1",
+      "inputs": [
+        "layer2_3_bn2"
+      ],
+      "kernel": [
+        1,
+        1
+      ],
+      "kind": "ReLU",
+      "output": "layer2_3_relu_1",
+      "padding": [
+        0,
+        0
+      ],
+      "stride": [
+        1,
+        1
+      ]
+    },
+    {
+      "affine": true,
+      "bias": false,
+      "ceil_mode": false,
+      "count_include_pad": true,
+      "dilation": [
+        1,
+        1
+      ],
+      "divisor_override": null,
+      "epsilon": 1e-05,
+      "groups": 1,
+      "id": "layer2_3_conv3",
+      "inputs": [
+        "layer2_3_relu_1"
+      ],
+      "kernel": [
+        1,
+        1
+      ],
+      "kind": "Conv",
+      "output": "layer2_3_conv3",
+      "padding": [
+        0,
+        0
+      ],
+      "stride": [
+        1,
+        1
+      ]
+    },
+    {
+      "affine": true,
+      "bias": false,
+      "ceil_mode": false,
+      "count_include_pad": true,
+      "dilation": [
+        1,
+        1
+      ],
+      "divisor_override": null,
+      "epsilon": 1e-05,
+      "groups": 1,
+      "id": "layer2_3_bn3",
+      "inputs": [
+        "layer2_3_conv3"
+      ],
+      "kernel": [
+        1,
+        1
+      ],
+      "kind": "BatchNorm",
+      "output": "layer2_3_bn3",
+      "padding": [
+        0,
+        0
+      ],
+      "stride": [
+        1,
+        1
+      ]
+    },
+    {
+      "affine": true,
+      "bias": false,
+      "ceil_mode": false,
+      "count_include_pad": true,
+      "dilation": [
+        1,
+        1
+      ],
+      "divisor_override": null,
+      "epsilon": 1e-05,
+      "groups": 1,
+      "id": "add_6",
+      "inputs": [
+        "layer2_3_bn3",
+        "layer2_2_relu_2"
+      ],
+      "kernel": [
+        1,
+        1
+      ],
+      "kind": "Add",
+      "output": "add_6",
+      "padding": [
+        0,
+        0
+      ],
+      "stride": [
+        1,
+        1
+      ]
+    },
+    {
+      "affine": true,
+      "bias": false,
+      "ceil_mode": false,
+      "count_include_pad": true,
+      "dilation": [
+        1,
+        1
+      ],
+      "divisor_override": null,
+      "epsilon": 1e-05,
+      "groups": 1,
+      "id": "layer2_3_relu_2",
+      "inputs": [
+        "add_6"
+      ],
+      "kernel": [
+        1,
+        1
+      ],
+      "kind": "ReLU",
+      "output": "layer2_3_relu_2",
+      "padding": [
+        0,
+        0
+      ],
+      "stride": [
+        1,
+        1
+      ]
+    },
+    {
+      "affine": true,
+      "bias": false,
+      "ceil_mode": false,
+      "count_include_pad": true,
+      "dilation": [
+        1,
+        1
+      ],
+      "divisor_override": null,
+      "epsilon": 1e-05,
+      "groups": 1,
+      "id": "layer3_0_conv1",
+      "inputs": [
+        "layer2_3_relu_2"
+      ],
+      "kernel": [
+        1,
+        1
+      ],
+      "kind": "Conv",
+      "output": "layer3_0_conv1",
+      "padding": [
+        0,
+        0
+      ],
+      "stride": [
+        1,
+        1
+      ]
+    },
+    {
+      "affine": true,
+      "bias": false,
+      "ceil_mode": false,
+      "count_include_pad": true,
+      "dilation": [
+        1,
+        1
+      ],
+      "divisor_override": null,
+      "epsilon": 1e-05,
+      "groups": 1,
+      "id": "layer3_0_bn1",
+      "inputs": [
+        "layer3_0_conv1"
+      ],
+      "kernel": [
+        1,
+        1
+      ],
+      "kind": "BatchNorm",
+      "output": "layer3_0_bn1",
+      "padding": [
+        0,
+        0
+      ],
+      "stride": [
+        1,
+        1
+      ]
+    },
+    {
+      "affine": true,
+      "bias": false,
+      "ceil_mode": false,
+      "count_include_pad": true,
+      "dilation": [
+        1,
+        1
+      ],
+      "divisor_override": null,
+      "epsilon": 1e-05,
+      "groups": 1,
+      "id": "layer3_0_relu",
+      "inputs": [
+        "layer3_0_bn1"
+      ],
+      "kernel": [
+        1,
+        1
+      ],
+      "kind": "ReLU",
+      "output": "layer3_0_relu",
+      "padding": [
+        0,
+        0
+      ],
+      "stride": [
+        1,
+        1
+      ]
+    },
+    {
+      "affine": true,
+      "bias": false,
+      "ceil_mode": false,
+      "count_include_pad": true,
+      "dilation": [
+        1,
+        1
+      ],
+      "divisor_override": null,
+      "epsilon": 1e-05,
+      "groups": 1,
+      "id": "layer3_0_conv2",
+      "inputs": [
+        "layer3_0_relu"
+      ],
+      "kernel": [
+        3,
+        3
+      ],
+      "kind": "Conv",
+      "output": "layer3_0_conv2",
+      "padding": [
+        1,
+        1
+      ],
+      "stride": [
+        2,
+        2
+      ]
+    },
+    {
+      "affine": true,
+      "bias": false,
+      "ceil_mode": false,
+      "count_include_pad": true,
+      "dilation": [
+        1,
+        1
+      ],
+      "divisor_override": null,
+      "epsilon": 1e-05,
+      "groups": 1,
+      "id": "layer3_0_bn2",
+      "inputs": [
+        "layer3_0_conv2"
+      ],
+      "kernel": [
+        1,
+        1
+      ],
+      "kind": "BatchNorm",
+      "output": "layer3_0_bn2",
+      "padding": [
+        0,
+        0
+      ],
+      "stride": [
+        1,
+        1
+      ]
+    },
+    {
+      "affine": true,
+      "bias": false,
+      "ceil_mode": false,
+      "count_include_pad": true,
+      "dilation": [
+        1,
+        1
+      ],
+      "divisor_override": null,
+      "epsilon": 1e-05,
+      "groups": 1,
+      "id": "layer3_0_relu_1",
+      "inputs": [
+        "layer3_0_bn2"
+      ],
+      "kernel": [
+        1,
+        1
+      ],
+      "kind": "ReLU",
+      "output": "layer3_0_relu_1",
+      "padding": [
+        0,
+        0
+      ],
+      "stride": [
+        1,
+        1
+      ]
+    },
+    {
+      "affine": true,
+      "bias": false,
+      "ceil_mode": false,
+      "count_include_pad": true,
+      "dilation": [
+        1,
+        1
+      ],
+      "divisor_override": null,
+      "epsilon": 1e-05,
+      "groups": 1,
+      "id": "layer3_0_conv3",
+      "inputs": [
+        "layer3_0_relu_1"
+      ],
+      "kernel": [
+        1,
+        1
+      ],
+      "kind": "Conv",
+      "output": "layer3_0_conv3",
+      "padding": [
+        0,
+        0
+      ],
+      "stride": [
+        1,
+        1
+      ]
+    },
+    {
+      "affine": true,
+      "bias": false,
+      "ceil_mode": false,
+      "count_include_pad": true,
+      "dilation": [
+        1,
+        1
+      ],
+      "divisor_override": null,
+      "epsilon": 1e-05,
+      "groups": 1,
+      "id": "layer3_0_bn3",
+      "inputs": [
+        "layer3_0_conv3"
+      ],
+      "kernel": [
+        1,
+        1
+      ],
+      "kind": "BatchNorm",
+      "output": "layer3_0_bn3",
+      "padding": [
+        0,
+        0
+      ],
+      "stride": [
+        1,
+        1
+      ]
+    },
+    {
+      "affine": true,
+      "bias": false,
+      "ceil_mode": false,
+      "count_include_pad": true,
+      "dilation": [
+        1,
+        1
+      ],
+      "divisor_override": null,
+      "epsilon": 1e-05,
+      "groups": 1,
+      "id": "layer3_0_downsample_0",
+      "inputs": [
+        "layer2_3_relu_2"
+      ],
+      "kernel": [
+        1,
+        1
+      ],
+      "kind": "Conv",
+      "output": "layer3_0_downsample_0",
+      "padding": [
+        0,
+        0
+      ],
+      "stride": [
+        2,
+        2
+      ]
+    },
+    {
+      "affine": true,
+      "bias": false,
+      "ceil_mode": false,
+      "count_include_pad": true,
+      "dilation": [
+        1,
+        1
+      ],
+      "divisor_override": null,
+      "epsilon": 1e-05,
+      "groups": 1,
+      "id": "layer3_0_downsample_1",
+      "inputs": [
+        "layer3_0_downsample_0"
+      ],
+      "kernel": [
+        1,
+        1
+      ],
+      "kind": "BatchNorm",
+      "output": "layer3_0_downsample_1",
+      "padding": [
+        0,
+        0
+      ],
+      "stride": [
+        1,
+        1
+      ]
+    },
+    {
+      "affine": true,
+      "bias": false,
+      "ceil_mode": false,
+      "count_include_pad": true,
+      "dilation": [
+        1,
+        1
+      ],
+      "divisor_override": null,
+      "epsilon": 1e-05,
+      "groups": 1,
+      "id": "add_7",
+      "inputs": [
+        "layer3_0_bn3",
+        "layer3_0_downsample_1"
+      ],
+      "kernel": [
+        1,
+        1
+      ],
+      "kind": "Add",
+      "output": "add_7",
+      "padding": [
+        0,
+        0
+      ],
+      "stride": [
+        1,
+        1
+      ]
+    },
+    {
+      "affine": true,
+      "bias": false,
+      "ceil_mode": false,
+      "count_include_pad": true,
+      "dilation": [
+        1,
+        1
+      ],
+      "divisor_override": null,
+      "epsilon": 1e-05,
+      "groups": 1,
+      "id": "layer3_0_relu_2",
+      "inputs": [
+        "add_7"
+      ],
+      "kernel": [
+        1,
+        1
+      ],
+      "kind": "ReLU",
+      "output": "layer3_0_relu_2",
+      "padding": [
+        0,
+        0
+      ],
+      "stride": [
+        1,
+        1
+      ]
+    },
+    {
+      "affine": true,
+      "bias": false,
+      "ceil_mode": false,
+      "count_include_pad": true,
+      "dilation": [
+        1,
+        1
+      ],
+      "divisor_override": null,
+      "epsilon": 1e-05,
+      "groups": 1,
+      "id": "layer3_1_conv1",
+      "inputs": [
+        "layer3_0_relu_2"
+      ],
+      "kernel": [
+        1,
+        1
+      ],
+      "kind": "Conv",
+      "output": "layer3_1_conv1",
+      "padding": [
+        0,
+        0
+      ],
+      "stride": [
+        1,
+        1
+      ]
+    },
+    {
+      "affine": true,
+      "bias": false,
+      "ceil_mode": false,
+      "count_include_pad": true,
+      "dilation": [
+        1,
+        1
+      ],
+      "divisor_override": null,
+      "epsilon": 1e-05,
+      "groups": 1,
+      "id": "layer3_1_bn1",
+      "inputs": [
+        "layer3_1_conv1"
+      ],
+      "kernel": [
+        1,
+        1
+      ],
+      "kind": "BatchNorm",
+      "output": "layer3_1_bn1",
+      "padding": [
+        0,
+        0
+      ],
+      "stride": [
+        1,
+        1
+      ]
+    },
+    {
+      "affine": true,
+      "bias": false,
+      "ceil_mode": false,
+      "count_include_pad": true,
+      "dilation": [
+        1,
+        1
+      ],
+      "divisor_override": null,
+      "epsilon": 1e-05,
+      "groups": 1,
+      "id": "layer3_1_relu",
+      "inputs": [
+        "layer3_1_bn1"
+      ],
+      "kernel": [
+        1,
+        1
+      ],
+      "kind": "ReLU",
+      "output": "layer3_1_relu",
+      "padding": [
+        0,
+        0
+      ],
+      "stride": [
+        1,
+        1
+      ]
+    },
+    {
+      "affine": true,
+      "bias": false,
+      "ceil_mode": false,
+      "count_include_pad": true,
+      "dilation": [
+        1,
+        1
+      ],
+      "divisor_override": null,
+      "epsilon": 1e-05,
+      "groups": 1,
+      "id": "layer3_1_conv2",
+      "inputs": [
+        "layer3_1_relu"
+      ],
+      "kernel": [
+        3,
+        3
+      ],
+      "kind": "Conv",
+      "output": "layer3_1_conv2",
+      "padding": [
+        1,
+        1
+      ],
+      "stride": [
+        1,
+        1
+      ]
+    },
+    {
+      "affine": true,
+      "bias": false,
+      "ceil_mode": false,
+      "count_include_pad": true,
+      "dilation": [
+        1,
+        1
+      ],
+      "divisor_override": null,
+      "epsilon": 1e-05,
+      "groups": 1,
+      "id": "layer3_1_bn2",
+      "inputs": [
+        "layer3_1_conv2"
+      ],
+      "kernel": [
+        1,
+        1
+      ],
+      "kind": "BatchNorm",
+      "output": "layer3_1_bn2",
+      "padding": [
+        0,
+        0
+      ],
+      "stride": [
+        1,
+        1
+      ]
+    },
+    {
+      "affine": true,
+      "bias": false,
+      "ceil_mode": false,
+      "count_include_pad": true,
+      "dilation": [
+        1,
+        1
+      ],
+      "divisor_override": null,
+      "epsilon": 1e-05,
+      "groups": 1,
+      "id": "layer3_1_relu_1",
+      "inputs": [
+        "layer3_1_bn2"
+      ],
+      "kernel": [
+        1,
+        1
+      ],
+      "kind": "ReLU",
+      "output": "layer3_1_relu_1",
+      "padding": [
+        0,
+        0
+      ],
+      "stride": [
+        1,
+        1
+      ]
+    },
+    {
+      "affine": true,
+      "bias": false,
+      "ceil_mode": false,
+      "count_include_pad": true,
+      "dilation": [
+        1,
+        1
+      ],
+      "divisor_override": null,
+      "epsilon": 1e-05,
+      "groups": 1,
+      "id": "layer3_1_conv3",
+      "inputs": [
+        "layer3_1_relu_1"
+      ],
+      "kernel": [
+        1,
+        1
+      ],
+      "kind": "Conv",
+      "output": "layer3_1_conv3",
+      "padding": [
+        0,
+        0
+      ],
+      "stride": [
+        1,
+        1
+      ]
+    },
+    {
+      "affine": true,
+      "bias": false,
+      "ceil_mode": false,
+      "count_include_pad": true,
+      "dilation": [
+        1,
+        1
+      ],
+      "divisor_override": null,
+      "epsilon": 1e-05,
+      "groups": 1,
+      "id": "layer3_1_bn3",
+      "inputs": [
+        "layer3_1_conv3"
+      ],
+      "kernel": [
+        1,
+        1
+      ],
+      "kind": "BatchNorm",
+      "output": "layer3_1_bn3",
+      "padding": [
+        0,
+        0
+      ],
+      "stride": [
+        1,
+        1
+      ]
+    },
+    {
+      "affine": true,
+      "bias": false,
+      "ceil_mode": false,
+      "count_include_pad": true,
+      "dilation": [
+        1,
+        1
+      ],
+      "divisor_override": null,
+      "epsilon": 1e-05,
+      "groups": 1,
+      "id": "add_8",
+      "inputs": [
+        "layer3_1_bn3",
+        "layer3_0_relu_2"
+      ],
+      "kernel": [
+        1,
+        1
+      ],
+      "kind": "Add",
+      "output": "add_8",
+      "padding": [
+        0,
+        0
+      ],
+      "stride": [
+        1,
+        1
+      ]
+    },
+    {
+      "affine": true,
+      "bias": false,
+      "ceil_mode": false,
+      "count_include_pad": true,
+      "dilation": [
+        1,
+        1
+      ],
+      "divisor_override": null,
+      "epsilon": 1e-05,
+      "groups": 1,
+      "id": "layer3_1_relu_2",
+      "inputs": [
+        "add_8"
+      ],
+      "kernel": [
+        1,
+        1
+      ],
+      "kind": "ReLU",
+      "output": "layer3_1_relu_2",
+      "padding": [
+        0,
+        0
+      ],
+      "stride": [
+        1,
+        1
+      ]
+    },
+    {
+      "affine": true,
+      "bias": false,
+      "ceil_mode": false,
+      "count_include_pad": true,
+      "dilation": [
+        1,
+        1
+      ],
+      "divisor_override": null,
+      "epsilon": 1e-05,
+      "groups": 1,
+      "id": "layer3_2_conv1",
+      "inputs": [
+        "layer3_1_relu_2"
+      ],
+      "kernel": [
+        1,
+        1
+      ],
+      "kind": "Conv",
+      "output": "layer3_2_conv1",
+      "padding": [
+        0,
+        0
+      ],
+      "stride": [
+        1,
+        1
+      ]
+    },
+    {
+      "affine": true,
+      "bias": false,
+      "ceil_mode": false,
+      "count_include_pad": true,
+      "dilation": [
+        1,
+        1
+      ],
+      "divisor_override": null,
+      "epsilon": 1e-05,
+      "groups": 1,
+      "id": "layer3_2_bn1",
+      "inputs": [
+        "layer3_2_conv1"
+      ],
+      "kernel": [
+        1,
+        1
+      ],
+      "kind": "BatchNorm",
+      "output": "layer3_2_bn1",
+      "padding": [
+        0,
+        0
+      ],
+      "stride": [
+        1,
+        1
+      ]
+    },
+    {
+      "affine": true,
+      "bias": false,
+      "ceil_mode": false,
+      "count_include_pad": true,
+      "dilation": [
+        1,
+        1
+      ],
+      "divisor_override": null,
+      "epsilon": 1e-05,
+      "groups": 1,
+      "id": "layer3_2_relu",
+      "inputs": [
+        "layer3_2_bn1"
+      ],
+      "kernel": [
+        1,
+        1
+      ],
+      "kind": "ReLU",
+      "output": "layer3_2_relu",
+      "padding": [
+        0,
+        0
+      ],
+      "stride": [
+        1,
+        1
+      ]
+    },
+    {
+      "affine": true,
+      "bias": false,
+      "ceil_mode": false,
+      "count_include_pad": true,
+      "dilation": [
+        1,
+        1
+      ],
+      "divisor_override": null,
+      "epsilon": 1e-05,
+      "groups": 1,
+      "id": "layer3_2_conv2",
+      "inputs": [
+        "layer3_2_relu"
+      ],
+      "kernel": [
+        3,
+        3
+      ],
+      "kind": "Conv",
+      "output": "layer3_2_conv2",
+      "padding": [
+        1,
+        1
+      ],
+      "stride": [
+        1,
+        1
+      ]
+    },
+    {
+      "affine": true,
+      "bias": false,
+      "ceil_mode": false,
+      "count_include_pad": true,
+      "dilation": [
+        1,
+        1
+      ],
+      "divisor_override": null,
+      "epsilon": 1e-05,
+      "groups": 1,
+      "id": "layer3_2_bn2",
+      "inputs": [
+        "layer3_2_conv2"
+      ],
+      "kernel": [
+        1,
+        1
+      ],
+      "kind": "BatchNorm",
+      "output": "layer3_2_bn2",
+      "padding": [
+        0,
+        0
+      ],
+      "stride": [
+        1,
+        1
+      ]
+    },
+    {
+      "affine": true,
+      "bias": false,
+      "ceil_mode": false,
+      "count_include_pad": true,
+      "dilation": [
+        1,
+        1
+      ],
+      "divisor_override": null,
+      "epsilon": 1e-05,
+      "groups": 1,
+      "id": "layer3_2_relu_1",
+      "inputs": [
+        "layer3_2_bn2"
+      ],
+      "kernel": [
+        1,
+        1
+      ],
+      "kind": "ReLU",
+      "output": "layer3_2_relu_1",
+      "padding": [
+        0,
+        0
+      ],
+      "stride": [
+        1,
+        1
+      ]
+    },
+    {
+      "affine": true,
+      "bias": false,
+      "ceil_mode": false,
+      "count_include_pad": true,
+      "dilation": [
+        1,
+        1
+      ],
+      "divisor_override": null,
+      "epsilon": 1e-05,
+      "groups": 1,
+      "id": "layer3_2_conv3",
+      "inputs": [
+        "layer3_2_relu_1"
+      ],
+      "kernel": [
+        1,
+        1
+      ],
+      "kind": "Conv",
+      "output": "layer3_2_conv3",
+      "padding": [
+        0,
+        0
+      ],
+      "stride": [
+        1,
+        1
+      ]
+    },
+    {
+      "affine": true,
+      "bias": false,
+      "ceil_mode": false,
+      "count_include_pad": true,
+      "dilation": [
+        1,
+        1
+      ],
+      "divisor_override": null,
+      "epsilon": 1e-05,
+      "groups": 1,
+      "id": "layer3_2_bn3",
+      "inputs": [
+        "layer3_2_conv3"
+      ],
+      "kernel": [
+        1,
+        1
+      ],
+      "kind": "BatchNorm",
+      "output": "layer3_2_bn3",
+      "padding": [
+        0,
+        0
+      ],
+      "stride": [
+        1,
+        1
+      ]
+    },
+    {
+      "affine": true,
+      "bias": false,
+      "ceil_mode": false,
+      "count_include_pad": true,
+      "dilation": [
+        1,
+        1
+      ],
+      "divisor_override": null,
+      "epsilon": 1e-05,
+      "groups": 1,
+      "id": "add_9",
+      "inputs": [
+        "layer3_2_bn3",
+        "layer3_1_relu_2"
+      ],
+      "kernel": [
+        1,
+        1
+      ],
+      "kind": "Add",
+      "output": "add_9",
+      "padding": [
+        0,
+        0
+      ],
+      "stride": [
+        1,
+        1
+      ]
+    },
+    {
+      "affine": true,
+      "bias": false,
+      "ceil_mode": false,
+      "count_include_pad": true,
+      "dilation": [
+        1,
+        1
+      ],
+      "divisor_override": null,
+      "epsilon": 1e-05,
+      "groups": 1,
+      "id": "layer3_2_relu_2",
+      "inputs": [
+        "add_9"
+      ],
+      "kernel": [
+        1,
+        1
+      ],
+      "kind": "ReLU",
+      "output": "layer3_2_relu_2",
+      "padding": [
+        0,
+        0
+      ],
+      "stride": [
+        1,
+        1
+      ]
+    },
+    {
+      "affine": true,
+      "bias": false,
+      "ceil_mode": false,
+      "count_include_pad": true,
+      "dilation": [
+        1,
+        1
+      ],
+      "divisor_override": null,
+      "epsilon": 1e-05,
+      "groups": 1,
+      "id": "layer3_3_conv1",
+      "inputs": [
+        "layer3_2_relu_2"
+      ],
+      "kernel": [
+        1,
+        1
+      ],
+      "kind": "Conv",
+      "output": "layer3_3_conv1",
+      "padding": [
+        0,
+        0
+      ],
+      "stride": [
+        1,
+        1
+      ]
+    },
+    {
+      "affine": true,
+      "bias": false,
+      "ceil_mode": false,
+      "count_include_pad": true,
+      "dilation": [
+        1,
+        1
+      ],
+      "divisor_override": null,
+      "epsilon": 1e-05,
+      "groups": 1,
+      "id": "layer3_3_bn1",
+      "inputs": [
+        "layer3_3_conv1"
+      ],
+      "kernel": [
+        1,
+        1
+      ],
+      "kind": "BatchNorm",
+      "output": "layer3_3_bn1",
+      "padding": [
+        0,
+        0
+      ],
+      "stride": [
+        1,
+        1
+      ]
+    },
+    {
+      "affine": true,
+      "bias": false,
+      "ceil_mode": false,
+      "count_include_pad": true,
+      "dilation": [
+        1,
+        1
+      ],
+      "divisor_override": null,
+      "epsilon": 1e-05,
+      "groups": 1,
+      "id": "layer3_3_relu",
+      "inputs": [
+        "layer3_3_bn1"
+      ],
+      "kernel": [
+        1,
+        1
+      ],
+      "kind": "ReLU",
+      "output": "layer3_3_relu",
+      "padding": [
+        0,
+        0
+      ],
+      "stride": [
+        1,
+        1
+      ]
+    },
+    {
+      "affine": true,
+      "bias": false,
+      "ceil_mode": false,
+      "count_include_pad": true,
+      "dilation": [
+        1,
+        1
+      ],
+      "divisor_override": null,
+      "epsilon": 1e-05,
+      "groups": 1,
+      "id": "layer3_3_conv2",
+      "inputs": [
+        "layer3_3_relu"
+      ],
+      "kernel": [
+        3,
+        3
+      ],
+      "kind": "Conv",
+      "output": "layer3_3_conv2",
+      "padding": [
+        1,
+        1
+      ],
+      "stride": [
+        1,
+        1
+      ]
+    },
+    {
+      "affine": true,
+      "bias": false,
+      "ceil_mode": false,
+      "count_include_pad": true,
+      "dilation": [
+        1,
+        1
+      ],
+      "divisor_override": null,
+      "epsilon": 1e-05,
+      "groups": 1,
+      "id": "layer3_3_bn2",
+      "inputs": [
+        "layer3_3_conv2"
+      ],
+      "kernel": [
+        1,
+        1
+      ],
+      "kind": "BatchNorm",
+      "output": "layer3_3_bn2",
+      "padding": [
+        0,
+        0
+      ],
+      "stride": [
+        1,
+        1
+      ]
+    },
+    {
+      "affine": true,
+      "bias": false,
+      "ceil_mode": false,
+      "count_include_pad": true,
+      "dilation": [
+        1,
+        1
+      ],
+      "divisor_override": null,
+      "epsilon": 1e-05,
+      "groups": 1,
+      "id": "layer3_3_relu_1",
+      "inputs": [
+        "layer3_3_bn2"
+      ],
+      "kernel": [
+        1,
+        1
+      ],
+      "kind": "ReLU",
+      "output": "layer3_3_relu_1",
+      "padding": [
+        0,
+        0
+      ],
+      "stride": [
+        1,
+        1
+      ]
+    },
+    {
+      "affine": true,
+      "bias": false,
+      "ceil_mode": false,
+      "count_include_pad": true,
+      "dilation": [
+        1,
+        1
+      ],
+      "divisor_override": null,
+      "epsilon": 1e-05,
+      "groups": 1,
+      "id": "layer3_3_conv3",
+      "inputs": [
+        "layer3_3_relu_1"
+      ],
+      "kernel": [
+        1,
+        1
+      ],
+      "kind": "Conv",
+      "output": "layer3_3_conv3",
+      "padding": [
+        0,
+        0
+      ],
+      "stride": [
+        1,
+        1
+      ]
+    },
+    {
+      "affine": true,
+      "bias": false,
+      "ceil_mode": false,
+      "count_include_pad": true,
+      "dilation": [
+        1,
+        1
+      ],
+      "divisor_override": null,
+      "epsilon": 1e-05,
+      "groups": 1,
+      "id": "layer3_3_bn3",
+      "inputs": [
+        "layer3_3_conv3"
+      ],
+      "kernel": [
+        1,
+        1
+      ],
+      "kind": "BatchNorm",
+      "output": "layer3_3_bn3",
+      "padding": [
+        0,
+        0
+      ],
+      "stride": [
+        1,
+        1
+      ]
+    },
+    {
+      "affine": true,
+      "bias": false,
+      "ceil_mode": false,
+      "count_include_pad": true,
+      "dilation": [
+        1,
+        1
+      ],
+      "divisor_override": null,
+      "epsilon": 1e-05,
+      "groups": 1,
+      "id": "add_10",
+      "inputs": [
+        "layer3_3_bn3",
+        "layer3_2_relu_2"
+      ],
+      "kernel": [
+        1,
+        1
+      ],
+      "kind": "Add",
+      "output": "add_10",
+      "padding": [
+        0,
+        0
+      ],
+      "stride": [
+        1,
+        1
+      ]
+    },
+    {
+      "affine": true,
+      "bias": false,
+      "ceil_mode": false,
+      "count_include_pad": true,
+      "dilation": [
+        1,
+        1
+      ],
+      "divisor_override": null,
+      "epsilon": 1e-05,
+      "groups": 1,
+      "id": "layer3_3_relu_2",
+      "inputs": [
+        "add_10"
+      ],
+      "kernel": [
+        1,
+        1
+      ],
+      "kind": "ReLU",
+      "output": "layer3_3_relu_2",
+      "padding": [
+        0,
+        0
+      ],
+      "stride": [
+        1,
+        1
+      ]
+    },
+    {
+      "affine": true,
+      "bias": false,
+      "ceil_mode": false,
+      "count_include_pad": true,
+      "dilation": [
+        1,
+        1
+      ],
+      "divisor_override": null,
+      "epsilon": 1e-05,
+      "groups": 1,
+      "id": "layer3_4_conv1",
+      "inputs": [
+        "layer3_3_relu_2"
+      ],
+      "kernel": [
+        1,
+        1
+      ],
+      "kind": "Conv",
+      "output": "layer3_4_conv1",
+      "padding": [
+        0,
+        0
+      ],
+      "stride": [
+        1,
+        1
+      ]
+    },
+    {
+      "affine": true,
+      "bias": false,
+      "ceil_mode": false,
+      "count_include_pad": true,
+      "dilation": [
+        1,
+        1
+      ],
+      "divisor_override": null,
+      "epsilon": 1e-05,
+      "groups": 1,
+      "id": "layer3_4_bn1",
+      "inputs": [
+        "layer3_4_conv1"
+      ],
+      "kernel": [
+        1,
+        1
+      ],
+      "kind": "BatchNorm",
+      "output": "layer3_4_bn1",
+      "padding": [
+        0,
+        0
+      ],
+      "stride": [
+        1,
+        1
+      ]
+    },
+    {
+      "affine": true,
+      "bias": false,
+      "ceil_mode": false,
+      "count_include_pad": true,
+      "dilation": [
+        1,
+        1
+      ],
+      "divisor_override": null,
+      "epsilon": 1e-05,
+      "groups": 1,
+      "id": "layer3_4_relu",
+      "inputs": [
+        "layer3_4_bn1"
+      ],
+      "kernel": [
+        1,
+        1
+      ],
+      "kind": "ReLU",
+      "output": "layer3_4_relu",
+      "padding": [
+        0,
+        0
+      ],
+      "stride": [
+        1,
+        1
+      ]
+    },
+    {
+      "affine": true,
+      "bias": false,
+      "ceil_mode": false,
+      "count_include_pad": true,
+      "dilation": [
+        1,
+        1
+      ],
+      "divisor_override": null,
+      "epsilon": 1e-05,
+      "groups": 1,
+      "id": "layer3_4_conv2",
+      "inputs": [
+        "layer3_4_relu"
+      ],
+      "kernel": [
+        3,
+        3
+      ],
+      "kind": "Conv",
+      "output": "layer3_4_conv2",
+      "padding": [
+        1,
+        1
+      ],
+      "stride": [
+        1,
+        1
+      ]
+    },
+    {
+      "affine": true,
+      "bias": false,
+      "ceil_mode": false,
+      "count_include_pad": true,
+      "dilation": [
+        1,
+        1
+      ],
+      "divisor_override": null,
+      "epsilon": 1e-05,
+      "groups": 1,
+      "id": "layer3_4_bn2",
+      "inputs": [
+        "layer3_4_conv2"
+      ],
+      "kernel": [
+        1,
+        1
+      ],
+      "kind": "BatchNorm",
+      "output": "layer3_4_bn2",
+      "padding": [
+        0,
+        0
+      ],
+      "stride": [
+        1,
+        1
+      ]
+    },
+    {
+      "affine": true,
+      "bias": false,
+      "ceil_mode": false,
+      "count_include_pad": true,
+      "dilation": [
+        1,
+        1
+      ],
+      "divisor_override": null,
+      "epsilon": 1e-05,
+      "groups": 1,
+      "id": "layer3_4_relu_1",
+      "inputs": [
+        "layer3_4_bn2"
+      ],
+      "kernel": [
+        1,
+        1
+      ],
+      "kind": "ReLU",
+      "output": "layer3_4_relu_1",
+      "padding": [
+        0,
+        0
+      ],
+      "stride": [
+        1,
+        1
+      ]
+    },
+    {
+      "affine": true,
+      "bias": false,
+      "ceil_mode": false,
+      "count_include_pad": true,
+      "dilation": [
+        1,
+        1
+      ],
+      "divisor_override": null,
+      "epsilon": 1e-05,
+      "groups": 1,
+      "id": "layer3_4_conv3",
+      "inputs": [
+        "layer3_4_relu_1"
+      ],
+      "kernel": [
+        1,
+        1
+      ],
+      "kind": "Conv",
+      "output": "layer3_4_conv3",
+      "padding": [
+        0,
+        0
+      ],
+      "stride": [
+        1,
+        1
+      ]
+    },
+    {
+      "affine": true,
+      "bias": false,
+      "ceil_mode": false,
+      "count_include_pad": true,
+      "dilation": [
+        1,
+        1
+      ],
+      "divisor_override": null,
+      "epsilon": 1e-05,
+      "groups": 1,
+      "id": "layer3_4_bn3",
+      "inputs": [
+        "layer3_4_conv3"
+      ],
+      "kernel": [
+        1,
+        1
+      ],
+      "kind": "BatchNorm",
+      "output": "layer3_4_bn3",
+      "padding": [
+        0,
+        0
+      ],
+      "stride": [
+        1,
+        1
+      ]
+    },
+    {
+      "affine": true,
+      "bias": false,
+      "ceil_mode": false,
+      "count_include_pad": true,
+      "dilation": [
+        1,
+        1
+      ],
+      "divisor_override": null,
+      "epsilon": 1e-05,
+      "groups": 1,
+      "id": "add_11",
+      "inputs": [
+        "layer3_4_bn3",
+        "layer3_3_relu_2"
+      ],
+      "kernel": [
+        1,
+        1
+      ],
+      "kind": "Add",
+      "output": "add_11",
+      "padding": [
+        0,
+        0
+      ],
+      "stride": [
+        1,
+        1
+      ]
+    },
+    {
+      "affine": true,
+      "bias": false,
+      "ceil_mode": false,
+      "count_include_pad": true,
+      "dilation": [
+        1,
+        1
+      ],
+      "divisor_override": null,
+      "epsilon": 1e-05,
+      "groups": 1,
+      "id": "layer3_4_relu_2",
+      "inputs": [
+        "add_11"
+      ],
+      "kernel": [
+        1,
+        1
+      ],
+      "kind": "ReLU",
+      "output": "layer3_4_relu_2",
+      "padding": [
+        0,
+        0
+      ],
+      "stride": [
+        1,
+        1
+      ]
+    },
+    {
+      "affine": true,
+      "bias": false,
+      "ceil_mode": false,
+      "count_include_pad": true,
+      "dilation": [
+        1,
+        1
+      ],
+      "divisor_override": null,
+      "epsilon": 1e-05,
+      "groups": 1,
+      "id": "layer3_5_conv1",
+      "inputs": [
+        "layer3_4_relu_2"
+      ],
+      "kernel": [
+        1,
+        1
+      ],
+      "kind": "Conv",
+      "output": "layer3_5_conv1",
+      "padding": [
+        0,
+        0
+      ],
+      "stride": [
+        1,
+        1
+      ]
+    },
+    {
+      "affine": true,
+      "bias": false,
+      "ceil_mode": false,
+      "count_include_pad": true,
+      "dilation": [
+        1,
+        1
+      ],
+      "divisor_override": null,
+      "epsilon": 1e-05,
+      "groups": 1,
+      "id": "layer3_5_bn1",
+      "inputs": [
+        "layer3_5_conv1"
+      ],
+      "kernel": [
+        1,
+        1
+      ],
+      "kind": "BatchNorm",
+      "output": "layer3_5_bn1",
+      "padding": [
+        0,
+        0
+      ],
+      "stride": [
+        1,
+        1
+      ]
+    },
+    {
+      "affine": true,
+      "bias": false,
+      "ceil_mode": false,
+      "count_include_pad": true,
+      "dilation": [
+        1,
+        1
+      ],
+      "divisor_override": null,
+      "epsilon": 1e-05,
+      "groups": 1,
+      "id": "layer3_5_relu",
+      "inputs": [
+        "layer3_5_bn1"
+      ],
+      "kernel": [
+        1,
+        1
+      ],
+      "kind": "ReLU",
+      "output": "layer3_5_relu",
+      "padding": [
+        0,
+        0
+      ],
+      "stride": [
+        1,
+        1
+      ]
+    },
+    {
+      "affine": true,
+      "bias": false,
+      "ceil_mode": false,
+      "count_include_pad": true,
+      "dilation": [
+        1,
+        1
+      ],
+      "divisor_override": null,
+      "epsilon": 1e-05,
+      "groups": 1,
+      "id": "layer3_5_conv2",
+      "inputs": [
+        "layer3_5_relu"
+      ],
+      "kernel": [
+        3,
+        3
+      ],
+      "kind": "Conv",
+      "output": "layer3_5_conv2",
+      "padding": [
+        1,
+        1
+      ],
+      "stride": [
+        1,
+        1
+      ]
+    },
+    {
+      "affine": true,
+      "bias": false,
+      "ceil_mode": false,
+      "count_include_pad": true,
+      "dilation": [
+        1,
+        1
+      ],
+      "divisor_override": null,
+      "epsilon": 1e-05,
+      "groups": 1,
+      "id": "layer3_5_bn2",
+      "inputs": [
+        "layer3_5_conv2"
+      ],
+      "kernel": [
+        1,
+        1
+      ],
+      "kind": "BatchNorm",
+      "output": "layer3_5_bn2",
+      "padding": [
+        0,
+        0
+      ],
+      "stride": [
+        1,
+        1
+      ]
+    },
+    {
+      "affine": true,
+      "bias": false,
+      "ceil_mode": false,
+      "count_include_pad": true,
+      "dilation": [
+        1,
+        1
+      ],
+      "divisor_override": null,
+      "epsilon": 1e-05,
+      "groups": 1,
+      "id": "layer3_5_relu_1",
+      "inputs": [
+        "layer3_5_bn2"
+      ],
+      "kernel": [
+        1,
+        1
+      ],
+      "kind": "ReLU",
+      "output": "layer3_5_relu_1",
+      "padding": [
+        0,
+        0
+      ],
+      "stride": [
+        1,
+        1
+      ]
+    },
+    {
+      "affine": true,
+      "bias": false,
+      "ceil_mode": false,
+      "count_include_pad": true,
+      "dilation": [
+        1,
+        1
+      ],
+      "divisor_override": null,
+      "epsilon": 1e-05,
+      "groups": 1,
+      "id": "layer3_5_conv3",
+      "inputs": [
+        "layer3_5_relu_1"
+      ],
+      "kernel": [
+        1,
+        1
+      ],
+      "kind": "Conv",
+      "output": "layer3_5_conv3",
+      "padding": [
+        0,
+        0
+      ],
+      "stride": [
+        1,
+        1
+      ]
+    },
+    {
+      "affine": true,
+      "bias": false,
+      "ceil_mode": false,
+      "count_include_pad": true,
+      "dilation": [
+        1,
+        1
+      ],
+      "divisor_override": null,
+      "epsilon": 1e-05,
+      "groups": 1,
+      "id": "layer3_5_bn3",
+      "inputs": [
+        "layer3_5_conv3"
+      ],
+      "kernel": [
+        1,
+        1
+      ],
+      "kind": "BatchNorm",
+      "output": "layer3_5_bn3",
+      "padding": [
+        0,
+        0
+      ],
+      "stride": [
+        1,
+        1
+      ]
+    },
+    {
+      "affine": true,
+      "bias": false,
+      "ceil_mode": false,
+      "count_include_pad": true,
+      "dilation": [
+        1,
+        1
+      ],
+      "divisor_override": null,
+      "epsilon": 1e-05,
+      "groups": 1,
+      "id": "add_12",
+      "inputs": [
+        "layer3_5_bn3",
+        "layer3_4_relu_2"
+      ],
+      "kernel": [
+        1,
+        1
+      ],
+      "kind": "Add",
+      "output": "add_12",
+      "padding": [
+        0,
+        0
+      ],
+      "stride": [
+        1,
+        1
+      ]
+    },
+    {
+      "affine": true,
+      "bias": false,
+      "ceil_mode": false,
+      "count_include_pad": true,
+      "dilation": [
+        1,
+        1
+      ],
+      "divisor_override": null,
+      "epsilon": 1e-05,
+      "groups": 1,
+      "id": "layer3_5_relu_2",
+      "inputs": [
+        "add_12"
+      ],
+      "kernel": [
+        1,
+        1
+      ],
+      "kind": "ReLU",
+      "output": "layer3_5_relu_2",
+      "padding": [
+        0,
+        0
+      ],
+      "stride": [
+        1,
+        1
+      ]
+    },
+    {
+      "affine": true,
+      "bias": false,
+      "ceil_mode": false,
+      "count_include_pad": true,
+      "dilation": [
+        1,
+        1
+      ],
+      "divisor_override": null,
+      "epsilon": 1e-05,
+      "groups": 1,
+      "id": "layer4_0_conv1",
+      "inputs": [
+        "layer3_5_relu_2"
+      ],
+      "kernel": [
+        1,
+        1
+      ],
+      "kind": "Conv",
+      "output": "layer4_0_conv1",
+      "padding": [
+        0,
+        0
+      ],
+      "stride": [
+        1,
+        1
+      ]
+    },
+    {
+      "affine": true,
+      "bias": false,
+      "ceil_mode": false,
+      "count_include_pad": true,
+      "dilation": [
+        1,
+        1
+      ],
+      "divisor_override": null,
+      "epsilon": 1e-05,
+      "groups": 1,
+      "id": "layer4_0_bn1",
+      "inputs": [
+        "layer4_0_conv1"
+      ],
+      "kernel": [
+        1,
+        1
+      ],
+      "kind": "BatchNorm",
+      "output": "layer4_0_bn1",
+      "padding": [
+        0,
+        0
+      ],
+      "stride": [
+        1,
+        1
+      ]
+    },
+    {
+      "affine": true,
+      "bias": false,
+      "ceil_mode": false,
+      "count_include_pad": true,
+      "dilation": [
+        1,
+        1
+      ],
+      "divisor_override": null,
+      "epsilon": 1e-05,
+      "groups": 1,
+      "id": "layer4_0_relu",
+      "inputs": [
+        "layer4_0_bn1"
+      ],
+      "kernel": [
+        1,
+        1
+      ],
+      "kind": "ReLU",
+      "output": "layer4_0_relu",
+      "padding": [
+        0,
+        0
+      ],
+      "stride": [
+        1,
+        1
+      ]
+    },
+    {
+      "affine": true,
+      "bias": false,
+      "ceil_mode": false,
+      "count_include_pad": true,
+      "dilation": [
+        1,
+        1
+      ],
+      "divisor_override": null,
+      "epsilon": 1e-05,
+      "groups": 1,
+      "id": "layer4_0_conv2",
+      "inputs": [
+        "layer4_0_relu"
+      ],
+      "kernel": [
+        3,
+        3
+      ],
+      "kind": "Conv",
+      "output": "layer4_0_conv2",
+      "padding": [
+        1,
+        1
+      ],
+      "stride": [
+        2,
+        2
+      ]
+    },
+    {
+      "affine": true,
+      "bias": false,
+      "ceil_mode": false,
+      "count_include_pad": true,
+      "dilation": [
+        1,
+        1
+      ],
+      "divisor_override": null,
+      "epsilon": 1e-05,
+      "groups": 1,
+      "id": "layer4_0_bn2",
+      "inputs": [
+        "layer4_0_conv2"
+      ],
+      "kernel": [
+        1,
+        1
+      ],
+      "kind": "BatchNorm",
+      "output": "layer4_0_bn2",
+      "padding": [
+        0,
+        0
+      ],
+      "stride": [
+        1,
+        1
+      ]
+    },
+    {
+      "affine": true,
+      "bias": false,
+      "ceil_mode": false,
+      "count_include_pad": true,
+      "dilation": [
+        1,
+        1
+      ],
+      "divisor_override": null,
+      "epsilon": 1e-05,
+      "groups": 1,
+      "id": "layer4_0_relu_1",
+      "inputs": [
+        "layer4_0_bn2"
+      ],
+      "kernel": [
+        1,
+        1
+      ],
+      "kind": "ReLU",
+      "output": "layer4_0_relu_1",
+      "padding": [
+        0,
+        0
+      ],
+      "stride": [
+        1,
+        1
+      ]
+    },
+    {
+      "affine": true,
+      "bias": false,
+      "ceil_mode": false,
+      "count_include_pad": true,
+      "dilation": [
+        1,
+        1
+      ],
+      "divisor_override": null,
+      "epsilon": 1e-05,
+      "groups": 1,
+      "id": "layer4_0_conv3",
+      "inputs": [
+        "layer4_0_relu_1"
+      ],
+      "kernel": [
+        1,
+        1
+      ],
+      "kind": "Conv",
+      "output": "layer4_0_conv3",
+      "padding": [
+        0,
+        0
+      ],
+      "stride": [
+        1,
+        1
+      ]
+    },
+    {
+      "affine": true,
+      "bias": false,
+      "ceil_mode": false,
+      "count_include_pad": true,
+      "dilation": [
+        1,
+        1
+      ],
+      "divisor_override": null,
+      "epsilon": 1e-05,
+      "groups": 1,
+      "id": "layer4_0_bn3",
+      "inputs": [
+        "layer4_0_conv3"
+      ],
+      "kernel": [
+        1,
+        1
+      ],
+      "kind": "BatchNorm",
+      "output": "layer4_0_bn3",
+      "padding": [
+        0,
+        0
+      ],
+      "stride": [
+        1,
+        1
+      ]
+    },
+    {
+      "affine": true,
+      "bias": false,
+      "ceil_mode": false,
+      "count_include_pad": true,
+      "dilation": [
+        1,
+        1
+      ],
+      "divisor_override": null,
+      "epsilon": 1e-05,
+      "groups": 1,
+      "id": "layer4_0_downsample_0",
+      "inputs": [
+        "layer3_5_relu_2"
+      ],
+      "kernel": [
+        1,
+        1
+      ],
+      "kind": "Conv",
+      "output": "layer4_0_downsample_0",
+      "padding": [
+        0,
+        0
+      ],
+      "stride": [
+        2,
+        2
+      ]
+    },
+    {
+      "affine": true,
+      "bias": false,
+      "ceil_mode": false,
+      "count_include_pad": true,
+      "dilation": [
+        1,
+        1
+      ],
+      "divisor_override": null,
+      "epsilon": 1e-05,
+      "groups": 1,
+      "id": "layer4_0_downsample_1",
+      "inputs": [
+        "layer4_0_downsample_0"
+      ],
+      "kernel": [
+        1,
+        1
+      ],
+      "kind": "BatchNorm",
+      "output": "layer4_0_downsample_1",
+      "padding": [
+        0,
+        0
+      ],
+      "stride": [
+        1,
+        1
+      ]
+    },
+    {
+      "affine": true,
+      "bias": false,
+      "ceil_mode": false,
+      "count_include_pad": true,
+      "dilation": [
+        1,
+        1
+      ],
+      "divisor_override": null,
+      "epsilon": 1e-05,
+      "groups": 1,
+      "id": "add_13",
+      "inputs": [
+        "layer4_0_bn3",
+        "layer4_0_downsample_1"
+      ],
+      "kernel": [
+        1,
+        1
+      ],
+      "kind": "Add",
+      "output": "add_13",
+      "padding": [
+        0,
+        0
+      ],
+      "stride": [
+        1,
+        1
+      ]
+    },
+    {
+      "affine": true,
+      "bias": false,
+      "ceil_mode": false,
+      "count_include_pad": true,
+      "dilation": [
+        1,
+        1
+      ],
+      "divisor_override": null,
+      "epsilon": 1e-05,
+      "groups": 1,
+      "id": "layer4_0_relu_2",
+      "inputs": [
+        "add_13"
+      ],
+      "kernel": [
+        1,
+        1
+      ],
+      "kind": "ReLU",
+      "output": "layer4_0_relu_2",
+      "padding": [
+        0,
+        0
+      ],
+      "stride": [
+        1,
+        1
+      ]
+    },
+    {
+      "affine": true,
+      "bias": false,
+      "ceil_mode": false,
+      "count_include_pad": true,
+      "dilation": [
+        1,
+        1
+      ],
+      "divisor_override": null,
+      "epsilon": 1e-05,
+      "groups": 1,
+      "id": "layer4_1_conv1",
+      "inputs": [
+        "layer4_0_relu_2"
+      ],
+      "kernel": [
+        1,
+        1
+      ],
+      "kind": "Conv",
+      "output": "layer4_1_conv1",
+      "padding": [
+        0,
+        0
+      ],
+      "stride": [
+        1,
+        1
+      ]
+    },
+    {
+      "affine": true,
+      "bias": false,
+      "ceil_mode": false,
+      "count_include_pad": true,
+      "dilation": [
+        1,
+        1
+      ],
+      "divisor_override": null,
+      "epsilon": 1e-05,
+      "groups": 1,
+      "id": "layer4_1_bn1",
+      "inputs": [
+        "layer4_1_conv1"
+      ],
+      "kernel": [
+        1,
+        1
+      ],
+      "kind": "BatchNorm",
+      "output": "layer4_1_bn1",
+      "padding": [
+        0,
+        0
+      ],
+      "stride": [
+        1,
+        1
+      ]
+    },
+    {
+      "affine": true,
+      "bias": false,
+      "ceil_mode": false,
+      "count_include_pad": true,
+      "dilation": [
+        1,
+        1
+      ],
+      "divisor_override": null,
+      "epsilon": 1e-05,
+      "groups": 1,
+      "id": "layer4_1_relu",
+      "inputs": [
+        "layer4_1_bn1"
+      ],
+      "kernel": [
+        1,
+        1
+      ],
+      "kind": "ReLU",
+      "output": "layer4_1_relu",
+      "padding": [
+        0,
+        0
+      ],
+      "stride": [
+        1,
+        1
+      ]
+    },
+    {
+      "affine": true,
+      "bias": false,
+      "ceil_mode": false,
+      "count_include_pad": true,
+      "dilation": [
+        1,
+        1
+      ],
+      "divisor_override": null,
+      "epsilon": 1e-05,
+      "groups": 1,
+      "id": "layer4_1_conv2",
+      "inputs": [
+        "layer4_1_relu"
+      ],
+      "kernel": [
+        3,
+        3
+      ],
+      "kind": "Conv",
+      "output": "layer4_1_conv2",
+      "padding": [
+        1,
+        1
+      ],
+      "stride": [
+        1,
+        1
+      ]
+    },
+    {
+      "affine": true,
+      "bias": false,
+      "ceil_mode": false,
+      "count_include_pad": true,
+      "dilation": [
+        1,
+        1
+      ],
+      "divisor_override": null,
+      "epsilon": 1e-05,
+      "groups": 1,
+      "id": "layer4_1_bn2",
+      "inputs": [
+        "layer4_1_conv2"
+      ],
+      "kernel": [
+        1,
+        1
+      ],
+      "kind": "BatchNorm",
+      "output": "layer4_1_bn2",
+      "padding": [
+        0,
+        0
+      ],
+      "stride": [
+        1,
+        1
+      ]
+    },
+    {
+      "affine": true,
+      "bias": false,
+      "ceil_mode": false,
+      "count_include_pad": true,
+      "dilation": [
+        1,
+        1
+      ],
+      "divisor_override": null,
+      "epsilon": 1e-05,
+      "groups": 1,
+      "id": "layer4_1_relu_1",
+      "inputs": [
+        "layer4_1_bn2"
+      ],
+      "kernel": [
+        1,
+        1
+      ],
+      "kind": "ReLU",
+      "output": "layer4_1_relu_1",
+      "padding": [
+        0,
+        0
+      ],
+      "stride": [
+        1,
+        1
+      ]
+    },
+    {
+      "affine": true,
+      "bias": false,
+      "ceil_mode": false,
+      "count_include_pad": true,
+      "dilation": [
+        1,
+        1
+      ],
+      "divisor_override": null,
+      "epsilon": 1e-05,
+      "groups": 1,
+      "id": "layer4_1_conv3",
+      "inputs": [
+        "layer4_1_relu_1"
+      ],
+      "kernel": [
+        1,
+        1
+      ],
+      "kind": "Conv",
+      "output": "layer4_1_conv3",
+      "padding": [
+        0,
+        0
+      ],
+      "stride": [
+        1,
+        1
+      ]
+    },
+    {
+      "affine": true,
+      "bias": false,
+      "ceil_mode": false,
+      "count_include_pad": true,
+      "dilation": [
+        1,
+        1
+      ],
+      "divisor_override": null,
+      "epsilon": 1e-05,
+      "groups": 1,
+      "id": "layer4_1_bn3",
+      "inputs": [
+        "layer4_1_conv3"
+      ],
+      "kernel": [
+        1,
+        1
+      ],
+      "kind": "BatchNorm",
+      "output": "layer4_1_bn3",
+      "padding": [
+        0,
+        0
+      ],
+      "stride": [
+        1,
+        1
+      ]
+    },
+    {
+      "affine": true,
+      "bias": false,
+      "ceil_mode": false,
+      "count_include_pad": true,
+      "dilation": [
+        1,
+        1
+      ],
+      "divisor_override": null,
+      "epsilon": 1e-05,
+      "groups": 1,
+      "id": "add_14",
+      "inputs": [
+        "layer4_1_bn3",
+        "layer4_0_relu_2"
+      ],
+      "kernel": [
+        1,
+        1
+      ],
+      "kind": "Add",
+      "output": "add_14",
+      "padding": [
+        0,
+        0
+      ],
+      "stride": [
+        1,
+        1
+      ]
+    },
+    {
+      "affine": true,
+      "bias": false,
+      "ceil_mode": false,
+      "count_include_pad": true,
+      "dilation": [
+        1,
+        1
+      ],
+      "divisor_override": null,
+      "epsilon": 1e-05,
+      "groups": 1,
+      "id": "layer4_1_relu_2",
+      "inputs": [
+        "add_14"
+      ],
+      "kernel": [
+        1,
+        1
+      ],
+      "kind": "ReLU",
+      "output": "layer4_1_relu_2",
+      "padding": [
+        0,
+        0
+      ],
+      "stride": [
+        1,
+        1
+      ]
+    },
+    {
+      "affine": true,
+      "bias": false,
+      "ceil_mode": false,
+      "count_include_pad": true,
+      "dilation": [
+        1,
+        1
+      ],
+      "divisor_override": null,
+      "epsilon": 1e-05,
+      "groups": 1,
+      "id": "layer4_2_conv1",
+      "inputs": [
+        "layer4_1_relu_2"
+      ],
+      "kernel": [
+        1,
+        1
+      ],
+      "kind": "Conv",
+      "output": "layer4_2_conv1",
+      "padding": [
+        0,
+        0
+      ],
+      "stride": [
+        1,
+        1
+      ]
+    },
+    {
+      "affine": true,
+      "bias": false,
+      "ceil_mode": false,
+      "count_include_pad": true,
+      "dilation": [
+        1,
+        1
+      ],
+      "divisor_override": null,
+      "epsilon": 1e-05,
+      "groups": 1,
+      "id": "layer4_2_bn1",
+      "inputs": [
+        "layer4_2_conv1"
+      ],
+      "kernel": [
+        1,
+        1
+      ],
+      "kind": "BatchNorm",
+      "output": "layer4_2_bn1",
+      "padding": [
+        0,
+        0
+      ],
+      "stride": [
+        1,
+        1
+      ]
+    },
+    {
+      "affine": true,
+      "bias": false,
+      "ceil_mode": false,
+      "count_include_pad": true,
+      "dilation": [
+        1,
+        1
+      ],
+      "divisor_override": null,
+      "epsilon": 1e-05,
+      "groups": 1,
+      "id": "layer4_2_relu",
+      "inputs": [
+        "layer4_2_bn1"
+      ],
+      "kernel": [
+        1,
+        1
+      ],
+      "kind": "ReLU",
+      "output": "layer4_2_relu",
+      "padding": [
+        0,
+        0
+      ],
+      "stride": [
+        1,
+        1
+      ]
+    },
+    {
+      "affine": true,
+      "bias": false,
+      "ceil_mode": false,
+      "count_include_pad": true,
+      "dilation": [
+        1,
+        1
+      ],
+      "divisor_override": null,
+      "epsilon": 1e-05,
+      "groups": 1,
+      "id": "layer4_2_conv2",
+      "inputs": [
+        "layer4_2_relu"
+      ],
+      "kernel": [
+        3,
+        3
+      ],
+      "kind": "Conv",
+      "output": "layer4_2_conv2",
+      "padding": [
+        1,
+        1
+      ],
+      "stride": [
+        1,
+        1
+      ]
+    },
+    {
+      "affine": true,
+      "bias": false,
+      "ceil_mode": false,
+      "count_include_pad": true,
+      "dilation": [
+        1,
+        1
+      ],
+      "divisor_override": null,
+      "epsilon": 1e-05,
+      "groups": 1,
+      "id": "layer4_2_bn2",
+      "inputs": [
+        "layer4_2_conv2"
+      ],
+      "kernel": [
+        1,
+        1
+      ],
+      "kind": "BatchNorm",
+      "output": "layer4_2_bn2",
+      "padding": [
+        0,
+        0
+      ],
+      "stride": [
+        1,
+        1
+      ]
+    },
+    {
+      "affine": true,
+      "bias": false,
+      "ceil_mode": false,
+      "count_include_pad": true,
+      "dilation": [
+        1,
+        1
+      ],
+      "divisor_override": null,
+      "epsilon": 1e-05,
+      "groups": 1,
+      "id": "layer4_2_relu_1",
+      "inputs": [
+        "layer4_2_bn2"
+      ],
+      "kernel": [
+        1,
+        1
+      ],
+      "kind": "ReLU",
+      "output": "layer4_2_relu_1",
+      "padding": [
+        0,
+        0
+      ],
+      "stride": [
+        1,
+        1
+      ]
+    },
+    {
+      "affine": true,
+      "bias": false,
+      "ceil_mode": false,
+      "count_include_pad": true,
+      "dilation": [
+        1,
+        1
+      ],
+      "divisor_override": null,
+      "epsilon": 1e-05,
+      "groups": 1,
+      "id": "layer4_2_conv3",
+      "inputs": [
+        "layer4_2_relu_1"
+      ],
+      "kernel": [
+        1,
+        1
+      ],
+      "kind": "Conv",
+      "output": "layer4_2_conv3",
+      "padding": [
+        0,
+        0
+      ],
+      "stride": [
+        1,
+        1
+      ]
+    },
+    {
+      "affine": true,
+      "bias": false,
+      "ceil_mode": false,
+      "count_include_pad": true,
+      "dilation": [
+        1,
+        1
+      ],
+      "divisor_override": null,
+      "epsilon": 1e-05,
+      "groups": 1,
+      "id": "layer4_2_bn3",
+      "inputs": [
+        "layer4_2_conv3"
+      ],
+      "kernel": [
+        1,
+        1
+      ],
+      "kind": "BatchNorm",
+      "output": "layer4_2_bn3",
+      "padding": [
+        0,
+        0
+      ],
+      "stride": [
+        1,
+        1
+      ]
+    },
+    {
+      "affine": true,
+      "bias": false,
+      "ceil_mode": false,
+      "count_include_pad": true,
+      "dilation": [
+        1,
+        1
+      ],
+      "divisor_override": null,
+      "epsilon": 1e-05,
+      "groups": 1,
+      "id": "add_15",
+      "inputs": [
+        "layer4_2_bn3",
+        "layer4_1_relu_2"
+      ],
+      "kernel": [
+        1,
+        1
+      ],
+      "kind": "Add",
+      "output": "add_15",
+      "padding": [
+        0,
+        0
+      ],
+      "stride": [
+        1,
+        1
+      ]
+    },
+    {
+      "affine": true,
+      "bias": false,
+      "ceil_mode": false,
+      "count_include_pad": true,
+      "dilation": [
+        1,
+        1
+      ],
+      "divisor_override": null,
+      "epsilon": 1e-05,
+      "groups": 1,
+      "id": "layer4_2_relu_2",
+      "inputs": [
+        "add_15"
+      ],
+      "kernel": [
+        1,
+        1
+      ],
+      "kind": "ReLU",
+      "output": "layer4_2_relu_2",
+      "padding": [
+        0,
+        0
+      ],
+      "stride": [
+        1,
+        1
+      ]
+    },
+    {
+      "affine": true,
+      "bias": false,
+      "ceil_mode": false,
+      "count_include_pad": true,
+      "dilation": [
+        1,
+        1
+      ],
+      "divisor_override": null,
+      "epsilon": 1e-05,
+      "groups": 1,
+      "id": "avgpool",
+      "inputs": [
+        "layer4_2_relu_2"
+      ],
+      "kernel": [
+        1,
+        1
+      ],
+      "kind": "AdaptiveAvgPool",
+      "output": "avgpool",
+      "padding": [
+        0,
+        0
+      ],
+      "stride": [
+        1,
+        1
+      ]
+    },
+    {
+      "affine": true,
+      "bias": false,
+      "ceil_mode": false,
+      "count_include_pad": true,
+      "dilation": [
+        1,
+        1
+      ],
+      "divisor_override": null,
+      "epsilon": 1e-05,
+      "groups": 1,
+      "id": "flatten",
+      "inputs": [
+        "avgpool"
+      ],
+      "kernel": [
+        1,
+        1
+      ],
+      "kind": "Flatten",
+      "output": "flatten",
+      "padding": [
+        0,
+        0
+      ],
+      "stride": [
+        1,
+        1
+      ]
+    },
+    {
+      "affine": true,
+      "bias": true,
+      "ceil_mode": false,
+      "count_include_pad": true,
+      "dilation": [
+        1,
+        1
+      ],
+      "divisor_override": null,
+      "epsilon": 1e-05,
+      "groups": 1,
+      "id": "fc",
+      "inputs": [
+        "flatten"
+      ],
+      "kernel": [
+        1,
+        1
+      ],
+      "kind": "Linear",
+      "output": "fc",
+      "padding": [
+        0,
+        0
+      ],
+      "stride": [
+        1,
+        1
+      ]
+    }
+  ],
+  "outputs": [
+    "fc"
+  ],
+  "source_metadata": [
+    [
+      "torch_version",
+      "2.14.1"
+    ],
+    [
+      "graph_sha256",
+      "30c7bd87482e037ac651a10bd5411a1399df2793e2f4d58442c9408e6d620722"
+    ],
+    [
+      "model_state_sha256",
+      "c8f0fcb9187bdf4fd9b1358e084fb1d88bfcdf212afa93b08c66f9ad819b02bd"
+    ],
+    [
+      "parameter_manifest_sha256",
+      "63a8e0b2c7e1cda43848d0d94006691382e127ccdb3f8b6ccc01e64271900d4d"
+    ],
+    [
+      "precision",
+      "torch.float64"
+    ],
+    [
+      "semantics",
+      "eval; explicit operators; no fusion"
+    ]
+  ],
+  "tensors": [
+    {
+      "bytes_per_element": 8,
+      "id": "x",
+      "shape": [
+        1,
+        3,
+        224,
+        224
+      ]
+    },
+    {
+      "bytes_per_element": 8,
+      "id": "conv1",
+      "shape": [
+        1,
+        64,
+        112,
+        112
+      ]
+    },
+    {
+      "bytes_per_element": 8,
+      "id": "bn1",
+      "shape": [
+        1,
+        64,
+        112,
+        112
+      ]
+    },
+    {
+      "bytes_per_element": 8,
+      "id": "relu",
+      "shape": [
+        1,
+        64,
+        112,
+        112
+      ]
+    },
+    {
+      "bytes_per_element": 8,
+      "id": "maxpool",
+      "shape": [
+        1,
+        64,
+        56,
+        56
+      ]
+    },
+    {
+      "bytes_per_element": 8,
+      "id": "layer1_0_conv1",
+      "shape": [
+        1,
+        64,
+        56,
+        56
+      ]
+    },
+    {
+      "bytes_per_element": 8,
+      "id": "layer1_0_bn1",
+      "shape": [
+        1,
+        64,
+        56,
+        56
+      ]
+    },
+    {
+      "bytes_per_element": 8,
+      "id": "layer1_0_relu",
+      "shape": [
+        1,
+        64,
+        56,
+        56
+      ]
+    },
+    {
+      "bytes_per_element": 8,
+      "id": "layer1_0_conv2",
+      "shape": [
+        1,
+        64,
+        56,
+        56
+      ]
+    },
+    {
+      "bytes_per_element": 8,
+      "id": "layer1_0_bn2",
+      "shape": [
+        1,
+        64,
+        56,
+        56
+      ]
+    },
+    {
+      "bytes_per_element": 8,
+      "id": "layer1_0_relu_1",
+      "shape": [
+        1,
+        64,
+        56,
+        56
+      ]
+    },
+    {
+      "bytes_per_element": 8,
+      "id": "layer1_0_conv3",
+      "shape": [
+        1,
+        256,
+        56,
+        56
+      ]
+    },
+    {
+      "bytes_per_element": 8,
+      "id": "layer1_0_bn3",
+      "shape": [
+        1,
+        256,
+        56,
+        56
+      ]
+    },
+    {
+      "bytes_per_element": 8,
+      "id": "layer1_0_downsample_0",
+      "shape": [
+        1,
+        256,
+        56,
+        56
+      ]
+    },
+    {
+      "bytes_per_element": 8,
+      "id": "layer1_0_downsample_1",
+      "shape": [
+        1,
+        256,
+        56,
+        56
+      ]
+    },
+    {
+      "bytes_per_element": 8,
+      "id": "add",
+      "shape": [
+        1,
+        256,
+        56,
+        56
+      ]
+    },
+    {
+      "bytes_per_element": 8,
+      "id": "layer1_0_relu_2",
+      "shape": [
+        1,
+        256,
+        56,
+        56
+      ]
+    },
+    {
+      "bytes_per_element": 8,
+      "id": "layer1_1_conv1",
+      "shape": [
+        1,
+        64,
+        56,
+        56
+      ]
+    },
+    {
+      "bytes_per_element": 8,
+      "id": "layer1_1_bn1",
+      "shape": [
+        1,
+        64,
+        56,
+        56
+      ]
+    },
+    {
+      "bytes_per_element": 8,
+      "id": "layer1_1_relu",
+      "shape": [
+        1,
+        64,
+        56,
+        56
+      ]
+    },
+    {
+      "bytes_per_element": 8,
+      "id": "layer1_1_conv2",
+      "shape": [
+        1,
+        64,
+        56,
+        56
+      ]
+    },
+    {
+      "bytes_per_element": 8,
+      "id": "layer1_1_bn2",
+      "shape": [
+        1,
+        64,
+        56,
+        56
+      ]
+    },
+    {
+      "bytes_per_element": 8,
+      "id": "layer1_1_relu_1",
+      "shape": [
+        1,
+        64,
+        56,
+        56
+      ]
+    },
+    {
+      "bytes_per_element": 8,
+      "id": "layer1_1_conv3",
+      "shape": [
+        1,
+        256,
+        56,
+        56
+      ]
+    },
+    {
+      "bytes_per_element": 8,
+      "id": "layer1_1_bn3",
+      "shape": [
+        1,
+        256,
+        56,
+        56
+      ]
+    },
+    {
+      "bytes_per_element": 8,
+      "id": "add_1",
+      "shape": [
+        1,
+        256,
+        56,
+        56
+      ]
+    },
+    {
+      "bytes_per_element": 8,
+      "id": "layer1_1_relu_2",
+      "shape": [
+        1,
+        256,
+        56,
+        56
+      ]
+    },
+    {
+      "bytes_per_element": 8,
+      "id": "layer1_2_conv1",
+      "shape": [
+        1,
+        64,
+        56,
+        56
+      ]
+    },
+    {
+      "bytes_per_element": 8,
+      "id": "layer1_2_bn1",
+      "shape": [
+        1,
+        64,
+        56,
+        56
+      ]
+    },
+    {
+      "bytes_per_element": 8,
+      "id": "layer1_2_relu",
+      "shape": [
+        1,
+        64,
+        56,
+        56
+      ]
+    },
+    {
+      "bytes_per_element": 8,
+      "id": "layer1_2_conv2",
+      "shape": [
+        1,
+        64,
+        56,
+        56
+      ]
+    },
+    {
+      "bytes_per_element": 8,
+      "id": "layer1_2_bn2",
+      "shape": [
+        1,
+        64,
+        56,
+        56
+      ]
+    },
+    {
+      "bytes_per_element": 8,
+      "id": "layer1_2_relu_1",
+      "shape": [
+        1,
+        64,
+        56,
+        56
+      ]
+    },
+    {
+      "bytes_per_element": 8,
+      "id": "layer1_2_conv3",
+      "shape": [
+        1,
+        256,
+        56,
+        56
+      ]
+    },
+    {
+      "bytes_per_element": 8,
+      "id": "layer1_2_bn3",
+      "shape": [
+        1,
+        256,
+        56,
+        56
+      ]
+    },
+    {
+      "bytes_per_element": 8,
+      "id": "add_2",
+      "shape": [
+        1,
+        256,
+        56,
+        56
+      ]
+    },
+    {
+      "bytes_per_element": 8,
+      "id": "layer1_2_relu_2",
+      "shape": [
+        1,
+        256,
+        56,
+        56
+      ]
+    },
+    {
+      "bytes_per_element": 8,
+      "id": "layer2_0_conv1",
+      "shape": [
+        1,
+        128,
+        56,
+        56
+      ]
+    },
+    {
+      "bytes_per_element": 8,
+      "id": "layer2_0_bn1",
+      "shape": [
+        1,
+        128,
+        56,
+        56
+      ]
+    },
+    {
+      "bytes_per_element": 8,
+      "id": "layer2_0_relu",
+      "shape": [
+        1,
+        128,
+        56,
+        56
+      ]
+    },
+    {
+      "bytes_per_element": 8,
+      "id": "layer2_0_conv2",
+      "shape": [
+        1,
+        128,
+        28,
+        28
+      ]
+    },
+    {
+      "bytes_per_element": 8,
+      "id": "layer2_0_bn2",
+      "shape": [
+        1,
+        128,
+        28,
+        28
+      ]
+    },
+    {
+      "bytes_per_element": 8,
+      "id": "layer2_0_relu_1",
+      "shape": [
+        1,
+        128,
+        28,
+        28
+      ]
+    },
+    {
+      "bytes_per_element": 8,
+      "id": "layer2_0_conv3",
+      "shape": [
+        1,
+        512,
+        28,
+        28
+      ]
+    },
+    {
+      "bytes_per_element": 8,
+      "id": "layer2_0_bn3",
+      "shape": [
+        1,
+        512,
+        28,
+        28
+      ]
+    },
+    {
+      "bytes_per_element": 8,
+      "id": "layer2_0_downsample_0",
+      "shape": [
+        1,
+        512,
+        28,
+        28
+      ]
+    },
+    {
+      "bytes_per_element": 8,
+      "id": "layer2_0_downsample_1",
+      "shape": [
+        1,
+        512,
+        28,
+        28
+      ]
+    },
+    {
+      "bytes_per_element": 8,
+      "id": "add_3",
+      "shape": [
+        1,
+        512,
+        28,
+        28
+      ]
+    },
+    {
+      "bytes_per_element": 8,
+      "id": "layer2_0_relu_2",
+      "shape": [
+        1,
+        512,
+        28,
+        28
+      ]
+    },
+    {
+      "bytes_per_element": 8,
+      "id": "layer2_1_conv1",
+      "shape": [
+        1,
+        128,
+        28,
+        28
+      ]
+    },
+    {
+      "bytes_per_element": 8,
+      "id": "layer2_1_bn1",
+      "shape": [
+        1,
+        128,
+        28,
+        28
+      ]
+    },
+    {
+      "bytes_per_element": 8,
+      "id": "layer2_1_relu",
+      "shape": [
+        1,
+        128,
+        28,
+        28
+      ]
+    },
+    {
+      "bytes_per_element": 8,
+      "id": "layer2_1_conv2",
+      "shape": [
+        1,
+        128,
+        28,
+        28
+      ]
+    },
+    {
+      "bytes_per_element": 8,
+      "id": "layer2_1_bn2",
+      "shape": [
+        1,
+        128,
+        28,
+        28
+      ]
+    },
+    {
+      "bytes_per_element": 8,
+      "id": "layer2_1_relu_1",
+      "shape": [
+        1,
+        128,
+        28,
+        28
+      ]
+    },
+    {
+      "bytes_per_element": 8,
+      "id": "layer2_1_conv3",
+      "shape": [
+        1,
+        512,
+        28,
+        28
+      ]
+    },
+    {
+      "bytes_per_element": 8,
+      "id": "layer2_1_bn3",
+      "shape": [
+        1,
+        512,
+        28,
+        28
+      ]
+    },
+    {
+      "bytes_per_element": 8,
+      "id": "add_4",
+      "shape": [
+        1,
+        512,
+        28,
+        28
+      ]
+    },
+    {
+      "bytes_per_element": 8,
+      "id": "layer2_1_relu_2",
+      "shape": [
+        1,
+        512,
+        28,
+        28
+      ]
+    },
+    {
+      "bytes_per_element": 8,
+      "id": "layer2_2_conv1",
+      "shape": [
+        1,
+        128,
+        28,
+        28
+      ]
+    },
+    {
+      "bytes_per_element": 8,
+      "id": "layer2_2_bn1",
+      "shape": [
+        1,
+        128,
+        28,
+        28
+      ]
+    },
+    {
+      "bytes_per_element": 8,
+      "id": "layer2_2_relu",
+      "shape": [
+        1,
+        128,
+        28,
+        28
+      ]
+    },
+    {
+      "bytes_per_element": 8,
+      "id": "layer2_2_conv2",
+      "shape": [
+        1,
+        128,
+        28,
+        28
+      ]
+    },
+    {
+      "bytes_per_element": 8,
+      "id": "layer2_2_bn2",
+      "shape": [
+        1,
+        128,
+        28,
+        28
+      ]
+    },
+    {
+      "bytes_per_element": 8,
+      "id": "layer2_2_relu_1",
+      "shape": [
+        1,
+        128,
+        28,
+        28
+      ]
+    },
+    {
+      "bytes_per_element": 8,
+      "id": "layer2_2_conv3",
+      "shape": [
+        1,
+        512,
+        28,
+        28
+      ]
+    },
+    {
+      "bytes_per_element": 8,
+      "id": "layer2_2_bn3",
+      "shape": [
+        1,
+        512,
+        28,
+        28
+      ]
+    },
+    {
+      "bytes_per_element": 8,
+      "id": "add_5",
+      "shape": [
+        1,
+        512,
+        28,
+        28
+      ]
+    },
+    {
+      "bytes_per_element": 8,
+      "id": "layer2_2_relu_2",
+      "shape": [
+        1,
+        512,
+        28,
+        28
+      ]
+    },
+    {
+      "bytes_per_element": 8,
+      "id": "layer2_3_conv1",
+      "shape": [
+        1,
+        128,
+        28,
+        28
+      ]
+    },
+    {
+      "bytes_per_element": 8,
+      "id": "layer2_3_bn1",
+      "shape": [
+        1,
+        128,
+        28,
+        28
+      ]
+    },
+    {
+      "bytes_per_element": 8,
+      "id": "layer2_3_relu",
+      "shape": [
+        1,
+        128,
+        28,
+        28
+      ]
+    },
+    {
+      "bytes_per_element": 8,
+      "id": "layer2_3_conv2",
+      "shape": [
+        1,
+        128,
+        28,
+        28
+      ]
+    },
+    {
+      "bytes_per_element": 8,
+      "id": "layer2_3_bn2",
+      "shape": [
+        1,
+        128,
+        28,
+        28
+      ]
+    },
+    {
+      "bytes_per_element": 8,
+      "id": "layer2_3_relu_1",
+      "shape": [
+        1,
+        128,
+        28,
+        28
+      ]
+    },
+    {
+      "bytes_per_element": 8,
+      "id": "layer2_3_conv3",
+      "shape": [
+        1,
+        512,
+        28,
+        28
+      ]
+    },
+    {
+      "bytes_per_element": 8,
+      "id": "layer2_3_bn3",
+      "shape": [
+        1,
+        512,
+        28,
+        28
+      ]
+    },
+    {
+      "bytes_per_element": 8,
+      "id": "add_6",
+      "shape": [
+        1,
+        512,
+        28,
+        28
+      ]
+    },
+    {
+      "bytes_per_element": 8,
+      "id": "layer2_3_relu_2",
+      "shape": [
+        1,
+        512,
+        28,
+        28
+      ]
+    },
+    {
+      "bytes_per_element": 8,
+      "id": "layer3_0_conv1",
+      "shape": [
+        1,
+        256,
+        28,
+        28
+      ]
+    },
+    {
+      "bytes_per_element": 8,
+      "id": "layer3_0_bn1",
+      "shape": [
+        1,
+        256,
+        28,
+        28
+      ]
+    },
+    {
+      "bytes_per_element": 8,
+      "id": "layer3_0_relu",
+      "shape": [
+        1,
+        256,
+        28,
+        28
+      ]
+    },
+    {
+      "bytes_per_element": 8,
+      "id": "layer3_0_conv2",
+      "shape": [
+        1,
+        256,
+        14,
+        14
+      ]
+    },
+    {
+      "bytes_per_element": 8,
+      "id": "layer3_0_bn2",
+      "shape": [
+        1,
+        256,
+        14,
+        14
+      ]
+    },
+    {
+      "bytes_per_element": 8,
+      "id": "layer3_0_relu_1",
+      "shape": [
+        1,
+        256,
+        14,
+        14
+      ]
+    },
+    {
+      "bytes_per_element": 8,
+      "id": "layer3_0_conv3",
+      "shape": [
+        1,
+        1024,
+        14,
+        14
+      ]
+    },
+    {
+      "bytes_per_element": 8,
+      "id": "layer3_0_bn3",
+      "shape": [
+        1,
+        1024,
+        14,
+        14
+      ]
+    },
+    {
+      "bytes_per_element": 8,
+      "id": "layer3_0_downsample_0",
+      "shape": [
+        1,
+        1024,
+        14,
+        14
+      ]
+    },
+    {
+      "bytes_per_element": 8,
+      "id": "layer3_0_downsample_1",
+      "shape": [
+        1,
+        1024,
+        14,
+        14
+      ]
+    },
+    {
+      "bytes_per_element": 8,
+      "id": "add_7",
+      "shape": [
+        1,
+        1024,
+        14,
+        14
+      ]
+    },
+    {
+      "bytes_per_element": 8,
+      "id": "layer3_0_relu_2",
+      "shape": [
+        1,
+        1024,
+        14,
+        14
+      ]
+    },
+    {
+      "bytes_per_element": 8,
+      "id": "layer3_1_conv1",
+      "shape": [
+        1,
+        256,
+        14,
+        14
+      ]
+    },
+    {
+      "bytes_per_element": 8,
+      "id": "layer3_1_bn1",
+      "shape": [
+        1,
+        256,
+        14,
+        14
+      ]
+    },
+    {
+      "bytes_per_element": 8,
+      "id": "layer3_1_relu",
+      "shape": [
+        1,
+        256,
+        14,
+        14
+      ]
+    },
+    {
+      "bytes_per_element": 8,
+      "id": "layer3_1_conv2",
+      "shape": [
+        1,
+        256,
+        14,
+        14
+      ]
+    },
+    {
+      "bytes_per_element": 8,
+      "id": "layer3_1_bn2",
+      "shape": [
+        1,
+        256,
+        14,
+        14
+      ]
+    },
+    {
+      "bytes_per_element": 8,
+      "id": "layer3_1_relu_1",
+      "shape": [
+        1,
+        256,
+        14,
+        14
+      ]
+    },
+    {
+      "bytes_per_element": 8,
+      "id": "layer3_1_conv3",
+      "shape": [
+        1,
+        1024,
+        14,
+        14
+      ]
+    },
+    {
+      "bytes_per_element": 8,
+      "id": "layer3_1_bn3",
+      "shape": [
+        1,
+        1024,
+        14,
+        14
+      ]
+    },
+    {
+      "bytes_per_element": 8,
+      "id": "add_8",
+      "shape": [
+        1,
+        1024,
+        14,
+        14
+      ]
+    },
+    {
+      "bytes_per_element": 8,
+      "id": "layer3_1_relu_2",
+      "shape": [
+        1,
+        1024,
+        14,
+        14
+      ]
+    },
+    {
+      "bytes_per_element": 8,
+      "id": "layer3_2_conv1",
+      "shape": [
+        1,
+        256,
+        14,
+        14
+      ]
+    },
+    {
+      "bytes_per_element": 8,
+      "id": "layer3_2_bn1",
+      "shape": [
+        1,
+        256,
+        14,
+        14
+      ]
+    },
+    {
+      "bytes_per_element": 8,
+      "id": "layer3_2_relu",
+      "shape": [
+        1,
+        256,
+        14,
+        14
+      ]
+    },
+    {
+      "bytes_per_element": 8,
+      "id": "layer3_2_conv2",
+      "shape": [
+        1,
+        256,
+        14,
+        14
+      ]
+    },
+    {
+      "bytes_per_element": 8,
+      "id": "layer3_2_bn2",
+      "shape": [
+        1,
+        256,
+        14,
+        14
+      ]
+    },
+    {
+      "bytes_per_element": 8,
+      "id": "layer3_2_relu_1",
+      "shape": [
+        1,
+        256,
+        14,
+        14
+      ]
+    },
+    {
+      "bytes_per_element": 8,
+      "id": "layer3_2_conv3",
+      "shape": [
+        1,
+        1024,
+        14,
+        14
+      ]
+    },
+    {
+      "bytes_per_element": 8,
+      "id": "layer3_2_bn3",
+      "shape": [
+        1,
+        1024,
+        14,
+        14
+      ]
+    },
+    {
+      "bytes_per_element": 8,
+      "id": "add_9",
+      "shape": [
+        1,
+        1024,
+        14,
+        14
+      ]
+    },
+    {
+      "bytes_per_element": 8,
+      "id": "layer3_2_relu_2",
+      "shape": [
+        1,
+        1024,
+        14,
+        14
+      ]
+    },
+    {
+      "bytes_per_element": 8,
+      "id": "layer3_3_conv1",
+      "shape": [
+        1,
+        256,
+        14,
+        14
+      ]
+    },
+    {
+      "bytes_per_element": 8,
+      "id": "layer3_3_bn1",
+      "shape": [
+        1,
+        256,
+        14,
+        14
+      ]
+    },
+    {
+      "bytes_per_element": 8,
+      "id": "layer3_3_relu",
+      "shape": [
+        1,
+        256,
+        14,
+        14
+      ]
+    },
+    {
+      "bytes_per_element": 8,
+      "id": "layer3_3_conv2",
+      "shape": [
+        1,
+        256,
+        14,
+        14
+      ]
+    },
+    {
+      "bytes_per_element": 8,
+      "id": "layer3_3_bn2",
+      "shape": [
+        1,
+        256,
+        14,
+        14
+      ]
+    },
+    {
+      "bytes_per_element": 8,
+      "id": "layer3_3_relu_1",
+      "shape": [
+        1,
+        256,
+        14,
+        14
+      ]
+    },
+    {
+      "bytes_per_element": 8,
+      "id": "layer3_3_conv3",
+      "shape": [
+        1,
+        1024,
+        14,
+        14
+      ]
+    },
+    {
+      "bytes_per_element": 8,
+      "id": "layer3_3_bn3",
+      "shape": [
+        1,
+        1024,
+        14,
+        14
+      ]
+    },
+    {
+      "bytes_per_element": 8,
+      "id": "add_10",
+      "shape": [
+        1,
+        1024,
+        14,
+        14
+      ]
+    },
+    {
+      "bytes_per_element": 8,
+      "id": "layer3_3_relu_2",
+      "shape": [
+        1,
+        1024,
+        14,
+        14
+      ]
+    },
+    {
+      "bytes_per_element": 8,
+      "id": "layer3_4_conv1",
+      "shape": [
+        1,
+        256,
+        14,
+        14
+      ]
+    },
+    {
+      "bytes_per_element": 8,
+      "id": "layer3_4_bn1",
+      "shape": [
+        1,
+        256,
+        14,
+        14
+      ]
+    },
+    {
+      "bytes_per_element": 8,
+      "id": "layer3_4_relu",
+      "shape": [
+        1,
+        256,
+        14,
+        14
+      ]
+    },
+    {
+      "bytes_per_element": 8,
+      "id": "layer3_4_conv2",
+      "shape": [
+        1,
+        256,
+        14,
+        14
+      ]
+    },
+    {
+      "bytes_per_element": 8,
+      "id": "layer3_4_bn2",
+      "shape": [
+        1,
+        256,
+        14,
+        14
+      ]
+    },
+    {
+      "bytes_per_element": 8,
+      "id": "layer3_4_relu_1",
+      "shape": [
+        1,
+        256,
+        14,
+        14
+      ]
+    },
+    {
+      "bytes_per_element": 8,
+      "id": "layer3_4_conv3",
+      "shape": [
+        1,
+        1024,
+        14,
+        14
+      ]
+    },
+    {
+      "bytes_per_element": 8,
+      "id": "layer3_4_bn3",
+      "shape": [
+        1,
+        1024,
+        14,
+        14
+      ]
+    },
+    {
+      "bytes_per_element": 8,
+      "id": "add_11",
+      "shape": [
+        1,
+        1024,
+        14,
+        14
+      ]
+    },
+    {
+      "bytes_per_element": 8,
+      "id": "layer3_4_relu_2",
+      "shape": [
+        1,
+        1024,
+        14,
+        14
+      ]
+    },
+    {
+      "bytes_per_element": 8,
+      "id": "layer3_5_conv1",
+      "shape": [
+        1,
+        256,
+        14,
+        14
+      ]
+    },
+    {
+      "bytes_per_element": 8,
+      "id": "layer3_5_bn1",
+      "shape": [
+        1,
+        256,
+        14,
+        14
+      ]
+    },
+    {
+      "bytes_per_element": 8,
+      "id": "layer3_5_relu",
+      "shape": [
+        1,
+        256,
+        14,
+        14
+      ]
+    },
+    {
+      "bytes_per_element": 8,
+      "id": "layer3_5_conv2",
+      "shape": [
+        1,
+        256,
+        14,
+        14
+      ]
+    },
+    {
+      "bytes_per_element": 8,
+      "id": "layer3_5_bn2",
+      "shape": [
+        1,
+        256,
+        14,
+        14
+      ]
+    },
+    {
+      "bytes_per_element": 8,
+      "id": "layer3_5_relu_1",
+      "shape": [
+        1,
+        256,
+        14,
+        14
+      ]
+    },
+    {
+      "bytes_per_element": 8,
+      "id": "layer3_5_conv3",
+      "shape": [
+        1,
+        1024,
+        14,
+        14
+      ]
+    },
+    {
+      "bytes_per_element": 8,
+      "id": "layer3_5_bn3",
+      "shape": [
+        1,
+        1024,
+        14,
+        14
+      ]
+    },
+    {
+      "bytes_per_element": 8,
+      "id": "add_12",
+      "shape": [
+        1,
+        1024,
+        14,
+        14
+      ]
+    },
+    {
+      "bytes_per_element": 8,
+      "id": "layer3_5_relu_2",
+      "shape": [
+        1,
+        1024,
+        14,
+        14
+      ]
+    },
+    {
+      "bytes_per_element": 8,
+      "id": "layer4_0_conv1",
+      "shape": [
+        1,
+        512,
+        14,
+        14
+      ]
+    },
+    {
+      "bytes_per_element": 8,
+      "id": "layer4_0_bn1",
+      "shape": [
+        1,
+        512,
+        14,
+        14
+      ]
+    },
+    {
+      "bytes_per_element": 8,
+      "id": "layer4_0_relu",
+      "shape": [
+        1,
+        512,
+        14,
+        14
+      ]
+    },
+    {
+      "bytes_per_element": 8,
+      "id": "layer4_0_conv2",
+      "shape": [
+        1,
+        512,
+        7,
+        7
+      ]
+    },
+    {
+      "bytes_per_element": 8,
+      "id": "layer4_0_bn2",
+      "shape": [
+        1,
+        512,
+        7,
+        7
+      ]
+    },
+    {
+      "bytes_per_element": 8,
+      "id": "layer4_0_relu_1",
+      "shape": [
+        1,
+        512,
+        7,
+        7
+      ]
+    },
+    {
+      "bytes_per_element": 8,
+      "id": "layer4_0_conv3",
+      "shape": [
+        1,
+        2048,
+        7,
+        7
+      ]
+    },
+    {
+      "bytes_per_element": 8,
+      "id": "layer4_0_bn3",
+      "shape": [
+        1,
+        2048,
+        7,
+        7
+      ]
+    },
+    {
+      "bytes_per_element": 8,
+      "id": "layer4_0_downsample_0",
+      "shape": [
+        1,
+        2048,
+        7,
+        7
+      ]
+    },
+    {
+      "bytes_per_element": 8,
+      "id": "layer4_0_downsample_1",
+      "shape": [
+        1,
+        2048,
+        7,
+        7
+      ]
+    },
+    {
+      "bytes_per_element": 8,
+      "id": "add_13",
+      "shape": [
+        1,
+        2048,
+        7,
+        7
+      ]
+    },
+    {
+      "bytes_per_element": 8,
+      "id": "layer4_0_relu_2",
+      "shape": [
+        1,
+        2048,
+        7,
+        7
+      ]
+    },
+    {
+      "bytes_per_element": 8,
+      "id": "layer4_1_conv1",
+      "shape": [
+        1,
+        512,
+        7,
+        7
+      ]
+    },
+    {
+      "bytes_per_element": 8,
+      "id": "layer4_1_bn1",
+      "shape": [
+        1,
+        512,
+        7,
+        7
+      ]
+    },
+    {
+      "bytes_per_element": 8,
+      "id": "layer4_1_relu",
+      "shape": [
+        1,
+        512,
+        7,
+        7
+      ]
+    },
+    {
+      "bytes_per_element": 8,
+      "id": "layer4_1_conv2",
+      "shape": [
+        1,
+        512,
+        7,
+        7
+      ]
+    },
+    {
+      "bytes_per_element": 8,
+      "id": "layer4_1_bn2",
+      "shape": [
+        1,
+        512,
+        7,
+        7
+      ]
+    },
+    {
+      "bytes_per_element": 8,
+      "id": "layer4_1_relu_1",
+      "shape": [
+        1,
+        512,
+        7,
+        7
+      ]
+    },
+    {
+      "bytes_per_element": 8,
+      "id": "layer4_1_conv3",
+      "shape": [
+        1,
+        2048,
+        7,
+        7
+      ]
+    },
+    {
+      "bytes_per_element": 8,
+      "id": "layer4_1_bn3",
+      "shape": [
+        1,
+        2048,
+        7,
+        7
+      ]
+    },
+    {
+      "bytes_per_element": 8,
+      "id": "add_14",
+      "shape": [
+        1,
+        2048,
+        7,
+        7
+      ]
+    },
+    {
+      "bytes_per_element": 8,
+      "id": "layer4_1_relu_2",
+      "shape": [
+        1,
+        2048,
+        7,
+        7
+      ]
+    },
+    {
+      "bytes_per_element": 8,
+      "id": "layer4_2_conv1",
+      "shape": [
+        1,
+        512,
+        7,
+        7
+      ]
+    },
+    {
+      "bytes_per_element": 8,
+      "id": "layer4_2_bn1",
+      "shape": [
+        1,
+        512,
+        7,
+        7
+      ]
+    },
+    {
+      "bytes_per_element": 8,
+      "id": "layer4_2_relu",
+      "shape": [
+        1,
+        512,
+        7,
+        7
+      ]
+    },
+    {
+      "bytes_per_element": 8,
+      "id": "layer4_2_conv2",
+      "shape": [
+        1,
+        512,
+        7,
+        7
+      ]
+    },
+    {
+      "bytes_per_element": 8,
+      "id": "layer4_2_bn2",
+      "shape": [
+        1,
+        512,
+        7,
+        7
+      ]
+    },
+    {
+      "bytes_per_element": 8,
+      "id": "layer4_2_relu_1",
+      "shape": [
+        1,
+        512,
+        7,
+        7
+      ]
+    },
+    {
+      "bytes_per_element": 8,
+      "id": "layer4_2_conv3",
+      "shape": [
+        1,
+        2048,
+        7,
+        7
+      ]
+    },
+    {
+      "bytes_per_element": 8,
+      "id": "layer4_2_bn3",
+      "shape": [
+        1,
+        2048,
+        7,
+        7
+      ]
+    },
+    {
+      "bytes_per_element": 8,
+      "id": "add_15",
+      "shape": [
+        1,
+        2048,
+        7,
+        7
+      ]
+    },
+    {
+      "bytes_per_element": 8,
+      "id": "layer4_2_relu_2",
+      "shape": [
+        1,
+        2048,
+        7,
+        7
+      ]
+    },
+    {
+      "bytes_per_element": 8,
+      "id": "avgpool",
+      "shape": [
+        1,
+        2048,
+        1,
+        1
+      ]
+    },
+    {
+      "bytes_per_element": 8,
+      "id": "flatten",
+      "shape": [
+        1,
+        2048
+      ]
+    },
+    {
+      "bytes_per_element": 8,
+      "id": "fc",
+      "shape": [
+        1,
+        1000
+      ]
+    }
+  ]
+}

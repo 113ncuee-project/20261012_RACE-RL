@@ -1,0 +1,141 @@
+[
+  {
+    "action": {
+      "compute_target": "",
+      "count": 1,
+      "kind": "cut_migrate",
+      "root": "conv_b:0",
+      "scope": [
+        "conv_b:0",
+        "residual:0"
+      ],
+      "target": "c1"
+    },
+    "best_objective": 1.0,
+    "cache_hits": 0,
+    "candidate_compute_count": 2,
+    "candidate_hardware_hash": "e3369d0b53eba55aa89ff8d34a6d9866888b677b7d41a69d56a4d1672c841ac5",
+    "candidate_mapping_hash": "0833a4587c3f9b305ff4916b0557bbc8ab87ee039cc0cf13513acb8a82b4d925",
+    "compute_count": 2,
+    "current_objective": 1.2213238902021732,
+    "evaluations": 2,
+    "feasible": true,
+    "requests": 2,
+    "reward": 0.0,
+    "termination": null
+  },
+  {
+    "action": {
+      "distribute": false,
+      "kind": "retile_operator",
+      "operator": "conv_b",
+      "parts": 4,
+      "target": "c0"
+    },
+    "best_objective": 1.0,
+    "cache_hits": 0,
+    "candidate_compute_count": 2,
+    "candidate_hardware_hash": "e3369d0b53eba55aa89ff8d34a6d9866888b677b7d41a69d56a4d1672c841ac5",
+    "candidate_mapping_hash": "ed5fe294fb10a2f42fd7c146610086d4377d8b7e8a5172a7f4e461d99e345a11",
+    "compute_count": 2,
+    "current_objective": 1.330347460612811,
+    "evaluations": 3,
+    "feasible": true,
+    "requests": 3,
+    "reward": 0.0,
+    "termination": null
+  },
+  {
+    "action": {
+      "compute_count": 4,
+      "kind": "resize_mesh"
+    },
+    "best_objective": 1.0,
+    "cache_hits": 0,
+    "candidate_compute_count": 4,
+    "candidate_hardware_hash": "ec937318a8d9f704d5e7627b1735decf2f12581ff075ae10c3d9ac1ec5c410d3",
+    "candidate_mapping_hash": "ed5fe294fb10a2f42fd7c146610086d4377d8b7e8a5172a7f4e461d99e345a11",
+    "compute_count": 4,
+    "current_objective": 1.6732587837525326,
+    "evaluations": 4,
+    "feasible": true,
+    "requests": 4,
+    "reward": 0.0,
+    "termination": null
+  },
+  {
+    "action": {
+      "compute_count": 14,
+      "kind": "resize_mesh"
+    },
+    "best_objective": 1.0,
+    "cache_hits": 0,
+    "candidate_compute_count": 14,
+    "candidate_hardware_hash": "81d2d8bdd4947b90de1db57969a3038860b57d518721b12cb6aea3b7011c5a68",
+    "candidate_mapping_hash": "ed5fe294fb10a2f42fd7c146610086d4377d8b7e8a5172a7f4e461d99e345a11",
+    "compute_count": 14,
+    "current_objective": 3.3878153994511413,
+    "evaluations": 5,
+    "feasible": true,
+    "requests": 5,
+    "reward": 0.0,
+    "termination": null
+  },
+  {
+    "action": {
+      "compute_count": 16,
+      "kind": "resize_mesh"
+    },
+    "best_objective": 1.0,
+    "cache_hits": 0,
+    "candidate_compute_count": 16,
+    "candidate_hardware_hash": "af90634b5ebc2da97d266926f91f0ba85dca6969bdbbbe58dc9c9a672eb702cb",
+    "candidate_mapping_hash": "ed5fe294fb10a2f42fd7c146610086d4377d8b7e8a5172a7f4e461d99e345a11",
+    "compute_count": 16,
+    "current_objective": 3.7307267225908634,
+    "evaluations": 6,
+    "feasible": true,
+    "requests": 6,
+    "reward": 0.0,
+    "termination": null
+  },
+  {
+    "action": {
+      "compute_count": 8,
+      "kind": "resize_mesh"
+    },
+    "best_objective": 1.0,
+    "cache_hits": 0,
+    "candidate_compute_count": 8,
+    "candidate_hardware_hash": "11e768cbaecbcdb4207c36768a79fa364b0464c9fb9c5e1ff783d30cdc340044",
+    "candidate_mapping_hash": "ed5fe294fb10a2f42fd7c146610086d4377d8b7e8a5172a7f4e461d99e345a11",
+    "compute_count": 8,
+    "current_objective": 2.359081430031976,
+    "evaluations": 7,
+    "feasible": true,
+    "requests": 7,
+    "reward": 0.0,
+    "termination": null
+  },
+  {
+    "action": {
+      "distribute": false,
+      "kind": "retile_operator",
+      "operator": "conv_a",
+      "parts": 2,
+      "target": "c2"
+    },
+    "best_objective": 1.0,
+    "cache_hits": 0,
+    "candidate_compute_count": 8,
+    "candidate_hardware_hash": "11e768cbaecbcdb4207c36768a79fa364b0464c9fb9c5e1ff783d30cdc340044",
+    "candidate_mapping_hash": "05f393f34c6fb68cfe92319e929e1f0f426aa0806c42fb16be27237251acb8a5",
+    "compute_count": 8,
+    "current_objective": 2.919797201219327,
+    "evaluations": 8,
+    "feasible": true,
+    "requests": 8,
+    "reward": 0.0,
+    "termination": "budget_exhausted"
+  }
+]

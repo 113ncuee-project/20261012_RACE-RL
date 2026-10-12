@@ -33,4 +33,4 @@ python3 -m venv .venv
 
 96 項測試通過；七個完整 CNN 在 224×224、float64 下通過數值與外部記憶體容量檢查。已執行完整 ResNet-18／16 顆 mesh PPO pilot，以及 10 variants×3 paired seeds 的 H1/H2/H3 開發實驗（480 次訓練、240 次凍結搜尋評估）。
 
-這些是可重現的開發證據。硬體係數未校準；沒有 silicon PPA、全域最优、正式統計顯著性或跨 CNN 泛化主張。本機尚未提交或推送 GitHub，CI 尚未在 GitHub 執行。授權與第三方說明見 [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md)。
+這些是可重現的開發證據。硬體係數未校準；沒有 silicon PPA、全域最优、正式統計顯著性或跨 CNN 泛化主張。本次沒有提交或推送 GitHub，CI 尚未在 GitHub 執行。授權與第三方說明見 [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md)。

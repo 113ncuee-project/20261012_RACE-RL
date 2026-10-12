@@ -1,0 +1,158 @@
+[
+  {
+    "action": {
+      "compute_count": 8,
+      "kind": "resize_mesh"
+    },
+    "best_objective": 1.0,
+    "cache_hits": 0,
+    "candidate_compute_count": 8,
+    "candidate_hardware_hash": "11e768cbaecbcdb4207c36768a79fa364b0464c9fb9c5e1ff783d30cdc340044",
+    "candidate_mapping_hash": "ab236e5a1c11b976415f785a94266ee021f546667ad12edcca672eeae801f490",
+    "compute_count": 8,
+    "current_objective": 1.797023632254787,
+    "evaluations": 2,
+    "feasible": true,
+    "requests": 2,
+    "reward": 0.0,
+    "termination": null
+  },
+  {
+    "action": {
+      "compute_count": 2,
+      "kind": "resize_mesh"
+    },
+    "best_objective": 1.0,
+    "cache_hits": 1,
+    "candidate_compute_count": 2,
+    "candidate_hardware_hash": "e3369d0b53eba55aa89ff8d34a6d9866888b677b7d41a69d56a4d1672c841ac5",
+    "candidate_mapping_hash": "ab236e5a1c11b976415f785a94266ee021f546667ad12edcca672eeae801f490",
+    "compute_count": 2,
+    "current_objective": 1.0,
+    "evaluations": 2,
+    "feasible": true,
+    "requests": 3,
+    "reward": 0.0,
+    "termination": null
+  },
+  {
+    "action": {
+      "compute_count": 10,
+      "kind": "resize_mesh"
+    },
+    "best_objective": 1.0,
+    "cache_hits": 1,
+    "candidate_compute_count": 10,
+    "candidate_hardware_hash": "a15c3ab5a5f352c0143fc798cdbd45d31a8e3ce8e07787d082b5da41eba4231e",
+    "candidate_mapping_hash": "ab236e5a1c11b976415f785a94266ee021f546667ad12edcca672eeae801f490",
+    "compute_count": 10,
+    "current_objective": 2.062698176339716,
+    "evaluations": 3,
+    "feasible": true,
+    "requests": 4,
+    "reward": 0.0,
+    "termination": null
+  },
+  {
+    "action": {
+      "kind": "place_tile",
+      "operator": "",
+      "parts": 0,
+      "storage": "",
+      "target": "c1",
+      "tile": "residual:0"
+    },
+    "best_objective": 1.0,
+    "cache_hits": 1,
+    "candidate_compute_count": 10,
+    "candidate_hardware_hash": "a15c3ab5a5f352c0143fc798cdbd45d31a8e3ce8e07787d082b5da41eba4231e",
+    "candidate_mapping_hash": "0833a4587c3f9b305ff4916b0557bbc8ab87ee039cc0cf13513acb8a82b4d925",
+    "compute_count": 10,
+    "current_objective": 2.512273321051089,
+    "evaluations": 4,
+    "feasible": true,
+    "requests": 5,
+    "reward": 0.0,
+    "termination": null
+  },
+  {
+    "action": {
+      "compute_count": 16,
+      "kind": "resize_mesh"
+    },
+    "best_objective": 1.0,
+    "cache_hits": 1,
+    "candidate_compute_count": 16,
+    "candidate_hardware_hash": "af90634b5ebc2da97d266926f91f0ba85dca6969bdbbbe58dc9c9a672eb702cb",
+    "candidate_mapping_hash": "0833a4587c3f9b305ff4916b0557bbc8ab87ee039cc0cf13513acb8a82b4d925",
+    "compute_count": 16,
+    "current_objective": 3.4804853941877756,
+    "evaluations": 5,
+    "feasible": true,
+    "requests": 6,
+    "reward": 0.0,
+    "termination": null
+  },
+  {
+    "action": {
+      "compute_count": 8,
+      "kind": "resize_mesh"
+    },
+    "best_objective": 1.0,
+    "cache_hits": 1,
+    "candidate_compute_count": 8,
+    "candidate_hardware_hash": "11e768cbaecbcdb4207c36768a79fa364b0464c9fb9c5e1ff783d30cdc340044",
+    "candidate_mapping_hash": "0833a4587c3f9b305ff4916b0557bbc8ab87ee039cc0cf13513acb8a82b4d925",
+    "compute_count": 8,
+    "current_objective": 2.18953596333886,
+    "evaluations": 6,
+    "feasible": true,
+    "requests": 7,
+    "reward": 0.0,
+    "termination": null
+  },
+  {
+    "action": {
+      "kind": "place_tile",
+      "operator": "",
+      "parts": 0,
+      "storage": "",
+      "target": "c2",
+      "tile": "residual:0"
+    },
+    "best_objective": 1.0,
+    "cache_hits": 1,
+    "candidate_compute_count": 8,
+    "candidate_hardware_hash": "11e768cbaecbcdb4207c36768a79fa364b0464c9fb9c5e1ff783d30cdc340044",
+    "candidate_mapping_hash": "42662a36194276f879069b5b492aea66f4982d986d38d1983fe1ca6052cfed9b",
+    "compute_count": 8,
+    "current_objective": 2.250584340604745,
+    "evaluations": 7,
+    "feasible": true,
+    "requests": 8,
+    "reward": 0.0,
+    "termination": null
+  },
+  {
+    "action": {
+      "kind": "partition_operator",
+      "operator": "conv_b",
+      "parts": 4,
+      "storage": "",
+      "target": "",
+      "tile": ""
+    },
+    "best_objective": 1.0,
+    "cache_hits": 1,
+    "candidate_compute_count": 8,
+    "candidate_hardware_hash": "11e768cbaecbcdb4207c36768a79fa364b0464c9fb9c5e1ff783d30cdc340044",
+    "candidate_mapping_hash": "286e2bcd0d4796ada8707cf92ad9c80e0680394742e763a418f7c1df2554af8a",
+    "compute_count": 8,
+    "current_objective": 3.2285701259144886,
+    "evaluations": 8,
+    "feasible": true,
+    "requests": 9,
+    "reward": 0.0,
+    "termination": "budget_exhausted"
+  }
+]
