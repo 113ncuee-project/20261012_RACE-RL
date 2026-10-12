@@ -1,0 +1,17 @@
+.DS_Store
+.venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+build/
+dist/
+.pytest_cache/
+/.cache/
+/*.zip
+/*.pdf
+/experiments/runs/
+/checkpoints/
+*.pt
+*.pth
+# Original source and archived reference evidence are intentionally retained.
+# Generated full-scale results go in ignored runs/; small verified evidence is tracked.
