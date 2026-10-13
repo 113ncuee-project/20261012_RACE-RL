@@ -1,0 +1,22 @@
+{
+  "status": "PASSED",
+  "local_test_count": 142,
+  "actual_macos_launcher": {
+    "occupied_ports": [
+      8765,
+      8766
+    ],
+    "selected_port": 8767,
+    "repeat_launch": "same workspace GUI reused"
+  },
+  "checks": [
+    "same workspace identity",
+    "other workspace not reused",
+    "unrelated app not stopped",
+    "explicit fixed-port collision",
+    "OS-assigned port",
+    "Winsock reserved port"
+  ],
+  "windows_hardware_verification": "NOT_PERFORMED",
+  "rl_and_ppa_contract": "UNCHANGED"
+}

@@ -1,0 +1,70 @@
+{
+  "authorization": "User requested deleting bulky existing training files after verifying the replacement workflow.",
+  "historical_raw_manifests": "Hashes retained as historical identities; referenced old raw outputs are no longer locally available.",
+  "local_date": "2026-10-14T00:12:08.032448+08:00",
+  "preserved": [
+    "source, configs, third_party",
+    "docs/research/evidence historical compact evidence",
+    "experiments/runs/cnn_validation",
+    "experiments/runs/model_suite/smoke_sequential_final and timing_final"
+  ],
+  "removed_directories": [
+    {
+      "bytes": 213959729,
+      "path": "experiments/runs/comparison_models"
+    },
+    {
+      "bytes": 83328746,
+      "path": "experiments/runs/formal_core_hypotheses"
+    },
+    {
+      "bytes": 2678271,
+      "path": "experiments/runs/formal_reinforce_smoke"
+    },
+    {
+      "bytes": 456664587,
+      "path": "experiments/runs/gui_0010ee784a36433aaa3ecd37ec4260e3"
+    },
+    {
+      "bytes": 115109,
+      "path": "experiments/runs/gui_12447550588d48338533127e8b56f959"
+    },
+    {
+      "bytes": 115333,
+      "path": "experiments/runs/gui_36436721a9774c2aadc3a952f0cd618d"
+    },
+    {
+      "bytes": 111373790,
+      "path": "experiments/runs/gui_813677df5ed74f4db2d49f2d57840682"
+    },
+    {
+      "bytes": 4784110,
+      "path": "experiments/runs/gui_b7fcf81199594a5ebd855cd5238c10a7"
+    },
+    {
+      "bytes": 2484337172,
+      "path": "experiments/runs/gui_f42e1d010cdc404d83211c2c93b8da37"
+    },
+    {
+      "bytes": 1523866529,
+      "path": "experiments/runs/gui_f50e3a0f931f428a88ce85a1dbf02dd3"
+    }
+  ],
+  "removed_file_bytes": 4881223376,
+  "status": "COMPLETED",
+  "superseded_validation_removed": [
+    {
+      "bytes": 10339387,
+      "path": "experiments/runs/model_suite/smoke_verification"
+    },
+    {
+      "bytes": 5838762,
+      "path": "experiments/runs/model_suite/smoke_per_model_cli"
+    },
+    {
+      "bytes": 1413544,
+      "path": "experiments/runs/model_suite/timing_verification"
+    }
+  ],
+  "verification": "148 tests passed; all seven model smoke workflows passed; recording parity and resume passed."
+}

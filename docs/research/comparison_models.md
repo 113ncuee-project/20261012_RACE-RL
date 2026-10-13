@@ -34,3 +34,5 @@ python tools/run_hypothesis_pilot.py --comparison-model ppo --variants full_dens
 舊 GUI 已在切換正式版本時停止，其中尚未完成的長搜尋只保留為未完成 PPO 比較執行資料。新環境與正式策略的驗證見 `evidence/`，當前狀態見[研究進度](research_progress.md)。
 
 現行 PPO 的兩種子 smoke 位於 `comparison_models/ppo_current_smoke/`。它與正式模型使用相同的零預評估、聯合動作及完整環境契約，只驗證參數更新／凍結／輸出。沒有 algorithm superiority 的結論；正式 H1/H2/H3 配對 pilot 只使用 REINFORCE。
+
+2026-10-14 依使用者要求清除 experiments/runs 中大型 PPO／正式訓練 raw。此處的小型歷史比較摘要、凍結來源與 hash 保留；不能宣稱原大型輸出仍在本機。清理紀錄见 evidence/training_output_cleanup.json。

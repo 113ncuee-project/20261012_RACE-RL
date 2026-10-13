@@ -160,6 +160,9 @@ class JobManager:
 
 class LocalServer(ThreadingHTTPServer):
     daemon_threads=True
+    # Windows SO_REUSEADDR can allow two processes to bind the same endpoint.
+    allow_reuse_address=os.name!='nt'
+    allow_reuse_port=False
     def __init__(self,address,manager):
         self.manager=manager;self.token=secrets.token_urlsafe(32)
         super().__init__(address,Handler)
@@ -182,6 +185,9 @@ class Handler(BaseHTTPRequestHandler):
     def do_GET(self):
         if not self.valid_host():return self.send(403,{'error':'僅允許本機連線。'})
         path=urlsplit(self.path).path
+        if path=='/api/identity':
+            return self.send(200,{'application':'race-rl-gui','protocol':1,
+                'workspace':str(self.server.manager.root)})
         if path=='/api/config':
             return self.send(200,{'csrf_token':self.server.token,'models':list(SUPPORTED_MODELS),
                 'preferences':[{'id':k,'label':v,'weights':PRESET_WEIGHTS.get(k)} for k,v in PREFERENCE_LABELS.items()]})
@@ -222,14 +228,20 @@ class Handler(BaseHTTPRequestHandler):
 
 def main(argv=None):
     parser=argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('--port',type=int,default=8765)
+    parser.add_argument('--port',type=int,help='固定連接埠；未指定時自動尋找空閒連接埠')
+    parser.add_argument('--auto-port',action='store_true',help='指定連接埠已占用時也自動改用空閒連接埠')
     parser.add_argument('--no-browser',action='store_true')
     args=parser.parse_args(argv)
-    if not 0<=args.port<=65535:parser.error('port must be 0–65535')
+    port=8765 if args.port is None else args.port
+    if not 0<=port<=65535:parser.error('port must be 0–65535')
     manager=JobManager()
-    try:server=LocalServer(('127.0.0.1',args.port),manager)
+    from .startup import prepare_server
+    try:server,url=prepare_server(manager,port,auto_port=args.port is None or args.auto_port,server_factory=LocalServer)
     except OSError as exc:parser.error(f'無法啟動本機伺服器：{exc}；可用 --port 選另一個連接埠。')
-    url=f'http://127.0.0.1:{server.server_address[1]}'
+    if server is None:
+        print(f'已開啟此專案正在執行的 RACE-RL：{url}',flush=True)
+        if not args.no_browser:webbrowser.open(url)
+        return
     print(f'RACE-RL 本機介面：{url}',flush=True)
     print('關閉伺服器：按 Ctrl+C。搜尋與輸出保存在本機專案。',flush=True)
     if not args.no_browser:webbrowser.open(url)

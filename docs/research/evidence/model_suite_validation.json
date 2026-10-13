@@ -1,0 +1,799 @@
+{
+  "actual_actions": 42,
+  "actual_training_updates": 7,
+  "checks": [
+    "full/compact action, PPA, reward, final parameter and RNG parity",
+    "frozen test preserves subsequent training trajectory",
+    "episode-boundary resume equals uninterrupted training",
+    "duplicate transaction cannot overwrite checkpoint",
+    "source identity refuses incompatible resume",
+    "default terminal command configures all seven models sequentially, 60 episodes, input64",
+    "full per-model process times include import, validation, evaluation and report export"
+  ],
+  "completed_models": 7,
+  "current_timing_smoke_protocol": {
+    "claims": "same-workload learning diagnostic; synthetic uncalibrated PPA; one training seed; paired frozen policy tests, not generalization proof",
+    "config": {
+      "algorithm": "reinforce",
+      "compute_counts": [
+        2,
+        1,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "early_stopping": false,
+      "episodes": 1,
+      "evaluation_seeds": [
+        1007
+      ],
+      "input_size": 64,
+      "max_scope": 2,
+      "models": [
+        "resnet18"
+      ],
+      "precision": "float64",
+      "requirements": {
+        "max_area_mm2": 16.0,
+        "max_latency_s": 0.1,
+        "max_power_w": 1.0,
+        "preference": "balanced",
+        "weights": null
+      },
+      "seed": 7,
+      "steps_per_episode": 2
+    },
+    "identity": "5701366d164a2beaf9fe22f5106c8dda8df227dc171f7225c7824fa35dec2f35",
+    "recording": "compressed per-action feedback/design-state in SQLite; one latest transactional checkpoint; one full selected-design ledger",
+    "schema": 1,
+    "smoke_only": true,
+    "source_hashes": {
+      "__init__.py": "ea1b9326507a7d1db9977d92c1b9641e49f6a7453242249f732f9141fcc85433",
+      "actions.py": "e74cdff3a96658b2fac62d9a2a58daaabe4bd899d254ece3120cf08ce3c674ec",
+      "architecture.py": "f4eb072bf4fcefafe91b1cb202c61b96434b423a46729b450ec3a015f20a287f",
+      "baselines.py": "ece021a57a45b88518576cc54f0f35e8ff7bb46d4acad1d92c7d6d126f20f78b",
+      "cli.py": "f3d7bc8e6182c5d1cac57c0a985db6866db7c0cb03af2a7c236fb0f179da6322",
+      "cnn_fixture.py": "a955a1dba481253c85d8787b67a29d4b035892eb12bfbd7d84d24b167682fc5e",
+      "comparisons/__init__.py": "daaf5783f462971429e785ab746781fe61d2b0576a7691f8f5ec9334da0de8f1",
+      "comparisons/ppo.py": "99a6af517797d122dcd262f17c54e0f7698e1bad678bebcf7ba79ab007c1e698",
+      "environment.py": "d0266f30e8f7d3133c3b56e262d78f42c10a0de80a1f0a3f4792baefd396f6fb",
+      "examples.py": "cc016a3444cfe399050f9628b656a29e0bd45a98f6266bcfbc8191aa3f87e41d",
+      "frontend.py": "790134b5c9853b0b62b24b561dc3aa8d96ed0fad76583d018b28be44526ad3db",
+      "hardware.py": "ba74fef0c8f4e95d0ec5a9abd97ef90e5a38126cb85b545404525d792969f2d8",
+      "initialization.py": "bfa4124a6e3f1372af22a3a8c2f39b51fb5e90b402cccfbff0d10024490e2a7a",
+      "mapping.py": "dffe139aacb76409ecbec94af60e95af23fd8c7cf5769e20e1a4a79e729bb8ca",
+      "mesh.py": "08c36358ad23e80aa76db10885e0c813fe516ea7411e36d66fcd22952bf573bf",
+      "model_suite.py": "3704c44c072d27d35b47c8f415365da59797aba28722d4a7658458566c349a8d",
+      "model_validation.py": "01d565999d3a2046fcafe1b63e5db451326880ed726463705cbd951f3d70e899",
+      "network.py": "284e4e63647fbc5f980b602db2ef989570069cebc14bd56a1128e8e848312efa",
+      "observation.py": "d627527084ded3b9b71ad4fa680c998207ade76173202bac83ebb107b13068a0",
+      "oracle.py": "2c6056d910c62629a1fc6443628743c1ea19388aaca6529f0988b83d6400429a",
+      "parameters.py": "abb59819a0e3000c4381a8b1df4c70c6fd4e0c54d54a2517adea3589c3939126",
+      "policy.py": "3ea6ab897f8998e963af7496c0c15382432ebbfb879908f4fe370a8c57e89615",
+      "recording.py": "48f0e81a551caea825be7479e59292b9071244e8696f53c969c7e342d3256b3f",
+      "reference.py": "caab84d5d1574953c4af7ea1b0a2e14fa4562cdd255594dd3b7939a15ab8daf4",
+      "requirements.py": "6f2df88d768ef944a9427a6f2d32be8f63a171ce33830f0cd23cf4e679fd9aac",
+      "rewards.py": "2c0ce3ef0068cc2193dab28cabee7858a283e612d387ba09cd8481a90ee3e9ce",
+      "schedule.py": "e061b5af06f53dfb71d36a773e32f7997994062d3cf500dea574cf000fc5f5dd",
+      "serialization.py": "4f4b82cd1dfa267002f483427440cdb8462ad52ceaaa21ab050b73f6f9b11c6f",
+      "statistics.py": "717af83f3ee87b2b25b6e6a9702ceaf520b8e90546b54beb9b6ed8d6ca20866a",
+      "stopping.py": "55e02902442765010eb81c409161c37c9e561d82061577e6a142a0f6fa2d5365",
+      "suite_report.py": "480bd0b2d52397b34a4486f1591513bce3fdde9ce15d2fc83b8de15d2a9cfcb4",
+      "tiles.py": "2a1d0ffa325c3a384cd880beef6891fe2af80897b9259fce549a2f8cce2b5c08",
+      "training.py": "ecbfe524ed5c866f7be9e418469464f3c41ab2db29187260d05087bb93731d43",
+      "vendor_input.py": "b41b296a903ae8d34d2884fec76f0b4dad58b82ad42f91c0e8a6f073a34ccbda",
+      "workload.py": "7ae1e8a0fe48717d78b3541df2a832ba88da2e14c5db279b0b26b31ab27ee391"
+    },
+    "started_at_utc": "2026-10-13T16:25:13.555872+00:00"
+  },
+  "current_timing_test_actions": 6,
+  "local_test_count": 149,
+  "models": [
+    {
+      "current_process_wall_s": 2.3541272920556366,
+      "evaluation_time_s": 0.6197520841378719,
+      "learning_claim": "Paired frozen-policy rollout diagnostic only; one training seed, no proof of convergence, generalization or algorithm superiority.",
+      "model": "resnet18",
+      "plot_status": "PASSED",
+      "policy_comparisons": [
+        {
+          "after": {
+            "feasible": false,
+            "metrics": {
+              "area_mm2": 2,
+              "average_power_w": 0.007143696223705249,
+              "latency_s": 0.5210977510000006
+            },
+            "physical_feasible": true,
+            "search_merit": 6.851399850051581,
+            "violation_excess": [
+              0.0,
+              4.2109775100000055,
+              0.0
+            ],
+            "violations": [
+              "latency_s=0.521097751 exceeds limit 0.1"
+            ],
+            "weighted_cost": 1.7810404020745703
+          },
+          "after_compute": 2,
+          "after_objective": 0.8726341774590132,
+          "after_steps": 2,
+          "before": {
+            "feasible": false,
+            "metrics": {
+              "area_mm2": 2,
+              "average_power_w": 0.007143696223705249,
+              "latency_s": 0.5210977510000006
+            },
+            "physical_feasible": true,
+            "search_merit": 6.851399850051581,
+            "violation_excess": [
+              0.0,
+              4.2109775100000055,
+              0.0
+            ],
+            "violations": [
+              "latency_s=0.521097751 exceeds limit 0.1"
+            ],
+            "weighted_cost": 1.7810404020745703
+          },
+          "before_compute": 2,
+          "before_objective": 0.8726341774590132,
+          "before_steps": 2,
+          "evaluation_seed": 1007,
+          "frozen_parameters_unchanged": true,
+          "objective_relative_improvement": 0.0
+        }
+      ],
+      "policy_updates": 1,
+      "selected_assessment": {
+        "feasible": false,
+        "metrics": {
+          "area_mm2": 2,
+          "average_power_w": 0.007145608057889355,
+          "latency_s": 0.5214685650000004
+        },
+        "physical_feasible": true,
+        "search_merit": 6.855267817381924,
+        "violation_excess": [
+          0.0,
+          4.214685650000003,
+          0.0
+        ],
+        "violations": [
+          "latency_s=0.521468565 exceeds limit 0.1"
+        ],
+        "weighted_cost": 1.7822770860192974
+      },
+      "selected_compute_count": 2,
+      "smoke_only": true,
+      "training_cache_hits": 0,
+      "training_episodes": 1,
+      "training_evaluations": 2,
+      "training_interaction_and_update_time_s": 0.5365130000282079,
+      "training_steps": 2
+    },
+    {
+      "current_process_wall_s": 5.170367582933977,
+      "evaluation_time_s": 2.2481993340188637,
+      "learning_claim": "Paired frozen-policy rollout diagnostic only; one training seed, no proof of convergence, generalization or algorithm superiority.",
+      "model": "resnet34",
+      "plot_status": "PASSED",
+      "policy_comparisons": [
+        {
+          "after": {
+            "feasible": false,
+            "metrics": {
+              "area_mm2": 4,
+              "average_power_w": 0.009066141480181797,
+              "latency_s": 0.963309632999999
+            },
+            "physical_feasible": true,
+            "search_merit": 11.400396811464093,
+            "violation_excess": [
+              0.0,
+              8.63309632999999,
+              0.0
+            ],
+            "violations": [
+              "latency_s=0.963309633 exceeds limit 0.1"
+            ],
+            "weighted_cost": 3.2973874904933904
+          },
+          "after_compute": 4,
+          "after_objective": 0.9193574193468143,
+          "after_steps": 2,
+          "before": {
+            "feasible": false,
+            "metrics": {
+              "area_mm2": 4,
+              "average_power_w": 0.009066141480181797,
+              "latency_s": 0.963309632999999
+            },
+            "physical_feasible": true,
+            "search_merit": 11.400396811464093,
+            "violation_excess": [
+              0.0,
+              8.63309632999999,
+              0.0
+            ],
+            "violations": [
+              "latency_s=0.963309633 exceeds limit 0.1"
+            ],
+            "weighted_cost": 3.2973874904933904
+          },
+          "before_compute": 4,
+          "before_objective": 0.9193574193468143,
+          "before_steps": 2,
+          "evaluation_seed": 1007,
+          "frozen_parameters_unchanged": true,
+          "objective_relative_improvement": 0.0
+        }
+      ],
+      "policy_updates": 1,
+      "selected_assessment": {
+        "feasible": false,
+        "metrics": {
+          "area_mm2": 5,
+          "average_power_w": 0.010067324114448141,
+          "latency_s": 0.9635391349999991
+        },
+        "physical_feasible": true,
+        "search_merit": 11.403873402192904,
+        "violation_excess": [
+          0.0,
+          8.63539134999999,
+          0.0
+        ],
+        "violations": [
+          "latency_s=0.963539135 exceeds limit 0.1"
+        ],
+        "weighted_cost": 3.319319558038146
+      },
+      "selected_compute_count": 5,
+      "smoke_only": true,
+      "training_cache_hits": 0,
+      "training_episodes": 1,
+      "training_evaluations": 2,
+      "training_interaction_and_update_time_s": 1.4318857500329614,
+      "training_steps": 2
+    },
+    {
+      "current_process_wall_s": 9.883391582989134,
+      "evaluation_time_s": 4.893107665935531,
+      "learning_claim": "Paired frozen-policy rollout diagnostic only; one training seed, no proof of convergence, generalization or algorithm superiority.",
+      "model": "resnet50",
+      "plot_status": "PASSED",
+      "policy_comparisons": [
+        {
+          "after": {
+            "feasible": false,
+            "metrics": {
+              "area_mm2": 2,
+              "average_power_w": 0.007184760862253639,
+              "latency_s": 1.2227067640000007
+            },
+            "physical_feasible": true,
+            "search_merit": 14.031745633322677,
+            "violation_excess": [
+              0.0,
+              11.227067640000007,
+              0.0
+            ],
+            "violations": [
+              "latency_s=1.222706764 exceeds limit 0.1"
+            ],
+            "weighted_cost": 4.11975080028742
+          },
+          "after_compute": 2,
+          "after_objective": 0.9334741270645786,
+          "after_steps": 2,
+          "before": {
+            "feasible": false,
+            "metrics": {
+              "area_mm2": 2,
+              "average_power_w": 0.007184760862253639,
+              "latency_s": 1.2227067640000007
+            },
+            "physical_feasible": true,
+            "search_merit": 14.031745633322677,
+            "violation_excess": [
+              0.0,
+              11.227067640000007,
+              0.0
+            ],
+            "violations": [
+              "latency_s=1.222706764 exceeds limit 0.1"
+            ],
+            "weighted_cost": 4.11975080028742
+          },
+          "before_compute": 2,
+          "before_objective": 0.9334741270645786,
+          "before_steps": 2,
+          "evaluation_seed": 1007,
+          "frozen_parameters_unchanged": true,
+          "objective_relative_improvement": 0.0
+        }
+      ],
+      "policy_updates": 1,
+      "selected_assessment": {
+        "feasible": false,
+        "metrics": {
+          "area_mm2": 2,
+          "average_power_w": 0.007187745297497689,
+          "latency_s": 1.2217934460000008
+        },
+        "physical_feasible": true,
+        "search_merit": 14.022496276519966,
+        "violation_excess": [
+          0.0,
+          11.217934460000007,
+          0.0
+        ],
+        "violations": [
+          "latency_s=1.221793446 exceeds limit 0.1"
+        ],
+        "weighted_cost": 4.116707401765835
+      },
+      "selected_compute_count": 2,
+      "smoke_only": true,
+      "training_cache_hits": 0,
+      "training_episodes": 1,
+      "training_evaluations": 2,
+      "training_interaction_and_update_time_s": 3.1317142080515623,
+      "training_steps": 2
+    },
+    {
+      "current_process_wall_s": 7.77621912502218,
+      "evaluation_time_s": 0.5424223749432713,
+      "learning_claim": "Paired frozen-policy rollout diagnostic only; one training seed, no proof of convergence, generalization or algorithm superiority.",
+      "model": "vgg16",
+      "plot_status": "PASSED",
+      "policy_comparisons": [
+        {
+          "after": {
+            "feasible": false,
+            "metrics": {
+              "area_mm2": 1,
+              "average_power_w": 0.006143474666405232,
+              "latency_s": 4.830703464000002
+            },
+            "physical_feasible": true,
+            "search_merit": 50.24864125016865,
+            "violation_excess": [
+              0.0,
+              47.30703464000001,
+              0.0
+            ],
+            "violations": [
+              "latency_s=4.830703464 exceeds limit 0.1"
+            ],
+            "weighted_cost": 16.125226038222138
+          },
+          "after_compute": 1,
+          "after_objective": 0.9804872875532733,
+          "after_steps": 2,
+          "before": {
+            "feasible": false,
+            "metrics": {
+              "area_mm2": 1,
+              "average_power_w": 0.006143474666405232,
+              "latency_s": 4.830703464000002
+            },
+            "physical_feasible": true,
+            "search_merit": 50.24864125016865,
+            "violation_excess": [
+              0.0,
+              47.30703464000001,
+              0.0
+            ],
+            "violations": [
+              "latency_s=4.830703464 exceeds limit 0.1"
+            ],
+            "weighted_cost": 16.125226038222138
+          },
+          "before_compute": 1,
+          "before_objective": 0.9804872875532733,
+          "before_steps": 2,
+          "evaluation_seed": 1007,
+          "frozen_parameters_unchanged": true,
+          "objective_relative_improvement": 0.0
+        }
+      ],
+      "policy_updates": 1,
+      "selected_assessment": {
+        "feasible": false,
+        "metrics": {
+          "area_mm2": 3,
+          "average_power_w": 0.008315159928215613,
+          "latency_s": 5.800063149999994
+        },
+        "physical_feasible": true,
+        "search_merit": 59.95160904585859,
+        "violation_excess": [
+          0.0,
+          57.00063149999994,
+          0.0
+        ],
+        "violations": [
+          "latency_s=5.80006315 exceeds limit 0.1"
+        ],
+        "weighted_cost": 19.398815553309383
+      },
+      "selected_compute_count": 3,
+      "smoke_only": true,
+      "training_cache_hits": 0,
+      "training_episodes": 1,
+      "training_evaluations": 2,
+      "training_interaction_and_update_time_s": 0.5294102920452133,
+      "training_steps": 2
+    },
+    {
+      "current_process_wall_s": 9.097568167024292,
+      "evaluation_time_s": 1.384451459045522,
+      "learning_claim": "Paired frozen-policy rollout diagnostic only; one training seed, no proof of convergence, generalization or algorithm superiority.",
+      "model": "vgg19",
+      "plot_status": "PASSED",
+      "policy_comparisons": [
+        {
+          "after": {
+            "feasible": false,
+            "metrics": {
+              "area_mm2": 2,
+              "average_power_w": 0.007182712974509281,
+              "latency_s": 6.310487600000021
+            },
+            "physical_feasible": true,
+            "search_merit": 65.05958413381093,
+            "violation_excess": [
+              0.0,
+              62.10487600000021,
+              0.0
+            ],
+            "violations": [
+              "latency_s=6.3104876 exceeds limit 0.1"
+            ],
+            "weighted_cost": 21.079019570991573
+          },
+          "after_compute": 2,
+          "after_objective": 0.9848621511456326,
+          "after_steps": 2,
+          "before": {
+            "feasible": false,
+            "metrics": {
+              "area_mm2": 2,
+              "average_power_w": 0.007182712974509281,
+              "latency_s": 6.310487600000021
+            },
+            "physical_feasible": true,
+            "search_merit": 65.05958413381093,
+            "violation_excess": [
+              0.0,
+              62.10487600000021,
+              0.0
+            ],
+            "violations": [
+              "latency_s=6.3104876 exceeds limit 0.1"
+            ],
+            "weighted_cost": 21.079019570991573
+          },
+          "before_compute": 2,
+          "before_objective": 0.9848621511456326,
+          "before_steps": 2,
+          "evaluation_seed": 1007,
+          "frozen_parameters_unchanged": true,
+          "objective_relative_improvement": 0.0
+        }
+      ],
+      "policy_updates": 1,
+      "selected_assessment": {
+        "feasible": false,
+        "metrics": {
+          "area_mm2": 2,
+          "average_power_w": 0.007182961672753648,
+          "latency_s": 6.306772258000006
+        },
+        "physical_feasible": true,
+        "search_merit": 65.02240529479471,
+        "violation_excess": [
+          0.0,
+          62.06772258000006,
+          0.0
+        ],
+        "violations": [
+          "latency_s=6.306772258 exceeds limit 0.1"
+        ],
+        "weighted_cost": 21.066635180557604
+      },
+      "selected_compute_count": 2,
+      "smoke_only": true,
+      "training_cache_hits": 0,
+      "training_episodes": 1,
+      "training_evaluations": 2,
+      "training_interaction_and_update_time_s": 0.7053403329337016,
+      "training_steps": 2
+    },
+    {
+      "current_process_wall_s": 9.607635290944017,
+      "evaluation_time_s": 4.789206916932017,
+      "learning_claim": "Paired frozen-policy rollout diagnostic only; one training seed, no proof of convergence, generalization or algorithm superiority.",
+      "model": "mobilenet_v2",
+      "plot_status": "PASSED",
+      "policy_comparisons": [
+        {
+          "after": {
+            "feasible": false,
+            "metrics": {
+              "area_mm2": 2,
+              "average_power_w": 0.007588173349636087,
+              "latency_s": 0.20993751600000013
+            },
+            "physical_feasible": true,
+            "search_merit": 3.525976646123314,
+            "violation_excess": [
+              0.0,
+              1.099375160000001,
+              0.0
+            ],
+            "violations": [
+              "latency_s=0.209937516 exceeds limit 0.1"
+            ],
+            "weighted_cost": 0.7439877777832123
+          },
+          "after_compute": 2,
+          "after_objective": 0.7790532125576606,
+          "after_steps": 2,
+          "before": {
+            "feasible": false,
+            "metrics": {
+              "area_mm2": 2,
+              "average_power_w": 0.007588173349636087,
+              "latency_s": 0.20993751600000013
+            },
+            "physical_feasible": true,
+            "search_merit": 3.525976646123314,
+            "violation_excess": [
+              0.0,
+              1.099375160000001,
+              0.0
+            ],
+            "violations": [
+              "latency_s=0.209937516 exceeds limit 0.1"
+            ],
+            "weighted_cost": 0.7439877777832123
+          },
+          "before_compute": 2,
+          "before_objective": 0.7790532125576606,
+          "before_steps": 2,
+          "evaluation_seed": 1007,
+          "frozen_parameters_unchanged": true,
+          "objective_relative_improvement": 0.0
+        }
+      ],
+      "policy_updates": 1,
+      "selected_assessment": {
+        "feasible": false,
+        "metrics": {
+          "area_mm2": 2,
+          "average_power_w": 0.007587696131490922,
+          "latency_s": 0.20967470499999993
+        },
+        "physical_feasible": true,
+        "search_merit": 3.523060310550146,
+        "violation_excess": [
+          0.0,
+          1.0967470499999994,
+          0.0
+        ],
+        "violations": [
+          "latency_s=0.209674705 exceeds limit 0.1"
+        ],
+        "weighted_cost": 0.7431115820438301
+      },
+      "selected_compute_count": 2,
+      "smoke_only": true,
+      "training_cache_hits": 0,
+      "training_episodes": 1,
+      "training_evaluations": 2,
+      "training_interaction_and_update_time_s": 3.459188084001653,
+      "training_steps": 2
+    },
+    {
+      "current_process_wall_s": 2.7641795419622213,
+      "evaluation_time_s": 0.3930572490207851,
+      "learning_claim": "Paired frozen-policy rollout diagnostic only; one training seed, no proof of convergence, generalization or algorithm superiority.",
+      "model": "alexnet",
+      "plot_status": "PASSED",
+      "policy_comparisons": [
+        {
+          "after": {
+            "feasible": false,
+            "metrics": {
+              "area_mm2": 14,
+              "average_power_w": 0.019830881485410692,
+              "latency_s": 1.7435901960000006
+            },
+            "physical_feasible": true,
+            "search_merit": 19.29525981599615,
+            "violation_excess": [
+              0.0,
+              16.435901960000006,
+              0.0
+            ],
+            "violations": [
+              "latency_s=1.743590196 exceeds limit 0.1"
+            ],
+            "weighted_cost": 6.110244280495139
+          },
+          "after_compute": 14,
+          "after_objective": 0.9507274107813181,
+          "after_steps": 2,
+          "before": {
+            "feasible": false,
+            "metrics": {
+              "area_mm2": 14,
+              "average_power_w": 0.019830881485410692,
+              "latency_s": 1.7435901960000006
+            },
+            "physical_feasible": true,
+            "search_merit": 19.29525981599615,
+            "violation_excess": [
+              0.0,
+              16.435901960000006,
+              0.0
+            ],
+            "violations": [
+              "latency_s=1.743590196 exceeds limit 0.1"
+            ],
+            "weighted_cost": 6.110244280495139
+          },
+          "before_compute": 14,
+          "before_objective": 0.9507274107813181,
+          "before_steps": 2,
+          "evaluation_seed": 1007,
+          "frozen_parameters_unchanged": true,
+          "objective_relative_improvement": 0.0
+        }
+      ],
+      "policy_updates": 1,
+      "selected_assessment": {
+        "feasible": false,
+        "metrics": {
+          "area_mm2": 2,
+          "average_power_w": 0.00783140884831233,
+          "latency_s": 1.7433373760000004
+        },
+        "physical_feasible": true,
+        "search_merit": 19.28750338793233,
+        "violation_excess": [
+          0.0,
+          16.433373760000002,
+          0.0
+        ],
+        "violations": [
+          "latency_s=1.743337376 exceeds limit 0.1"
+        ],
+        "weighted_cost": 5.855401722949438
+      },
+      "selected_compute_count": 2,
+      "smoke_only": true,
+      "training_cache_hits": 0,
+      "training_episodes": 1,
+      "training_evaluations": 2,
+      "training_interaction_and_update_time_s": 0.24250325001776218,
+      "training_steps": 2
+    }
+  ],
+  "raw_outputs": [
+    "experiments/runs/model_suite/smoke_sequential_final",
+    "experiments/runs/model_suite/timing_final"
+  ],
+  "research_claim": "Smoke flow checks only. Formal 60 episodes/model remain for the user to run.",
+  "seven_model_smoke_protocol": {
+    "claims": "same-workload learning diagnostic; synthetic uncalibrated PPA; one training seed; paired frozen policy tests, not generalization proof",
+    "config": {
+      "algorithm": "reinforce",
+      "compute_counts": [
+        2,
+        1,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "early_stopping": false,
+      "episodes": 1,
+      "evaluation_seeds": [
+        1007
+      ],
+      "input_size": 64,
+      "max_scope": 2,
+      "models": [
+        "resnet18",
+        "resnet34",
+        "resnet50",
+        "vgg16",
+        "vgg19",
+        "mobilenet_v2",
+        "alexnet"
+      ],
+      "precision": "float64",
+      "requirements": {
+        "max_area_mm2": 16.0,
+        "max_latency_s": 0.1,
+        "max_power_w": 1.0,
+        "preference": "balanced",
+        "weights": null
+      },
+      "seed": 7,
+      "steps_per_episode": 2
+    },
+    "identity": "571b7e7fce07e09b8f3a892b74ed91a756b91d9713b8efc3c4f93564e4ab833b",
+    "recording": "compressed per-action feedback/design-state in SQLite; one latest transactional checkpoint; one full selected-design ledger",
+    "schema": 1,
+    "smoke_only": true,
+    "source_hashes": {
+      "__init__.py": "ea1b9326507a7d1db9977d92c1b9641e49f6a7453242249f732f9141fcc85433",
+      "actions.py": "e74cdff3a96658b2fac62d9a2a58daaabe4bd899d254ece3120cf08ce3c674ec",
+      "architecture.py": "f4eb072bf4fcefafe91b1cb202c61b96434b423a46729b450ec3a015f20a287f",
+      "baselines.py": "ece021a57a45b88518576cc54f0f35e8ff7bb46d4acad1d92c7d6d126f20f78b",
+      "cli.py": "f3d7bc8e6182c5d1cac57c0a985db6866db7c0cb03af2a7c236fb0f179da6322",
+      "cnn_fixture.py": "a955a1dba481253c85d8787b67a29d4b035892eb12bfbd7d84d24b167682fc5e",
+      "comparisons/__init__.py": "daaf5783f462971429e785ab746781fe61d2b0576a7691f8f5ec9334da0de8f1",
+      "comparisons/ppo.py": "99a6af517797d122dcd262f17c54e0f7698e1bad678bebcf7ba79ab007c1e698",
+      "environment.py": "d0266f30e8f7d3133c3b56e262d78f42c10a0de80a1f0a3f4792baefd396f6fb",
+      "examples.py": "cc016a3444cfe399050f9628b656a29e0bd45a98f6266bcfbc8191aa3f87e41d",
+      "frontend.py": "790134b5c9853b0b62b24b561dc3aa8d96ed0fad76583d018b28be44526ad3db",
+      "hardware.py": "ba74fef0c8f4e95d0ec5a9abd97ef90e5a38126cb85b545404525d792969f2d8",
+      "initialization.py": "bfa4124a6e3f1372af22a3a8c2f39b51fb5e90b402cccfbff0d10024490e2a7a",
+      "mapping.py": "dffe139aacb76409ecbec94af60e95af23fd8c7cf5769e20e1a4a79e729bb8ca",
+      "mesh.py": "08c36358ad23e80aa76db10885e0c813fe516ea7411e36d66fcd22952bf573bf",
+      "model_suite.py": "59157ea2f43a682a52751b1608fbf1d31b2e9faf813135fdaf837da6bea99d52",
+      "model_validation.py": "01d565999d3a2046fcafe1b63e5db451326880ed726463705cbd951f3d70e899",
+      "network.py": "284e4e63647fbc5f980b602db2ef989570069cebc14bd56a1128e8e848312efa",
+      "observation.py": "d627527084ded3b9b71ad4fa680c998207ade76173202bac83ebb107b13068a0",
+      "oracle.py": "2c6056d910c62629a1fc6443628743c1ea19388aaca6529f0988b83d6400429a",
+      "parameters.py": "abb59819a0e3000c4381a8b1df4c70c6fd4e0c54d54a2517adea3589c3939126",
+      "policy.py": "3ea6ab897f8998e963af7496c0c15382432ebbfb879908f4fe370a8c57e89615",
+      "recording.py": "48f0e81a551caea825be7479e59292b9071244e8696f53c969c7e342d3256b3f",
+      "reference.py": "caab84d5d1574953c4af7ea1b0a2e14fa4562cdd255594dd3b7939a15ab8daf4",
+      "requirements.py": "6f2df88d768ef944a9427a6f2d32be8f63a171ce33830f0cd23cf4e679fd9aac",
+      "rewards.py": "2c0ce3ef0068cc2193dab28cabee7858a283e612d387ba09cd8481a90ee3e9ce",
+      "schedule.py": "e061b5af06f53dfb71d36a773e32f7997994062d3cf500dea574cf000fc5f5dd",
+      "serialization.py": "4f4b82cd1dfa267002f483427440cdb8462ad52ceaaa21ab050b73f6f9b11c6f",
+      "statistics.py": "717af83f3ee87b2b25b6e6a9702ceaf520b8e90546b54beb9b6ed8d6ca20866a",
+      "stopping.py": "55e02902442765010eb81c409161c37c9e561d82061577e6a142a0f6fa2d5365",
+      "suite_report.py": "4ebe0dd564d072684c3b2c113f0923e41d6ee3c80aef5dde99e0bb567a9f1e23",
+      "tiles.py": "2a1d0ffa325c3a384cd880beef6891fe2af80897b9259fce549a2f8cce2b5c08",
+      "training.py": "ecbfe524ed5c866f7be9e418469464f3c41ab2db29187260d05087bb93731d43",
+      "vendor_input.py": "b41b296a903ae8d34d2884fec76f0b4dad58b82ad42f91c0e8a6f073a34ccbda",
+      "workload.py": "7ae1e8a0fe48717d78b3541df2a832ba88da2e14c5db279b0b26b31ab27ee391"
+    },
+    "started_at_utc": "2026-10-13T16:18:14.020893+00:00"
+  },
+  "smoke_only": true,
+  "status": "PASSED",
+  "windows_hardware_verification": "NOT_PERFORMED"
+}

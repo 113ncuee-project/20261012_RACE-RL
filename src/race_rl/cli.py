@@ -61,6 +61,7 @@ def main(argv=None):
     parser.add_argument("--requirements",type=Path,help="vendor PPA requirements JSON")
     parser.add_argument("--interactive",action='store_true',help="guided Chinese PPA input")
     parser.add_argument("--action-mode",choices=('coupled','independent'),default='coupled')
+    parser.add_argument('--recording',choices=('compact','full'),default='compact',help='compact SQLite feedback records or full per-candidate ledgers')
     parser.add_argument("--bottleneck-weight",type=float,default=0.0)
     parser.add_argument("--early-stop",action='store_true')
     parser.add_argument("--min-episodes",type=int,default=20)
@@ -137,7 +138,7 @@ def main(argv=None):
             from .architecture import DEFAULT_COUNTS
             summary = search_mesh(imported.workload,args.out/'search',compute_counts=args.compute_counts or DEFAULT_COUNTS,
                 episodes=args.episodes,budget=args.budget,max_scope=args.max_scope,seed=args.seed,requirements=vendor_requirements,
-                state_variant=args.state,action_mode=args.action_mode,reward_variant=args.reward,lambda_c=args.bottleneck_weight,early_stopping=early_stopping)
+                state_variant=args.state,action_mode=args.action_mode,reward_variant=args.reward,lambda_c=args.bottleneck_weight,early_stopping=early_stopping,recording=args.recording)
             print(f"{summary['requirements_status']}: selected compute chiplets={summary['selected_compute_count']}; evaluations={summary['total_oracle_evaluations']}")
             return
         if args.analytical_check:

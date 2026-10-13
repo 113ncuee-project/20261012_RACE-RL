@@ -5,4 +5,4 @@ if [[ ! -x .venv/bin/python ]]; then
   read '?按 Enter 結束…'
   exit 1
 fi
-.venv/bin/python -m race_gui.server
+.venv/bin/python -m race_gui.server --auto-port "$@"

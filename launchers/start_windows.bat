@@ -6,5 +6,5 @@ if not exist ".venv\Scripts\python.exe" (
   pause
   exit /b 1
 )
-".venv\Scripts\python.exe" -m race_gui.server
+".venv\Scripts\python.exe" -m race_gui.server --auto-port %*
 if errorlevel 1 pause

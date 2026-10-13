@@ -36,3 +36,5 @@ J=M/(1+M)，越低越好。以下為配對描述性差異：left−right，負�
 PPO 只做了新環境契約下的兩種子可執行 smoke，未形成 PPO 對 REINFORCE 的優越性證據。舊 0.7.0 PPO pilot 位於[比較模型紀錄](comparison_models.md)，未重標為正式成果。
 
 現行證據：[protocol](evidence/formal_core_hypotheses/protocol.json)、[query／source audit](evidence/formal_core_hypotheses/audit.json)、[PPA audit](evidence/formal_core_hypotheses/scoring_audit.json)、[trial results](evidence/formal_core_hypotheses/trial_results.json)。完整 raw／checkpoints 由可重現工具產生，另有 SHA256 manifest。
+
+2026-10-14 清理大型訓練資料後，以上小型歷史證據仍保留；舊 raw／checkpoint 已刪除，原 SHA256 manifest 只保留歷史身份。新 60 回合模型訓練由終端批次重跑，尚未執行，不能取代上述 pilot 的結果或當成新增假說證據。

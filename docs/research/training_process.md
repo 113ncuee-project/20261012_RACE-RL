@@ -63,3 +63,15 @@ REINFORCE loss：`L=-Σ_t G_t log πθ(a_t|O_t)`。每回合對 on-policy trajec
 ## 動作產生效率
 
 合法 mask 直接由相依範圍、完整 operator ownership、placement／storage 與 output 維度計算。逐候選建立完整 mapping／全域 validate 已移除；只有真正抽樣的 action 透過 apply 做完整結構驗證，再由環境算 PPA。獨立逐候選編譯 reference 核對 action 集合及順序相同，包含多顆數、scope、canonical／非 canonical 與重新切分狀態。這是加速合法性檢查，並沒有使用預測器或刪減探索空間。
+
+## Episode 結束與策略更新時機
+
+由 environment.done 決定回合結束：互動 requests 上限、新 PPA 評估額度或沒有合法 action。GUI 的內部互動上限目前是 64，起始不評估；重訪快取也算互動。這是尚待實驗驗證的有限 horizon，不是 RL 必要常數。達標不自動終止，仍可依偏好改善；objective plateau 在 episode 結束後控制整個訓練是否停止。每個完整 action 都立刻得到 reward 與 next state；累積回合資料後才做一次 REINFORCE 策略更新，再重設環境開始下一回合。
+
+## 精簡紀錄與終端批次
+
+一般 GUI／search-mesh 改為預設 compact SQLite，沒有變更 Agent 的輸入、合法 action、PPA、reward、回合互動上限或更新條件。同 seed 回歸已核對完整與精簡紀錄的 action、PPA、reward、最終 policy 及 RNG 一致。回合內 cache 不刪除、不改變重複設計計費；省略的是每個候選的重複大型磁碟帳本。最終選中方案的完整帳本保留。研究需要全部候選帳本時指定 --recording full。
+
+使用者執行 tools/train_model_suite.py 後，七模型依序各 60 訓練回合、64×64、每回合 64 完整互動，停用提前停止。每模型獨立初始策略；所有設計自由度仍由同一策略代理。PPA 讀既有 vendor_requirements.json。前後各做同預算凍結策略測試，還原訓練 RNG，結果與訓練計費分開。報告同時列搜尋最佳值與配對策略前後測，避免把更多探索誤判為策略學習。
+
+每完整回合以 SQLite 交易一起提交 trajectory、統計和最新 policy／optimizer／RNG；中斷回合不當成已完成，接續時重跑。逐次 state 保存可重播的硬體／mapping 身份、PPA、reward 與預算，不重複保存完整數值關係圖。正式 60 回合由使用者自行啟動，本次短 smoke 不是研究成效結論。

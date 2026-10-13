@@ -36,7 +36,7 @@ class RACETrainer:
         def progress(stage):
             if not hasattr(env,'progress_path'):return
             from .serialization import save_json
-            save_json(env.progress_path,{'stage':stage,'episode':self.episodes+1,
+            save_json(env.progress_path,{**getattr(env,'progress_context',{}),'stage':stage,'episode':self.episodes+1,
                 'evaluations':env.oracle.evaluations,'evaluation_budget':env.oracle.budget,
                 'requests':env.oracle.requests,'cache_hits':env.oracle.cache_hits,
                 'current_ppa':({'power_w':env.current_record.average_power_w,'latency_s':env.current_record.latency_s,

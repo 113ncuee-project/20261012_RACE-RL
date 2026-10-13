@@ -324,10 +324,11 @@ def nondominated(rows):
 
 def search_mesh(workload,folder,*,compute_counts=DEFAULT_COUNTS,episodes=3,budget=16,
                 max_scope=2,seed=7,max_area_mm2=None,width=32,state_variant='full',
-                action_mode='coupled',reward_variant='dense',lambda_c=0.0,requirements=None,early_stopping=None):
+                action_mode='coupled',reward_variant='dense',lambda_c=0.0,requirements=None,early_stopping=None,recording='compact'):
     from .training import RACETrainer
     from .cli import export
     if type(episodes) is not int or episodes < 1: raise ValueError('positive episodes required')
+    if recording not in ('compact','full'): raise ValueError('recording must be compact or full')
     plateau = ObjectivePlateau(PlateauSettings(**early_stopping)) if early_stopping is not None else None
     stop_reason = 'EPISODE_LIMIT'
     folder.mkdir(parents=True,exist_ok=True)
@@ -336,8 +337,12 @@ def search_mesh(workload,folder,*,compute_counts=DEFAULT_COUNTS,episodes=3,budge
         action_mode=action_mode,reward_variant=reward_variant,lambda_c=lambda_c)
     DesignEnvironment(workload,**settings)
     trainer = RACETrainer(seed=seed,width=width,precision='float64',state_variant=state_variant)
+    recorder = None
+    if recording == 'compact':
+        from .recording import CompactRecorder
+        recorder = CompactRecorder(folder/'history.sqlite',digest({'workload':workload,'settings':settings,'source':code_hashes()}))
     save_json(folder/'config.json',{'env':settings,'episodes':episodes,'early_stopping':early_stopping,'training':trainer.config,'source_hashes':code_hashes(),
-        'precision':'float64 workload/features/parameters/returns/policy-gradient arithmetic',
+        'recording':recording,'precision':'float64 workload/features/parameters/returns/policy-gradient arithmetic',
         'policy':'ONE shared encoder, actor and optimizer; no critic; all action families may occur at every step',
         'exploration':'5% uniform mixture in family and conditional distributions; actual mixture log probabilities',
         'profile':'compute-only mesh; external-memory services are not physical chiplets; fixed per-compute specs; uncalibrated capacity/area density',
@@ -353,10 +358,14 @@ def search_mesh(workload,folder,*,compute_counts=DEFAULT_COUNTS,episodes=3,budge
             resize_steps=sum(isinstance(r['action'],CountAction) for r in env.trace),
             multi_tile_coupled_steps=sum(len(getattr(r['action'],'scope',()))>1 for r in env.trace),
             retile_steps=sum(isinstance(r['action'],RetileAction) for r in env.trace))
-        export(folder/f'episode_{i+1:04d}',env,stats)
-        if env.best_hardware is not None:
-            save_json(folder/f'episode_{i+1:04d}'/('best_hardware.json' if env.feasible(env.best_record) else 'closest_hardware.json'),env.best_hardware)
-        save_json(folder/f'episode_{i+1:04d}'/'compiler.json',env.compiler)
+        if recorder is not None:
+            recorder.record('train',seed,i+1,env,stats)
+            if i == 0: save_json(folder/'compiler.json',env.compiler)
+        else:
+            export(folder/f'episode_{i+1:04d}',env,stats)
+            if env.best_hardware is not None:
+                save_json(folder/f'episode_{i+1:04d}'/('best_hardware.json' if env.feasible(env.best_record) else 'closest_hardware.json'),env.best_hardware)
+            save_json(folder/f'episode_{i+1:04d}'/'compiler.json',env.compiler)
         for key,record in env.oracle.cache.items():
             h,mapping = env.oracle.designs[key]
             rows.append({'episode':i+1,'design_hash':key,'compute_count':len(h.compute_ids),'total_chiplets':len(h.nodes),
@@ -398,9 +407,10 @@ def search_mesh(workload,folder,*,compute_counts=DEFAULT_COUNTS,episodes=3,budge
         'counts_evaluated':sorted({r['compute_count'] for r in rows}),'counts_requested':compute_counts,
         'resize_steps':sum(s['resize_steps'] for s in trainer.history),'retile_steps':sum(s['retile_steps'] for s in trainer.history),
         'multi_tile_coupled_steps':sum(s['multi_tile_coupled_steps'] for s in trainer.history),
-        'wall_time_s':time.perf_counter()-started,'source_hashes':code_hashes(),
+        'wall_time_s':time.perf_counter()-started,'source_hashes':code_hashes(),'recording':recording,
         'limitations':'finite count/output-partition candidates; short same-workload learning; no global-optimum or silicon PPA guarantee',
         'reward_contract':{'global_reference':'unmeasured archive sentinel J=1; measured J=M/(1+M); fixed vendor-limit scales or declared SI unit scales','variant':reward_variant,'lambda_c':lambda_c,
             'gamma':1.0,'accepts_worse_feasible_states':True}}
     save_json(folder/'summary.json',summary)
+    if recorder is not None: recorder.close()
     return summary
