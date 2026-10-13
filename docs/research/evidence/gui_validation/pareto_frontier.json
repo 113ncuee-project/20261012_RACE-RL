@@ -1,0 +1,219 @@
+[
+  {
+    "area_mm2": 2,
+    "average_power_w": 0.007144540955168044,
+    "compute_count": 2,
+    "design_hash": "dfa6405bab3ae28e5527f89da5c30a7aa129c57c1e81a77d02f12c24e0ac8d18",
+    "energy_j": 0.0037278112280000023,
+    "episode": 1,
+    "feasible": true,
+    "hardware_hash": "e3369d0b53eba55aa89ff8d34a6d9866888b677b7d41a69d56a4d1672c841ac5",
+    "latency_s": 0.5217705730000006,
+    "mapping_hash": "98caa68b53cacd8e5d688a5b5bf70a834686093369dd0b8c9a2431f76c6cf789",
+    "ppa_assessment": {
+      "feasible": true,
+      "metrics": {
+        "area_mm2": 2,
+        "average_power_w": 0.007144540955168044,
+        "latency_s": 0.5217705730000006
+      },
+      "physical_feasible": true,
+      "search_merit": 0.1789628640954771,
+      "violation_excess": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "violations": [],
+      "weighted_cost": 0.21797170465172286
+    },
+    "total_chiplets": 2,
+    "violations": []
+  },
+  {
+    "area_mm2": 2,
+    "average_power_w": 0.007145608057889355,
+    "compute_count": 2,
+    "design_hash": "4ffdd75ed43d468fabfb8c05c90daf5baf8a42ac9966e053911d5b535406a519",
+    "energy_j": 0.0037262099800000016,
+    "episode": 1,
+    "feasible": true,
+    "hardware_hash": "e3369d0b53eba55aa89ff8d34a6d9866888b677b7d41a69d56a4d1672c841ac5",
+    "latency_s": 0.5214685650000004,
+    "mapping_hash": "d6e1e2489c3aa3ee7c189cbb4b108898645b3675ca24aa98b52ce8eebc1f5b37",
+    "ppa_assessment": {
+      "feasible": true,
+      "metrics": {
+        "area_mm2": 2,
+        "average_power_w": 0.007145608057889355,
+        "latency_s": 0.5214685650000004
+      },
+      "physical_feasible": true,
+      "search_merit": 0.17889523690752704,
+      "violation_excess": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "violations": [],
+      "weighted_cost": 0.21787139101929656
+    },
+    "total_chiplets": 2,
+    "violations": []
+  },
+  {
+    "area_mm2": 2,
+    "average_power_w": 0.00714577911054502,
+    "compute_count": 2,
+    "design_hash": "76e85bcbe00d79229c799d44e8d7a643bf7bd19c25859cfd780a104875ab2b70",
+    "energy_j": 0.0037259476920000014,
+    "episode": 1,
+    "feasible": true,
+    "hardware_hash": "e3369d0b53eba55aa89ff8d34a6d9866888b677b7d41a69d56a4d1672c841ac5",
+    "latency_s": 0.5214193770000004,
+    "mapping_hash": "dbc53fbc6ae0ef9e8796519d5cec49216acc9a92483edcf32a79a9e5b4dab7ee",
+    "ppa_assessment": {
+      "feasible": true,
+      "metrics": {
+        "area_mm2": 2,
+        "average_power_w": 0.00714577911054502,
+        "latency_s": 0.5214193770000004
+      },
+      "physical_feasible": true,
+      "search_merit": 0.17888422080483912,
+      "violation_excess": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "violations": [],
+      "weighted_cost": 0.21785505203684846
+    },
+    "total_chiplets": 2,
+    "violations": []
+  },
+  {
+    "area_mm2": 13,
+    "average_power_w": 0.018330489085926268,
+    "compute_count": 13,
+    "design_hash": "f66f315cf033ac9a54fe6ec04b14815456965b549633a0a65241ef0bfe197449",
+    "energy_j": 0.009538067169000007,
+    "episode": 1,
+    "feasible": true,
+    "hardware_hash": "31891c7d64c973e83a203d09f64f502b3f433a0744c67e5fdd2ff7e20e2c39be",
+    "latency_s": 0.5203389350000005,
+    "mapping_hash": "a4cbf1f41140670bc7f7f44adb67225fef2abf3c34c272b6a063b222ea9734a5",
+    "ppa_assessment": {
+      "feasible": true,
+      "metrics": {
+        "area_mm2": 13,
+        "average_power_w": 0.018330489085926268,
+        "latency_s": 0.5203389350000005
+      },
+      "physical_feasible": true,
+      "search_merit": 0.31053017991129456,
+      "violation_excess": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "violations": [],
+      "weighted_cost": 0.4503898080286422
+    },
+    "total_chiplets": 13,
+    "violations": []
+  },
+  {
+    "area_mm2": 1,
+    "average_power_w": 0.006239306512492601,
+    "compute_count": 1,
+    "design_hash": "6c624aa86f906ccbb56e140b61aa0a3016036950e7bb31dd736b629e937073fa",
+    "energy_j": 0.0036855624000000004,
+    "episode": 1,
+    "feasible": true,
+    "hardware_hash": "52d7b8361f820ef80189eb16f97e1a4913c5f91876d1dba6d6ac8ebdd2359cc2",
+    "latency_s": 0.5907006480000001,
+    "mapping_hash": "97853f363c03320db1f8517d49d7d4ab0a8f64c959ad09b5820bffd551c7b571",
+    "ppa_assessment": {
+      "feasible": true,
+      "metrics": {
+        "area_mm2": 1,
+        "average_power_w": 0.006239306512492601,
+        "latency_s": 0.5907006480000001
+      },
+      "physical_feasible": true,
+      "search_merit": 0.1802024251550652,
+      "violation_excess": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "violations": [],
+      "weighted_cost": 0.21981331817083088
+    },
+    "total_chiplets": 1,
+    "violations": []
+  },
+  {
+    "area_mm2": 1,
+    "average_power_w": 0.006239306512492601,
+    "compute_count": 1,
+    "design_hash": "ce132573eab2b1e525991d5d5bf3928748dc0db1290c805ee79ade683f7a2184",
+    "energy_j": 0.0036855624000000004,
+    "episode": 1,
+    "feasible": true,
+    "hardware_hash": "52d7b8361f820ef80189eb16f97e1a4913c5f91876d1dba6d6ac8ebdd2359cc2",
+    "latency_s": 0.5907006480000001,
+    "mapping_hash": "8b585f5a58d8537e3702e9c90f960d48bbea8c210b7d5dc0eced63c8e5060f26",
+    "ppa_assessment": {
+      "feasible": true,
+      "metrics": {
+        "area_mm2": 1,
+        "average_power_w": 0.006239306512492601,
+        "latency_s": 0.5907006480000001
+      },
+      "physical_feasible": true,
+      "search_merit": 0.1802024251550652,
+      "violation_excess": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "violations": [],
+      "weighted_cost": 0.21981331817083088
+    },
+    "total_chiplets": 1,
+    "violations": []
+  },
+  {
+    "area_mm2": 1,
+    "average_power_w": 0.006239306512492601,
+    "compute_count": 1,
+    "design_hash": "c73193a7c2aba40a68e7b21cd36a8e3508c38552a3f9fca12acee92918bb086e",
+    "energy_j": 0.0036855624000000004,
+    "episode": 1,
+    "feasible": true,
+    "hardware_hash": "52d7b8361f820ef80189eb16f97e1a4913c5f91876d1dba6d6ac8ebdd2359cc2",
+    "latency_s": 0.5907006480000001,
+    "mapping_hash": "8b9fccdec601b679a7d5a46870ebae5c02f4f882445b044cff0db80d18c6afb1",
+    "ppa_assessment": {
+      "feasible": true,
+      "metrics": {
+        "area_mm2": 1,
+        "average_power_w": 0.006239306512492601,
+        "latency_s": 0.5907006480000001
+      },
+      "physical_feasible": true,
+      "search_merit": 0.1802024251550652,
+      "violation_excess": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "violations": [],
+      "weighted_cost": 0.21981331817083088
+    },
+    "total_chiplets": 1,
+    "violations": []
+  }
+]

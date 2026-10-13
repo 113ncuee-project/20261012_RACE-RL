@@ -1,0 +1,21 @@
+{
+  "budget": 4,
+  "early_stop": false,
+  "episodes": 1,
+  "input_size": 64,
+  "max_area_mm2": 16,
+  "max_latency_ms": 1000,
+  "max_power_w": 1,
+  "max_scope": 1,
+  "model": "resnet18",
+  "patience": 15,
+  "preference": "custom",
+  "relative_improvement": 0.001,
+  "seed": 7,
+  "warmup_episodes": 20,
+  "weights": [
+    1,
+    1,
+    1
+  ]
+}

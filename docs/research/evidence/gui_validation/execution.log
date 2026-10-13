@@ -1,0 +1,3 @@
+resnet18: PASSED; 69 operators; 148557824 MACs
+Unified REINFORCE episode 1: selected compute=2, PPA cost=0.21785505203684846, compliant=True, evaluations=63, resize=17, retile=15
+FEASIBLE_DESIGN_FOUND: selected compute chiplets=2; evaluations=63

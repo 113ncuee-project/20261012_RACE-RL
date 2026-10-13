@@ -1,3 +1,0 @@
-resnet18: PASSED; 69 operators; 1814073344 MACs
-Unified PPO episode 1: best compute=16, EDP=0.151313925, evaluations=4, resize=0, retile=1
-Best compute chiplets=16, total=16; evaluations=4

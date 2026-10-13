@@ -1,0 +1,51 @@
+{
+  "area_definition": "sum of compute die areas; excludes package and external DRAM",
+  "assessment": {
+    "feasible": true,
+    "metrics": {
+      "area_mm2": 2,
+      "average_power_w": 0.007143896104737029,
+      "latency_s": 0.5213773030000006
+    },
+    "physical_feasible": true,
+    "search_merit": 0.17887434162551927,
+    "violation_excess": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "violations": [],
+    "weighted_cost": 0.2178403997015792
+  },
+  "normalization_scales": {
+    "area_mm2": 16,
+    "average_power_w": 1,
+    "latency_s": 1.0
+  },
+  "normalized_weights": [
+    0.3333333333333333,
+    0.3333333333333333,
+    0.3333333333333333
+  ],
+  "performance_definition": "single-inference latency upper bound in seconds; lower is better",
+  "physically_calibrated": false,
+  "power_definition": "total accounted energy / single-inference makespan; average power, not peak power",
+  "preference_label": "\u4f7f\u7528\u8005\u81ea\u8a02",
+  "requirements": {
+    "max_area_mm2": 16,
+    "max_latency_s": 1.0,
+    "max_power_w": 1,
+    "preference": "custom",
+    "weights": [
+      0.3333333333333333,
+      0.3333333333333333,
+      0.3333333333333333
+    ]
+  },
+  "status": "FEASIBLE_DESIGN_FOUND",
+  "weight_order": [
+    "power",
+    "performance_latency",
+    "area"
+  ]
+}

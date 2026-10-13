@@ -19,6 +19,29 @@ class BudgetExhausted(RuntimeError):
     pass
 
 
+class ActionOracle:
+    """Defer all native setup and PPA evaluation until an environment action."""
+    def __init__(self,workload,hardware,*,budget,scheduling_policy):
+        if type(budget) is not int or budget < 1: raise ValueError('positive integer oracle budget required')
+        self.workload,self.hardware,self.budget = workload,hardware,budget
+        self.scheduling_policy = scheduling_policy
+        self.backend = None
+        self.identity = digest({'workload':workload,'hardware':hardware,'budget':budget,
+            'source':code_hashes(),'scheduling_policy':scheduling_policy,'contract':'action-triggered-v1'})
+
+    def __getattr__(self,name):
+        if self.backend is not None: return getattr(self.backend,name)
+        if name in ('evaluations','requests','cache_hits','invalid_proposals','physical_failures','setup_time_s'): return 0
+        if name == 'cache': return {}
+        if name == 'request_log': return []
+        raise AttributeError(name)
+
+    def evaluate(self,mapping):
+        if self.backend is None:
+            self.backend = Oracle(self.workload,self.hardware,budget=self.budget,scheduling_policy=self.scheduling_policy)
+        return self.backend.evaluate(mapping)
+
+
 @dataclass(frozen=True)
 class Evaluation:
     workload_hash: str
@@ -33,7 +56,6 @@ class Evaluation:
     latency_s: float | None
     area_mm2: float
     average_power_w: float | None
-    edp_js: float | None
     schedule_trace: tuple
     traffic_ledger: tuple
     energy_ledger: tuple
@@ -95,7 +117,6 @@ class Oracle:
         return Evaluation(digest(self.workload),digest(self.hardware),digest(mapping),self.identity,
             plain(self.profile),status,feasible,tuple(violations),energy,latency,self.network.area_mm2,
             energy/latency if energy is not None and latency else None,
-            energy*latency if energy is not None and latency is not None else None,
             tuple(plain(e) for e in events),tuple(plain(t) for t in traffic),tuple(ledger),
             buffers or {},diagnostics or {},{**self.hashes,"native":self.network.source_hashes},
             time.perf_counter()-started)

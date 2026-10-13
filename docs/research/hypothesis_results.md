@@ -1,32 +1,38 @@
-# 核心假說 pilot：實際結果
+# 正式 REINFORCE 的核心假說結果
 
-本次為 compute-only mesh＋外部記憶體版本。10 variants×3 seeds，480 次訓練及 240 次凍結搜尋評估；完整 query／budget／來源身份核對通過。所有 policy 實際更新，凍結階段權重皆不變；每組參數量相同為 4,986。
+新正式版本已重跑 10 variants × 3 seeds，全部使用無 Critic 的 REINFORCE、float64、同一 Tiny Toy、同一需求與 1–16 顆候選集合、相同起始結構及 Actor 初始化、最多 2 個相依 Tile、關閉提前停止。每 trial 訓練 2 回合與凍結 1 回合，每回合最多 8 個完整 action。reset 零 PPA 評估。
 
-這是單一 Toy／三種子的開發實驗，不是正式 CNN 泛化或顯著性驗收。初始硬體、mapping、reference、budget、source／profile 均相同。完整事前設定見 [protocol](core_hypothesis_protocol.md)，原始數據見 [trial records](evidence/core_hypotheses/trial_results.json)。
+實際訓練 469 次新評估、凍結 236 次；差額來自環境快取。共 720 次完整動作／環境回饋，其中 152 次修改多個 Tile。每個模型 5,257 個參數；全部訓練 policy 確有更新，凍結 policy 不更新。來源／protocol／計費與原始 PPA 重算 audit 通過。
 
-| Variant | Seed 0 J | Seed 1 J | Seed 2 J | Mean J |
-| --- | ---: | ---: | ---: | ---: |
-| full_dense | 1.000000 | 1.000000 | 0.955518 | 0.985173 |
-| compact_dense | 1.000000 | 1.000000 | 0.955518 | 0.985173 |
-| dnn_dense | 1.000000 | 1.000000 | 0.955518 | 0.985173 |
-| hardware_dense | 1.000000 | 1.000000 | 0.955518 | 0.985173 |
-| no_attribution_dense | 1.000000 | 1.000000 | 1.000000 | 1.000000 |
-| no_criticality_dense | 1.000000 | 1.000000 | 0.955518 | 0.985173 |
-| independent_dense | 1.000000 | 0.980060 | 1.000000 | 0.993353 |
-| full_terminal | 1.000000 | 1.000000 | 0.955518 | 0.985173 |
-| full_best_potential | 1.000000 | 1.000000 | 0.955518 | 0.985173 |
-| full_bottleneck_potential | 1.000000 | 1.000000 | 0.955518 | 0.985173 |
+| Variant | Seed 0 J | Seed 1 J | Seed 2 J |
+| --- | --- | --- | --- |
+| full_dense | 0.04897453 | 0.07013566 | 0.12882516 |
+| compact_dense | 0.04897453 | 0.07013566 | 0.05091452 |
+| dnn_dense | 0.04897453 | 0.05043657 | 0.05091452 |
+| hardware_dense | 0.04897453 | 0.07013566 | 0.16489599 |
+| no_attribution_dense | 0.04897453 | 0.07013566 | 0.16489599 |
+| no_criticality_dense | 0.04897453 | 0.07013566 | 0.12882516 |
+| independent_dense | 0.06594407 | 0.06742179 | 0.06801293 |
+| full_terminal | 0.04897453 | 0.07013566 | 0.12882516 |
+| full_best_potential | 0.04897453 | 0.07013566 | 0.12882516 |
+| full_bottleneck_potential | 0.04897453 | 0.07013566 | 0.12882516 |
 
-J 為 best verified EDP／固定初始 EDP，越低越好。不是 classification accuracy。
+J=M/(1+M)，越低越好。以下為配對描述性差異：left−right，負值才偏向 full／left；3 seeds 不構成正式顯著性驗收。
 
-## 假說判讀
+| 假說 | Left / Right | 平均差 | Bootstrap 95% CI | 勝 / 平 / 負 |
+| --- | --- | --- | --- | --- |
+| H1 | full_dense / compact_dense | 0.02597021 | [0.00000000, 0.07791064] | 0 / 2 / 1 |
+| H1 | full_dense / dnn_dense | 0.03253657 | [0.00000000, 0.07791064] | 0 / 1 / 2 |
+| H1 | full_dense / hardware_dense | -0.01202361 | [-0.03607083, 0.00000000] | 1 / 2 / 0 |
+| H1 | full_dense / no_attribution_dense | -0.01202361 | [-0.03607083, 0.00000000] | 1 / 2 / 0 |
+| H1 | full_dense / no_criticality_dense | 0.00000000 | [0.00000000, 0.00000000] | 0 / 3 / 0 |
+| H2 | full_dense / independent_dense | 0.01551885 | [-0.01696954, 0.06081223] | 1 / 0 / 2 |
+| H3 | full_best_potential / full_terminal | 0.00000000 | [0.00000000, 0.00000000] | 0 / 3 / 0 |
+| H3 | full_bottleneck_potential / full_best_potential | 0.00000000 | [0.00000000, 0.00000000] | 0 / 3 / 0 |
+| H3 | full_bottleneck_potential / full_dense | 0.00000000 | [0.00000000, 0.00000000] | 0 / 3 / 0 |
 
-- **H1：未成立。** Full 相對 compact／DNN／hardware／without criticality 的最終成績相同；相對 without attribution 只有一個種子改善、另兩個相同。這是有限的探索訊號，不是一般關聯 state 優勢的證明。
-- **H2：未成立。** Coupled 對 independent 一勝、一負、一平；平均 left-minus-right J = -0.008181，探索性 paired bootstrap interval 約 [-0.044482, 0.019940]，跨零。不能宣稱 coupled 普遍更有效。
-- **H3：未成立。** Terminal／dense／best potential／bottleneck potential 在本次凍結搜尋的最終 EDP 相同，沒有看到 reward shaping 的搜尋收益。
+**H1／H2／H3 均未成立。** H2 full 对 independent 的結果混合，不能宣稱聯合修改已優於單項修改；H3 目前完全同分。需更有辨識度的預先宣告 barrier workload、多工作負載與更多 seeds，不得為了讓結論好看而調整已執行紀錄。
 
-只有 3 seeds，10,000 次 bootstrap 只描述 seed variability；沒有正式 p-value、多重比較驗收或 interaction 實驗。不因結果不利修改已完成規則。分析見 [analysis.json](evidence/core_hypotheses/analysis.json)。
+PPO 只做了新環境契約下的兩種子可執行 smoke，未形成 PPO 對 REINFORCE 的優越性證據。舊 0.7.0 PPO pilot 位於[比較模型紀錄](comparison_models.md)，未重標為正式成果。
 
-## 下一個驗收點
-
-增加不同 dependency／memory bottleneck 的 workload instances、training／search budgets、多起始 mapping 與獨立 seeds；觀察 variant 是否可穩定分化。正式 CNN split 與物理參數敏感度／校準需事前固定，不能以本次開發資料當作 held-out test。
+現行證據：[protocol](evidence/formal_core_hypotheses/protocol.json)、[query／source audit](evidence/formal_core_hypotheses/audit.json)、[PPA audit](evidence/formal_core_hypotheses/scoring_audit.json)、[trial results](evidence/formal_core_hypotheses/trial_results.json)。完整 raw／checkpoints 由可重現工具產生，另有 SHA256 manifest。

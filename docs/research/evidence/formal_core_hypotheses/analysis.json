@@ -1,0 +1,248 @@
+{
+  "aggregate": [
+    {
+      "independent_seeds": 3,
+      "mean_J": 0.08264511369360156,
+      "median_J": 0.07013565546013958,
+      "std_J": 0.04136901722012083,
+      "variant": "full_dense"
+    },
+    {
+      "independent_seeds": 3,
+      "mean_J": 0.05667490027131816,
+      "median_J": 0.05091451627784903,
+      "std_J": 0.011697642295604044,
+      "variant": "compact_dense"
+    },
+    {
+      "independent_seeds": 3,
+      "mean_J": 0.050108539663363184,
+      "median_J": 0.05043657363627465,
+      "std_J": 0.0010107384930859507,
+      "variant": "dnn_dense"
+    },
+    {
+      "independent_seeds": 3,
+      "mean_J": 0.09466872433258709,
+      "median_J": 0.07013565546013958,
+      "std_J": 0.06173208070162732,
+      "variant": "hardware_dense"
+    },
+    {
+      "independent_seeds": 3,
+      "mean_J": 0.09466872433258709,
+      "median_J": 0.07013565546013958,
+      "std_J": 0.06173208070162732,
+      "variant": "no_attribution_dense"
+    },
+    {
+      "independent_seeds": 3,
+      "mean_J": 0.08264511369360156,
+      "median_J": 0.07013565546013958,
+      "std_J": 0.04136901722012083,
+      "variant": "no_criticality_dense"
+    },
+    {
+      "independent_seeds": 3,
+      "mean_J": 0.06712626008944332,
+      "median_J": 0.06742178520728434,
+      "std_J": 0.0010656218674722528,
+      "variant": "independent_dense"
+    },
+    {
+      "independent_seeds": 3,
+      "mean_J": 0.08264511369360156,
+      "median_J": 0.07013565546013958,
+      "std_J": 0.04136901722012083,
+      "variant": "full_terminal"
+    },
+    {
+      "independent_seeds": 3,
+      "mean_J": 0.08264511369360156,
+      "median_J": 0.07013565546013958,
+      "std_J": 0.04136901722012083,
+      "variant": "full_best_potential"
+    },
+    {
+      "independent_seeds": 3,
+      "mean_J": 0.08264511369360156,
+      "median_J": 0.07013565546013958,
+      "std_J": 0.04136901722012083,
+      "variant": "full_bottleneck_potential"
+    }
+  ],
+  "comparisons": [
+    {
+      "bootstrap_samples": 10000,
+      "bootstrap_seed": 1234,
+      "hypothesis": "H1",
+      "interpretation": "lower normalized PPA_merit is better; negative left-minus-right favors left",
+      "left": "full_dense",
+      "paired_bootstrap_ci95": [
+        0.0,
+        0.07791064026685017
+      ],
+      "paired_mean_difference": 0.02597021342228339,
+      "paired_median_difference": 0.0,
+      "paired_std": 0.04498172913080204,
+      "pairs": 3,
+      "right": "compact_dense",
+      "status": "EXPLORATORY_ONLY_NO_FORMAL_HYPOTHESIS_ACCEPTANCE",
+      "ties": 2,
+      "wins": 0
+    },
+    {
+      "bootstrap_samples": 10000,
+      "bootstrap_seed": 1234,
+      "hypothesis": "H1",
+      "interpretation": "lower normalized PPA_merit is better; negative left-minus-right favors left",
+      "left": "full_dense",
+      "paired_bootstrap_ci95": [
+        0.0,
+        0.07791064026685017
+      ],
+      "paired_mean_difference": 0.03253657403023837,
+      "paired_median_difference": 0.019699081823864935,
+      "paired_std": 0.04051071304370188,
+      "pairs": 3,
+      "right": "dnn_dense",
+      "status": "EXPLORATORY_ONLY_NO_FORMAL_HYPOTHESIS_ACCEPTANCE",
+      "ties": 1,
+      "wins": 0
+    },
+    {
+      "bootstrap_samples": 10000,
+      "bootstrap_seed": 1234,
+      "hypothesis": "H1",
+      "interpretation": "lower normalized PPA_merit is better; negative left-minus-right favors left",
+      "left": "full_dense",
+      "paired_bootstrap_ci95": [
+        -0.03607083191695659,
+        0.0
+      ],
+      "paired_mean_difference": -0.01202361063898553,
+      "paired_median_difference": 0.0,
+      "paired_std": 0.020825504517148635,
+      "pairs": 3,
+      "right": "hardware_dense",
+      "status": "EXPLORATORY_ONLY_NO_FORMAL_HYPOTHESIS_ACCEPTANCE",
+      "ties": 2,
+      "wins": 1
+    },
+    {
+      "bootstrap_samples": 10000,
+      "bootstrap_seed": 1234,
+      "hypothesis": "H1",
+      "interpretation": "lower normalized PPA_merit is better; negative left-minus-right favors left",
+      "left": "full_dense",
+      "paired_bootstrap_ci95": [
+        -0.03607083191695659,
+        0.0
+      ],
+      "paired_mean_difference": -0.01202361063898553,
+      "paired_median_difference": 0.0,
+      "paired_std": 0.020825504517148635,
+      "pairs": 3,
+      "right": "no_attribution_dense",
+      "status": "EXPLORATORY_ONLY_NO_FORMAL_HYPOTHESIS_ACCEPTANCE",
+      "ties": 2,
+      "wins": 1
+    },
+    {
+      "bootstrap_samples": 10000,
+      "bootstrap_seed": 1234,
+      "hypothesis": "H1",
+      "interpretation": "lower normalized PPA_merit is better; negative left-minus-right favors left",
+      "left": "full_dense",
+      "paired_bootstrap_ci95": [
+        0.0,
+        0.0
+      ],
+      "paired_mean_difference": 0.0,
+      "paired_median_difference": 0.0,
+      "paired_std": 0.0,
+      "pairs": 3,
+      "right": "no_criticality_dense",
+      "status": "EXPLORATORY_ONLY_NO_FORMAL_HYPOTHESIS_ACCEPTANCE",
+      "ties": 3,
+      "wins": 0
+    },
+    {
+      "bootstrap_samples": 10000,
+      "bootstrap_seed": 1234,
+      "hypothesis": "H2",
+      "interpretation": "lower normalized PPA_merit is better; negative left-minus-right favors left",
+      "left": "full_dense",
+      "paired_bootstrap_ci95": [
+        -0.016969536899073996,
+        0.06081222745869345
+      ],
+      "paired_mean_difference": 0.015518853604158235,
+      "paired_median_difference": 0.002713870252855244,
+      "paired_std": 0.04044102391906238,
+      "pairs": 3,
+      "right": "independent_dense",
+      "status": "EXPLORATORY_ONLY_NO_FORMAL_HYPOTHESIS_ACCEPTANCE",
+      "ties": 0,
+      "wins": 1
+    },
+    {
+      "bootstrap_samples": 10000,
+      "bootstrap_seed": 1234,
+      "hypothesis": "H3",
+      "interpretation": "lower normalized PPA_merit is better; negative left-minus-right favors left",
+      "left": "full_best_potential",
+      "paired_bootstrap_ci95": [
+        0.0,
+        0.0
+      ],
+      "paired_mean_difference": 0.0,
+      "paired_median_difference": 0.0,
+      "paired_std": 0.0,
+      "pairs": 3,
+      "right": "full_terminal",
+      "status": "EXPLORATORY_ONLY_NO_FORMAL_HYPOTHESIS_ACCEPTANCE",
+      "ties": 3,
+      "wins": 0
+    },
+    {
+      "bootstrap_samples": 10000,
+      "bootstrap_seed": 1234,
+      "hypothesis": "H3",
+      "interpretation": "lower normalized PPA_merit is better; negative left-minus-right favors left",
+      "left": "full_bottleneck_potential",
+      "paired_bootstrap_ci95": [
+        0.0,
+        0.0
+      ],
+      "paired_mean_difference": 0.0,
+      "paired_median_difference": 0.0,
+      "paired_std": 0.0,
+      "pairs": 3,
+      "right": "full_best_potential",
+      "status": "EXPLORATORY_ONLY_NO_FORMAL_HYPOTHESIS_ACCEPTANCE",
+      "ties": 3,
+      "wins": 0
+    },
+    {
+      "bootstrap_samples": 10000,
+      "bootstrap_seed": 1234,
+      "hypothesis": "H3",
+      "interpretation": "lower normalized PPA_merit is better; negative left-minus-right favors left",
+      "left": "full_bottleneck_potential",
+      "paired_bootstrap_ci95": [
+        0.0,
+        0.0
+      ],
+      "paired_mean_difference": 0.0,
+      "paired_median_difference": 0.0,
+      "paired_std": 0.0,
+      "pairs": 3,
+      "right": "full_dense",
+      "status": "EXPLORATORY_ONLY_NO_FORMAL_HYPOTHESIS_ACCEPTANCE",
+      "ties": 3,
+      "wins": 0
+    }
+  ],
+  "hypotheses_status": "H1/H2/H3 NOT ESTABLISHED BY THIS PILOT"
+}

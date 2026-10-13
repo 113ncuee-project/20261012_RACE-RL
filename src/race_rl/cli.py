@@ -11,13 +11,21 @@ from .serialization import save_json,code_hashes,digest
 
 def export(folder,env,summary):
     folder.mkdir(parents=True,exist_ok=True)
-    save_json(folder/"summary.json",{**summary,"physical_failures":env.oracle.physical_failures,
+    save_json(folder/"summary.json",{**summary,
+        "requirements_status":"FEASIBLE_DESIGN_FOUND" if env.feasible(env.best_record) else "NO_FEASIBLE_DESIGN_FOUND",
+        "physical_failures":env.oracle.physical_failures,
         "structural_invalid_proposals":env.oracle.invalid_proposals,
         "structural_validation_time_s":env.structural_validation_time_s,
         "native_setup_time_s":env.oracle.setup_time_s,"native_hardware_context_builds":len(env.oracle.backends) if hasattr(env.oracle,'backends') else 1,
         "unique_mapping_evaluation_time_s":sum(r.wall_time_s for r in env.oracle.cache.values())})
-    save_json(folder/"best_mapping.json",env.best_mapping)
-    save_json(folder/"best_evaluation.json",env.best_record)
+    compliant = env.feasible(env.best_record)
+    prefix = "best" if compliant else "closest"
+    if env.best_record is not None:
+        save_json(folder/f"{prefix}_mapping.json",env.best_mapping)
+        save_json(folder/f"{prefix}_evaluation.json",env.best_record)
+    vendor_report = env.scorer.report(env.best_record)
+    vendor_report['status'] = 'FEASIBLE_DESIGN_FOUND' if compliant else 'NO_FEASIBLE_DESIGN_FOUND'
+    save_json(folder/'vendor_report.json',vendor_report)
     save_json(folder/"search_trace.json",env.trace)
     save_json(folder/"query_accounting.json",env.oracle.request_log)
     save_json(folder/"raw_evaluations.json",list(env.oracle.cache.values()))
@@ -46,13 +54,40 @@ def main(argv=None):
     parser.add_argument("--compute-count",type=int,default=2)
     parser.add_argument("--compute-counts",type=int,nargs='+',default=None)
     parser.add_argument("--max-area-mm2",type=float,default=None)
+    parser.add_argument("--max-power-w",type=float)
+    parser.add_argument("--max-latency-s",type=float)
+    parser.add_argument("--preference",choices=('balanced','power','performance','area','custom'))
+    parser.add_argument("--ppa-weights",type=float,nargs=3,metavar=('POWER','PERFORMANCE','AREA'))
+    parser.add_argument("--requirements",type=Path,help="vendor PPA requirements JSON")
+    parser.add_argument("--interactive",action='store_true',help="guided Chinese PPA input")
     parser.add_argument("--action-mode",choices=('coupled','independent'),default='coupled')
     parser.add_argument("--bottleneck-weight",type=float,default=0.0)
+    parser.add_argument("--early-stop",action='store_true')
+    parser.add_argument("--min-episodes",type=int,default=20)
+    parser.add_argument("--patience",type=int,default=15)
+    parser.add_argument("--min-improvement",type=float,default=.001)
     parser.add_argument("--out",type=Path)
     args = parser.parse_args(argv)
-    args.max_scope = args.max_scope if args.max_scope is not None else (1 if args.command == 'search-mesh' else 4)
-    if args.command != 'search-mesh' and (args.compute_counts is not None or args.max_area_mm2 is not None):
-        parser.error('compute-counts and max-area-mm2 are search-mesh options')
+    args.max_scope = args.max_scope if args.max_scope is not None else (2 if args.command == 'search-mesh' else 4)
+    vendor_requirements = None
+    ppa_inputs = args.interactive or args.requirements is not None or any(v is not None for v in
+        (args.max_power_w,args.max_latency_s,args.max_area_mm2,args.preference,args.ppa_weights))
+    if args.command != 'search-mesh' and (args.compute_counts is not None or ppa_inputs):
+        parser.error('vendor PPA inputs and compute-counts are search-mesh options')
+    if args.command == 'search-mesh':
+        from .vendor_input import requirements_from_args
+        try:
+            vendor_requirements = requirements_from_args(args)
+        except (ValueError,TypeError,OSError) as exc:
+            parser.error(str(exc))
+    if args.command != 'search-mesh' and args.early_stop: parser.error('early-stop is a search-mesh option')
+    early_stopping=None
+    if args.early_stop:
+        from .stopping import PlateauSettings
+        from .serialization import plain
+        try:
+            early_stopping=plain(PlateauSettings(args.min_episodes,args.patience,args.min_improvement))
+        except ValueError as exc: parser.error(str(exc))
     if args.command != 'search-mesh' and (args.action_mode != 'coupled' or args.bottleneck_weight != 0):
         parser.error('action-mode and bottleneck-weight are search-mesh options')
     if args.out is None:
@@ -88,7 +123,8 @@ def main(argv=None):
         save_json(args.out/"workload.json",imported.workload)
         save_json(args.out/"parameter_manifest.json",imported.parameter_manifest)
         import torchvision
-        save_json(args.out/"config.json",{**vars(args),"out":str(args.out),"weights":"None; seeded random initialization; no download",
+        save_json(args.out/"config.json",{**vars(args),"out":str(args.out),"requirements":str(args.requirements) if args.requirements else None,
+            "vendor_requirements":vendor_requirements,"weights":"None; seeded random initialization; no download",
             "torch_version":str(torch.__version__),"torchvision_version":str(torchvision.__version__),
             "input_generation":"seeded float32 then exact optional float64 conversion", "source_hashes":code_hashes()})
         record = validate_model(imported,example,tile_count=args.reference_tiles)
@@ -100,9 +136,9 @@ def main(argv=None):
             from .architecture import search_mesh
             from .architecture import DEFAULT_COUNTS
             summary = search_mesh(imported.workload,args.out/'search',compute_counts=args.compute_counts or DEFAULT_COUNTS,
-                episodes=args.episodes,budget=args.budget,max_scope=args.max_scope,seed=args.seed,max_area_mm2=args.max_area_mm2,
-                state_variant=args.state,action_mode=args.action_mode,reward_variant=args.reward,lambda_c=args.bottleneck_weight)
-            print(f"Best compute chiplets={summary['best_compute_count']}, total={summary['best_total_chiplets']}; evaluations={summary['total_oracle_evaluations']}")
+                episodes=args.episodes,budget=args.budget,max_scope=args.max_scope,seed=args.seed,requirements=vendor_requirements,
+                state_variant=args.state,action_mode=args.action_mode,reward_variant=args.reward,lambda_c=args.bottleneck_weight,early_stopping=early_stopping)
+            print(f"{summary['requirements_status']}: selected compute chiplets={summary['selected_compute_count']}; evaluations={summary['total_oracle_evaluations']}")
             return
         if args.analytical_check:
             from .cnn_fixture import evaluate_cnn_fixture
@@ -122,6 +158,7 @@ def main(argv=None):
     if args.command == "evaluate":
         env = environment()
         env.reset()
+        env.step(env.actions[0])
         export(args.out,env,{"feasible":env.best_record.feasible,"oracle_evaluations":env.oracle.evaluations})
         return
     from .training import RACETrainer

@@ -21,8 +21,9 @@ def digest(value):
 
 
 def code_hashes():
-    return {p.name: hashlib.sha256(p.read_bytes()).hexdigest()
-            for p in sorted(Path(__file__).parent.glob("*.py"))}
+    root = Path(__file__).parent
+    return {str(p.relative_to(root)): hashlib.sha256(p.read_bytes()).hexdigest()
+            for p in sorted(root.rglob("*.py"))}
 
 
 def save_json(path, value):

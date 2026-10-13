@@ -1,0 +1,2 @@
+mobilenet_v2: PASSED; 153 operators; 300774272 MACs
+Synthetic analytical check: feasible=True

@@ -1,0 +1,11 @@
+{
+  "max_area_mm2": 16,
+  "max_latency_s": 1.0,
+  "max_power_w": 1,
+  "preference": "custom",
+  "weights": [
+    0.3333333333333333,
+    0.3333333333333333,
+    0.3333333333333333
+  ]
+}

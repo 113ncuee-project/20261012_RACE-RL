@@ -1,17 +1,22 @@
 """Finite budget mapping episodes with a separately maintained verified archive."""
 from .actions import apply, legal_actions
 from .observation import observe
-from .oracle import Oracle
+from .oracle import ActionOracle
 from .rewards import potential, reward
 from .serialization import digest
+from .requirements import PPARequirements
+from dataclasses import replace
 import time
 
 
 class RACEEnvironment:
     def __init__(self,workload,hardware,initial,*,budget=16,max_scope=4,max_requests=None,
-                 reward_variant="dense",lambda_b=1.0,lambda_c=0.0,limits=None,scheduling_policy="shared_reads"):
+                 reward_variant="dense",lambda_b=1.0,lambda_c=0.0,limits=None,scheduling_policy="shared_reads",requirements=None):
+        self.requirements = requirements or PPARequirements(
+            max_power_w=(limits or {}).get("average_power_w"),
+            max_latency_s=(limits or {}).get("latency_s"),max_area_mm2=(limits or {}).get("area_mm2"))
         self.workload,self.hardware,self.initial = workload,hardware,initial
-        self.settings = dict(budget=budget,max_scope=max_scope,max_requests=max_requests or 10*budget,
+        self.settings = dict(budget=budget,max_scope=max_scope,max_requests=max_requests or budget,
             reward_variant=reward_variant,lambda_b=lambda_b,lambda_c=lambda_c,limits=limits or {},
             scheduling_policy=scheduling_policy)
         if self.settings["max_requests"] < 1 or max_scope < 1:
@@ -24,16 +29,16 @@ class RACEEnvironment:
             raise ValueError("strict limits must be positive")
 
     def feasible(self,record):
-        return record.feasible and all(getattr(record,k) <= v for k,v in self.settings["limits"].items())
+        return self.scorer.assess(record)["feasible"] and all(getattr(record,k) <= v for k,v in self.settings["limits"].items())
 
     def reset(self):
-        self.oracle = Oracle(self.workload,self.hardware,budget=self.settings["budget"],
+        self.oracle = ActionOracle(self.workload,self.hardware,budget=self.settings["budget"],
                              scheduling_policy=self.settings["scheduling_policy"])
-        self.current_mapping = self.best_mapping = self.initial
-        self.current_record = self.best_record = self.oracle.evaluate(self.initial)
-        if not self.feasible(self.current_record):
-            raise ValueError("initial mapping must satisfy physical and strict PPA feasibility")
-        self.reference = self.current_record.edp_js
+        self.current_mapping,self.best_mapping = self.initial,None
+        self.current_record = self.best_record = None
+        self.scorer = self.requirements.bind()
+        self.reference = 1.0
+        self.last_reward = 0.0
         self.initial_objective = self.current_objective = self.best_objective = 1.0
         self.trace = []
         self.structural_validation_time_s = 0.0
@@ -52,9 +57,12 @@ class RACEEnvironment:
             current=self.current_objective,best=self.best_objective,
             remaining=self.oracle.budget-self.oracle.evaluations,budget=self.oracle.budget,
             remaining_requests=(self.settings["max_requests"]-self.oracle.requests)/self.settings["max_requests"],
-            cached_mapping_hashes=self.oracle.cache,best_mapping_hash=digest(self.best_mapping))
+            cached_mapping_hashes=self.oracle.cache,best_mapping_hash=digest(self.best_mapping) if self.best_mapping else '',
+            last_reward=self.last_reward)
+        self.observation = replace(self.observation,task_features=self.scorer.features(self.current_record,self.feasible(self.best_record)))
 
     def bottleneck(self):
+        if self.current_record is None: return 0.0
         # Critical communication/memory service fraction, derived from the augmented trace DAG.
         diag = self.current_record.diagnostics["criticality"]
         critical = [e for e in self.current_record.schedule_trace if
@@ -75,16 +83,18 @@ class RACEEnvironment:
         candidate = apply(self.workload,self.hardware,self.current_mapping,action)
         record = self.oracle.evaluate(candidate)
         feasible = self.feasible(record)
-        if feasible:
-            # RL may visit worse feasible states; archive only keeps verified improvements.
+        if record.feasible and all(getattr(record,k) <= v for k,v in self.settings["limits"].items()):
+            # Physically valid states can exceed vendor limits while exploring.
             self.current_mapping,self.current_record = candidate,record
-            self.current_objective = record.edp_js/self.reference
-            if self.current_objective < self.best_objective:
+            self.current_objective = self.scorer.objective(record)
+            if self.scorer.better(record,self.best_record):
                 self.best_mapping,self.best_record = candidate,record
                 self.best_objective = self.current_objective
         self._refresh()
         value = reward(1.0,old_best,self.best_objective,terminal=self.done,
             variant=self.settings["reward_variant"],old_phi=old_phi,new_phi=self.phi())
+        self.last_reward = value
+        self.observation = replace(self.observation,global_features=(*self.observation.global_features[:-1],value))
         self.trace.append({"action":action,"candidate_hash":record.mapping_hash,"feasible":feasible,
             "current_objective":self.current_objective,"best_objective":self.best_objective,
             "reward":value,"evaluations":self.oracle.evaluations,"requests":self.oracle.requests,

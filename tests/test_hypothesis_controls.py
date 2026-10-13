@@ -20,7 +20,7 @@ class HypothesisControlTests(unittest.TestCase):
         self.assertEqual(len(env.hardware.compute_ids),16)
         self.assertEqual(len(env.hardware.nodes),16)
         self.assertEqual(env.current_record.area_mm2,16)
-        self.assertEqual(env.oracle.evaluations,2)
+        self.assertEqual(env.oracle.evaluations,1)
         self.assertEqual(env.observation.compute_count,16)
         self.assertIn(CountAction(2),env.actions)
 
@@ -59,7 +59,7 @@ class HypothesisControlTests(unittest.TestCase):
         self.assertEqual(len(set(objectives)),1)
 
     def test_state_ablation_switches_change_actual_action_probabilities(self):
-        env=self.env();o=env.reset()
+        env=self.env();env.reset();o,_,_=env.step(CountAction(4))
         baseline=None
         for state in ('full','compact','dnngraph','hardwaregraph','no_attribution','no_criticality'):
             trainer=RACETrainer(seed=0,width=16,precision='float64',state_variant=state)
@@ -70,7 +70,7 @@ class HypothesisControlTests(unittest.TestCase):
     def test_parameter_counts_match_state_variants_and_frozen_policy_does_not_update(self):
         counts=[]
         for state in ('full','compact','dnngraph','hardwaregraph','no_attribution','no_criticality'):
-            trainer=RACETrainer(seed=0,width=8,epochs=1,precision='float64',state_variant=state)
+            trainer=RACETrainer(seed=0,width=8,precision='float64',state_variant=state)
             counts.append(sum(p.numel() for p in trainer.policy.parameters()))
             for mode in ('coupled','independent'):
                 env=self.env(action_mode=mode)

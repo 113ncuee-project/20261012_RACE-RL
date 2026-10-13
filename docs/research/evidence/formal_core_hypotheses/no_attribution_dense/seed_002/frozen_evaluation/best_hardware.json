@@ -1,0 +1,227 @@
+{
+  "bump_pitch_mm": 0.01,
+  "links": [
+    {
+      "a": "c0",
+      "b": "c1",
+      "bandwidth_Bps": 1000000000.0,
+      "id": "l0",
+      "wire_cycles_per_mm": 1.0
+    },
+    {
+      "a": "c0",
+      "b": "c3",
+      "bandwidth_Bps": 1000000000.0,
+      "id": "l1",
+      "wire_cycles_per_mm": 1.0
+    },
+    {
+      "a": "c1",
+      "b": "c2",
+      "bandwidth_Bps": 1000000000.0,
+      "id": "l2",
+      "wire_cycles_per_mm": 1.0
+    },
+    {
+      "a": "c1",
+      "b": "c4",
+      "bandwidth_Bps": 1000000000.0,
+      "id": "l3",
+      "wire_cycles_per_mm": 1.0
+    },
+    {
+      "a": "c2",
+      "b": "c5",
+      "bandwidth_Bps": 1000000000.0,
+      "id": "l4",
+      "wire_cycles_per_mm": 1.0
+    },
+    {
+      "a": "c3",
+      "b": "c4",
+      "bandwidth_Bps": 1000000000.0,
+      "id": "l5",
+      "wire_cycles_per_mm": 1.0
+    },
+    {
+      "a": "c3",
+      "b": "c6",
+      "bandwidth_Bps": 1000000000.0,
+      "id": "l6",
+      "wire_cycles_per_mm": 1.0
+    },
+    {
+      "a": "c4",
+      "b": "c5",
+      "bandwidth_Bps": 1000000000.0,
+      "id": "l7",
+      "wire_cycles_per_mm": 1.0
+    },
+    {
+      "a": "c4",
+      "b": "c7",
+      "bandwidth_Bps": 1000000000.0,
+      "id": "l8",
+      "wire_cycles_per_mm": 1.0
+    },
+    {
+      "a": "c5",
+      "b": "c8",
+      "bandwidth_Bps": 1000000000.0,
+      "id": "l9",
+      "wire_cycles_per_mm": 1.0
+    },
+    {
+      "a": "c6",
+      "b": "c7",
+      "bandwidth_Bps": 1000000000.0,
+      "id": "l10",
+      "wire_cycles_per_mm": 1.0
+    },
+    {
+      "a": "c7",
+      "b": "c8",
+      "bandwidth_Bps": 1000000000.0,
+      "id": "l11",
+      "wire_cycles_per_mm": 1.0
+    }
+  ],
+  "memory_ports": [
+    {
+      "attached_to": "c0",
+      "bandwidth_Bps": 1000000000.0,
+      "id": "dram0",
+      "memory_bytes": 1073741824,
+      "static_power_w": 0.001
+    },
+    {
+      "attached_to": "c8",
+      "bandwidth_Bps": 1000000000.0,
+      "id": "dram1",
+      "memory_bytes": 1073741824,
+      "static_power_w": 0.001
+    }
+  ],
+  "network_clock_hz": 1000000000.0,
+  "nodes": [
+    {
+      "bandwidth_Bps": 1000000000.0,
+      "height_mm": 1,
+      "id": "c0",
+      "kind": "compute",
+      "memory_bytes": 33554432,
+      "operations_per_s": 1000000000.0,
+      "slots": 1,
+      "static_power_w": 0.001,
+      "width_mm": 1,
+      "x_mm": 0,
+      "y_mm": 0
+    },
+    {
+      "bandwidth_Bps": 1000000000.0,
+      "height_mm": 1,
+      "id": "c1",
+      "kind": "compute",
+      "memory_bytes": 33554432,
+      "operations_per_s": 1000000000.0,
+      "slots": 1,
+      "static_power_w": 0.001,
+      "width_mm": 1,
+      "x_mm": 2,
+      "y_mm": 0
+    },
+    {
+      "bandwidth_Bps": 1000000000.0,
+      "height_mm": 1,
+      "id": "c2",
+      "kind": "compute",
+      "memory_bytes": 33554432,
+      "operations_per_s": 1000000000.0,
+      "slots": 1,
+      "static_power_w": 0.001,
+      "width_mm": 1,
+      "x_mm": 4,
+      "y_mm": 0
+    },
+    {
+      "bandwidth_Bps": 1000000000.0,
+      "height_mm": 1,
+      "id": "c3",
+      "kind": "compute",
+      "memory_bytes": 33554432,
+      "operations_per_s": 1000000000.0,
+      "slots": 1,
+      "static_power_w": 0.001,
+      "width_mm": 1,
+      "x_mm": 0,
+      "y_mm": 2
+    },
+    {
+      "bandwidth_Bps": 1000000000.0,
+      "height_mm": 1,
+      "id": "c4",
+      "kind": "compute",
+      "memory_bytes": 33554432,
+      "operations_per_s": 1000000000.0,
+      "slots": 1,
+      "static_power_w": 0.001,
+      "width_mm": 1,
+      "x_mm": 2,
+      "y_mm": 2
+    },
+    {
+      "bandwidth_Bps": 1000000000.0,
+      "height_mm": 1,
+      "id": "c5",
+      "kind": "compute",
+      "memory_bytes": 33554432,
+      "operations_per_s": 1000000000.0,
+      "slots": 1,
+      "static_power_w": 0.001,
+      "width_mm": 1,
+      "x_mm": 4,
+      "y_mm": 2
+    },
+    {
+      "bandwidth_Bps": 1000000000.0,
+      "height_mm": 1,
+      "id": "c6",
+      "kind": "compute",
+      "memory_bytes": 33554432,
+      "operations_per_s": 1000000000.0,
+      "slots": 1,
+      "static_power_w": 0.001,
+      "width_mm": 1,
+      "x_mm": 0,
+      "y_mm": 4
+    },
+    {
+      "bandwidth_Bps": 1000000000.0,
+      "height_mm": 1,
+      "id": "c7",
+      "kind": "compute",
+      "memory_bytes": 33554432,
+      "operations_per_s": 1000000000.0,
+      "slots": 1,
+      "static_power_w": 0.001,
+      "width_mm": 1,
+      "x_mm": 2,
+      "y_mm": 4
+    },
+    {
+      "bandwidth_Bps": 1000000000.0,
+      "height_mm": 1,
+      "id": "c8",
+      "kind": "compute",
+      "memory_bytes": 33554432,
+      "operations_per_s": 1000000000.0,
+      "slots": 1,
+      "static_power_w": 0.001,
+      "width_mm": 1,
+      "x_mm": 4,
+      "y_mm": 4
+    }
+  ],
+  "phy_latency_cycles": 1.0,
+  "router_latency_cycles": 1.0
+}

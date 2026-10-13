@@ -56,31 +56,34 @@ class UnifiedDesignTests(unittest.TestCase):
         self.assertNotEqual(len(old.graph.hardware_ids),len(env.observation.graph.hardware_ids))
         env.step(CountAction(2))
         self.assertEqual(digest(env.current_mapping),initial)
+        env.step(CountAction(8))
         self.assertEqual(env.oracle.evaluations,2)
         self.assertEqual(env.oracle.cache_hits,1)
         self.assertEqual(env.oracle.requests,3)
-        self.assertIn(CountAction(8),env.actions)
+        self.assertIn(CountAction(2),env.actions)
 
     def test_poor_mapping_does_not_prune_count_or_reject_worse_state(self):
-        env = self.env(); env.reset()
+        env = self.env(); env.reset();env.step(CountAction(8))
+        best=env.best_objective
         h = env.hardware_candidates[4]
         backend = Oracle(env.workload,h,budget=12,scheduling_policy='serial_node_tiles')
         original = backend._run
         def costly(mapping,started):
             r = original(mapping,started)
-            return replace(r,energy_j=r.energy_j*100,edp_js=r.edp_js*100,average_power_w=r.average_power_w*100)
+            return replace(r,energy_j=r.energy_j*1000000,average_power_w=r.average_power_w*1000000)
         backend._run = costly
         env.oracle.backends[digest(h)] = backend
         env.step(CountAction(4))
-        self.assertGreater(env.current_objective,1)
-        self.assertEqual(env.best_objective,1)
+        self.assertGreater(env.current_objective,best)
+        self.assertEqual(env.best_objective,best)
         self.assertEqual(env.compute_count,4)
         self.assertTrue(any(isinstance(a,RetileAction) for a in env.actions))
         env.step(CountAction(2))
+        best=env.best_objective
         self.assertIn(CountAction(4),env.actions)
         env.step(CountAction(4))
         self.assertEqual(env.compute_count,4)
-        self.assertEqual(env.best_objective,1)
+        self.assertEqual(env.best_objective,best)
 
     def test_whole_operator_retile_and_shrink_preserve_exact_coverage(self):
         env = self.env(); env.reset(); env.step(CountAction(8))
@@ -98,8 +101,11 @@ class UnifiedDesignTests(unittest.TestCase):
     def test_hard_area_mask_and_failed_candidate_counts(self):
         env = self.env(max_area_mm2=4); env.reset()
         self.assertIn(CountAction(4),env.actions)
-        self.assertNotIn(CountAction(8),env.actions)
-        with self.assertRaises(ValueError): env.step(CountAction(8))
+        self.assertIn(CountAction(8),env.actions)
+        env.step(CountAction(8))
+        self.assertFalse(env.trace[-1]["feasible"])
+        self.assertEqual(env.compute_count,8)
+        env.step(CountAction(2))
         h = env.hardware_candidates[4]
         backend = Oracle(env.workload,h,budget=12,scheduling_policy='serial_node_tiles')
         original = backend._run
@@ -107,14 +113,14 @@ class UnifiedDesignTests(unittest.TestCase):
         env.oracle.backends[digest(h)] = backend
         before = digest(env.current_mapping)
         env.step(CountAction(4))
-        self.assertEqual(env.oracle.evaluations,2)
+        self.assertEqual(env.oracle.evaluations,3)
         self.assertEqual(env.compute_count,2)
         self.assertEqual(digest(env.current_mapping),before)
         self.assertIn(CountAction(4),env.actions)
 
-    def test_one_float64_policy_updates_count_retile_mapping_and_critic(self):
+    def test_one_float64_policy_updates_count_retile_mapping_without_critic(self):
         env = self.env(); o = env.reset()
-        trainer = RACETrainer(seed=3,width=8,epochs=2,precision='float64')
+        trainer = RACETrainer(seed=3,width=8,precision='float64')
         before = {k:v.clone() for k,v in trainer.policy.state_dict().items()}
         samples = []
         for kind in ('resize_mesh','retile_operator','cut_migrate'):
@@ -124,18 +130,19 @@ class UnifiedDesignTests(unittest.TestCase):
             a = next(a for a in o.legal_actions if a.kind == kind)
             i = o.legal_actions.index(a)
             next_o,r,_ = env.step(a)
-            samples.append((o,i,d.log_prob(torch.tensor(i)).item(),v.item(),r))
+            samples.append((o,i,d.log_prob(torch.tensor(i)).item(),None,r))
             o = next_o
         stats = {'parameter_updates':0}; trainer.update(samples,stats)
         after = trainer.policy.state_dict()
-        for prefix in ('count_score','retile_score','root_score','encoder','critic'):
+        for prefix in ('count_score','retile_score','root_score','encoder'):
             self.assertTrue(any(not torch.equal(before[k],after[k]) for k in before if k.startswith(prefix)),prefix)
-        self.assertEqual(stats['parameter_updates'],2)
+        self.assertFalse(any(k.startswith('critic') for k in after))
+        self.assertEqual(stats['parameter_updates'],1)
         self.assertTrue(all(torch.isfinite(v).all() for v in after.values()))
 
     def test_exploration_floor_masks_and_double_checkpoint(self):
         env = self.env(); o = env.reset()
-        trainer = RACETrainer(seed=4,width=8,epochs=1,precision='float64')
+        trainer = RACETrainer(seed=4,width=8,precision='float64')
         d,_ = trainer.policy.distribution(o)
         ci = [i for i,a in enumerate(o.legal_actions) if isinstance(a,CountAction)]
         self.assertTrue(all(d.probs[i].item() >= 0.05/3*0.05/len(ci)-1e-14 for i in ci))
@@ -164,7 +171,7 @@ class UnifiedDesignTests(unittest.TestCase):
         before = digest(env.current_mapping)
         env.step(bad)
         self.assertFalse(env.trace[-1]['feasible'])
-        self.assertEqual(env.oracle.evaluations,2)
+        self.assertEqual(env.oracle.evaluations,1)
         self.assertEqual(digest(env.current_mapping),before)
         self.assertIn(CountAction(4),env.actions)
         self.assertTrue(any(isinstance(a,RetileAction) and a.parts >= 2 for a in env.actions))

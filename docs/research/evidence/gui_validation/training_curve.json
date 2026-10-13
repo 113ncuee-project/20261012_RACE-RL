@@ -1,0 +1,30 @@
+[
+  {
+    "action_selection_time_s": 5.164956209133379,
+    "algorithm": "reinforce",
+    "best_objective": 0.15174027919613056,
+    "best_weighted_ppa_cost": 0.21785505203684846,
+    "cache_hits": 1,
+    "compute_count": 2,
+    "critic_used": false,
+    "entropy": 8.05547390731327,
+    "environment_step_time_s": 24.38062058284413,
+    "episode": 0,
+    "initial_action_support": 3008,
+    "max_action_support": 34257,
+    "mean_action_support": 17684.28125,
+    "multi_tile_coupled_steps": 23,
+    "oracle_evaluations": 63,
+    "oracle_requests": 64,
+    "parameter_updates": 1,
+    "plateau_stale_episodes": null,
+    "policy_loss": 14.900484959172815,
+    "policy_update_time_s": 16.471741124987602,
+    "requirements_satisfied": true,
+    "resize_steps": 17,
+    "retile_steps": 15,
+    "return": 1.885584909109946,
+    "steps": 64,
+    "termination": "request_limit"
+  }
+]

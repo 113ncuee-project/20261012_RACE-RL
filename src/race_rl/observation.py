@@ -27,27 +27,37 @@ class GraphObservation:
     cached_mapping_hashes: tuple = ()
     best_mapping_hash: str = ""
     memory_port_edge_index: tuple = ()
+    task_features: tuple = (0.0,)*16
 
 
 def observe(workload,hardware,mapping,evaluation,actions,*,current,best,remaining,budget,
-            remaining_requests=1.0,cached_mapping_hashes=(),best_mapping_hash=""):
+            remaining_requests=1.0,cached_mapping_hashes=(),best_mapping_hash="",last_reward=0.0):
     tiles = tuple(sorted(mapping.tiles,key=lambda t:t.id))
     nodes = tuple(sorted(hardware.service_nodes,key=lambda n:n.id))
     ti = {t.id:i for i,t in enumerate(tiles)}
     hi = {n.id:i for i,n in enumerate(nodes)}
-    trace = {e["job"]["id"]:e for e in evaluation.schedule_trace}
-    diagnostics = evaluation.diagnostics.get("criticality",{})
-    makespan = evaluation.latency_s
+    measured = evaluation is not None
+    trace = {e["job"]["id"]:e for e in evaluation.schedule_trace} if measured else {}
+    diagnostics = evaluation.diagnostics.get("criticality",{}) if measured else {}
+    makespan = evaluation.latency_s if measured else 1.0
     types = OPERATOR_KINDS
     features = []
     for t in tiles:
         op = workload.operator_map[t.operator]
-        e = trace[f"compute:{t.id}"]
-        meta = e["job"]["metadata"]
-        diag = diagnostics[e["job"]["id"]]
+        if measured:
+            e = trace[f"compute:{t.id}"]
+            meta = e["job"]["metadata"]
+            diag = diagnostics[e["job"]["id"]]
+            feedback = ((e['finish_s']-e['start_s'])/makespan,diag['slack_s']/makespan,float(diag['critical']))
+        else:
+            from .tiles import operations,requirements
+            meta = {'operations':operations(workload,t),
+                'input_bytes':sum(r.elements*workload.tensor_map[name].bytes_per_element for name,r in requirements(workload,t)),
+                'output_bytes':t.output.elements*workload.tensor_map[op.output].bytes_per_element}
+            feedback = (0.0,0.0,0.0)
         features.append((*[float(op.kind == kind) for kind in types],
             log1p(meta["operations"]),log1p(meta["input_bytes"]),log1p(meta["output_bytes"]),
-            (e["finish_s"]-e["start_s"])/makespan,diag["slack_s"]/makespan,float(diag["critical"])))
+            *feedback))
     hw_features = []
     for n in nodes:
         spans = [e for e in trace.values() if any(r.startswith(f"compute:{n.id}:") or
@@ -61,7 +71,7 @@ def observe(workload,hardware,mapping,evaluation,actions,*,current,best,remainin
     link_index = {(l.id,a,b):i for i,(l,a,b) in enumerate(links)}
     traffic_by_edge = {key:0 for key in link_index}
     relation = []
-    for flow in evaluation.traffic_ledger:
+    for flow in evaluation.traffic_ledger if measured else ():
         for route in flow["route"]:
             key = tuple(route)
             traffic_by_edge[key] += flow["bytes"]
@@ -84,11 +94,15 @@ def observe(workload,hardware,mapping,evaluation,actions,*,current,best,remainin
         edge_features.append((log1p(l.bandwidth_Bps),log1p(traffic_by_edge[(l.id,a,b)]),busy,float(critical)))
     placements = tuple((ti[t.id],hi[mapping.placements[t.id]]) for t in tiles)
     global_features = (log(current),log(best),remaining/budget,1-remaining/budget,
-                       evaluation.energy_j,evaluation.latency_s,1.0,remaining_requests)
-    return GraphObservation(3,tuple(ti),tuple(hi),tuple(features),tuple(hw_features),edges,
+                       evaluation.average_power_w if measured else 0.0,
+                       evaluation.latency_s if measured else 0.0,1.0,remaining_requests,
+                       float(measured),last_reward)
+    return GraphObservation(5,tuple(ti),tuple(hi),tuple(features),tuple(hw_features),edges,
         tuple((1.0,) for _ in edges),tuple((hi[a],hi[b]) for _,a,b in links),tuple(edge_features),
         placements,tuple(sorted(set(relation))),global_features,tuple(actions),tuple(True for _ in actions),
-        {"tile":tuple(tuple(True for _ in f) for f in features),
-         "hardware":tuple(tuple(True for _ in f) for f in hw_features),
-         "global":tuple(True for _ in global_features)},tuple(sorted(cached_mapping_hashes)),best_mapping_hash,
+        {"tile":tuple((True,)*(len(f)-3)+(measured,)*3 for f in features),
+         "hardware":tuple((True,)*8+(measured,) for _ in hw_features),
+         "link":tuple((True,)+(measured,)*3 for _ in edge_features),
+         "global":(measured,measured,True,True,measured,measured,True,True,True,True),
+         "task":(True,)*9+(measured,)*6+(True,)},tuple(sorted(cached_mapping_hashes)),best_mapping_hash,
          tuple(edge for p in hardware.memory_ports for edge in ((hi[p.id],hi[p.attached_to]),(hi[p.attached_to],hi[p.id]))))

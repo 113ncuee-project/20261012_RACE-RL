@@ -10,6 +10,8 @@ from .oracle import Oracle,BudgetExhausted
 from .observation import observe
 from .rewards import potential,reward
 from .serialization import digest,save_json,code_hashes
+from .requirements import PPARequirements
+from .stopping import PlateauSettings,ObjectivePlateau
 
 
 @dataclass(frozen=True)
@@ -146,48 +148,49 @@ class DesignOracle:
 
 
 class DesignEnvironment:
-    """Every step may resize/retile/remap; poor EDP never removes a count."""
+    """Every step may resize/retile/remap; poor PPA never removes a count."""
     def __init__(self,workload,*,compute_counts=DEFAULT_COUNTS,initial_count=None,
-                 budget=16,max_scope=1,max_area_mm2=None,max_requests=None,
+                 budget=16,max_scope=2,max_area_mm2=None,max_requests=None,requirements=None,
                  action_mode='coupled',reward_variant='dense',lambda_b=1.0,lambda_c=0.0):
         if (not compute_counts or len(set(compute_counts)) != len(compute_counts)
             or any(type(n) is not int or n < 1 for n in compute_counts)):
             raise ValueError('distinct positive compute counts required')
-        if type(budget) is not int or budget < 2 or not 1 <= max_scope <= 4:
-            raise ValueError('budget>=2 and scope in 1..4 required')
+        if type(budget) is not int or budget < 1 or not 1 <= max_scope <= 4:
+            raise ValueError('budget>=1 and scope in 1..4 required')
         if max_area_mm2 is not None and (not math.isfinite(max_area_mm2) or max_area_mm2 <= 0):
             raise ValueError('positive finite area limit required')
         if action_mode not in ('coupled','independent') or reward_variant not in ('dense','terminal','potential'):
             raise ValueError('unknown action/reward ablation')
         if any(not math.isfinite(v) or v < 0 for v in (lambda_b,lambda_c)):
             raise ValueError('finite nonnegative potential coefficients required')
+        if requirements is not None and max_area_mm2 is not None:
+            raise ValueError("supply area in requirements or max_area_mm2, not both")
+        self.requirements = requirements or PPARequirements(max_area_mm2=max_area_mm2)
         self.workload,self.counts = workload,tuple(compute_counts)
         self.initial_count = self.counts[0] if initial_count is None else initial_count
         if self.initial_count not in self.counts: raise ValueError('initial count not in candidate set')
         self.hardware_candidates = {n:mesh_hardware(n) for n in self.counts}
-        self.settings = {'budget':budget,'max_scope':max_scope,'max_requests':max_requests or 10*budget,
-            'max_area_mm2':max_area_mm2,'scheduling_policy':'serial_node_tiles','reward_variant':reward_variant,
+        self.settings = {'budget':budget,'max_scope':max_scope,'max_requests':max_requests or budget,
+            'requirements':self.requirements,'scheduling_policy':'serial_node_tiles','reward_variant':reward_variant,
             'action_mode':action_mode,'lambda_b':lambda_b,'lambda_c':lambda_c}
         if type(self.settings['max_requests']) is not int or self.settings['max_requests'] < 1:
             raise ValueError('positive request ceiling required')
 
     def feasible(self,record):
-        limit = self.settings['max_area_mm2']
-        return record.feasible and (limit is None or record.area_mm2 <= limit)
+        return self.scorer.assess(record)['feasible']
 
     def reset(self):
         self.oracle = DesignOracle(self.workload,self.settings['budget'])
         self.compute_count = self.initial_count
         self.hardware = self.hardware_candidates[self.compute_count]
-        limit = self.settings['max_area_mm2']
-        if limit is not None and len(self.hardware.nodes) > limit: raise ValueError('initial design exceeds die-area limit')
         self.current_mapping,self.compiler = conservative_initial_mapping(self.workload,self.hardware)
         self.initial = self.current_mapping
-        self.current_record = self.oracle.evaluate(self.hardware,self.current_mapping)
-        if not self.feasible(self.current_record): raise ValueError('initial mapping is infeasible')
-        self.reference = self.current_record.edp_js
+        self.current_record = self.best_record = None
+        self.scorer = self.requirements.bind()
+        self.reference = 1.0  # Unmeasured archive sentinel, never an initial PPA score.
+        self.last_reward = 0.0
         self.current_objective = self.best_objective = 1.0
-        self.best_mapping,self.best_record,self.best_hardware = self.current_mapping,self.current_record,self.hardware
+        self.best_mapping = self.best_hardware = None
         self.trace,self.structural_validation_time_s = [],0.0
         self._refresh()
         return self.observation
@@ -246,8 +249,7 @@ class DesignEnvironment:
         started = time.perf_counter()
         ma = (legal_actions(self.workload,self.hardware,self.current_mapping,self.settings['max_scope'])
             if self.settings['action_mode'] == 'coupled' else ())
-        limit = self.settings['max_area_mm2']
-        ca = [CountAction(n) for n in self.counts if n != self.compute_count and (limit is None or n <= limit)]
+        ca = [CountAction(n) for n in self.counts if n != self.compute_count]
         ra,rf = self._retile_actions() if self.settings['action_mode'] == 'coupled' else self._independent_actions()
         self.actions = tuple(ma)+tuple(ca)+tuple(ra)
         self.structural_validation_time_s += time.perf_counter()-started
@@ -258,14 +260,16 @@ class DesignEnvironment:
         graph = observe(self.workload,self.hardware,self.current_mapping,self.current_record,ma,
             current=self.current_objective,best=self.best_objective,remaining=self.oracle.budget-self.oracle.evaluations,
             budget=self.oracle.budget,remaining_requests=(self.settings['max_requests']-self.oracle.requests)/self.settings['max_requests'],
-            cached_mapping_hashes=self.oracle.cache,best_mapping_hash=digest(self.best_mapping))
+            cached_mapping_hashes=self.oracle.cache,best_mapping_hash=digest(self.best_mapping) if self.best_mapping else '',
+            last_reward=self.last_reward)
         from dataclasses import replace
         graph = replace(graph,global_features=(*graph.global_features[:6],
-            self.compute_count/max(self.counts),graph.global_features[7]))
+            self.compute_count/max(self.counts),*graph.global_features[7:]),
+            task_features=self.scorer.features(self.current_record,self.feasible(self.best_record)))
         cf = tuple((a.compute_count/max(self.counts),*mesh_shape(a.compute_count),
             a.compute_count/max(self.counts)) for a in ca)
         self.observation = DesignObservation(graph,self.actions,tuple(True for _ in self.actions),tuple(cf),tuple(rf),
-            self.compute_count,digest(self.best_hardware))
+            self.compute_count,digest(self.best_hardware) if self.best_hardware else '')
 
     def step(self,action):
         if self.done: raise RuntimeError('episode has terminated')
@@ -282,21 +286,27 @@ class DesignEnvironment:
         old_phi = self.phi()
         record = self.oracle.evaluate(h,mapping)
         feasible = self.feasible(record)
-        if feasible:
+        if record.feasible:
             self.hardware,self.compute_count,self.current_mapping,self.current_record = h,count,mapping,record
-            self.current_objective = record.edp_js/self.reference
-            if self.current_objective < self.best_objective:
+            self.current_objective = self.scorer.objective(record)
+            if self.scorer.better(record,self.best_record):
                 self.best_objective,self.best_hardware,self.best_mapping,self.best_record = self.current_objective,h,mapping,record
         self._refresh()
         r = reward(1.0,old_best,self.best_objective,terminal=self.done,variant=self.settings['reward_variant'],
             old_phi=old_phi,new_phi=self.phi())
-        self.trace.append({'action':action,'feasible':feasible,'candidate_hardware_hash':record.hardware_hash,
+        self.last_reward = r
+        from dataclasses import replace
+        self.observation = replace(self.observation,graph=replace(self.observation.graph,
+            global_features=(*self.observation.graph.global_features[:-1],r)))
+        self.trace.append({'action':action,'feasible':feasible,'physical_feasible':record.feasible,
+            'ppa_assessment':self.scorer.assess(record),'candidate_hardware_hash':record.hardware_hash,
             'candidate_mapping_hash':record.mapping_hash,'candidate_compute_count':count,'compute_count':self.compute_count,
             'current_objective':self.current_objective,'best_objective':self.best_objective,'reward':r,
             'evaluations':self.oracle.evaluations,'requests':self.oracle.requests,'cache_hits':self.oracle.cache_hits,'termination':self.termination})
         return self.observation,r,self.done
 
     def bottleneck(self):
+        if self.current_record is None: return 0.0
         diagnostics = self.current_record.diagnostics['criticality']
         critical = [e for e in self.current_record.schedule_trace if e['job']['kind'] != 'compute'
             and diagnostics[e['job']['id']]['critical']]
@@ -307,66 +317,90 @@ class DesignEnvironment:
 
 
 def nondominated(rows):
-    keys = ('average_power_w','energy_j','latency_s','area_mm2')
+    keys = ('average_power_w','latency_s','area_mm2')
     valid = [r for r in rows if r['feasible']]
     return [r for r in valid if not any(all(q[k] <= r[k] for k in keys) and any(q[k] < r[k] for k in keys) for q in valid)]
 
 
 def search_mesh(workload,folder,*,compute_counts=DEFAULT_COUNTS,episodes=3,budget=16,
-                max_scope=1,seed=7,max_area_mm2=None,width=32,state_variant='full',
-                action_mode='coupled',reward_variant='dense',lambda_c=0.0):
+                max_scope=2,seed=7,max_area_mm2=None,width=32,state_variant='full',
+                action_mode='coupled',reward_variant='dense',lambda_c=0.0,requirements=None,early_stopping=None):
     from .training import RACETrainer
     from .cli import export
     if type(episodes) is not int or episodes < 1: raise ValueError('positive episodes required')
+    plateau = ObjectivePlateau(PlateauSettings(**early_stopping)) if early_stopping is not None else None
+    stop_reason = 'EPISODE_LIMIT'
     folder.mkdir(parents=True,exist_ok=True)
     if any(folder.iterdir()): raise ValueError('choose a fresh output directory')
-    settings = dict(compute_counts=tuple(compute_counts),budget=budget,max_scope=max_scope,max_area_mm2=max_area_mm2,
+    settings = dict(compute_counts=tuple(compute_counts),budget=budget,max_scope=max_scope,max_area_mm2=max_area_mm2,requirements=requirements,
         action_mode=action_mode,reward_variant=reward_variant,lambda_c=lambda_c)
     DesignEnvironment(workload,**settings)
     trainer = RACETrainer(seed=seed,width=width,precision='float64',state_variant=state_variant)
-    save_json(folder/'config.json',{'env':settings,'episodes':episodes,'ppo':trainer.config,'source_hashes':code_hashes(),
-        'precision':'float64 workload/features/parameters/returns/PPO arithmetic',
-        'policy':'ONE shared encoder, critic and optimizer; all action families may occur at every step',
+    save_json(folder/'config.json',{'env':settings,'episodes':episodes,'early_stopping':early_stopping,'training':trainer.config,'source_hashes':code_hashes(),
+        'precision':'float64 workload/features/parameters/returns/policy-gradient arithmetic',
+        'policy':'ONE shared encoder, actor and optimizer; no critic; all action families may occur at every step',
         'exploration':'5% uniform mixture in family and conditional distributions; actual mixture log probabilities',
         'profile':'compute-only mesh; external-memory services are not physical chiplets; fixed per-compute specs; uncalibrated capacity/area density',
-        'pruning':'shape/coverage/placement/area constraints only; no removal from a poor mapping or heuristic capacity estimate','status':'UNIFIED_RL_DEVELOPMENT_PILOT'})
+        'pruning':'shape/coverage/placement constraints only; all requested counts may be tried in the environment','status':'UNIFIED_RL_DEVELOPMENT_PILOT'})
     started = time.perf_counter()
     rows,winner = [],None
     for i in range(episodes):
         env = DesignEnvironment(workload,**settings)
+        env.progress_path = folder/"progress.json"
         stats = trainer.run_episode(env)
-        stats.update(compute_count=len(env.best_hardware.compute_ids),best_edp_js=env.best_record.edp_js,
+        stats.update(compute_count=len(env.best_hardware.compute_ids) if env.best_hardware else None,best_weighted_ppa_cost=env.scorer.assess(env.best_record)['weighted_cost'],
+            requirements_satisfied=env.feasible(env.best_record),
             resize_steps=sum(isinstance(r['action'],CountAction) for r in env.trace),
+            multi_tile_coupled_steps=sum(len(getattr(r['action'],'scope',()))>1 for r in env.trace),
             retile_steps=sum(isinstance(r['action'],RetileAction) for r in env.trace))
         export(folder/f'episode_{i+1:04d}',env,stats)
-        save_json(folder/f'episode_{i+1:04d}'/'best_hardware.json',env.best_hardware)
+        if env.best_hardware is not None:
+            save_json(folder/f'episode_{i+1:04d}'/('best_hardware.json' if env.feasible(env.best_record) else 'closest_hardware.json'),env.best_hardware)
         save_json(folder/f'episode_{i+1:04d}'/'compiler.json',env.compiler)
         for key,record in env.oracle.cache.items():
             h,mapping = env.oracle.designs[key]
             rows.append({'episode':i+1,'design_hash':key,'compute_count':len(h.compute_ids),'total_chiplets':len(h.nodes),
-                'feasible':env.feasible(record),'edp_js':record.edp_js,'energy_j':record.energy_j,'latency_s':record.latency_s,
+                'feasible':env.feasible(record),'ppa_assessment':env.scorer.assess(record),'energy_j':record.energy_j,'latency_s':record.latency_s,
                 'average_power_w':record.average_power_w,'area_mm2':record.area_mm2,'mapping_hash':record.mapping_hash,
                 'hardware_hash':record.hardware_hash,'violations':record.violations})
-        if winner is None or env.best_record.edp_js < winner.best_record.edp_js: winner = env
-        print(f"Unified PPO episode {i+1}: best compute={len(env.best_hardware.compute_ids)}, EDP={env.best_record.edp_js:.9g}, evaluations={env.oracle.evaluations}, resize={stats['resize_steps']}, retile={stats['retile_steps']}",flush=True)
+        if winner is None or env.scorer.better(env.best_record,winner.best_record): winner = env
+        print(f"Unified REINFORCE episode {i+1}: selected compute={stats['compute_count']}, PPA cost={stats['best_weighted_ppa_cost']}, compliant={env.feasible(env.best_record)}, evaluations={env.oracle.evaluations}, resize={stats['resize_steps']}, retile={stats['retile_steps']}",flush=True)
+        should_stop = plateau.update(winner.scorer.assess(winner.best_record),i+1) if plateau else False
+        stats['plateau_stale_episodes'] = plateau.stale if plateau else None
         save_json(folder/'training_curve.json',trainer.history)
-    identity = digest({'workload':workload,'settings':settings,'source':code_hashes()})
+        if should_stop:
+            stop_reason='OBJECTIVE_PLATEAU'
+            break
+    identity = digest({'workload':workload,'settings':settings,'early_stopping':early_stopping,'source':code_hashes()})
     trainer.save(folder/'checkpoint.pt',experiment_identity=identity)
-    save_json(folder/'best_hardware.json',winner.best_hardware)
-    save_json(folder/'best_mapping.json',winner.best_mapping)
-    save_json(folder/'best_evaluation.json',winner.best_record)
+    prefix = 'best' if winner.feasible(winner.best_record) else 'closest'
+    if winner.best_record is not None:
+        save_json(folder/f'{prefix}_hardware.json',winner.best_hardware)
+        save_json(folder/f'{prefix}_mapping.json',winner.best_mapping)
+        save_json(folder/f'{prefix}_evaluation.json',winner.best_record)
+    report = winner.scorer.report(winner.best_record)
+    report['status'] = 'FEASIBLE_DESIGN_FOUND' if prefix == 'best' else 'NO_FEASIBLE_DESIGN_FOUND'
+    save_json(folder/'vendor_report.json',report)
     save_json(folder/'candidate_metrics.json',rows)
     save_json(folder/'pareto_frontier.json',nondominated(rows))
-    summary = {'status':'UNIFIED_RL_DEVELOPMENT_PILOT','single_policy':True,
-        'best_compute_count':len(winner.best_hardware.compute_ids),'best_total_chiplets':len(winner.best_hardware.nodes),
-        'best_edp_js':winner.best_record.edp_js,'best_area_mm2':winner.best_record.area_mm2,
+    summary = {'status':'UNIFIED_RL_DEVELOPMENT_PILOT','single_policy':True,'algorithm':'reinforce','critic_used':False,
+        'requirements_status':report['status'],'requirements':winner.requirements,
+        'episodes_requested':episodes,'episodes_completed':trainer.episodes,'search_stop_reason':stop_reason,
+        'early_stopping':early_stopping,'convergence_proven':False,
+        'selected_compute_count':len(winner.best_hardware.compute_ids) if winner.best_hardware else None,
+        'selected_total_chiplets':len(winner.best_hardware.nodes) if winner.best_hardware else None,
+        'best_compute_count':len(winner.best_hardware.compute_ids) if prefix == 'best' else None,
+        'best_weighted_ppa_cost':report['assessment']['weighted_cost'] if prefix == 'best' else None,
+        'selected_assessment':report['assessment'],
         'total_oracle_evaluations':trainer.training_evaluations,'oracle_budget_ceiling':episodes*budget,
-        'initial_evaluations_included':True,'policy_updates':sum(s['parameter_updates'] for s in trainer.history),
+        'initial_evaluations_included':False,'evaluations_before_first_action':0,
+        'policy_updates':sum(s['parameter_updates'] for s in trainer.history),
         'counts_evaluated':sorted({r['compute_count'] for r in rows}),'counts_requested':compute_counts,
         'resize_steps':sum(s['resize_steps'] for s in trainer.history),'retile_steps':sum(s['retile_steps'] for s in trainer.history),
+        'multi_tile_coupled_steps':sum(s['multi_tile_coupled_steps'] for s in trainer.history),
         'wall_time_s':time.perf_counter()-started,'source_hashes':code_hashes(),
         'limitations':'finite count/output-partition candidates; short same-workload learning; no global-optimum or silicon PPA guarantee',
-        'reward_contract':{'global_reference':'fixed initial EDP','variant':reward_variant,'lambda_c':lambda_c,
+        'reward_contract':{'global_reference':'unmeasured archive sentinel J=1; measured J=M/(1+M); fixed vendor-limit scales or declared SI unit scales','variant':reward_variant,'lambda_c':lambda_c,
             'gamma':1.0,'accepts_worse_feasible_states':True}}
     save_json(folder/'summary.json',summary)
     return summary

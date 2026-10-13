@@ -1,0 +1,111 @@
+{
+  "best_compute_count": 2,
+  "best_weighted_ppa_cost": 0.2178403997015792,
+  "convergence_proven": false,
+  "counts_evaluated": [
+    2,
+    9
+  ],
+  "counts_requested": [
+    2,
+    1,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16
+  ],
+  "early_stopping": null,
+  "episodes_completed": 1,
+  "episodes_requested": 1,
+  "initial_evaluations_included": true,
+  "limitations": "finite count/output-partition candidates; short same-workload learning; no global-optimum or silicon PPA guarantee",
+  "oracle_budget_ceiling": 4,
+  "policy_updates": 4,
+  "requirements": {
+    "max_area_mm2": 16,
+    "max_latency_s": 1.0,
+    "max_power_w": 1,
+    "preference": "custom",
+    "weights": [
+      0.3333333333333333,
+      0.3333333333333333,
+      0.3333333333333333
+    ]
+  },
+  "requirements_status": "FEASIBLE_DESIGN_FOUND",
+  "resize_steps": 1,
+  "retile_steps": 1,
+  "reward_contract": {
+    "accepts_worse_feasible_states": true,
+    "gamma": 1.0,
+    "global_reference": "fixed initial feasibility-first PPA merit; scales frozen from vendor limits or initial metrics",
+    "lambda_c": 0.0,
+    "variant": "dense"
+  },
+  "search_stop_reason": "EPISODE_LIMIT",
+  "selected_assessment": {
+    "feasible": true,
+    "metrics": {
+      "area_mm2": 2,
+      "average_power_w": 0.007143896104737029,
+      "latency_s": 0.5213773030000006
+    },
+    "physical_feasible": true,
+    "search_merit": 0.17887434162551927,
+    "violation_excess": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "violations": [],
+    "weighted_cost": 0.2178403997015792
+  },
+  "selected_compute_count": 2,
+  "selected_total_chiplets": 2,
+  "single_policy": true,
+  "source_hashes": {
+    "__init__.py": "f15da83f8ebbbc6cbf2a1239c6b490edeeb03fe47b676e4a89e19324c0072f8b",
+    "actions.py": "99a29720868d3fbd2f609d4b8f0db720733a88bf4ab5693f0c64cc2e830ac306",
+    "architecture.py": "17b4231e14b76adc4d46d112ee74c2c638145809e824468d4af56d35137c8d3f",
+    "baselines.py": "17d670f2092803b9c75a2754d37fe62df1abc2978b33bbeb8544fe39c940eeb0",
+    "cli.py": "c1dcbbcc9de3c5b6365b7bbdd79e80cc61ee5a288f87768c2f323469d3f4eb73",
+    "cnn_fixture.py": "a955a1dba481253c85d8787b67a29d4b035892eb12bfbd7d84d24b167682fc5e",
+    "environment.py": "a6756415095d98319ad97608524aff18f0592dba70e90c217d63e76caa281be5",
+    "examples.py": "cc016a3444cfe399050f9628b656a29e0bd45a98f6266bcfbc8191aa3f87e41d",
+    "frontend.py": "790134b5c9853b0b62b24b561dc3aa8d96ed0fad76583d018b28be44526ad3db",
+    "hardware.py": "ba74fef0c8f4e95d0ec5a9abd97ef90e5a38126cb85b545404525d792969f2d8",
+    "initialization.py": "bfa4124a6e3f1372af22a3a8c2f39b51fb5e90b402cccfbff0d10024490e2a7a",
+    "mapping.py": "dffe139aacb76409ecbec94af60e95af23fd8c7cf5769e20e1a4a79e729bb8ca",
+    "mesh.py": "08c36358ad23e80aa76db10885e0c813fe516ea7411e36d66fcd22952bf573bf",
+    "model_validation.py": "01d565999d3a2046fcafe1b63e5db451326880ed726463705cbd951f3d70e899",
+    "network.py": "284e4e63647fbc5f980b602db2ef989570069cebc14bd56a1128e8e848312efa",
+    "observation.py": "6bd390198df910f7211529985939342ebe1504da45b7a7b8e2cf277f33521d70",
+    "oracle.py": "ca9872cf06b7cea0e45bcd6a584840df9237ace873fe1d9aca46891a23b9b850",
+    "parameters.py": "abb59819a0e3000c4381a8b1df4c70c6fd4e0c54d54a2517adea3589c3939126",
+    "policy.py": "5666ec5df2010fabb3267e930479d50e877c79783509ba384dc4b6b6d45fc1d4",
+    "reference.py": "caab84d5d1574953c4af7ea1b0a2e14fa4562cdd255594dd3b7939a15ab8daf4",
+    "requirements.py": "afdf3ef670e32a7a94998778f59a167aebd60a9d9a2fd1e28c32a4b955d6efc6",
+    "rewards.py": "2c0ce3ef0068cc2193dab28cabee7858a283e612d387ba09cd8481a90ee3e9ce",
+    "schedule.py": "e061b5af06f53dfb71d36a773e32f7997994062d3cf500dea574cf000fc5f5dd",
+    "serialization.py": "fce7b4132b42ec16600dfdc22de08ad41019ccd8c9b437570f55955d0c3b21aa",
+    "statistics.py": "717af83f3ee87b2b25b6e6a9702ceaf520b8e90546b54beb9b6ed8d6ca20866a",
+    "stopping.py": "332e61826a36f5a2154bf52000bbf96369d7ffe7c1d52a5c340cdf27d5d3134f",
+    "tiles.py": "2a1d0ffa325c3a384cd880beef6891fe2af80897b9259fce549a2f8cce2b5c08",
+    "training.py": "a0d65584bb8a82474694d2eae1e0fa81e4b2791bda4157c2d20da8d05de03433",
+    "vendor_input.py": "b41b296a903ae8d34d2884fec76f0b4dad58b82ad42f91c0e8a6f073a34ccbda",
+    "workload.py": "7ae1e8a0fe48717d78b3541df2a832ba88da2e14c5db279b0b26b31ab27ee391"
+  },
+  "status": "UNIFIED_RL_DEVELOPMENT_PILOT",
+  "total_oracle_evaluations": 4,
+  "wall_time_s": 10.75458083290141
+}

@@ -47,34 +47,42 @@ class ActionRewardTests(unittest.TestCase):
             self.assertAlmostEqual(sum(dense),math.log(1/sequence[-1]))
             self.assertAlmostEqual(sum(shaped),math.log(1/sequence[-1])-initial_phi)
 
-    def test_budget_one_and_strict_initial_limits(self):
+    def test_budget_one_allows_one_action_and_reset_does_not_test_limits(self):
         env = RACEEnvironment(self.w,self.h,self.m,budget=1)
         env.reset()
+        self.assertFalse(env.done)
+        self.assertEqual(env.oracle.evaluations,0)
+        env.step(env.actions[0])
         self.assertTrue(env.done)
         self.assertEqual(env.oracle.evaluations,1)
-        with self.assertRaises(ValueError):
-            RACEEnvironment(self.w,self.h,self.m,limits={"area_mm2":1}).reset()
+        limited=RACEEnvironment(self.w,self.h,self.m,budget=1,limits={"area_mm2":1})
+        limited.reset();limited.step(limited.actions[0])
+        self.assertIsNone(limited.best_record)
 
     def test_worse_feasible_current_does_not_replace_archive(self):
         env = RACEEnvironment(self.w,self.h,self.m,budget=4)
         env.reset()
+        first=next(a for a in env.actions if a.kind=='cut_migrate' and a.target=='c1' and len(a.scope)==1)
+        env.step(first)
+        best,best_mapping=env.best_objective,env.best_mapping
         action = next(a for a in env.actions if a.kind == "memory_affinity" and a.target == "m1"
                       and a.compute_target == "c0" and len(a.scope) == 3)
         env.step(action)
-        self.assertGreater(env.current_objective,1)
-        self.assertEqual(env.best_objective,1)
-        self.assertEqual(env.best_mapping,self.m)
+        self.assertGreater(env.current_objective,best)
+        self.assertEqual(env.best_objective,best)
+        self.assertEqual(env.best_mapping,best_mapping)
 
     def test_physical_failure_reward_telescope(self):
         from dataclasses import replace
         h = replace(self.h,nodes=tuple(replace(n,memory_bytes=1) if n.id == "c1" else n for n in self.h.nodes))
-        env = RACEEnvironment(self.w,h,self.m,budget=2,reward_variant="potential",lambda_c=0.3)
+        env = RACEEnvironment(self.w,h,self.m,budget=1,reward_variant="potential",lambda_c=0.3)
         env.reset()
         phi0 = env.phi()
         action = next(a for a in env.actions if a.kind == "cut_migrate" and a.target == "c1")
         _,r,done = env.step(action)
         self.assertTrue(done)
-        self.assertEqual(env.oracle.evaluations,2)
+        self.assertEqual(env.oracle.evaluations,1)
+        self.assertIsNone(env.best_record)
         self.assertEqual(env.best_objective,1)
         self.assertAlmostEqual(r,-phi0)
 

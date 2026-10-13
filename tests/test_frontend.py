@@ -127,10 +127,10 @@ class FrontendTests(unittest.TestCase):
         w = from_torch(SmallResidual().eval(),example).workload
         h = toy_hardware()
         env = RACEEnvironment(w,h,initial_mapping(w,h),budget=4,max_scope=1)
-        trainer = RACETrainer(width=8,epochs=1,seed=4)
+        trainer = RACETrainer(width=8,seed=4)
         before = {k:v.clone() for k,v in trainer.policy.state_dict().items()}
         summary = trainer.run_episode(env)
         self.assertEqual(summary['oracle_evaluations'],4)
-        self.assertEqual(env.observation.schema_version,3)
+        self.assertEqual(env.observation.schema_version,5)
         self.assertTrue(env.current_record.feasible)
         self.assertTrue(any(not torch.equal(before[k],v) for k,v in trainer.policy.state_dict().items()))

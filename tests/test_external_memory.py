@@ -56,7 +56,7 @@ class ExternalMemoryTests(unittest.TestCase):
     def test_logical_memory_relations_are_distinct_from_physical_links(self):
         env=DesignEnvironment(toy_workload(),compute_counts=(2,16),budget=4)
         o=env.reset()
-        self.assertEqual(o.graph.schema_version,3)
+        self.assertEqual(o.graph.schema_version,5)
         self.assertEqual(len(o.graph.memory_port_edge_index),4)
         self.assertEqual(len(o.graph.hardware_edge_index),2)
         env.step(CountAction(16))
@@ -71,5 +71,5 @@ class ExternalMemoryTests(unittest.TestCase):
         trainer=RACETrainer(width=8,state_variant='no_criticality',precision='float64')
         d,v=trainer.policy.distribution(o)
         self.assertTrue(torch.isfinite(d.logits).all())
-        self.assertTrue(torch.isfinite(v))
+        self.assertIsNone(v)
         self.assertAlmostEqual(d.probs.sum().item(),1,places=12)

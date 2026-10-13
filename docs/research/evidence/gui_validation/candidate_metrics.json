@@ -1,0 +1,1955 @@
+[
+  {
+    "area_mm2": 2,
+    "average_power_w": 0.007144540955168044,
+    "compute_count": 2,
+    "design_hash": "dfa6405bab3ae28e5527f89da5c30a7aa129c57c1e81a77d02f12c24e0ac8d18",
+    "energy_j": 0.0037278112280000023,
+    "episode": 1,
+    "feasible": true,
+    "hardware_hash": "e3369d0b53eba55aa89ff8d34a6d9866888b677b7d41a69d56a4d1672c841ac5",
+    "latency_s": 0.5217705730000006,
+    "mapping_hash": "98caa68b53cacd8e5d688a5b5bf70a834686093369dd0b8c9a2431f76c6cf789",
+    "ppa_assessment": {
+      "feasible": true,
+      "metrics": {
+        "area_mm2": 2,
+        "average_power_w": 0.007144540955168044,
+        "latency_s": 0.5217705730000006
+      },
+      "physical_feasible": true,
+      "search_merit": 0.1789628640954771,
+      "violation_excess": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "violations": [],
+      "weighted_cost": 0.21797170465172286
+    },
+    "total_chiplets": 2,
+    "violations": []
+  },
+  {
+    "area_mm2": 2,
+    "average_power_w": 0.007145608057889355,
+    "compute_count": 2,
+    "design_hash": "4ffdd75ed43d468fabfb8c05c90daf5baf8a42ac9966e053911d5b535406a519",
+    "energy_j": 0.0037262099800000016,
+    "episode": 1,
+    "feasible": true,
+    "hardware_hash": "e3369d0b53eba55aa89ff8d34a6d9866888b677b7d41a69d56a4d1672c841ac5",
+    "latency_s": 0.5214685650000004,
+    "mapping_hash": "d6e1e2489c3aa3ee7c189cbb4b108898645b3675ca24aa98b52ce8eebc1f5b37",
+    "ppa_assessment": {
+      "feasible": true,
+      "metrics": {
+        "area_mm2": 2,
+        "average_power_w": 0.007145608057889355,
+        "latency_s": 0.5214685650000004
+      },
+      "physical_feasible": true,
+      "search_merit": 0.17889523690752704,
+      "violation_excess": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "violations": [],
+      "weighted_cost": 0.21787139101929656
+    },
+    "total_chiplets": 2,
+    "violations": []
+  },
+  {
+    "area_mm2": 2,
+    "average_power_w": 0.007145859300981128,
+    "compute_count": 2,
+    "design_hash": "7125629e5e4a494c652625a18bbe53460442c1fe1b01021199bb70370fcd91e0",
+    "energy_j": 0.0037263411240000014,
+    "episode": 1,
+    "feasible": true,
+    "hardware_hash": "e3369d0b53eba55aa89ff8d34a6d9866888b677b7d41a69d56a4d1672c841ac5",
+    "latency_s": 0.5214685830000003,
+    "mapping_hash": "752f6055dd434b0e93c6bd7713d9d6f521727676dcd7ef0cd03e77daa45e8596",
+    "ppa_assessment": {
+      "feasible": true,
+      "metrics": {
+        "area_mm2": 2,
+        "average_power_w": 0.007145859300981128,
+        "latency_s": 0.5214685830000003
+      },
+      "physical_feasible": true,
+      "search_merit": 0.17889529741658963,
+      "violation_excess": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "violations": [],
+      "weighted_cost": 0.2178714807669938
+    },
+    "total_chiplets": 2,
+    "violations": []
+  },
+  {
+    "area_mm2": 2,
+    "average_power_w": 0.00714577911054502,
+    "compute_count": 2,
+    "design_hash": "76e85bcbe00d79229c799d44e8d7a643bf7bd19c25859cfd780a104875ab2b70",
+    "energy_j": 0.0037259476920000014,
+    "episode": 1,
+    "feasible": true,
+    "hardware_hash": "e3369d0b53eba55aa89ff8d34a6d9866888b677b7d41a69d56a4d1672c841ac5",
+    "latency_s": 0.5214193770000004,
+    "mapping_hash": "dbc53fbc6ae0ef9e8796519d5cec49216acc9a92483edcf32a79a9e5b4dab7ee",
+    "ppa_assessment": {
+      "feasible": true,
+      "metrics": {
+        "area_mm2": 2,
+        "average_power_w": 0.00714577911054502,
+        "latency_s": 0.5214193770000004
+      },
+      "physical_feasible": true,
+      "search_merit": 0.17888422080483912,
+      "violation_excess": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "violations": [],
+      "weighted_cost": 0.21785505203684846
+    },
+    "total_chiplets": 2,
+    "violations": []
+  },
+  {
+    "area_mm2": 13,
+    "average_power_w": 0.018145779110545022,
+    "compute_count": 13,
+    "design_hash": "970b40b72c821b02840ea3c480ed6ba464a9595a72ac9df57e011910d9d9f299",
+    "energy_j": 0.009461560839000007,
+    "episode": 1,
+    "feasible": true,
+    "hardware_hash": "31891c7d64c973e83a203d09f64f502b3f433a0744c67e5fdd2ff7e20e2c39be",
+    "latency_s": 0.5214193770000004,
+    "mapping_hash": "dbc53fbc6ae0ef9e8796519d5cec49216acc9a92483edcf32a79a9e5b4dab7ee",
+    "ppa_assessment": {
+      "feasible": true,
+      "metrics": {
+        "area_mm2": 13,
+        "average_power_w": 0.018145779110545022,
+        "latency_s": 0.5214193770000004
+      },
+      "physical_feasible": true,
+      "search_merit": 0.31067208500134,
+      "violation_excess": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "violations": [],
+      "weighted_cost": 0.4506883853701818
+    },
+    "total_chiplets": 13,
+    "violations": []
+  },
+  {
+    "area_mm2": 13,
+    "average_power_w": 0.018303695349535312,
+    "compute_count": 13,
+    "design_hash": "c29a22adc0e3318de028c038511b533a5c771e25a6ed5fc4d84b8e8a1dbf8fb8",
+    "energy_j": 0.009544657515000008,
+    "episode": 1,
+    "feasible": true,
+    "hardware_hash": "31891c7d64c973e83a203d09f64f502b3f433a0744c67e5fdd2ff7e20e2c39be",
+    "latency_s": 0.5214606850000005,
+    "mapping_hash": "4af4a971d22136ae707b14122239e279e7e4f25414bc500217df8343684b8efd",
+    "ppa_assessment": {
+      "feasible": true,
+      "metrics": {
+        "area_mm2": 13,
+        "average_power_w": 0.018303695349535312,
+        "latency_s": 0.5214606850000005
+      },
+      "physical_feasible": true,
+      "search_merit": 0.31070363888163743,
+      "violation_excess": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "violations": [],
+      "weighted_cost": 0.45075479344984526
+    },
+    "total_chiplets": 13,
+    "violations": []
+  },
+  {
+    "area_mm2": 13,
+    "average_power_w": 0.018330489085926268,
+    "compute_count": 13,
+    "design_hash": "f66f315cf033ac9a54fe6ec04b14815456965b549633a0a65241ef0bfe197449",
+    "energy_j": 0.009538067169000007,
+    "episode": 1,
+    "feasible": true,
+    "hardware_hash": "31891c7d64c973e83a203d09f64f502b3f433a0744c67e5fdd2ff7e20e2c39be",
+    "latency_s": 0.5203389350000005,
+    "mapping_hash": "a4cbf1f41140670bc7f7f44adb67225fef2abf3c34c272b6a063b222ea9734a5",
+    "ppa_assessment": {
+      "feasible": true,
+      "metrics": {
+        "area_mm2": 13,
+        "average_power_w": 0.018330489085926268,
+        "latency_s": 0.5203389350000005
+      },
+      "physical_feasible": true,
+      "search_merit": 0.31053017991129456,
+      "violation_excess": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "violations": [],
+      "weighted_cost": 0.4503898080286422
+    },
+    "total_chiplets": 13,
+    "violations": []
+  },
+  {
+    "area_mm2": 13,
+    "average_power_w": 0.018355641088214594,
+    "compute_count": 13,
+    "design_hash": "616fd0afe3997f6fcd483709b555bfae7008e65a3bad13bc02037410d9abdf6b",
+    "energy_j": 0.009554847009000009,
+    "episode": 1,
+    "feasible": true,
+    "hardware_hash": "31891c7d64c973e83a203d09f64f502b3f433a0744c67e5fdd2ff7e20e2c39be",
+    "latency_s": 0.5205400870000005,
+    "mapping_hash": "d58b618e7540301f829a2061b5e2cda4225adc672894d68c01ef5730e94cf903",
+    "ppa_assessment": {
+      "feasible": true,
+      "metrics": {
+        "area_mm2": 13,
+        "average_power_w": 0.018355641088214594,
+        "latency_s": 0.5205400870000005
+      },
+      "physical_feasible": true,
+      "search_merit": 0.31056603732107596,
+      "violation_excess": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "violations": [],
+      "weighted_cost": 0.4504652426960717
+    },
+    "total_chiplets": 13,
+    "violations": []
+  },
+  {
+    "area_mm2": 13,
+    "average_power_w": 0.018366719135178105,
+    "compute_count": 13,
+    "design_hash": "c0fecc46dd573a0913dd6d2bada8806980ac661310568fb7d02d7f43e1d1346d",
+    "energy_j": 0.009566565569000008,
+    "episode": 1,
+    "feasible": true,
+    "hardware_hash": "31891c7d64c973e83a203d09f64f502b3f433a0744c67e5fdd2ff7e20e2c39be",
+    "latency_s": 0.5208641510000005,
+    "mapping_hash": "da1bbf623ac0ae58ae52113136c6b51cb2bb8430edbbdd841958721534e48574",
+    "ppa_assessment": {
+      "feasible": true,
+      "metrics": {
+        "area_mm2": 13,
+        "average_power_w": 0.018366719135178105,
+        "latency_s": 0.5208641510000005
+      },
+      "physical_feasible": true,
+      "search_merit": 0.3106191330469822,
+      "violation_excess": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "violations": [],
+      "weighted_cost": 0.45057695671172615
+    },
+    "total_chiplets": 13,
+    "violations": []
+  },
+  {
+    "area_mm2": 13,
+    "average_power_w": 0.018562892743846704,
+    "compute_count": 13,
+    "design_hash": "1d92d5ce4b644624bc247f0f860f818e626c1b34e63f69bc8d770d4d29d97127",
+    "energy_j": 0.010325640887000007,
+    "episode": 1,
+    "feasible": true,
+    "hardware_hash": "31891c7d64c973e83a203d09f64f502b3f433a0744c67e5fdd2ff7e20e2c39be",
+    "latency_s": 0.5562517130000004,
+    "mapping_hash": "6ae1e0acc0904e993e276b8a3a232bdb49a4b63b83894bb8f68b8bf1f0cb4a80",
+    "ppa_assessment": {
+      "feasible": true,
+      "metrics": {
+        "area_mm2": 13,
+        "average_power_w": 0.018562892743846704,
+        "latency_s": 0.5562517130000004
+      },
+      "physical_feasible": true,
+      "search_merit": 0.3162104226415819,
+      "violation_excess": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "violations": [],
+      "weighted_cost": 0.46243820191461565
+    },
+    "total_chiplets": 13,
+    "violations": []
+  },
+  {
+    "area_mm2": 13,
+    "average_power_w": 0.018643422800765495,
+    "compute_count": 13,
+    "design_hash": "9fbc3c02094cc4a5e8188dd4630c8755c77b83c602594fd4ed9aec46a2f0a399",
+    "energy_j": 0.010360516375000007,
+    "episode": 1,
+    "feasible": true,
+    "hardware_hash": "31891c7d64c973e83a203d09f64f502b3f433a0744c67e5fdd2ff7e20e2c39be",
+    "latency_s": 0.5557196490000005,
+    "mapping_hash": "e2aac9bb91fd655c4cbf718a911b6164e8dcc3af92ca37731d02b99bb08785d1",
+    "ppa_assessment": {
+      "feasible": true,
+      "metrics": {
+        "area_mm2": 13,
+        "average_power_w": 0.018643422800765495,
+        "latency_s": 0.5557196490000005
+      },
+      "physical_feasible": true,
+      "search_merit": 0.31614004109580557,
+      "violation_excess": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "violations": [],
+      "weighted_cost": 0.4622876906002553
+    },
+    "total_chiplets": 13,
+    "violations": []
+  },
+  {
+    "area_mm2": 13,
+    "average_power_w": 0.018648298118874054,
+    "compute_count": 13,
+    "design_hash": "162b19002d893f6d90bfefa53d7110d38ed7e0c33f80c20267454e1484726326",
+    "energy_j": 0.01036445147500001,
+    "episode": 1,
+    "feasible": true,
+    "hardware_hash": "31891c7d64c973e83a203d09f64f502b3f433a0744c67e5fdd2ff7e20e2c39be",
+    "latency_s": 0.5557853810000006,
+    "mapping_hash": "3d6eeafe4c9d0720a59d1532c124b33f2a772f41d517daf6f6aa7f875fef9905",
+    "ppa_assessment": {
+      "feasible": true,
+      "metrics": {
+        "area_mm2": 13,
+        "average_power_w": 0.018648298118874054,
+        "latency_s": 0.5557853810000006
+      },
+      "physical_feasible": true,
+      "search_merit": 0.3161510477626922,
+      "violation_excess": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "violations": [],
+      "weighted_cost": 0.4623112263729582
+    },
+    "total_chiplets": 13,
+    "violations": []
+  },
+  {
+    "area_mm2": 13,
+    "average_power_w": 0.01866118664468675,
+    "compute_count": 13,
+    "design_hash": "0bd49f45b620e3af035ce05a551d965a645530b0591cd9fa01ec01751c73b5d6",
+    "energy_j": 0.01037051218900001,
+    "episode": 1,
+    "feasible": true,
+    "hardware_hash": "31891c7d64c973e83a203d09f64f502b3f433a0744c67e5fdd2ff7e20e2c39be",
+    "latency_s": 0.5557262990000007,
+    "mapping_hash": "99f4161955f09ff66d121f56d7f56313b97e798a7ceca238ee74493cff6a55f8",
+    "ppa_assessment": {
+      "feasible": true,
+      "metrics": {
+        "area_mm2": 13,
+        "average_power_w": 0.01866118664468675,
+        "latency_s": 0.5557262990000007
+      },
+      "physical_feasible": true,
+      "search_merit": 0.3161438469035349,
+      "violation_excess": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "violations": [],
+      "weighted_cost": 0.4622958285482291
+    },
+    "total_chiplets": 13,
+    "violations": []
+  },
+  {
+    "area_mm2": 13,
+    "average_power_w": 0.019001565132774633,
+    "compute_count": 13,
+    "design_hash": "1f55df2ae0d1ee644bd97b4bba3da8ae790c6b222263079b3821d346fbf27805",
+    "energy_j": 0.011455672727000007,
+    "episode": 1,
+    "feasible": true,
+    "hardware_hash": "31891c7d64c973e83a203d09f64f502b3f433a0744c67e5fdd2ff7e20e2c39be",
+    "latency_s": 0.6028804810000004,
+    "mapping_hash": "635bc14cbd8a773ec8e10e41249551ca3381a7dae0ccef64a87044abf6e76722",
+    "ppa_assessment": {
+      "feasible": true,
+      "metrics": {
+        "area_mm2": 13,
+        "average_power_w": 0.019001565132774633,
+        "latency_s": 0.6028804810000004
+      },
+      "physical_feasible": true,
+      "search_merit": 0.3234683054392437,
+      "violation_excess": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "violations": [],
+      "weighted_cost": 0.478127348710925
+    },
+    "total_chiplets": 13,
+    "violations": []
+  },
+  {
+    "area_mm2": 13,
+    "average_power_w": 0.019037953457668556,
+    "compute_count": 13,
+    "design_hash": "21c4cf7babb60d5b21dc68719937bf77cd513b0c9b200a4b15444c0885b5f39d",
+    "energy_j": 0.011644850963000004,
+    "episode": 1,
+    "feasible": true,
+    "hardware_hash": "31891c7d64c973e83a203d09f64f502b3f433a0744c67e5fdd2ff7e20e2c39be",
+    "latency_s": 0.6116650610000003,
+    "mapping_hash": "bbbf7f19858e34034889c890bfcc645f932cb3d32924bc4439c59e7bd52191be",
+    "ppa_assessment": {
+      "feasible": true,
+      "metrics": {
+        "area_mm2": 13,
+        "average_power_w": 0.019037953457668556,
+        "latency_s": 0.6116650610000003
+      },
+      "physical_feasible": true,
+      "search_merit": 0.32481140514211326,
+      "violation_excess": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "violations": [],
+      "weighted_cost": 0.4810676714858896
+    },
+    "total_chiplets": 13,
+    "violations": []
+  },
+  {
+    "area_mm2": 13,
+    "average_power_w": 0.019236291253602437,
+    "compute_count": 13,
+    "design_hash": "2d6edda82cd1e1eddb586e1816aa7383c7d3085eef5c3dc97e095936ae5a1d9c",
+    "energy_j": 0.011920276252000005,
+    "episode": 1,
+    "feasible": true,
+    "hardware_hash": "31891c7d64c973e83a203d09f64f502b3f433a0744c67e5fdd2ff7e20e2c39be",
+    "latency_s": 0.6196764280000002,
+    "mapping_hash": "1e1b93cf1c69ef2c8c60c670f7be631a623ad931fda5a94e23ca8a13452fd85b",
+    "ppa_assessment": {
+      "feasible": true,
+      "metrics": {
+        "area_mm2": 13,
+        "average_power_w": 0.019236291253602437,
+        "latency_s": 0.6196764280000002
+      },
+      "physical_feasible": true,
+      "search_merit": 0.3260566500553493,
+      "violation_excess": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "violations": [],
+      "weighted_cost": 0.48380423975120085
+    },
+    "total_chiplets": 13,
+    "violations": []
+  },
+  {
+    "area_mm2": 13,
+    "average_power_w": 0.01924055528253121,
+    "compute_count": 13,
+    "design_hash": "a351ca1ed0e903cb5e0011b4e104c8a21a28166449c9d2deb257099e2a2a81bb",
+    "energy_j": 0.011918958229000003,
+    "episode": 1,
+    "feasible": true,
+    "hardware_hash": "31891c7d64c973e83a203d09f64f502b3f433a0744c67e5fdd2ff7e20e2c39be",
+    "latency_s": 0.6194705950000001,
+    "mapping_hash": "85b37d061ae754c713b4d022456d20a698f0ccf35b1366ab488d6bafcef17778",
+    "ppa_assessment": {
+      "feasible": true,
+      "metrics": {
+        "area_mm2": 13,
+        "average_power_w": 0.01924055528253121,
+        "latency_s": 0.6194705950000001
+      },
+      "physical_feasible": true,
+      "search_merit": 0.32602613115543144,
+      "violation_excess": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "violations": [],
+      "weighted_cost": 0.4837370500941771
+    },
+    "total_chiplets": 13,
+    "violations": []
+  },
+  {
+    "area_mm2": 13,
+    "average_power_w": 0.019516333231005868,
+    "compute_count": 13,
+    "design_hash": "a870a954abf0f83fbf42fe0c44aabef4c049dd27cc57efb7cc9b0497e90515a9",
+    "energy_j": 0.012257659381000005,
+    "episode": 1,
+    "feasible": true,
+    "hardware_hash": "31891c7d64c973e83a203d09f64f502b3f433a0744c67e5fdd2ff7e20e2c39be",
+    "latency_s": 0.6280718430000003,
+    "mapping_hash": "ebfb459f663f14836bd9ae4e32e2aa424da4e92dd5f44bacf73337e2ee745c86",
+    "ppa_assessment": {
+      "feasible": true,
+      "metrics": {
+        "area_mm2": 13,
+        "average_power_w": 0.019516333231005868,
+        "latency_s": 0.6280718430000003
+      },
+      "physical_feasible": true,
+      "search_merit": 0.3273675583393628,
+      "violation_excess": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "violations": [],
+      "weighted_cost": 0.48669605874366867
+    },
+    "total_chiplets": 13,
+    "violations": []
+  },
+  {
+    "area_mm2": 13,
+    "average_power_w": 0.0195097170179611,
+    "compute_count": 13,
+    "design_hash": "785134459e26752f1bfdeb865503bb0d3cfc98cf94d037876e53e90d6f349e8d",
+    "energy_j": 0.012217896037000003,
+    "episode": 1,
+    "feasible": true,
+    "hardware_hash": "31891c7d64c973e83a203d09f64f502b3f433a0744c67e5fdd2ff7e20e2c39be",
+    "latency_s": 0.6262467070000002,
+    "mapping_hash": "7af407c6af7e92e97c0b6e9cef694669638cbcbee79472dde8e3881257638888",
+    "ppa_assessment": {
+      "feasible": true,
+      "metrics": {
+        "area_mm2": 13,
+        "average_power_w": 0.0195097170179611,
+        "latency_s": 0.6262467070000002
+      },
+      "physical_feasible": true,
+      "search_merit": 0.3270911955987766,
+      "violation_excess": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "violations": [],
+      "weighted_cost": 0.48608547467265373
+    },
+    "total_chiplets": 13,
+    "violations": []
+  },
+  {
+    "area_mm2": 13,
+    "average_power_w": 0.01950971652828072,
+    "compute_count": 13,
+    "design_hash": "a4d12f2e0769137e4899c10da5cc551f02d35dcf97c04702a4e8b5f5505d0d1a",
+    "energy_j": 0.012217897057000004,
+    "episode": 1,
+    "feasible": true,
+    "hardware_hash": "31891c7d64c973e83a203d09f64f502b3f433a0744c67e5fdd2ff7e20e2c39be",
+    "latency_s": 0.6262467750000003,
+    "mapping_hash": "af85952a2d0884c75bf8f8d750f8bd3910e064c930c4f0de98ec3ca308e41240",
+    "ppa_assessment": {
+      "feasible": true,
+      "metrics": {
+        "area_mm2": 13,
+        "average_power_w": 0.01950971652828072,
+        "latency_s": 0.6262467750000003
+      },
+      "physical_feasible": true,
+      "search_merit": 0.32709120578847484,
+      "violation_excess": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "violations": [],
+      "weighted_cost": 0.4860854971760936
+    },
+    "total_chiplets": 13,
+    "violations": []
+  },
+  {
+    "area_mm2": 13,
+    "average_power_w": 0.01967513321833452,
+    "compute_count": 13,
+    "design_hash": "6f4a9cc4be9d714b62752b2a38a98d13eb1f061c8fc1406aeff0e65fb72cae46",
+    "energy_j": 0.012289169919000005,
+    "episode": 1,
+    "feasible": true,
+    "hardware_hash": "31891c7d64c973e83a203d09f64f502b3f433a0744c67e5fdd2ff7e20e2c39be",
+    "latency_s": 0.6246041530000004,
+    "mapping_hash": "7d04a18d6137617698384518450ba54e4e148c814f2d531ca9d476117cabb323",
+    "ppa_assessment": {
+      "feasible": true,
+      "metrics": {
+        "area_mm2": 13,
+        "average_power_w": 0.01967513321833452,
+        "latency_s": 0.6246041530000004
+      },
+      "physical_feasible": true,
+      "search_merit": 0.3268681692905732,
+      "violation_excess": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "violations": [],
+      "weighted_cost": 0.4855930954061116
+    },
+    "total_chiplets": 13,
+    "violations": []
+  },
+  {
+    "area_mm2": 13,
+    "average_power_w": 0.019704154278773305,
+    "compute_count": 13,
+    "design_hash": "45c66ed791ee7c735b788143b74b64adcbac1fe12b8fbe585bc405869af9d48b",
+    "energy_j": 0.012256933544000004,
+    "episode": 1,
+    "feasible": true,
+    "hardware_hash": "31891c7d64c973e83a203d09f64f502b3f433a0744c67e5fdd2ff7e20e2c39be",
+    "latency_s": 0.6220481920000003,
+    "mapping_hash": "4a7a337cf2af6d32770784ab2d4c993c47ce2428d8ba19dcfc66fd19ca1685b7",
+    "ppa_assessment": {
+      "feasible": true,
+      "metrics": {
+        "area_mm2": 13,
+        "average_power_w": 0.019704154278773305,
+        "latency_s": 0.6220481920000003
+      },
+      "physical_feasible": true,
+      "search_merit": 0.32648629516774075,
+      "violation_excess": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "violations": [],
+      "weighted_cost": 0.4847507820929245
+    },
+    "total_chiplets": 13,
+    "violations": []
+  },
+  {
+    "area_mm2": 13,
+    "average_power_w": 0.019703941670893822,
+    "compute_count": 13,
+    "design_hash": "b6dbf859a593a94190fde0d49818ed1c58629f751d6cbd59babdccb1ba057246",
+    "energy_j": 0.012256943495000006,
+    "episode": 1,
+    "feasible": true,
+    "hardware_hash": "31891c7d64c973e83a203d09f64f502b3f433a0744c67e5fdd2ff7e20e2c39be",
+    "latency_s": 0.6220554090000003,
+    "mapping_hash": "903f98065ac92e77bc9ef78b840c39dbdefa9790b86f134a3731150f6c72cc49",
+    "ppa_assessment": {
+      "feasible": true,
+      "metrics": {
+        "area_mm2": 13,
+        "average_power_w": 0.019703941670893822,
+        "latency_s": 0.6220554090000003
+      },
+      "physical_feasible": true,
+      "search_merit": 0.326487354278519,
+      "violation_excess": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "violations": [],
+      "weighted_cost": 0.48475311689029804
+    },
+    "total_chiplets": 13,
+    "violations": []
+  },
+  {
+    "area_mm2": 13,
+    "average_power_w": 0.01992569438109147,
+    "compute_count": 13,
+    "design_hash": "0e1c5275f5e634b1cc5c5ea1df579bb408386010dab30f5f4271e0dad5c843df",
+    "energy_j": 0.012544054000000004,
+    "episode": 1,
+    "feasible": true,
+    "hardware_hash": "31891c7d64c973e83a203d09f64f502b3f433a0744c67e5fdd2ff7e20e2c39be",
+    "latency_s": 0.6295416240000002,
+    "mapping_hash": "fbcf8cbcff80586038cae380f101c1dbfbfe0bba222fd52665c4e7a80fb99c37",
+    "ppa_assessment": {
+      "feasible": true,
+      "metrics": {
+        "area_mm2": 13,
+        "average_power_w": 0.01992569438109147,
+        "latency_s": 0.6295416240000002
+      },
+      "physical_feasible": true,
+      "search_merit": 0.3276508351727525,
+      "violation_excess": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "violations": [],
+      "weighted_cost": 0.48732243946036385
+    },
+    "total_chiplets": 13,
+    "violations": []
+  },
+  {
+    "area_mm2": 13,
+    "average_power_w": 0.019921478327648765,
+    "compute_count": 13,
+    "design_hash": "69682cbe9151c8698ea539f45cf6cbcf5e17228c7faa8afe687f9ab3d394e522",
+    "energy_j": 0.012541366550000004,
+    "episode": 1,
+    "feasible": true,
+    "hardware_hash": "31891c7d64c973e83a203d09f64f502b3f433a0744c67e5fdd2ff7e20e2c39be",
+    "latency_s": 0.6295399540000002,
+    "mapping_hash": "2d2e987a7901c59da25569f4b844731d10da10795f388738873722f053d1b578",
+    "ppa_assessment": {
+      "feasible": true,
+      "metrics": {
+        "area_mm2": 13,
+        "average_power_w": 0.019921478327648765,
+        "latency_s": 0.6295399540000002
+      },
+      "physical_feasible": true,
+      "search_merit": 0.3276499482347598,
+      "violation_excess": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "violations": [],
+      "weighted_cost": 0.48732047744254964
+    },
+    "total_chiplets": 13,
+    "violations": []
+  },
+  {
+    "area_mm2": 13,
+    "average_power_w": 0.020246520936038744,
+    "compute_count": 13,
+    "design_hash": "1b8250f0eebd530e676a2b8900299739a7988b8e5dbd9de315b2a174a2a4ff16",
+    "energy_j": 0.013128801066000007,
+    "episode": 1,
+    "feasible": true,
+    "hardware_hash": "31891c7d64c973e83a203d09f64f502b3f433a0744c67e5fdd2ff7e20e2c39be",
+    "latency_s": 0.6484472620000004,
+    "mapping_hash": "7e1563495c3a03dc00d4c7679935ffb31a07b92ecb7f6fad4897599643c2f4c3",
+    "ppa_assessment": {
+      "feasible": true,
+      "metrics": {
+        "area_mm2": 13,
+        "average_power_w": 0.020246520936038744,
+        "latency_s": 0.6484472620000004
+      },
+      "physical_feasible": true,
+      "search_merit": 0.33053553465513685,
+      "violation_excess": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "violations": [],
+      "weighted_cost": 0.49373126097867964
+    },
+    "total_chiplets": 13,
+    "violations": []
+  },
+  {
+    "area_mm2": 13,
+    "average_power_w": 0.020713343939447043,
+    "compute_count": 13,
+    "design_hash": "cd3539aee4a6efd3511a5c1b6cf9e3681e87f870ed2a518cd130c1607f18f7fd",
+    "energy_j": 0.013431513650000003,
+    "episode": 1,
+    "feasible": true,
+    "hardware_hash": "31891c7d64c973e83a203d09f64f502b3f433a0744c67e5fdd2ff7e20e2c39be",
+    "latency_s": 0.6484473820000001,
+    "mapping_hash": "feb21c8ef264f68cd12a0e701909c8a0b5e084f85ef84abcd899def9abc8746d",
+    "ppa_assessment": {
+      "feasible": true,
+      "metrics": {
+        "area_mm2": 13,
+        "average_power_w": 0.020713343939447043,
+        "latency_s": 0.6484473820000001
+      },
+      "physical_feasible": true,
+      "search_merit": 0.33060528597439975,
+      "violation_excess": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "violations": [],
+      "weighted_cost": 0.4938869086464823
+    },
+    "total_chiplets": 13,
+    "violations": []
+  },
+  {
+    "area_mm2": 13,
+    "average_power_w": 0.020769286545793603,
+    "compute_count": 13,
+    "design_hash": "49f0014b9fa4a03fa4c78609515202c5ec7bb3497433806d1662771c3e402852",
+    "energy_j": 0.013379104550000003,
+    "episode": 1,
+    "feasible": true,
+    "hardware_hash": "31891c7d64c973e83a203d09f64f502b3f433a0744c67e5fdd2ff7e20e2c39be",
+    "latency_s": 0.6441773780000002,
+    "mapping_hash": "3266477039e2d13cd18958f31c44037cc5a3fe2c15bd39f60091acfff2de5a2a",
+    "ppa_assessment": {
+      "feasible": true,
+      "metrics": {
+        "area_mm2": 13,
+        "average_power_w": 0.020769286545793603,
+        "latency_s": 0.6441773780000002
+      },
+      "physical_feasible": true,
+      "search_merit": 0.32997526832531693,
+      "violation_excess": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "violations": [],
+      "weighted_cost": 0.49248222151526455
+    },
+    "total_chiplets": 13,
+    "violations": []
+  },
+  {
+    "area_mm2": 13,
+    "average_power_w": 0.02076961749092389,
+    "compute_count": 13,
+    "design_hash": "683374e262fc92cd9dabcd56ef10369652512a20ddc4e699937ee5ef90384b27",
+    "energy_j": 0.013378550300000002,
+    "episode": 1,
+    "feasible": true,
+    "hardware_hash": "31891c7d64c973e83a203d09f64f502b3f433a0744c67e5fdd2ff7e20e2c39be",
+    "latency_s": 0.644140428,
+    "mapping_hash": "f6e0f96169360aac688f3ab327c833cf9b9d5f23777e664a505146935333dcf5",
+    "ppa_assessment": {
+      "feasible": true,
+      "metrics": {
+        "area_mm2": 13,
+        "average_power_w": 0.02076961749092389,
+        "latency_s": 0.644140428
+      },
+      "physical_feasible": true,
+      "search_merit": 0.32996978844472435,
+      "violation_excess": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "violations": [],
+      "weighted_cost": 0.4924700151636413
+    },
+    "total_chiplets": 13,
+    "violations": []
+  },
+  {
+    "area_mm2": 9,
+    "average_power_w": 0.01522800171380051,
+    "compute_count": 9,
+    "design_hash": "3abc04c83e9f383b292f4700ffac1d2f2944f0b5cfaaa96a273e835b56f0015c",
+    "energy_j": 0.009825639031000009,
+    "episode": 1,
+    "feasible": true,
+    "hardware_hash": "d78397ef79d566d1671f5c4f63026cd69bb957bc86d1b1a382be3a5d39c05440",
+    "latency_s": 0.6452349570000007,
+    "mapping_hash": "068254772e169afb635b20f41a7cfe257b698796c68b76ccc1a3a02ba478ac85",
+    "ppa_assessment": {
+      "feasible": true,
+      "metrics": {
+        "area_mm2": 9,
+        "average_power_w": 0.01522800171380051,
+        "latency_s": 0.6452349570000007
+      },
+      "physical_feasible": true,
+      "search_merit": 0.28959831537008845,
+      "violation_excess": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "violations": [],
+      "weighted_cost": 0.4076543195712671
+    },
+    "total_chiplets": 9,
+    "violations": []
+  },
+  {
+    "area_mm2": 4,
+    "average_power_w": 0.009950983356664615,
+    "compute_count": 4,
+    "design_hash": "76559c211635789b772d1548926a9a593474b9119bfb085469c268d13dbafd86",
+    "energy_j": 0.006303072658000002,
+    "episode": 1,
+    "feasible": true,
+    "hardware_hash": "ec937318a8d9f704d5e7627b1735decf2f12581ff075ae10c3d9ac1ec5c410d3",
+    "latency_s": 0.6334120390000004,
+    "mapping_hash": "2b1b5f57d06bad697bee787103ec643bcbc300c010ecbc14486105df8c0841d7",
+    "ppa_assessment": {
+      "feasible": true,
+      "metrics": {
+        "area_mm2": 4,
+        "average_power_w": 0.009950983356664615,
+        "latency_s": 0.6334120390000004
+      },
+      "physical_feasible": true,
+      "search_merit": 0.22945793064421452,
+      "violation_excess": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "violations": [],
+      "weighted_cost": 0.29778767411888835
+    },
+    "total_chiplets": 4,
+    "violations": []
+  },
+  {
+    "area_mm2": 4,
+    "average_power_w": 0.009955819592492811,
+    "compute_count": 4,
+    "design_hash": "9598b62147b103fc0aebd1c9ed81d1b0dff2d44eaf4dbced0827dc3fdc41994a",
+    "energy_j": 0.006322507278000002,
+    "episode": 1,
+    "feasible": true,
+    "hardware_hash": "ec937318a8d9f704d5e7627b1735decf2f12581ff075ae10c3d9ac1ec5c410d3",
+    "latency_s": 0.6350564330000004,
+    "mapping_hash": "86ca43cefc95b32b4d44a74d258242521aa7e78ee6dccc668604b1a8646c6587",
+    "ppa_assessment": {
+      "feasible": true,
+      "metrics": {
+        "area_mm2": 4,
+        "average_power_w": 0.009955819592492811,
+        "latency_s": 0.6350564330000004
+      },
+      "physical_feasible": true,
+      "search_merit": 0.22978419438777867,
+      "violation_excess": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "violations": [],
+      "weighted_cost": 0.29833741753083104
+    },
+    "total_chiplets": 4,
+    "violations": []
+  },
+  {
+    "area_mm2": 16,
+    "average_power_w": 0.02285776272617063,
+    "compute_count": 16,
+    "design_hash": "2bea9cdb190fb224fcba0bfba5bcb80c76e68c12dc243bc364d167321ada51e7",
+    "energy_j": 0.01464123574600001,
+    "episode": 1,
+    "feasible": true,
+    "hardware_hash": "af90634b5ebc2da97d266926f91f0ba85dca6969bdbbbe58dc9c9a672eb702cb",
+    "latency_s": 0.6405366930000005,
+    "mapping_hash": "86ca43cefc95b32b4d44a74d258242521aa7e78ee6dccc668604b1a8646c6587",
+    "ppa_assessment": {
+      "feasible": true,
+      "metrics": {
+        "area_mm2": 16,
+        "average_power_w": 0.02285776272617063,
+        "latency_s": 0.6405366930000005
+      },
+      "physical_feasible": true,
+      "search_merit": 0.35669177709890976,
+      "violation_excess": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "violations": [],
+      "weighted_cost": 0.5544648185753903
+    },
+    "total_chiplets": 16,
+    "violations": []
+  },
+  {
+    "area_mm2": 5,
+    "average_power_w": 0.011474594259086746,
+    "compute_count": 5,
+    "design_hash": "7657dc27233bdf3c557f809c65c88296a9d26cef895dec2427affe1be94d5cc1",
+    "energy_j": 0.007349891087000002,
+    "episode": 1,
+    "feasible": true,
+    "hardware_hash": "5a9154255308252f220693f855f4c8f975072434f595f83f2454259956399ae2",
+    "latency_s": 0.6405360330000003,
+    "mapping_hash": "86ca43cefc95b32b4d44a74d258242521aa7e78ee6dccc668604b1a8646c6587",
+    "ppa_assessment": {
+      "feasible": true,
+      "metrics": {
+        "area_mm2": 5,
+        "average_power_w": 0.011474594259086746,
+        "latency_s": 0.6405360330000003
+      },
+      "physical_feasible": true,
+      "search_merit": 0.24328617525384544,
+      "violation_excess": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "violations": [],
+      "weighted_cost": 0.32150354241969564
+    },
+    "total_chiplets": 5,
+    "violations": []
+  },
+  {
+    "area_mm2": 3,
+    "average_power_w": 0.009122572108410375,
+    "compute_count": 3,
+    "design_hash": "7c793f629f381bfa3edf7493e5ae1191b3d9c060e64b64b7000ca76abd32d66e",
+    "energy_j": 0.0058140423020000016,
+    "episode": 1,
+    "feasible": true,
+    "hardware_hash": "252db4558abe276b4bd88a3e2159734d090cb5ba8d3e46ce0832df50342059cd",
+    "latency_s": 0.6373248940000003,
+    "mapping_hash": "c69a9dd7dc4068849ebe23d53b88ba5ed643705a8426eb9cfc8bcfa351ec3fea",
+    "ppa_assessment": {
+      "feasible": true,
+      "metrics": {
+        "area_mm2": 3,
+        "average_power_w": 0.009122572108410375,
+        "latency_s": 0.6373248940000003
+      },
+      "physical_feasible": true,
+      "search_merit": 0.21751666486836244,
+      "violation_excess": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "violations": [],
+      "weighted_cost": 0.2779824887028035
+    },
+    "total_chiplets": 3,
+    "violations": []
+  },
+  {
+    "area_mm2": 3,
+    "average_power_w": 0.009144605898950714,
+    "compute_count": 3,
+    "design_hash": "657085cf625dd91a15103f3b594e84bc329152f3c31a3f33c99b604a7bba97bf",
+    "energy_j": 0.005849734986000002,
+    "episode": 1,
+    "feasible": true,
+    "hardware_hash": "252db4558abe276b4bd88a3e2159734d090cb5ba8d3e46ce0832df50342059cd",
+    "latency_s": 0.6396924100000003,
+    "mapping_hash": "80594a2d098515f3a61e1aae124f4d5e2a1a096b72e33b295f27fe13cae7faef",
+    "ppa_assessment": {
+      "feasible": true,
+      "metrics": {
+        "area_mm2": 3,
+        "average_power_w": 0.009144605898950714,
+        "latency_s": 0.6396924100000003
+      },
+      "physical_feasible": true,
+      "search_merit": 0.21800405241586315,
+      "violation_excess": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "violations": [],
+      "weighted_cost": 0.27877900529965033
+    },
+    "total_chiplets": 3,
+    "violations": []
+  },
+  {
+    "area_mm2": 2,
+    "average_power_w": 0.00773938741337243,
+    "compute_count": 2,
+    "design_hash": "43af14c6ebc0d5b4f05d526fb83428d21066ad8b717ce13490b6deef4fb4655f",
+    "energy_j": 0.00475513744,
+    "episode": 1,
+    "feasible": true,
+    "hardware_hash": "e3369d0b53eba55aa89ff8d34a6d9866888b677b7d41a69d56a4d1672c841ac5",
+    "latency_s": 0.6144074700000002,
+    "mapping_hash": "3f950c1b6ae98a8fbbe8d20283caa6247c0ace316fd59a50ed282c3f503ea828",
+    "ppa_assessment": {
+      "feasible": true,
+      "metrics": {
+        "area_mm2": 2,
+        "average_power_w": 0.00773938741337243,
+        "latency_s": 0.6144074700000002
+      },
+      "physical_feasible": true,
+      "search_merit": 0.19939086612930954,
+      "violation_excess": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "violations": [],
+      "weighted_cost": 0.2490489524711242
+    },
+    "total_chiplets": 2,
+    "violations": []
+  },
+  {
+    "area_mm2": 3,
+    "average_power_w": 0.008929008408464128,
+    "compute_count": 3,
+    "design_hash": "40ca788c82069f449eeda7b09f06bdd3477f2c23b8cc7bb64ee2722365bb93c0",
+    "energy_j": 0.005500170523000002,
+    "episode": 1,
+    "feasible": true,
+    "hardware_hash": "252db4558abe276b4bd88a3e2159734d090cb5ba8d3e46ce0832df50342059cd",
+    "latency_s": 0.6159889510000005,
+    "mapping_hash": "3f950c1b6ae98a8fbbe8d20283caa6247c0ace316fd59a50ed282c3f503ea828",
+    "ppa_assessment": {
+      "feasible": true,
+      "metrics": {
+        "area_mm2": 3,
+        "average_power_w": 0.008929008408464128,
+        "latency_s": 0.6159889510000005
+      },
+      "physical_feasible": true,
+      "search_merit": 0.21309782087337548,
+      "violation_excess": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "violations": [],
+      "weighted_cost": 0.2708059864694882
+    },
+    "total_chiplets": 3,
+    "violations": []
+  },
+  {
+    "area_mm2": 3,
+    "average_power_w": 0.008931779167476448,
+    "compute_count": 3,
+    "design_hash": "7187e7fee484fe2a53cb74a72ba28ec79771891672de241f76ce55d220dae4f6",
+    "energy_j": 0.005500530975000001,
+    "episode": 1,
+    "feasible": true,
+    "hardware_hash": "252db4558abe276b4bd88a3e2159734d090cb5ba8d3e46ce0832df50342059cd",
+    "latency_s": 0.6158382190000002,
+    "mapping_hash": "a544dc3fddeb8b4b251604a3eb58024a47d5a1d1eec22686b1faff0bc762e270",
+    "ppa_assessment": {
+      "feasible": true,
+      "metrics": {
+        "area_mm2": 3,
+        "average_power_w": 0.008931779167476448,
+        "latency_s": 0.6158382190000002
+      },
+      "physical_feasible": true,
+      "search_merit": 0.2130672797461689,
+      "violation_excess": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "violations": [],
+      "weighted_cost": 0.27075666605582555
+    },
+    "total_chiplets": 3,
+    "violations": []
+  },
+  {
+    "area_mm2": 3,
+    "average_power_w": 0.008929618525325976,
+    "compute_count": 3,
+    "design_hash": "98765c2235b11a11c212d7197e9916b157b9e3e857da8bf1f9c4869631aa63f5",
+    "energy_j": 0.005330366616000002,
+    "episode": 1,
+    "feasible": true,
+    "hardware_hash": "252db4558abe276b4bd88a3e2159734d090cb5ba8d3e46ce0832df50342059cd",
+    "latency_s": 0.5969310560000005,
+    "mapping_hash": "7ccd25d174bf503409acac5072511d156c2635ca664c450e369c655fbad94b56",
+    "ppa_assessment": {
+      "feasible": true,
+      "metrics": {
+        "area_mm2": 3,
+        "average_power_w": 0.008929618525325976,
+        "latency_s": 0.5969310560000005
+      },
+      "physical_feasible": true,
+      "search_merit": 0.20914454031571936,
+      "violation_excess": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "violations": [],
+      "weighted_cost": 0.26445355817510885
+    },
+    "total_chiplets": 3,
+    "violations": []
+  },
+  {
+    "area_mm2": 9,
+    "average_power_w": 0.015340776683600713,
+    "compute_count": 9,
+    "design_hash": "e3f658b1e15720f12b9cd519639114b8037035aa70f096082d8dbf1aadbce9c2",
+    "energy_j": 0.009157397838000006,
+    "episode": 1,
+    "feasible": true,
+    "hardware_hash": "d78397ef79d566d1671f5c4f63026cd69bb957bc86d1b1a382be3a5d39c05440",
+    "latency_s": 0.5969318260000005,
+    "mapping_hash": "7ccd25d174bf503409acac5072511d156c2635ca664c450e369c655fbad94b56",
+    "ppa_assessment": {
+      "feasible": true,
+      "metrics": {
+        "area_mm2": 9,
+        "average_power_w": 0.015340776683600713,
+        "latency_s": 0.5969318260000005
+      },
+      "physical_feasible": true,
+      "search_merit": 0.28139798606717914,
+      "violation_excess": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "violations": [],
+      "weighted_cost": 0.3915908675612004
+    },
+    "total_chiplets": 9,
+    "violations": []
+  },
+  {
+    "area_mm2": 9,
+    "average_power_w": 0.01534124933186968,
+    "compute_count": 9,
+    "design_hash": "07b6e10b1657cc20238b1b0c0fcb07ebe09b648308c4e6e54b6518f1a9fcbfb8",
+    "energy_j": 0.009157146132000006,
+    "episode": 1,
+    "feasible": true,
+    "hardware_hash": "d78397ef79d566d1671f5c4f63026cd69bb957bc86d1b1a382be3a5d39c05440",
+    "latency_s": 0.5968970280000006,
+    "mapping_hash": "aa83d4ec86744d82998574149d4d009f8216103bdeb637a159ee845e9ed2228a",
+    "ppa_assessment": {
+      "feasible": true,
+      "metrics": {
+        "area_mm2": 9,
+        "average_power_w": 0.01534124933186968,
+        "latency_s": 0.5968970280000006
+      },
+      "physical_feasible": true,
+      "search_merit": 0.2813920776089132,
+      "violation_excess": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "violations": [],
+      "weighted_cost": 0.39157942577729005
+    },
+    "total_chiplets": 9,
+    "violations": []
+  },
+  {
+    "area_mm2": 9,
+    "average_power_w": 0.01534293046335447,
+    "compute_count": 9,
+    "design_hash": "cdf1a66c6e77f1da7bf422dc95924da1272f925aef9085f23fae26fbab046669",
+    "energy_j": 0.009160161206000007,
+    "episode": 1,
+    "feasible": true,
+    "hardware_hash": "d78397ef79d566d1671f5c4f63026cd69bb957bc86d1b1a382be3a5d39c05440",
+    "latency_s": 0.5970281380000007,
+    "mapping_hash": "95a9926f11c1bd68f958bb43267c4141de7923f6b08bde8d5be0d664edb9c6b1",
+    "ppa_assessment": {
+      "feasible": true,
+      "metrics": {
+        "area_mm2": 9,
+        "average_power_w": 0.01534293046335447,
+        "latency_s": 0.5970281380000007
+      },
+      "physical_feasible": true,
+      "search_merit": 0.28141493454450317,
+      "violation_excess": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "violations": [],
+      "weighted_cost": 0.39162368948778503
+    },
+    "total_chiplets": 9,
+    "violations": []
+  },
+  {
+    "area_mm2": 16,
+    "average_power_w": 0.02275314314852478,
+    "compute_count": 16,
+    "design_hash": "c15f04bc4e3be6b720110512b53f85bddaf9d2ff981c12cfeeab6069b6c2a2b4",
+    "energy_j": 0.01358428398000001,
+    "episode": 1,
+    "feasible": true,
+    "hardware_hash": "af90634b5ebc2da97d266926f91f0ba85dca6969bdbbbe58dc9c9a672eb702cb",
+    "latency_s": 0.5970288980000005,
+    "mapping_hash": "95a9926f11c1bd68f958bb43267c4141de7923f6b08bde8d5be0d664edb9c6b1",
+    "ppa_assessment": {
+      "feasible": true,
+      "metrics": {
+        "area_mm2": 16,
+        "average_power_w": 0.02275314314852478,
+        "latency_s": 0.5970288980000005
+      },
+      "physical_feasible": true,
+      "search_merit": 0.3506187146322234,
+      "violation_excess": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "violations": [],
+      "weighted_cost": 0.5399273470495084
+    },
+    "total_chiplets": 16,
+    "violations": []
+  },
+  {
+    "area_mm2": 4,
+    "average_power_w": 0.009930082439037613,
+    "compute_count": 4,
+    "design_hash": "9343ff24fa5df0dca1e62fea4f4eee5973a1c8ec48cf37a30fcdfb3e9e3e6313",
+    "energy_j": 0.005928530784000003,
+    "episode": 1,
+    "feasible": true,
+    "hardware_hash": "ec937318a8d9f704d5e7627b1735decf2f12581ff075ae10c3d9ac1ec5c410d3",
+    "latency_s": 0.5970273480000006,
+    "mapping_hash": "e3c6c9fe7a9adc0096f1494ba33c9d008ffd9fd8d5cb7c79b44b4bb5866a2059",
+    "ppa_assessment": {
+      "feasible": true,
+      "metrics": {
+        "area_mm2": 4,
+        "average_power_w": 0.009930082439037613,
+        "latency_s": 0.5970273480000006
+      },
+      "physical_feasible": true,
+      "search_merit": 0.222184829854731,
+      "violation_excess": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "violations": [],
+      "weighted_cost": 0.2856524768130127
+    },
+    "total_chiplets": 4,
+    "violations": []
+  },
+  {
+    "area_mm2": 5,
+    "average_power_w": 0.011341174282850105,
+    "compute_count": 5,
+    "design_hash": "36f8070ce85907731e7fc690e2114fb5862162be19a1f23cdb0350d240cd5efe",
+    "energy_j": 0.006770999938000004,
+    "episode": 1,
+    "feasible": true,
+    "hardware_hash": "5a9154255308252f220693f855f4c8f975072434f595f83f2454259956399ae2",
+    "latency_s": 0.5970281180000006,
+    "mapping_hash": "e3c6c9fe7a9adc0096f1494ba33c9d008ffd9fd8d5cb7c79b44b4bb5866a2059",
+    "ppa_assessment": {
+      "feasible": true,
+      "metrics": {
+        "area_mm2": 5,
+        "average_power_w": 0.011341174282850105,
+        "latency_s": 0.5970281180000006
+      },
+      "physical_feasible": true,
+      "search_merit": 0.23486355285939464,
+      "violation_excess": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "violations": [],
+      "weighted_cost": 0.3069564307609502
+    },
+    "total_chiplets": 5,
+    "violations": []
+  },
+  {
+    "area_mm2": 5,
+    "average_power_w": 0.011402183150465503,
+    "compute_count": 5,
+    "design_hash": "f84b1437fb4746614eaffb3fda65f52bb18b8c2ada4e81ccef038670be8fd0a4",
+    "energy_j": 0.006861694109000004,
+    "episode": 1,
+    "feasible": true,
+    "hardware_hash": "5a9154255308252f220693f855f4c8f975072434f595f83f2454259956399ae2",
+    "latency_s": 0.6017877470000006,
+    "mapping_hash": "0eb5fe72b3a97e5ffd70a433e8d776dc493e40d1cce87958609ab0a15917756e",
+    "ppa_assessment": {
+      "feasible": true,
+      "metrics": {
+        "area_mm2": 5,
+        "average_power_w": 0.011402183150465503,
+        "latency_s": 0.6017877470000006
+      },
+      "physical_feasible": true,
+      "search_merit": 0.2358031191003885,
+      "violation_excess": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "violations": [],
+      "weighted_cost": 0.30856331005015536
+    },
+    "total_chiplets": 5,
+    "violations": []
+  },
+  {
+    "area_mm2": 15,
+    "average_power_w": 0.02181002248170182,
+    "compute_count": 15,
+    "design_hash": "fb92d472c9f0b5fac922b55163ed7f94ec9a461c1027869e2e219f7ba1ffb37d",
+    "energy_j": 0.013125021085000006,
+    "episode": 1,
+    "feasible": true,
+    "hardware_hash": "4f33d3cc19826667e5666520013ce97016b44a22a25ab55cd4750c33230cca7b",
+    "latency_s": 0.6017885170000004,
+    "mapping_hash": "0eb5fe72b3a97e5ffd70a433e8d776dc493e40d1cce87958609ab0a15917756e",
+    "ppa_assessment": {
+      "feasible": true,
+      "metrics": {
+        "area_mm2": 15,
+        "average_power_w": 0.02181002248170182,
+        "latency_s": 0.6017885170000004
+      },
+      "physical_feasible": true,
+      "search_merit": 0.3422637169463777,
+      "violation_excess": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "violations": [],
+      "weighted_cost": 0.520366179827234
+    },
+    "total_chiplets": 15,
+    "violations": []
+  },
+  {
+    "area_mm2": 15,
+    "average_power_w": 0.02182854784368875,
+    "compute_count": 15,
+    "design_hash": "b6d4f1c353fd944a132651ebffdd4f4fd1d74e4e12814d784f872a087dfb188a",
+    "energy_j": 0.013083919095000007,
+    "episode": 1,
+    "feasible": true,
+    "hardware_hash": "4f33d3cc19826667e5666520013ce97016b44a22a25ab55cd4750c33230cca7b",
+    "latency_s": 0.5993948470000003,
+    "mapping_hash": "ae316fd8df0b8a0a3eeff0456c158d6d5ae116c8352797a7165990c863b5944d",
+    "ppa_assessment": {
+      "feasible": true,
+      "metrics": {
+        "area_mm2": 15,
+        "average_power_w": 0.02182854784368875,
+        "latency_s": 0.5993948470000003
+      },
+      "physical_feasible": true,
+      "search_merit": 0.3419210291650378,
+      "violation_excess": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "violations": [],
+      "weighted_cost": 0.5195744649478964
+    },
+    "total_chiplets": 15,
+    "violations": []
+  },
+  {
+    "area_mm2": 15,
+    "average_power_w": 0.021931311973672225,
+    "compute_count": 15,
+    "design_hash": "a55524b495a9664eaad15c8039c15705ffb6211a52d5f260bc31e6c3bea695d1",
+    "energy_j": 0.013174695171000008,
+    "episode": 1,
+    "feasible": true,
+    "hardware_hash": "4f33d3cc19826667e5666520013ce97016b44a22a25ab55cd4750c33230cca7b",
+    "latency_s": 0.6007253550000005,
+    "mapping_hash": "ab09029d24a9b81ba2ed35c99d6e1b01cb1791e325d6b25b9311f976cfa32129",
+    "ppa_assessment": {
+      "feasible": true,
+      "metrics": {
+        "area_mm2": 15,
+        "average_power_w": 0.021931311973672225,
+        "latency_s": 0.6007253550000005
+      },
+      "physical_feasible": true,
+      "search_merit": 0.3421278655342917,
+      "violation_excess": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "violations": [],
+      "weighted_cost": 0.5200522223245575
+    },
+    "total_chiplets": 15,
+    "violations": []
+  },
+  {
+    "area_mm2": 1,
+    "average_power_w": 0.006248436959023199,
+    "compute_count": 1,
+    "design_hash": "458b9103b2e850a4bb7c5a944bbfccef1a662756f8c31ed8e19c04c0bd7ffb7b",
+    "energy_j": 0.003735795744,
+    "episode": 1,
+    "feasible": true,
+    "hardware_hash": "52d7b8361f820ef80189eb16f97e1a4913c5f91876d1dba6d6ac8ebdd2359cc2",
+    "latency_s": 0.5978768400000001,
+    "mapping_hash": "fe4e79e466acd18573990241a27e729081c0df8783da6c15ef425cdf789afb30",
+    "ppa_assessment": {
+      "feasible": true,
+      "metrics": {
+        "area_mm2": 1,
+        "average_power_w": 0.006248436959023199,
+        "latency_s": 0.5978768400000001
+      },
+      "physical_feasible": true,
+      "search_merit": 0.18180894599403952,
+      "violation_excess": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "violations": [],
+      "weighted_cost": 0.22220842565300775
+    },
+    "total_chiplets": 1,
+    "violations": []
+  },
+  {
+    "area_mm2": 1,
+    "average_power_w": 0.006248436959023199,
+    "compute_count": 1,
+    "design_hash": "fef0bb82672e2bb063e998e36ae41e3be488b39cf11da7e056a7d1b66d15e0fe",
+    "energy_j": 0.003735795744,
+    "episode": 1,
+    "feasible": true,
+    "hardware_hash": "52d7b8361f820ef80189eb16f97e1a4913c5f91876d1dba6d6ac8ebdd2359cc2",
+    "latency_s": 0.5978768400000001,
+    "mapping_hash": "31f32e5bd671908b3a40dac8ba514bcf61586eb66d6bf6e45b969edab09819cd",
+    "ppa_assessment": {
+      "feasible": true,
+      "metrics": {
+        "area_mm2": 1,
+        "average_power_w": 0.006248436959023199,
+        "latency_s": 0.5978768400000001
+      },
+      "physical_feasible": true,
+      "search_merit": 0.18180894599403952,
+      "violation_excess": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "violations": [],
+      "weighted_cost": 0.22220842565300775
+    },
+    "total_chiplets": 1,
+    "violations": []
+  },
+  {
+    "area_mm2": 8,
+    "average_power_w": 0.013916804087818533,
+    "compute_count": 8,
+    "design_hash": "f17b89a82cef11c5aabc77e7f24b50c31f1da89003c2a4c6954f7c154c046e2f",
+    "energy_j": 0.008780820120000003,
+    "episode": 1,
+    "feasible": true,
+    "hardware_hash": "11e768cbaecbcdb4207c36768a79fa364b0464c9fb9c5e1ff783d30cdc340044",
+    "latency_s": 0.6309509040000003,
+    "mapping_hash": "31f32e5bd671908b3a40dac8ba514bcf61586eb66d6bf6e45b969edab09819cd",
+    "ppa_assessment": {
+      "feasible": true,
+      "metrics": {
+        "area_mm2": 8,
+        "average_power_w": 0.013916804087818533,
+        "latency_s": 0.6309509040000003
+      },
+      "physical_feasible": true,
+      "search_merit": 0.27621332904156515,
+      "violation_excess": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "violations": [],
+      "weighted_cost": 0.38162256936260625
+    },
+    "total_chiplets": 8,
+    "violations": []
+  },
+  {
+    "area_mm2": 8,
+    "average_power_w": 0.013916940647675373,
+    "compute_count": 8,
+    "design_hash": "b12704e8918fd7c632bcb5f596af99105a15cb6f197e8a0d89cc2930c03fd6ab",
+    "energy_j": 0.008781647972000003,
+    "episode": 1,
+    "feasible": true,
+    "hardware_hash": "11e768cbaecbcdb4207c36768a79fa364b0464c9fb9c5e1ff783d30cdc340044",
+    "latency_s": 0.6310041980000003,
+    "mapping_hash": "c36940922e56d49988da461830fe9c5a74b0ae2fbc5fbf8a51aa5d908f829630",
+    "ppa_assessment": {
+      "feasible": true,
+      "metrics": {
+        "area_mm2": 8,
+        "average_power_w": 0.013916940647675373,
+        "latency_s": 0.6310041980000003
+      },
+      "physical_feasible": true,
+      "search_merit": 0.2762226590929106,
+      "violation_excess": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "violations": [],
+      "weighted_cost": 0.3816403795492252
+    },
+    "total_chiplets": 8,
+    "violations": []
+  },
+  {
+    "area_mm2": 1,
+    "average_power_w": 0.006239306512492601,
+    "compute_count": 1,
+    "design_hash": "6c624aa86f906ccbb56e140b61aa0a3016036950e7bb31dd736b629e937073fa",
+    "energy_j": 0.0036855624000000004,
+    "episode": 1,
+    "feasible": true,
+    "hardware_hash": "52d7b8361f820ef80189eb16f97e1a4913c5f91876d1dba6d6ac8ebdd2359cc2",
+    "latency_s": 0.5907006480000001,
+    "mapping_hash": "97853f363c03320db1f8517d49d7d4ab0a8f64c959ad09b5820bffd551c7b571",
+    "ppa_assessment": {
+      "feasible": true,
+      "metrics": {
+        "area_mm2": 1,
+        "average_power_w": 0.006239306512492601,
+        "latency_s": 0.5907006480000001
+      },
+      "physical_feasible": true,
+      "search_merit": 0.1802024251550652,
+      "violation_excess": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "violations": [],
+      "weighted_cost": 0.21981331817083088
+    },
+    "total_chiplets": 1,
+    "violations": []
+  },
+  {
+    "area_mm2": 1,
+    "average_power_w": 0.006239306512492601,
+    "compute_count": 1,
+    "design_hash": "ce132573eab2b1e525991d5d5bf3928748dc0db1290c805ee79ade683f7a2184",
+    "energy_j": 0.0036855624000000004,
+    "episode": 1,
+    "feasible": true,
+    "hardware_hash": "52d7b8361f820ef80189eb16f97e1a4913c5f91876d1dba6d6ac8ebdd2359cc2",
+    "latency_s": 0.5907006480000001,
+    "mapping_hash": "8b585f5a58d8537e3702e9c90f960d48bbea8c210b7d5dc0eced63c8e5060f26",
+    "ppa_assessment": {
+      "feasible": true,
+      "metrics": {
+        "area_mm2": 1,
+        "average_power_w": 0.006239306512492601,
+        "latency_s": 0.5907006480000001
+      },
+      "physical_feasible": true,
+      "search_merit": 0.1802024251550652,
+      "violation_excess": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "violations": [],
+      "weighted_cost": 0.21981331817083088
+    },
+    "total_chiplets": 1,
+    "violations": []
+  },
+  {
+    "area_mm2": 1,
+    "average_power_w": 0.006239306512492601,
+    "compute_count": 1,
+    "design_hash": "c73193a7c2aba40a68e7b21cd36a8e3508c38552a3f9fca12acee92918bb086e",
+    "energy_j": 0.0036855624000000004,
+    "episode": 1,
+    "feasible": true,
+    "hardware_hash": "52d7b8361f820ef80189eb16f97e1a4913c5f91876d1dba6d6ac8ebdd2359cc2",
+    "latency_s": 0.5907006480000001,
+    "mapping_hash": "8b9fccdec601b679a7d5a46870ebae5c02f4f882445b044cff0db80d18c6afb1",
+    "ppa_assessment": {
+      "feasible": true,
+      "metrics": {
+        "area_mm2": 1,
+        "average_power_w": 0.006239306512492601,
+        "latency_s": 0.5907006480000001
+      },
+      "physical_feasible": true,
+      "search_merit": 0.1802024251550652,
+      "violation_excess": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "violations": [],
+      "weighted_cost": 0.21981331817083088
+    },
+    "total_chiplets": 1,
+    "violations": []
+  },
+  {
+    "area_mm2": 13,
+    "average_power_w": 0.02062130218599429,
+    "compute_count": 13,
+    "design_hash": "a65cef4a0958dd17b599ae022b2e97bd9ccb31da798707bf6a1119aa498f8d43",
+    "energy_j": 0.012865847040000006,
+    "episode": 1,
+    "feasible": true,
+    "hardware_hash": "31891c7d64c973e83a203d09f64f502b3f433a0744c67e5fdd2ff7e20e2c39be",
+    "latency_s": 0.6239105040000004,
+    "mapping_hash": "8b9fccdec601b679a7d5a46870ebae5c02f4f882445b044cff0db80d18c6afb1",
+    "ppa_assessment": {
+      "feasible": true,
+      "metrics": {
+        "area_mm2": 13,
+        "average_power_w": 0.02062130218599429,
+        "latency_s": 0.6239105040000004
+      },
+      "physical_feasible": true,
+      "search_merit": 0.32690630660605874,
+      "violation_excess": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "violations": [],
+      "weighted_cost": 0.48567726872866485
+    },
+    "total_chiplets": 13,
+    "violations": []
+  },
+  {
+    "area_mm2": 13,
+    "average_power_w": 0.02066821098362051,
+    "compute_count": 13,
+    "design_hash": "66ee09c5e36aa41f612fc20f453d7c8de5ec878bc16b392ae41a234591b44a4e",
+    "energy_j": 0.012904773592000004,
+    "episode": 1,
+    "feasible": true,
+    "hardware_hash": "31891c7d64c973e83a203d09f64f502b3f433a0744c67e5fdd2ff7e20e2c39be",
+    "latency_s": 0.6243778720000002,
+    "mapping_hash": "efc57b0b3084becb2e5e6dc7bf90e974646b75e9aacfafcdac2a19e0cb89ffc5",
+    "ppa_assessment": {
+      "feasible": true,
+      "metrics": {
+        "area_mm2": 13,
+        "average_power_w": 0.02066821098362051,
+        "latency_s": 0.6243778720000002
+      },
+      "physical_feasible": true,
+      "search_merit": 0.3269839628910857,
+      "violation_excess": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "violations": [],
+      "weighted_cost": 0.48584869432787353
+    },
+    "total_chiplets": 13,
+    "violations": []
+  },
+  {
+    "area_mm2": 13,
+    "average_power_w": 0.020753310140376076,
+    "compute_count": 13,
+    "design_hash": "e89088ef9b04b98bfa099fdc6b3f474004501d3dbf2d1870bbdf61c737ae3331",
+    "energy_j": 0.012984618357000002,
+    "episode": 1,
+    "feasible": true,
+    "hardware_hash": "31891c7d64c973e83a203d09f64f502b3f433a0744c67e5fdd2ff7e20e2c39be",
+    "latency_s": 0.6256649310000002,
+    "mapping_hash": "64f9e26ed8474072827ec813b8f7bfaa6a1bf3dde8433d9970f2d113569f5dd7",
+    "ppa_assessment": {
+      "feasible": true,
+      "metrics": {
+        "area_mm2": 13,
+        "average_power_w": 0.020753310140376076,
+        "latency_s": 0.6256649310000002
+      },
+      "physical_feasible": true,
+      "search_merit": 0.32719107241743356,
+      "violation_excess": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "violations": [],
+      "weighted_cost": 0.4863060803801254
+    },
+    "total_chiplets": 13,
+    "violations": []
+  },
+  {
+    "area_mm2": 13,
+    "average_power_w": 0.02077064678797535,
+    "compute_count": 13,
+    "design_hash": "269e4db0ca38d9794e4e1962c59babd2f98e6cb38972fc708849ba45741b0b73",
+    "energy_j": 0.013093474058000005,
+    "episode": 1,
+    "feasible": true,
+    "hardware_hash": "31891c7d64c973e83a203d09f64f502b3f433a0744c67e5fdd2ff7e20e2c39be",
+    "latency_s": 0.6303835500000003,
+    "mapping_hash": "c53a522305f1920899aec756414818586659368388bfb169bc35f7a27675cabb",
+    "ppa_assessment": {
+      "feasible": true,
+      "metrics": {
+        "area_mm2": 13,
+        "average_power_w": 0.02077064678797535,
+        "latency_s": 0.6303835500000003
+      },
+      "physical_feasible": true,
+      "search_merit": 0.32790492548486716,
+      "violation_excess": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "violations": [],
+      "weighted_cost": 0.48788473226265855
+    },
+    "total_chiplets": 13,
+    "violations": []
+  },
+  {
+    "area_mm2": 13,
+    "average_power_w": 0.02104853656391347,
+    "compute_count": 13,
+    "design_hash": "a766d90aa64be6c9f9cbedd21eb3f76bb95a7cc85addc4caaffe8f0f82caa71a",
+    "energy_j": 0.013321962556000003,
+    "episode": 1,
+    "feasible": true,
+    "hardware_hash": "31891c7d64c973e83a203d09f64f502b3f433a0744c67e5fdd2ff7e20e2c39be",
+    "latency_s": 0.6329163320000002,
+    "mapping_hash": "01ed49a7e023e6748939eb06023acb3591cb16664aeedaad143fd54f9fee4579",
+    "ppa_assessment": {
+      "feasible": true,
+      "metrics": {
+        "area_mm2": 13,
+        "average_power_w": 0.02104853656391347,
+        "latency_s": 0.6329163320000002
+      },
+      "physical_feasible": true,
+      "search_merit": 0.32832786369490036,
+      "violation_excess": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "violations": [],
+      "weighted_cost": 0.48882162285463787
+    },
+    "total_chiplets": 13,
+    "violations": []
+  },
+  {
+    "area_mm2": 13,
+    "average_power_w": 0.021059304782848346,
+    "compute_count": 13,
+    "design_hash": "b9a2ab38458ea509e5e5957a11c57cd5879085c38abf510329109eb7e11ba70a",
+    "energy_j": 0.013332423556000002,
+    "episode": 1,
+    "feasible": true,
+    "hardware_hash": "31891c7d64c973e83a203d09f64f502b3f433a0744c67e5fdd2ff7e20e2c39be",
+    "latency_s": 0.6330894440000001,
+    "mapping_hash": "814a9e4928e674b62107040d51a6ffe12639c4da430d0992227e5db165d5609f",
+    "ppa_assessment": {
+      "feasible": true,
+      "metrics": {
+        "area_mm2": 13,
+        "average_power_w": 0.021059304782848346,
+        "latency_s": 0.6330894440000001
+      },
+      "physical_feasible": true,
+      "search_merit": 0.3283555146758533,
+      "violation_excess": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "violations": [],
+      "weighted_cost": 0.4888829162609495
+    },
+    "total_chiplets": 13,
+    "violations": []
+  }
+]

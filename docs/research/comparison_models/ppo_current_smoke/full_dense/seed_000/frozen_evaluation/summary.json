@@ -1,0 +1,23 @@
+{
+  "algorithm": "ppo_comparison",
+  "best_objective": 0.18528533671840539,
+  "cache_hits": 0,
+  "critic_used": true,
+  "episode": 2,
+  "initial_action_support": 127,
+  "max_action_support": 1354,
+  "mean_action_support": 797.75,
+  "native_hardware_context_builds": 1,
+  "native_setup_time_s": 0.007029165979474783,
+  "oracle_evaluations": 4,
+  "oracle_requests": 4,
+  "parameter_updates": 0,
+  "physical_failures": 0,
+  "requirements_status": "FEASIBLE_DESIGN_FOUND",
+  "return": 1.6858582814803398,
+  "steps": 4,
+  "structural_invalid_proposals": 0,
+  "structural_validation_time_s": 0.012932084151543677,
+  "termination": "budget_exhausted",
+  "unique_mapping_evaluation_time_s": 0.015628417837433517
+}

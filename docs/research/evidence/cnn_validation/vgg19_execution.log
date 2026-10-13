@@ -1,0 +1,2 @@
+vgg19: PASSED; 46 operators; 19632062464 MACs
+Synthetic analytical check: feasible=True

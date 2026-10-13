@@ -1,0 +1,60 @@
+{
+  "status": "PASSED",
+  "scope": "toy differential probabilities/value/all parameter gradients; fixed weights and masks",
+  "rows": [
+    {
+      "count": 2,
+      "masked": false,
+      "candidates": 102,
+      "max_probability_error": 2.2551405187698492e-17,
+      "scalar_forward_s": 0.009864957886748016,
+      "batched_forward_s": 0.003919875016435981,
+      "speedup": 2.516651129279476
+    },
+    {
+      "count": 2,
+      "masked": true,
+      "candidates": 102,
+      "max_probability_error": 1.214306433183765e-17,
+      "scalar_forward_s": 0.005076125031337142,
+      "batched_forward_s": 0.0015277080237865448,
+      "speedup": 3.3227062712910063
+    },
+    {
+      "count": 8,
+      "masked": false,
+      "candidates": 464,
+      "max_probability_error": 3.0357660829594124e-18,
+      "scalar_forward_s": 0.021294708945788443,
+      "batched_forward_s": 0.00353562505915761,
+      "speedup": 6.022897957076386
+    },
+    {
+      "count": 8,
+      "masked": true,
+      "candidates": 464,
+      "max_probability_error": 3.0357660829594124e-18,
+      "scalar_forward_s": 0.019524250063113868,
+      "batched_forward_s": 0.006233416963368654,
+      "speedup": 3.1321906071501755
+    },
+    {
+      "count": 16,
+      "masked": false,
+      "candidates": 944,
+      "max_probability_error": 1.5178830414797062e-18,
+      "scalar_forward_s": 1.0601434579584748,
+      "batched_forward_s": 0.01988741708919406,
+      "speedup": 53.30724715048641
+    },
+    {
+      "count": 16,
+      "masked": true,
+      "candidates": 944,
+      "max_probability_error": 1.951563910473908e-18,
+      "scalar_forward_s": 0.04488654201850295,
+      "batched_forward_s": 0.0043402500450611115,
+      "speedup": 10.341925362014699
+    }
+  ]
+}

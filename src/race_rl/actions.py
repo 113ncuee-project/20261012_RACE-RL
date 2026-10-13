@@ -110,25 +110,50 @@ def _edit_connected(workload,hardware,mapping,action):
 
 
 def legal_actions(workload,hardware,mapping,max_scope=4):
-    """Structural legality only. All routes/traffic/lifetimes are recompiled by oracle."""
+    """Structural masks without rebuilding or validating a whole design per leaf.
+
+    The selected transaction still goes through apply()+Mapping.validate().
+    No oracle is used here. Keep the exact action support of the exhaustive
+    compiler, including its canonical tuple ordering.
+    """
     result = []
-    seen = set()
+    by_id = {t.id:t for t in mapping.tiles}
+    owners = {o.id:{t.id for t in mapping.tiles if t.operator==o.id} for o in workload.operators}
+    placement,storage = mapping.placements,mapping.storages
+    canonical = (tuple(sorted(mapping.tiles,key=lambda t:t.id))==mapping.tiles
+        and tuple(sorted(mapping.placement))==mapping.placement
+        and tuple(sorted(mapping.storage))==mapping.storage)
+    groups = {}
+    from .architecture import operator_tiles
     for root,scope in scopes(workload,mapping,max_scope):
-        candidates = [Action(root,scope,"cut_migrate",dst) for dst in hardware.compute_ids]
-        candidates += [Action(root,scope,"memory_affinity",dst,compute_target=compute)
-                       for dst in hardware.memory_ids for compute in hardware.compute_ids]
-        candidates += [Action(root,scope,"work_share",dst,count) for dst in hardware.compute_ids for count in (1,2)]
-        for a in candidates:
-            try:
-                # scopes() already establishes connectivity. Keep all mutation
-                # and global coverage/placement/parameter validation unchanged.
-                candidate = _edit_connected(workload,hardware,mapping,a)
-            except ValueError:
-                continue
-            if candidate == mapping:
-                continue
-            key = (a.root,a.scope,a.kind,a.target,a.count,a.compute_target)
-            if key not in seen:
-                seen.add(key)
-                result.append(a)
+        for dst in hardware.compute_ids:
+            if not canonical or any(placement[t]!=dst for t in scope):
+                result.append(Action(root,scope,'cut_migrate',dst))
+        objects=set()
+        for name in scope:
+            op=workload.operator_map[by_id[name].operator]
+            objects.update((*op.inputs,op.output,*workload.parameter_shapes(op)))
+        for dst in hardware.memory_ids:
+            moved_storage=any(storage[name]!=dst for name in objects)
+            for compute in hardware.compute_ids:
+                if not canonical or moved_storage or any(placement[t]!=compute for t in scope):
+                    result.append(Action(root,scope,'memory_affinity',dst,compute_target=compute))
+        operators={by_id[t].operator for t in scope}
+        if set(scope)!=set().union(*(owners[o] for o in operators)):continue
+        for dst in hardware.compute_ids:
+            for count in (1,2):
+                try:
+                    selected=[]
+                    # _edit_connected preserves workload order for round-robin.
+                    for op in workload.operators:
+                        if op.id not in operators:continue
+                        key=(op.id,count)
+                        if key not in groups:groups[key]=operator_tiles(workload,op.id,count)
+                        selected.extend(groups[key])
+                except ValueError:continue
+                start=hardware.compute_ids.index(dst)
+                changed=(not canonical or set(t.id for t in selected)!=set(scope)
+                    or any(by_id[t.id]!=t or placement[t.id]!=hardware.compute_ids[(start+i)%len(hardware.compute_ids)]
+                        for i,t in enumerate(selected)))
+                if changed:result.append(Action(root,scope,'work_share',dst,count))
     return tuple(result)

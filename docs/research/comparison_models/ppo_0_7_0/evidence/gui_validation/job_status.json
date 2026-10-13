@@ -1,0 +1,3285 @@
+{
+  "design_view": {
+    "compliant": true,
+    "compute_count": 2,
+    "largest_transfers": [
+      {
+        "bytes": 18874368,
+        "destination": "c1",
+        "route": [
+          {
+            "from": "c0",
+            "link": "l0",
+            "to": "c1"
+          }
+        ],
+        "source": "dram0",
+        "tensor": "weights:layer4_0_conv2"
+      },
+      {
+        "bytes": 18874368,
+        "destination": "c1",
+        "route": [
+          {
+            "from": "c0",
+            "link": "l0",
+            "to": "c1"
+          }
+        ],
+        "source": "dram0",
+        "tensor": "weights:layer4_1_conv1"
+      },
+      {
+        "bytes": 18874368,
+        "destination": "c0",
+        "route": [],
+        "source": "dram0",
+        "tensor": "weights:layer4_1_conv2"
+      },
+      {
+        "bytes": 9437184,
+        "destination": "c0",
+        "route": [],
+        "source": "dram0",
+        "tensor": "weights:layer4_0_conv1"
+      },
+      {
+        "bytes": 4718592,
+        "destination": "c1",
+        "route": [
+          {
+            "from": "c0",
+            "link": "l0",
+            "to": "c1"
+          }
+        ],
+        "source": "dram0",
+        "tensor": "weights:layer3_0_conv2"
+      },
+      {
+        "bytes": 4718592,
+        "destination": "c1",
+        "route": [
+          {
+            "from": "c0",
+            "link": "l0",
+            "to": "c1"
+          }
+        ],
+        "source": "dram0",
+        "tensor": "weights:layer3_1_conv1"
+      },
+      {
+        "bytes": 4718592,
+        "destination": "c0",
+        "route": [],
+        "source": "dram0",
+        "tensor": "weights:layer3_1_conv2"
+      },
+      {
+        "bytes": 4096000,
+        "destination": "c0",
+        "route": [],
+        "source": "dram0",
+        "tensor": "weights:fc"
+      },
+      {
+        "bytes": 2359296,
+        "destination": "c0",
+        "route": [],
+        "source": "dram0",
+        "tensor": "weights:layer3_0_conv1"
+      },
+      {
+        "bytes": 1179648,
+        "destination": "c1",
+        "route": [
+          {
+            "from": "c0",
+            "link": "l0",
+            "to": "c1"
+          }
+        ],
+        "source": "dram0",
+        "tensor": "weights:layer2_0_conv2"
+      },
+      {
+        "bytes": 1179648,
+        "destination": "c1",
+        "route": [
+          {
+            "from": "c0",
+            "link": "l0",
+            "to": "c1"
+          }
+        ],
+        "source": "dram0",
+        "tensor": "weights:layer2_1_conv1"
+      },
+      {
+        "bytes": 1179648,
+        "destination": "c0",
+        "route": [],
+        "source": "dram0",
+        "tensor": "weights:layer2_1_conv2"
+      },
+      {
+        "bytes": 1048576,
+        "destination": "c1",
+        "route": [
+          {
+            "from": "c0",
+            "link": "l0",
+            "to": "c1"
+          }
+        ],
+        "source": "dram0",
+        "tensor": "weights:layer4_0_downsample_0"
+      },
+      {
+        "bytes": 589824,
+        "destination": "c0",
+        "route": [],
+        "source": "dram0",
+        "tensor": "weights:layer2_0_conv1"
+      },
+      {
+        "bytes": 524288,
+        "destination": "dram0",
+        "route": [],
+        "source": "c0",
+        "tensor": "conv1"
+      },
+      {
+        "bytes": 524288,
+        "destination": "dram0",
+        "route": [
+          {
+            "from": "c1",
+            "link": "l0",
+            "to": "c0"
+          }
+        ],
+        "source": "c1",
+        "tensor": "bn1"
+      },
+      {
+        "bytes": 524288,
+        "destination": "dram0",
+        "route": [],
+        "source": "c0",
+        "tensor": "relu"
+      },
+      {
+        "bytes": 524288,
+        "destination": "c1",
+        "route": [
+          {
+            "from": "c0",
+            "link": "l0",
+            "to": "c1"
+          }
+        ],
+        "source": "dram0",
+        "tensor": "conv1"
+      },
+      {
+        "bytes": 524288,
+        "destination": "c0",
+        "route": [],
+        "source": "dram0",
+        "tensor": "bn1"
+      },
+      {
+        "bytes": 524288,
+        "destination": "c1",
+        "route": [
+          {
+            "from": "c0",
+            "link": "l0",
+            "to": "c1"
+          }
+        ],
+        "source": "dram0",
+        "tensor": "relu"
+      },
+      {
+        "bytes": 294912,
+        "destination": "c0",
+        "route": [],
+        "source": "dram0",
+        "tensor": "weights:layer1_0_conv1"
+      },
+      {
+        "bytes": 294912,
+        "destination": "c1",
+        "route": [
+          {
+            "from": "c0",
+            "link": "l0",
+            "to": "c1"
+          }
+        ],
+        "source": "dram0",
+        "tensor": "weights:layer1_0_conv2"
+      },
+      {
+        "bytes": 294912,
+        "destination": "c1",
+        "route": [
+          {
+            "from": "c0",
+            "link": "l0",
+            "to": "c1"
+          }
+        ],
+        "source": "dram0",
+        "tensor": "weights:layer1_1_conv1"
+      },
+      {
+        "bytes": 294912,
+        "destination": "c0",
+        "route": [],
+        "source": "dram0",
+        "tensor": "weights:layer1_1_conv2"
+      },
+      {
+        "bytes": 262144,
+        "destination": "c1",
+        "route": [
+          {
+            "from": "c0",
+            "link": "l0",
+            "to": "c1"
+          }
+        ],
+        "source": "dram0",
+        "tensor": "weights:layer3_0_downsample_0"
+      },
+      {
+        "bytes": 131072,
+        "destination": "dram0",
+        "route": [
+          {
+            "from": "c1",
+            "link": "l0",
+            "to": "c0"
+          }
+        ],
+        "source": "c1",
+        "tensor": "maxpool"
+      },
+      {
+        "bytes": 131072,
+        "destination": "dram0",
+        "route": [],
+        "source": "c0",
+        "tensor": "layer1_0_conv1"
+      },
+      {
+        "bytes": 131072,
+        "destination": "dram0",
+        "route": [
+          {
+            "from": "c1",
+            "link": "l0",
+            "to": "c0"
+          }
+        ],
+        "source": "c1",
+        "tensor": "layer1_0_bn1"
+      },
+      {
+        "bytes": 131072,
+        "destination": "dram0",
+        "route": [],
+        "source": "c0",
+        "tensor": "layer1_0_relu"
+      },
+      {
+        "bytes": 131072,
+        "destination": "dram0",
+        "route": [
+          {
+            "from": "c1",
+            "link": "l0",
+            "to": "c0"
+          }
+        ],
+        "source": "c1",
+        "tensor": "layer1_0_conv2"
+      }
+    ],
+    "links": [
+      {
+        "a": "c0",
+        "a_to_b_bytes": 54777344,
+        "b": "c1",
+        "b_to_a_bytes": 2494464,
+        "bandwidth_Bps": 1000000000.0,
+        "flows": 119,
+        "id": "l0"
+      }
+    ],
+    "memory_ports": [
+      {
+        "attached_to": "c0",
+        "bandwidth_Bps": 1000000000.0,
+        "id": "dram0",
+        "memory_bytes": 1073741824,
+        "read_bytes": 99633984,
+        "static_power_w": 0.001,
+        "write_bytes": 5390144
+      },
+      {
+        "attached_to": "c1",
+        "bandwidth_Bps": 1000000000.0,
+        "id": "dram1",
+        "memory_bytes": 1073741824,
+        "read_bytes": 0,
+        "static_power_w": 0.001,
+        "write_bytes": 0
+      }
+    ],
+    "nodes": [
+      {
+        "height_mm": 1,
+        "id": "c0",
+        "operators": {
+          "add_1": 1,
+          "add_3": 1,
+          "add_5": 1,
+          "add_7": 1,
+          "avgpool": 1,
+          "conv1": 1,
+          "fc": 1,
+          "layer1_0_bn2": 1,
+          "layer1_0_conv1": 1,
+          "layer1_0_relu": 1,
+          "layer1_0_relu_1": 1,
+          "layer1_1_bn1": 1,
+          "layer1_1_conv2": 1,
+          "layer2_0_bn2": 1,
+          "layer2_0_conv1": 1,
+          "layer2_0_downsample_1": 1,
+          "layer2_0_relu": 1,
+          "layer2_0_relu_1": 1,
+          "layer2_1_bn1": 1,
+          "layer2_1_conv2": 1,
+          "layer3_0_bn2": 1,
+          "layer3_0_conv1": 1,
+          "layer3_0_downsample_1": 1,
+          "layer3_0_relu": 1,
+          "layer3_0_relu_1": 1,
+          "layer3_1_bn1": 1,
+          "layer3_1_conv2": 1,
+          "layer4_0_bn2": 1,
+          "layer4_0_conv1": 1,
+          "layer4_0_downsample_1": 1,
+          "layer4_0_relu": 1,
+          "layer4_0_relu_1": 1,
+          "layer4_1_bn1": 1,
+          "layer4_1_conv2": 1,
+          "relu": 1
+        },
+        "tile_count": 35,
+        "tiles": [
+          {
+            "bounds": [
+              [
+                0,
+                1
+              ],
+              [
+                0,
+                64
+              ],
+              [
+                0,
+                32
+              ],
+              [
+                0,
+                32
+              ]
+            ],
+            "operator": "conv1",
+            "tile": "conv1:0"
+          },
+          {
+            "bounds": [
+              [
+                0,
+                1
+              ],
+              [
+                0,
+                64
+              ],
+              [
+                0,
+                32
+              ],
+              [
+                0,
+                32
+              ]
+            ],
+            "operator": "relu",
+            "tile": "relu:0"
+          },
+          {
+            "bounds": [
+              [
+                0,
+                1
+              ],
+              [
+                0,
+                64
+              ],
+              [
+                0,
+                16
+              ],
+              [
+                0,
+                16
+              ]
+            ],
+            "operator": "layer1_0_conv1",
+            "tile": "layer1_0_conv1:0"
+          },
+          {
+            "bounds": [
+              [
+                0,
+                1
+              ],
+              [
+                0,
+                64
+              ],
+              [
+                0,
+                16
+              ],
+              [
+                0,
+                16
+              ]
+            ],
+            "operator": "layer1_0_relu",
+            "tile": "layer1_0_relu:0"
+          },
+          {
+            "bounds": [
+              [
+                0,
+                1
+              ],
+              [
+                0,
+                64
+              ],
+              [
+                0,
+                16
+              ],
+              [
+                0,
+                16
+              ]
+            ],
+            "operator": "layer1_0_bn2",
+            "tile": "layer1_0_bn2:0"
+          },
+          {
+            "bounds": [
+              [
+                0,
+                1
+              ],
+              [
+                0,
+                64
+              ],
+              [
+                0,
+                16
+              ],
+              [
+                0,
+                16
+              ]
+            ],
+            "operator": "layer1_0_relu_1",
+            "tile": "layer1_0_relu_1:0"
+          },
+          {
+            "bounds": [
+              [
+                0,
+                1
+              ],
+              [
+                0,
+                64
+              ],
+              [
+                0,
+                16
+              ],
+              [
+                0,
+                16
+              ]
+            ],
+            "operator": "layer1_1_bn1",
+            "tile": "layer1_1_bn1:0"
+          },
+          {
+            "bounds": [
+              [
+                0,
+                1
+              ],
+              [
+                0,
+                64
+              ],
+              [
+                0,
+                16
+              ],
+              [
+                0,
+                16
+              ]
+            ],
+            "operator": "layer1_1_conv2",
+            "tile": "layer1_1_conv2:0"
+          },
+          {
+            "bounds": [
+              [
+                0,
+                1
+              ],
+              [
+                0,
+                64
+              ],
+              [
+                0,
+                16
+              ],
+              [
+                0,
+                16
+              ]
+            ],
+            "operator": "add_1",
+            "tile": "add_1:0"
+          },
+          {
+            "bounds": [
+              [
+                0,
+                1
+              ],
+              [
+                0,
+                128
+              ],
+              [
+                0,
+                8
+              ],
+              [
+                0,
+                8
+              ]
+            ],
+            "operator": "layer2_0_conv1",
+            "tile": "layer2_0_conv1:0"
+          },
+          {
+            "bounds": [
+              [
+                0,
+                1
+              ],
+              [
+                0,
+                128
+              ],
+              [
+                0,
+                8
+              ],
+              [
+                0,
+                8
+              ]
+            ],
+            "operator": "layer2_0_relu",
+            "tile": "layer2_0_relu:0"
+          },
+          {
+            "bounds": [
+              [
+                0,
+                1
+              ],
+              [
+                0,
+                128
+              ],
+              [
+                0,
+                8
+              ],
+              [
+                0,
+                8
+              ]
+            ],
+            "operator": "layer2_0_bn2",
+            "tile": "layer2_0_bn2:0"
+          },
+          {
+            "bounds": [
+              [
+                0,
+                1
+              ],
+              [
+                0,
+                128
+              ],
+              [
+                0,
+                8
+              ],
+              [
+                0,
+                8
+              ]
+            ],
+            "operator": "layer2_0_downsample_1",
+            "tile": "layer2_0_downsample_1:0"
+          },
+          {
+            "bounds": [
+              [
+                0,
+                1
+              ],
+              [
+                0,
+                128
+              ],
+              [
+                0,
+                8
+              ],
+              [
+                0,
+                8
+              ]
+            ],
+            "operator": "layer2_0_relu_1",
+            "tile": "layer2_0_relu_1:0"
+          },
+          {
+            "bounds": [
+              [
+                0,
+                1
+              ],
+              [
+                0,
+                128
+              ],
+              [
+                0,
+                8
+              ],
+              [
+                0,
+                8
+              ]
+            ],
+            "operator": "layer2_1_bn1",
+            "tile": "layer2_1_bn1:0"
+          },
+          {
+            "bounds": [
+              [
+                0,
+                1
+              ],
+              [
+                0,
+                128
+              ],
+              [
+                0,
+                8
+              ],
+              [
+                0,
+                8
+              ]
+            ],
+            "operator": "layer2_1_conv2",
+            "tile": "layer2_1_conv2:0"
+          },
+          {
+            "bounds": [
+              [
+                0,
+                1
+              ],
+              [
+                0,
+                128
+              ],
+              [
+                0,
+                8
+              ],
+              [
+                0,
+                8
+              ]
+            ],
+            "operator": "add_3",
+            "tile": "add_3:0"
+          },
+          {
+            "bounds": [
+              [
+                0,
+                1
+              ],
+              [
+                0,
+                256
+              ],
+              [
+                0,
+                4
+              ],
+              [
+                0,
+                4
+              ]
+            ],
+            "operator": "layer3_0_conv1",
+            "tile": "layer3_0_conv1:0"
+          },
+          {
+            "bounds": [
+              [
+                0,
+                1
+              ],
+              [
+                0,
+                256
+              ],
+              [
+                0,
+                4
+              ],
+              [
+                0,
+                4
+              ]
+            ],
+            "operator": "layer3_0_relu",
+            "tile": "layer3_0_relu:0"
+          },
+          {
+            "bounds": [
+              [
+                0,
+                1
+              ],
+              [
+                0,
+                256
+              ],
+              [
+                0,
+                4
+              ],
+              [
+                0,
+                4
+              ]
+            ],
+            "operator": "layer3_0_bn2",
+            "tile": "layer3_0_bn2:0"
+          },
+          {
+            "bounds": [
+              [
+                0,
+                1
+              ],
+              [
+                0,
+                256
+              ],
+              [
+                0,
+                4
+              ],
+              [
+                0,
+                4
+              ]
+            ],
+            "operator": "layer3_0_downsample_1",
+            "tile": "layer3_0_downsample_1:0"
+          },
+          {
+            "bounds": [
+              [
+                0,
+                1
+              ],
+              [
+                0,
+                256
+              ],
+              [
+                0,
+                4
+              ],
+              [
+                0,
+                4
+              ]
+            ],
+            "operator": "layer3_0_relu_1",
+            "tile": "layer3_0_relu_1:0"
+          },
+          {
+            "bounds": [
+              [
+                0,
+                1
+              ],
+              [
+                0,
+                256
+              ],
+              [
+                0,
+                4
+              ],
+              [
+                0,
+                4
+              ]
+            ],
+            "operator": "layer3_1_bn1",
+            "tile": "layer3_1_bn1:0"
+          },
+          {
+            "bounds": [
+              [
+                0,
+                1
+              ],
+              [
+                0,
+                256
+              ],
+              [
+                0,
+                4
+              ],
+              [
+                0,
+                4
+              ]
+            ],
+            "operator": "layer3_1_conv2",
+            "tile": "layer3_1_conv2:0"
+          },
+          {
+            "bounds": [
+              [
+                0,
+                1
+              ],
+              [
+                0,
+                256
+              ],
+              [
+                0,
+                4
+              ],
+              [
+                0,
+                4
+              ]
+            ],
+            "operator": "add_5",
+            "tile": "add_5:0"
+          },
+          {
+            "bounds": [
+              [
+                0,
+                1
+              ],
+              [
+                0,
+                512
+              ],
+              [
+                0,
+                2
+              ],
+              [
+                0,
+                2
+              ]
+            ],
+            "operator": "layer4_0_conv1",
+            "tile": "layer4_0_conv1:0"
+          },
+          {
+            "bounds": [
+              [
+                0,
+                1
+              ],
+              [
+                0,
+                512
+              ],
+              [
+                0,
+                2
+              ],
+              [
+                0,
+                2
+              ]
+            ],
+            "operator": "layer4_0_relu",
+            "tile": "layer4_0_relu:0"
+          },
+          {
+            "bounds": [
+              [
+                0,
+                1
+              ],
+              [
+                0,
+                512
+              ],
+              [
+                0,
+                2
+              ],
+              [
+                0,
+                2
+              ]
+            ],
+            "operator": "layer4_0_bn2",
+            "tile": "layer4_0_bn2:0"
+          },
+          {
+            "bounds": [
+              [
+                0,
+                1
+              ],
+              [
+                0,
+                512
+              ],
+              [
+                0,
+                2
+              ],
+              [
+                0,
+                2
+              ]
+            ],
+            "operator": "layer4_0_downsample_1",
+            "tile": "layer4_0_downsample_1:0"
+          },
+          {
+            "bounds": [
+              [
+                0,
+                1
+              ],
+              [
+                0,
+                512
+              ],
+              [
+                0,
+                2
+              ],
+              [
+                0,
+                2
+              ]
+            ],
+            "operator": "layer4_0_relu_1",
+            "tile": "layer4_0_relu_1:0"
+          },
+          {
+            "bounds": [
+              [
+                0,
+                1
+              ],
+              [
+                0,
+                512
+              ],
+              [
+                0,
+                2
+              ],
+              [
+                0,
+                2
+              ]
+            ],
+            "operator": "layer4_1_bn1",
+            "tile": "layer4_1_bn1:0"
+          },
+          {
+            "bounds": [
+              [
+                0,
+                1
+              ],
+              [
+                0,
+                512
+              ],
+              [
+                0,
+                2
+              ],
+              [
+                0,
+                2
+              ]
+            ],
+            "operator": "layer4_1_conv2",
+            "tile": "layer4_1_conv2:0"
+          },
+          {
+            "bounds": [
+              [
+                0,
+                1
+              ],
+              [
+                0,
+                512
+              ],
+              [
+                0,
+                2
+              ],
+              [
+                0,
+                2
+              ]
+            ],
+            "operator": "add_7",
+            "tile": "add_7:0"
+          },
+          {
+            "bounds": [
+              [
+                0,
+                1
+              ],
+              [
+                0,
+                512
+              ],
+              [
+                0,
+                1
+              ],
+              [
+                0,
+                1
+              ]
+            ],
+            "operator": "avgpool",
+            "tile": "avgpool:0"
+          },
+          {
+            "bounds": [
+              [
+                0,
+                1
+              ],
+              [
+                0,
+                1000
+              ]
+            ],
+            "operator": "fc",
+            "tile": "fc:0"
+          }
+        ],
+        "width_mm": 1,
+        "x_mm": 0,
+        "y_mm": 0
+      },
+      {
+        "height_mm": 1,
+        "id": "c1",
+        "operators": {
+          "add": 1,
+          "add_2": 1,
+          "add_4": 1,
+          "add_6": 1,
+          "bn1": 1,
+          "flatten": 1,
+          "layer1_0_bn1": 1,
+          "layer1_0_conv2": 1,
+          "layer1_1_bn2": 1,
+          "layer1_1_conv1": 1,
+          "layer1_1_relu": 1,
+          "layer1_1_relu_1": 1,
+          "layer2_0_bn1": 1,
+          "layer2_0_conv2": 1,
+          "layer2_0_downsample_0": 1,
+          "layer2_1_bn2": 1,
+          "layer2_1_conv1": 1,
+          "layer2_1_relu": 1,
+          "layer2_1_relu_1": 1,
+          "layer3_0_bn1": 1,
+          "layer3_0_conv2": 1,
+          "layer3_0_downsample_0": 1,
+          "layer3_1_bn2": 1,
+          "layer3_1_conv1": 1,
+          "layer3_1_relu": 1,
+          "layer3_1_relu_1": 1,
+          "layer4_0_bn1": 1,
+          "layer4_0_conv2": 1,
+          "layer4_0_downsample_0": 1,
+          "layer4_1_bn2": 1,
+          "layer4_1_conv1": 1,
+          "layer4_1_relu": 1,
+          "layer4_1_relu_1": 1,
+          "maxpool": 1
+        },
+        "tile_count": 34,
+        "tiles": [
+          {
+            "bounds": [
+              [
+                0,
+                1
+              ],
+              [
+                0,
+                64
+              ],
+              [
+                0,
+                32
+              ],
+              [
+                0,
+                32
+              ]
+            ],
+            "operator": "bn1",
+            "tile": "bn1:0"
+          },
+          {
+            "bounds": [
+              [
+                0,
+                1
+              ],
+              [
+                0,
+                64
+              ],
+              [
+                0,
+                16
+              ],
+              [
+                0,
+                16
+              ]
+            ],
+            "operator": "maxpool",
+            "tile": "maxpool:0"
+          },
+          {
+            "bounds": [
+              [
+                0,
+                1
+              ],
+              [
+                0,
+                64
+              ],
+              [
+                0,
+                16
+              ],
+              [
+                0,
+                16
+              ]
+            ],
+            "operator": "layer1_0_bn1",
+            "tile": "layer1_0_bn1:0"
+          },
+          {
+            "bounds": [
+              [
+                0,
+                1
+              ],
+              [
+                0,
+                64
+              ],
+              [
+                0,
+                16
+              ],
+              [
+                0,
+                16
+              ]
+            ],
+            "operator": "layer1_0_conv2",
+            "tile": "layer1_0_conv2:0"
+          },
+          {
+            "bounds": [
+              [
+                0,
+                1
+              ],
+              [
+                0,
+                64
+              ],
+              [
+                0,
+                16
+              ],
+              [
+                0,
+                16
+              ]
+            ],
+            "operator": "add",
+            "tile": "add:0"
+          },
+          {
+            "bounds": [
+              [
+                0,
+                1
+              ],
+              [
+                0,
+                64
+              ],
+              [
+                0,
+                16
+              ],
+              [
+                0,
+                16
+              ]
+            ],
+            "operator": "layer1_1_conv1",
+            "tile": "layer1_1_conv1:0"
+          },
+          {
+            "bounds": [
+              [
+                0,
+                1
+              ],
+              [
+                0,
+                64
+              ],
+              [
+                0,
+                16
+              ],
+              [
+                0,
+                16
+              ]
+            ],
+            "operator": "layer1_1_relu",
+            "tile": "layer1_1_relu:0"
+          },
+          {
+            "bounds": [
+              [
+                0,
+                1
+              ],
+              [
+                0,
+                64
+              ],
+              [
+                0,
+                16
+              ],
+              [
+                0,
+                16
+              ]
+            ],
+            "operator": "layer1_1_bn2",
+            "tile": "layer1_1_bn2:0"
+          },
+          {
+            "bounds": [
+              [
+                0,
+                1
+              ],
+              [
+                0,
+                64
+              ],
+              [
+                0,
+                16
+              ],
+              [
+                0,
+                16
+              ]
+            ],
+            "operator": "layer1_1_relu_1",
+            "tile": "layer1_1_relu_1:0"
+          },
+          {
+            "bounds": [
+              [
+                0,
+                1
+              ],
+              [
+                0,
+                128
+              ],
+              [
+                0,
+                8
+              ],
+              [
+                0,
+                8
+              ]
+            ],
+            "operator": "layer2_0_bn1",
+            "tile": "layer2_0_bn1:0"
+          },
+          {
+            "bounds": [
+              [
+                0,
+                1
+              ],
+              [
+                0,
+                128
+              ],
+              [
+                0,
+                8
+              ],
+              [
+                0,
+                8
+              ]
+            ],
+            "operator": "layer2_0_conv2",
+            "tile": "layer2_0_conv2:0"
+          },
+          {
+            "bounds": [
+              [
+                0,
+                1
+              ],
+              [
+                0,
+                128
+              ],
+              [
+                0,
+                8
+              ],
+              [
+                0,
+                8
+              ]
+            ],
+            "operator": "layer2_0_downsample_0",
+            "tile": "layer2_0_downsample_0:0"
+          },
+          {
+            "bounds": [
+              [
+                0,
+                1
+              ],
+              [
+                0,
+                128
+              ],
+              [
+                0,
+                8
+              ],
+              [
+                0,
+                8
+              ]
+            ],
+            "operator": "add_2",
+            "tile": "add_2:0"
+          },
+          {
+            "bounds": [
+              [
+                0,
+                1
+              ],
+              [
+                0,
+                128
+              ],
+              [
+                0,
+                8
+              ],
+              [
+                0,
+                8
+              ]
+            ],
+            "operator": "layer2_1_conv1",
+            "tile": "layer2_1_conv1:0"
+          },
+          {
+            "bounds": [
+              [
+                0,
+                1
+              ],
+              [
+                0,
+                128
+              ],
+              [
+                0,
+                8
+              ],
+              [
+                0,
+                8
+              ]
+            ],
+            "operator": "layer2_1_relu",
+            "tile": "layer2_1_relu:0"
+          },
+          {
+            "bounds": [
+              [
+                0,
+                1
+              ],
+              [
+                0,
+                128
+              ],
+              [
+                0,
+                8
+              ],
+              [
+                0,
+                8
+              ]
+            ],
+            "operator": "layer2_1_bn2",
+            "tile": "layer2_1_bn2:0"
+          },
+          {
+            "bounds": [
+              [
+                0,
+                1
+              ],
+              [
+                0,
+                128
+              ],
+              [
+                0,
+                8
+              ],
+              [
+                0,
+                8
+              ]
+            ],
+            "operator": "layer2_1_relu_1",
+            "tile": "layer2_1_relu_1:0"
+          },
+          {
+            "bounds": [
+              [
+                0,
+                1
+              ],
+              [
+                0,
+                256
+              ],
+              [
+                0,
+                4
+              ],
+              [
+                0,
+                4
+              ]
+            ],
+            "operator": "layer3_0_bn1",
+            "tile": "layer3_0_bn1:0"
+          },
+          {
+            "bounds": [
+              [
+                0,
+                1
+              ],
+              [
+                0,
+                256
+              ],
+              [
+                0,
+                4
+              ],
+              [
+                0,
+                4
+              ]
+            ],
+            "operator": "layer3_0_conv2",
+            "tile": "layer3_0_conv2:0"
+          },
+          {
+            "bounds": [
+              [
+                0,
+                1
+              ],
+              [
+                0,
+                256
+              ],
+              [
+                0,
+                4
+              ],
+              [
+                0,
+                4
+              ]
+            ],
+            "operator": "layer3_0_downsample_0",
+            "tile": "layer3_0_downsample_0:0"
+          },
+          {
+            "bounds": [
+              [
+                0,
+                1
+              ],
+              [
+                0,
+                256
+              ],
+              [
+                0,
+                4
+              ],
+              [
+                0,
+                4
+              ]
+            ],
+            "operator": "add_4",
+            "tile": "add_4:0"
+          },
+          {
+            "bounds": [
+              [
+                0,
+                1
+              ],
+              [
+                0,
+                256
+              ],
+              [
+                0,
+                4
+              ],
+              [
+                0,
+                4
+              ]
+            ],
+            "operator": "layer3_1_conv1",
+            "tile": "layer3_1_conv1:0"
+          },
+          {
+            "bounds": [
+              [
+                0,
+                1
+              ],
+              [
+                0,
+                256
+              ],
+              [
+                0,
+                4
+              ],
+              [
+                0,
+                4
+              ]
+            ],
+            "operator": "layer3_1_relu",
+            "tile": "layer3_1_relu:0"
+          },
+          {
+            "bounds": [
+              [
+                0,
+                1
+              ],
+              [
+                0,
+                256
+              ],
+              [
+                0,
+                4
+              ],
+              [
+                0,
+                4
+              ]
+            ],
+            "operator": "layer3_1_bn2",
+            "tile": "layer3_1_bn2:0"
+          },
+          {
+            "bounds": [
+              [
+                0,
+                1
+              ],
+              [
+                0,
+                256
+              ],
+              [
+                0,
+                4
+              ],
+              [
+                0,
+                4
+              ]
+            ],
+            "operator": "layer3_1_relu_1",
+            "tile": "layer3_1_relu_1:0"
+          },
+          {
+            "bounds": [
+              [
+                0,
+                1
+              ],
+              [
+                0,
+                512
+              ],
+              [
+                0,
+                2
+              ],
+              [
+                0,
+                2
+              ]
+            ],
+            "operator": "layer4_0_bn1",
+            "tile": "layer4_0_bn1:0"
+          },
+          {
+            "bounds": [
+              [
+                0,
+                1
+              ],
+              [
+                0,
+                512
+              ],
+              [
+                0,
+                2
+              ],
+              [
+                0,
+                2
+              ]
+            ],
+            "operator": "layer4_0_conv2",
+            "tile": "layer4_0_conv2:0"
+          },
+          {
+            "bounds": [
+              [
+                0,
+                1
+              ],
+              [
+                0,
+                512
+              ],
+              [
+                0,
+                2
+              ],
+              [
+                0,
+                2
+              ]
+            ],
+            "operator": "layer4_0_downsample_0",
+            "tile": "layer4_0_downsample_0:0"
+          },
+          {
+            "bounds": [
+              [
+                0,
+                1
+              ],
+              [
+                0,
+                512
+              ],
+              [
+                0,
+                2
+              ],
+              [
+                0,
+                2
+              ]
+            ],
+            "operator": "add_6",
+            "tile": "add_6:0"
+          },
+          {
+            "bounds": [
+              [
+                0,
+                1
+              ],
+              [
+                0,
+                512
+              ],
+              [
+                0,
+                2
+              ],
+              [
+                0,
+                2
+              ]
+            ],
+            "operator": "layer4_1_conv1",
+            "tile": "layer4_1_conv1:0"
+          },
+          {
+            "bounds": [
+              [
+                0,
+                1
+              ],
+              [
+                0,
+                512
+              ],
+              [
+                0,
+                2
+              ],
+              [
+                0,
+                2
+              ]
+            ],
+            "operator": "layer4_1_relu",
+            "tile": "layer4_1_relu:0"
+          },
+          {
+            "bounds": [
+              [
+                0,
+                1
+              ],
+              [
+                0,
+                512
+              ],
+              [
+                0,
+                2
+              ],
+              [
+                0,
+                2
+              ]
+            ],
+            "operator": "layer4_1_bn2",
+            "tile": "layer4_1_bn2:0"
+          },
+          {
+            "bounds": [
+              [
+                0,
+                1
+              ],
+              [
+                0,
+                512
+              ],
+              [
+                0,
+                2
+              ],
+              [
+                0,
+                2
+              ]
+            ],
+            "operator": "layer4_1_relu_1",
+            "tile": "layer4_1_relu_1:0"
+          },
+          {
+            "bounds": [
+              [
+                0,
+                1
+              ],
+              [
+                0,
+                512
+              ]
+            ],
+            "operator": "flatten",
+            "tile": "flatten:0"
+          }
+        ],
+        "width_mm": 1,
+        "x_mm": 2,
+        "y_mm": 0
+      }
+    ],
+    "operator_placement": [
+      {
+        "operator": "conv1",
+        "tiles_by_node": {
+          "c0": 1
+        }
+      },
+      {
+        "operator": "bn1",
+        "tiles_by_node": {
+          "c1": 1
+        }
+      },
+      {
+        "operator": "relu",
+        "tiles_by_node": {
+          "c0": 1
+        }
+      },
+      {
+        "operator": "maxpool",
+        "tiles_by_node": {
+          "c1": 1
+        }
+      },
+      {
+        "operator": "layer1_0_conv1",
+        "tiles_by_node": {
+          "c0": 1
+        }
+      },
+      {
+        "operator": "layer1_0_bn1",
+        "tiles_by_node": {
+          "c1": 1
+        }
+      },
+      {
+        "operator": "layer1_0_relu",
+        "tiles_by_node": {
+          "c0": 1
+        }
+      },
+      {
+        "operator": "layer1_0_conv2",
+        "tiles_by_node": {
+          "c1": 1
+        }
+      },
+      {
+        "operator": "layer1_0_bn2",
+        "tiles_by_node": {
+          "c0": 1
+        }
+      },
+      {
+        "operator": "add",
+        "tiles_by_node": {
+          "c1": 1
+        }
+      },
+      {
+        "operator": "layer1_0_relu_1",
+        "tiles_by_node": {
+          "c0": 1
+        }
+      },
+      {
+        "operator": "layer1_1_conv1",
+        "tiles_by_node": {
+          "c1": 1
+        }
+      },
+      {
+        "operator": "layer1_1_bn1",
+        "tiles_by_node": {
+          "c0": 1
+        }
+      },
+      {
+        "operator": "layer1_1_relu",
+        "tiles_by_node": {
+          "c1": 1
+        }
+      },
+      {
+        "operator": "layer1_1_conv2",
+        "tiles_by_node": {
+          "c0": 1
+        }
+      },
+      {
+        "operator": "layer1_1_bn2",
+        "tiles_by_node": {
+          "c1": 1
+        }
+      },
+      {
+        "operator": "add_1",
+        "tiles_by_node": {
+          "c0": 1
+        }
+      },
+      {
+        "operator": "layer1_1_relu_1",
+        "tiles_by_node": {
+          "c1": 1
+        }
+      },
+      {
+        "operator": "layer2_0_conv1",
+        "tiles_by_node": {
+          "c0": 1
+        }
+      },
+      {
+        "operator": "layer2_0_bn1",
+        "tiles_by_node": {
+          "c1": 1
+        }
+      },
+      {
+        "operator": "layer2_0_relu",
+        "tiles_by_node": {
+          "c0": 1
+        }
+      },
+      {
+        "operator": "layer2_0_conv2",
+        "tiles_by_node": {
+          "c1": 1
+        }
+      },
+      {
+        "operator": "layer2_0_bn2",
+        "tiles_by_node": {
+          "c0": 1
+        }
+      },
+      {
+        "operator": "layer2_0_downsample_0",
+        "tiles_by_node": {
+          "c1": 1
+        }
+      },
+      {
+        "operator": "layer2_0_downsample_1",
+        "tiles_by_node": {
+          "c0": 1
+        }
+      },
+      {
+        "operator": "add_2",
+        "tiles_by_node": {
+          "c1": 1
+        }
+      },
+      {
+        "operator": "layer2_0_relu_1",
+        "tiles_by_node": {
+          "c0": 1
+        }
+      },
+      {
+        "operator": "layer2_1_conv1",
+        "tiles_by_node": {
+          "c1": 1
+        }
+      },
+      {
+        "operator": "layer2_1_bn1",
+        "tiles_by_node": {
+          "c0": 1
+        }
+      },
+      {
+        "operator": "layer2_1_relu",
+        "tiles_by_node": {
+          "c1": 1
+        }
+      },
+      {
+        "operator": "layer2_1_conv2",
+        "tiles_by_node": {
+          "c0": 1
+        }
+      },
+      {
+        "operator": "layer2_1_bn2",
+        "tiles_by_node": {
+          "c1": 1
+        }
+      },
+      {
+        "operator": "add_3",
+        "tiles_by_node": {
+          "c0": 1
+        }
+      },
+      {
+        "operator": "layer2_1_relu_1",
+        "tiles_by_node": {
+          "c1": 1
+        }
+      },
+      {
+        "operator": "layer3_0_conv1",
+        "tiles_by_node": {
+          "c0": 1
+        }
+      },
+      {
+        "operator": "layer3_0_bn1",
+        "tiles_by_node": {
+          "c1": 1
+        }
+      },
+      {
+        "operator": "layer3_0_relu",
+        "tiles_by_node": {
+          "c0": 1
+        }
+      },
+      {
+        "operator": "layer3_0_conv2",
+        "tiles_by_node": {
+          "c1": 1
+        }
+      },
+      {
+        "operator": "layer3_0_bn2",
+        "tiles_by_node": {
+          "c0": 1
+        }
+      },
+      {
+        "operator": "layer3_0_downsample_0",
+        "tiles_by_node": {
+          "c1": 1
+        }
+      },
+      {
+        "operator": "layer3_0_downsample_1",
+        "tiles_by_node": {
+          "c0": 1
+        }
+      },
+      {
+        "operator": "add_4",
+        "tiles_by_node": {
+          "c1": 1
+        }
+      },
+      {
+        "operator": "layer3_0_relu_1",
+        "tiles_by_node": {
+          "c0": 1
+        }
+      },
+      {
+        "operator": "layer3_1_conv1",
+        "tiles_by_node": {
+          "c1": 1
+        }
+      },
+      {
+        "operator": "layer3_1_bn1",
+        "tiles_by_node": {
+          "c0": 1
+        }
+      },
+      {
+        "operator": "layer3_1_relu",
+        "tiles_by_node": {
+          "c1": 1
+        }
+      },
+      {
+        "operator": "layer3_1_conv2",
+        "tiles_by_node": {
+          "c0": 1
+        }
+      },
+      {
+        "operator": "layer3_1_bn2",
+        "tiles_by_node": {
+          "c1": 1
+        }
+      },
+      {
+        "operator": "add_5",
+        "tiles_by_node": {
+          "c0": 1
+        }
+      },
+      {
+        "operator": "layer3_1_relu_1",
+        "tiles_by_node": {
+          "c1": 1
+        }
+      },
+      {
+        "operator": "layer4_0_conv1",
+        "tiles_by_node": {
+          "c0": 1
+        }
+      },
+      {
+        "operator": "layer4_0_bn1",
+        "tiles_by_node": {
+          "c1": 1
+        }
+      },
+      {
+        "operator": "layer4_0_relu",
+        "tiles_by_node": {
+          "c0": 1
+        }
+      },
+      {
+        "operator": "layer4_0_conv2",
+        "tiles_by_node": {
+          "c1": 1
+        }
+      },
+      {
+        "operator": "layer4_0_bn2",
+        "tiles_by_node": {
+          "c0": 1
+        }
+      },
+      {
+        "operator": "layer4_0_downsample_0",
+        "tiles_by_node": {
+          "c1": 1
+        }
+      },
+      {
+        "operator": "layer4_0_downsample_1",
+        "tiles_by_node": {
+          "c0": 1
+        }
+      },
+      {
+        "operator": "add_6",
+        "tiles_by_node": {
+          "c1": 1
+        }
+      },
+      {
+        "operator": "layer4_0_relu_1",
+        "tiles_by_node": {
+          "c0": 1
+        }
+      },
+      {
+        "operator": "layer4_1_conv1",
+        "tiles_by_node": {
+          "c1": 1
+        }
+      },
+      {
+        "operator": "layer4_1_bn1",
+        "tiles_by_node": {
+          "c0": 1
+        }
+      },
+      {
+        "operator": "layer4_1_relu",
+        "tiles_by_node": {
+          "c1": 1
+        }
+      },
+      {
+        "operator": "layer4_1_conv2",
+        "tiles_by_node": {
+          "c0": 1
+        }
+      },
+      {
+        "operator": "layer4_1_bn2",
+        "tiles_by_node": {
+          "c1": 1
+        }
+      },
+      {
+        "operator": "add_7",
+        "tiles_by_node": {
+          "c0": 1
+        }
+      },
+      {
+        "operator": "layer4_1_relu_1",
+        "tiles_by_node": {
+          "c1": 1
+        }
+      },
+      {
+        "operator": "avgpool",
+        "tiles_by_node": {
+          "c0": 1
+        }
+      },
+      {
+        "operator": "flatten",
+        "tiles_by_node": {
+          "c1": 1
+        }
+      },
+      {
+        "operator": "fc",
+        "tiles_by_node": {
+          "c0": 1
+        }
+      }
+    ],
+    "storage": [
+      {
+        "endpoint": "dram0",
+        "object": "add"
+      },
+      {
+        "endpoint": "dram0",
+        "object": "add_1"
+      },
+      {
+        "endpoint": "dram0",
+        "object": "add_2"
+      },
+      {
+        "endpoint": "dram0",
+        "object": "add_3"
+      },
+      {
+        "endpoint": "dram0",
+        "object": "add_4"
+      },
+      {
+        "endpoint": "dram0",
+        "object": "add_5"
+      },
+      {
+        "endpoint": "dram0",
+        "object": "add_6"
+      },
+      {
+        "endpoint": "dram0",
+        "object": "add_7"
+      },
+      {
+        "endpoint": "dram0",
+        "object": "avgpool"
+      },
+      {
+        "endpoint": "dram0",
+        "object": "bias:fc"
+      },
+      {
+        "endpoint": "dram0",
+        "object": "bn1"
+      },
+      {
+        "endpoint": "dram0",
+        "object": "conv1"
+      },
+      {
+        "endpoint": "dram0",
+        "object": "fc"
+      },
+      {
+        "endpoint": "dram0",
+        "object": "flatten"
+      },
+      {
+        "endpoint": "dram0",
+        "object": "layer1_0_bn1"
+      },
+      {
+        "endpoint": "dram0",
+        "object": "layer1_0_bn2"
+      },
+      {
+        "endpoint": "dram0",
+        "object": "layer1_0_conv1"
+      },
+      {
+        "endpoint": "dram0",
+        "object": "layer1_0_conv2"
+      },
+      {
+        "endpoint": "dram0",
+        "object": "layer1_0_relu"
+      },
+      {
+        "endpoint": "dram0",
+        "object": "layer1_0_relu_1"
+      },
+      {
+        "endpoint": "dram0",
+        "object": "layer1_1_bn1"
+      },
+      {
+        "endpoint": "dram0",
+        "object": "layer1_1_bn2"
+      },
+      {
+        "endpoint": "dram0",
+        "object": "layer1_1_conv1"
+      },
+      {
+        "endpoint": "dram0",
+        "object": "layer1_1_conv2"
+      },
+      {
+        "endpoint": "dram0",
+        "object": "layer1_1_relu"
+      },
+      {
+        "endpoint": "dram0",
+        "object": "layer1_1_relu_1"
+      },
+      {
+        "endpoint": "dram0",
+        "object": "layer2_0_bn1"
+      },
+      {
+        "endpoint": "dram0",
+        "object": "layer2_0_bn2"
+      },
+      {
+        "endpoint": "dram0",
+        "object": "layer2_0_conv1"
+      },
+      {
+        "endpoint": "dram0",
+        "object": "layer2_0_conv2"
+      },
+      {
+        "endpoint": "dram0",
+        "object": "layer2_0_downsample_0"
+      },
+      {
+        "endpoint": "dram0",
+        "object": "layer2_0_downsample_1"
+      },
+      {
+        "endpoint": "dram0",
+        "object": "layer2_0_relu"
+      },
+      {
+        "endpoint": "dram0",
+        "object": "layer2_0_relu_1"
+      },
+      {
+        "endpoint": "dram0",
+        "object": "layer2_1_bn1"
+      },
+      {
+        "endpoint": "dram0",
+        "object": "layer2_1_bn2"
+      },
+      {
+        "endpoint": "dram0",
+        "object": "layer2_1_conv1"
+      },
+      {
+        "endpoint": "dram0",
+        "object": "layer2_1_conv2"
+      },
+      {
+        "endpoint": "dram0",
+        "object": "layer2_1_relu"
+      },
+      {
+        "endpoint": "dram0",
+        "object": "layer2_1_relu_1"
+      },
+      {
+        "endpoint": "dram0",
+        "object": "layer3_0_bn1"
+      },
+      {
+        "endpoint": "dram0",
+        "object": "layer3_0_bn2"
+      },
+      {
+        "endpoint": "dram0",
+        "object": "layer3_0_conv1"
+      },
+      {
+        "endpoint": "dram0",
+        "object": "layer3_0_conv2"
+      },
+      {
+        "endpoint": "dram0",
+        "object": "layer3_0_downsample_0"
+      },
+      {
+        "endpoint": "dram0",
+        "object": "layer3_0_downsample_1"
+      },
+      {
+        "endpoint": "dram0",
+        "object": "layer3_0_relu"
+      },
+      {
+        "endpoint": "dram0",
+        "object": "layer3_0_relu_1"
+      },
+      {
+        "endpoint": "dram0",
+        "object": "layer3_1_bn1"
+      },
+      {
+        "endpoint": "dram0",
+        "object": "layer3_1_bn2"
+      },
+      {
+        "endpoint": "dram0",
+        "object": "layer3_1_conv1"
+      },
+      {
+        "endpoint": "dram0",
+        "object": "layer3_1_conv2"
+      },
+      {
+        "endpoint": "dram0",
+        "object": "layer3_1_relu"
+      },
+      {
+        "endpoint": "dram0",
+        "object": "layer3_1_relu_1"
+      },
+      {
+        "endpoint": "dram0",
+        "object": "layer4_0_bn1"
+      },
+      {
+        "endpoint": "dram0",
+        "object": "layer4_0_bn2"
+      },
+      {
+        "endpoint": "dram0",
+        "object": "layer4_0_conv1"
+      },
+      {
+        "endpoint": "dram0",
+        "object": "layer4_0_conv2"
+      },
+      {
+        "endpoint": "dram0",
+        "object": "layer4_0_downsample_0"
+      },
+      {
+        "endpoint": "dram0",
+        "object": "layer4_0_downsample_1"
+      },
+      {
+        "endpoint": "dram0",
+        "object": "layer4_0_relu"
+      },
+      {
+        "endpoint": "dram0",
+        "object": "layer4_0_relu_1"
+      },
+      {
+        "endpoint": "dram0",
+        "object": "layer4_1_bn1"
+      },
+      {
+        "endpoint": "dram0",
+        "object": "layer4_1_bn2"
+      },
+      {
+        "endpoint": "dram0",
+        "object": "layer4_1_conv1"
+      },
+      {
+        "endpoint": "dram0",
+        "object": "layer4_1_conv2"
+      },
+      {
+        "endpoint": "dram0",
+        "object": "layer4_1_relu"
+      },
+      {
+        "endpoint": "dram0",
+        "object": "layer4_1_relu_1"
+      },
+      {
+        "endpoint": "dram0",
+        "object": "maxpool"
+      },
+      {
+        "endpoint": "dram0",
+        "object": "mean:bn1"
+      },
+      {
+        "endpoint": "dram0",
+        "object": "mean:layer1_0_bn1"
+      },
+      {
+        "endpoint": "dram0",
+        "object": "mean:layer1_0_bn2"
+      },
+      {
+        "endpoint": "dram0",
+        "object": "mean:layer1_1_bn1"
+      },
+      {
+        "endpoint": "dram0",
+        "object": "mean:layer1_1_bn2"
+      },
+      {
+        "endpoint": "dram0",
+        "object": "mean:layer2_0_bn1"
+      },
+      {
+        "endpoint": "dram0",
+        "object": "mean:layer2_0_bn2"
+      },
+      {
+        "endpoint": "dram0",
+        "object": "mean:layer2_0_downsample_1"
+      },
+      {
+        "endpoint": "dram0",
+        "object": "mean:layer2_1_bn1"
+      },
+      {
+        "endpoint": "dram0",
+        "object": "mean:layer2_1_bn2"
+      },
+      {
+        "endpoint": "dram0",
+        "object": "mean:layer3_0_bn1"
+      },
+      {
+        "endpoint": "dram0",
+        "object": "mean:layer3_0_bn2"
+      },
+      {
+        "endpoint": "dram0",
+        "object": "mean:layer3_0_downsample_1"
+      },
+      {
+        "endpoint": "dram0",
+        "object": "mean:layer3_1_bn1"
+      },
+      {
+        "endpoint": "dram0",
+        "object": "mean:layer3_1_bn2"
+      },
+      {
+        "endpoint": "dram0",
+        "object": "mean:layer4_0_bn1"
+      },
+      {
+        "endpoint": "dram0",
+        "object": "mean:layer4_0_bn2"
+      },
+      {
+        "endpoint": "dram0",
+        "object": "mean:layer4_0_downsample_1"
+      },
+      {
+        "endpoint": "dram0",
+        "object": "mean:layer4_1_bn1"
+      },
+      {
+        "endpoint": "dram0",
+        "object": "mean:layer4_1_bn2"
+      },
+      {
+        "endpoint": "dram0",
+        "object": "relu"
+      },
+      {
+        "endpoint": "dram0",
+        "object": "scale:bn1"
+      },
+      {
+        "endpoint": "dram0",
+        "object": "scale:layer1_0_bn1"
+      },
+      {
+        "endpoint": "dram0",
+        "object": "scale:layer1_0_bn2"
+      },
+      {
+        "endpoint": "dram0",
+        "object": "scale:layer1_1_bn1"
+      },
+      {
+        "endpoint": "dram0",
+        "object": "scale:layer1_1_bn2"
+      },
+      {
+        "endpoint": "dram0",
+        "object": "scale:layer2_0_bn1"
+      },
+      {
+        "endpoint": "dram0",
+        "object": "scale:layer2_0_bn2"
+      },
+      {
+        "endpoint": "dram0",
+        "object": "scale:layer2_0_downsample_1"
+      },
+      {
+        "endpoint": "dram0",
+        "object": "scale:layer2_1_bn1"
+      },
+      {
+        "endpoint": "dram0",
+        "object": "scale:layer2_1_bn2"
+      },
+      {
+        "endpoint": "dram0",
+        "object": "scale:layer3_0_bn1"
+      },
+      {
+        "endpoint": "dram0",
+        "object": "scale:layer3_0_bn2"
+      },
+      {
+        "endpoint": "dram0",
+        "object": "scale:layer3_0_downsample_1"
+      },
+      {
+        "endpoint": "dram0",
+        "object": "scale:layer3_1_bn1"
+      },
+      {
+        "endpoint": "dram0",
+        "object": "scale:layer3_1_bn2"
+      },
+      {
+        "endpoint": "dram0",
+        "object": "scale:layer4_0_bn1"
+      },
+      {
+        "endpoint": "dram0",
+        "object": "scale:layer4_0_bn2"
+      },
+      {
+        "endpoint": "dram0",
+        "object": "scale:layer4_0_downsample_1"
+      },
+      {
+        "endpoint": "dram0",
+        "object": "scale:layer4_1_bn1"
+      },
+      {
+        "endpoint": "dram0",
+        "object": "scale:layer4_1_bn2"
+      },
+      {
+        "endpoint": "dram0",
+        "object": "shift:bn1"
+      },
+      {
+        "endpoint": "dram0",
+        "object": "shift:layer1_0_bn1"
+      },
+      {
+        "endpoint": "dram0",
+        "object": "shift:layer1_0_bn2"
+      },
+      {
+        "endpoint": "dram0",
+        "object": "shift:layer1_1_bn1"
+      },
+      {
+        "endpoint": "dram0",
+        "object": "shift:layer1_1_bn2"
+      },
+      {
+        "endpoint": "dram0",
+        "object": "shift:layer2_0_bn1"
+      },
+      {
+        "endpoint": "dram0",
+        "object": "shift:layer2_0_bn2"
+      },
+      {
+        "endpoint": "dram0",
+        "object": "shift:layer2_0_downsample_1"
+      },
+      {
+        "endpoint": "dram0",
+        "object": "shift:layer2_1_bn1"
+      },
+      {
+        "endpoint": "dram0",
+        "object": "shift:layer2_1_bn2"
+      },
+      {
+        "endpoint": "dram0",
+        "object": "shift:layer3_0_bn1"
+      },
+      {
+        "endpoint": "dram0",
+        "object": "shift:layer3_0_bn2"
+      },
+      {
+        "endpoint": "dram0",
+        "object": "shift:layer3_0_downsample_1"
+      },
+      {
+        "endpoint": "dram0",
+        "object": "shift:layer3_1_bn1"
+      },
+      {
+        "endpoint": "dram0",
+        "object": "shift:layer3_1_bn2"
+      },
+      {
+        "endpoint": "dram0",
+        "object": "shift:layer4_0_bn1"
+      },
+      {
+        "endpoint": "dram0",
+        "object": "shift:layer4_0_bn2"
+      },
+      {
+        "endpoint": "dram0",
+        "object": "shift:layer4_0_downsample_1"
+      },
+      {
+        "endpoint": "dram0",
+        "object": "shift:layer4_1_bn1"
+      },
+      {
+        "endpoint": "dram0",
+        "object": "shift:layer4_1_bn2"
+      },
+      {
+        "endpoint": "dram0",
+        "object": "variance:bn1"
+      },
+      {
+        "endpoint": "dram0",
+        "object": "variance:layer1_0_bn1"
+      },
+      {
+        "endpoint": "dram0",
+        "object": "variance:layer1_0_bn2"
+      },
+      {
+        "endpoint": "dram0",
+        "object": "variance:layer1_1_bn1"
+      },
+      {
+        "endpoint": "dram0",
+        "object": "variance:layer1_1_bn2"
+      },
+      {
+        "endpoint": "dram0",
+        "object": "variance:layer2_0_bn1"
+      },
+      {
+        "endpoint": "dram0",
+        "object": "variance:layer2_0_bn2"
+      },
+      {
+        "endpoint": "dram0",
+        "object": "variance:layer2_0_downsample_1"
+      },
+      {
+        "endpoint": "dram0",
+        "object": "variance:layer2_1_bn1"
+      },
+      {
+        "endpoint": "dram0",
+        "object": "variance:layer2_1_bn2"
+      },
+      {
+        "endpoint": "dram0",
+        "object": "variance:layer3_0_bn1"
+      },
+      {
+        "endpoint": "dram0",
+        "object": "variance:layer3_0_bn2"
+      },
+      {
+        "endpoint": "dram0",
+        "object": "variance:layer3_0_downsample_1"
+      },
+      {
+        "endpoint": "dram0",
+        "object": "variance:layer3_1_bn1"
+      },
+      {
+        "endpoint": "dram0",
+        "object": "variance:layer3_1_bn2"
+      },
+      {
+        "endpoint": "dram0",
+        "object": "variance:layer4_0_bn1"
+      },
+      {
+        "endpoint": "dram0",
+        "object": "variance:layer4_0_bn2"
+      },
+      {
+        "endpoint": "dram0",
+        "object": "variance:layer4_0_downsample_1"
+      },
+      {
+        "endpoint": "dram0",
+        "object": "variance:layer4_1_bn1"
+      },
+      {
+        "endpoint": "dram0",
+        "object": "variance:layer4_1_bn2"
+      },
+      {
+        "endpoint": "dram0",
+        "object": "weights:conv1"
+      },
+      {
+        "endpoint": "dram0",
+        "object": "weights:fc"
+      },
+      {
+        "endpoint": "dram0",
+        "object": "weights:layer1_0_conv1"
+      },
+      {
+        "endpoint": "dram0",
+        "object": "weights:layer1_0_conv2"
+      },
+      {
+        "endpoint": "dram0",
+        "object": "weights:layer1_1_conv1"
+      },
+      {
+        "endpoint": "dram0",
+        "object": "weights:layer1_1_conv2"
+      },
+      {
+        "endpoint": "dram0",
+        "object": "weights:layer2_0_conv1"
+      },
+      {
+        "endpoint": "dram0",
+        "object": "weights:layer2_0_conv2"
+      },
+      {
+        "endpoint": "dram0",
+        "object": "weights:layer2_0_downsample_0"
+      },
+      {
+        "endpoint": "dram0",
+        "object": "weights:layer2_1_conv1"
+      },
+      {
+        "endpoint": "dram0",
+        "object": "weights:layer2_1_conv2"
+      },
+      {
+        "endpoint": "dram0",
+        "object": "weights:layer3_0_conv1"
+      },
+      {
+        "endpoint": "dram0",
+        "object": "weights:layer3_0_conv2"
+      },
+      {
+        "endpoint": "dram0",
+        "object": "weights:layer3_0_downsample_0"
+      },
+      {
+        "endpoint": "dram0",
+        "object": "weights:layer3_1_conv1"
+      },
+      {
+        "endpoint": "dram0",
+        "object": "weights:layer3_1_conv2"
+      },
+      {
+        "endpoint": "dram0",
+        "object": "weights:layer4_0_conv1"
+      },
+      {
+        "endpoint": "dram0",
+        "object": "weights:layer4_0_conv2"
+      },
+      {
+        "endpoint": "dram0",
+        "object": "weights:layer4_0_downsample_0"
+      },
+      {
+        "endpoint": "dram0",
+        "object": "weights:layer4_1_conv1"
+      },
+      {
+        "endpoint": "dram0",
+        "object": "weights:layer4_1_conv2"
+      },
+      {
+        "endpoint": "dram0",
+        "object": "x"
+      }
+    ],
+    "total_mesh_hop_bytes": 57271808,
+    "traffic_definition": "cumulative bytes per directed physical hop during one inference; not simultaneous bandwidth or point-to-point payload sum",
+    "transfer_count": 248
+  },
+  "elapsed_s": 14.318575859069824,
+  "episodes_completed": 1,
+  "episodes_requested": 1,
+  "error": null,
+  "exit_code": 0,
+  "id": "891c9bb429b24f328393d558ab1f77b5",
+  "live_progress": {
+    "best_objective": 1.0,
+    "cache_hits": 0,
+    "current_ppa": {
+      "area_mm2": 9,
+      "latency_s": 0.5216702490000005,
+      "power_w": 0.014144910140351897
+    },
+    "episode": 1,
+    "evaluation_budget": 4,
+    "evaluations": 4,
+    "last_reward": 0.0,
+    "requests": 4,
+    "stage": "EPISODE_COMPLETED"
+  },
+  "output_folder": "/Users/hsuyuchia/Documents/RACE-RL/experiments/runs/gui_891c9bb429b24f328393d558ab1f77b5",
+  "report": {
+    "area_definition": "sum of compute die areas; excludes package and external DRAM",
+    "assessment": {
+      "feasible": true,
+      "metrics": {
+        "area_mm2": 2,
+        "average_power_w": 0.007143896104737029,
+        "latency_s": 0.5213773030000006
+      },
+      "physical_feasible": true,
+      "search_merit": 0.17887434162551927,
+      "violation_excess": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "violations": [],
+      "weighted_cost": 0.2178403997015792
+    },
+    "normalization_scales": {
+      "area_mm2": 16,
+      "average_power_w": 1,
+      "latency_s": 1.0
+    },
+    "normalized_weights": [
+      0.3333333333333333,
+      0.3333333333333333,
+      0.3333333333333333
+    ],
+    "performance_definition": "single-inference latency upper bound in seconds; lower is better",
+    "physically_calibrated": false,
+    "power_definition": "total accounted energy / single-inference makespan; average power, not peak power",
+    "preference_label": "\u4f7f\u7528\u8005\u81ea\u8a02",
+    "requirements": {
+      "max_area_mm2": 16,
+      "max_latency_s": 1.0,
+      "max_power_w": 1,
+      "preference": "custom",
+      "weights": [
+        0.3333333333333333,
+        0.3333333333333333,
+        0.3333333333333333
+      ]
+    },
+    "status": "FEASIBLE_DESIGN_FOUND",
+    "weight_order": [
+      "power",
+      "performance_latency",
+      "area"
+    ]
+  },
+  "request": {
+    "budget": 4,
+    "early_stop": false,
+    "episodes": 1,
+    "input_size": 64,
+    "max_area_mm2": 16,
+    "max_latency_ms": 1000,
+    "max_power_w": 1,
+    "max_scope": 1,
+    "model": "resnet18",
+    "patience": 15,
+    "preference": "custom",
+    "relative_improvement": 0.001,
+    "seed": 7,
+    "warmup_episodes": 20,
+    "weights": [
+      1,
+      1,
+      1
+    ]
+  },
+  "status": "COMPLETED",
+  "summary": {
+    "best_compute_count": 2,
+    "best_weighted_ppa_cost": 0.2178403997015792,
+    "convergence_proven": false,
+    "counts_evaluated": [
+      2,
+      9
+    ],
+    "counts_requested": [
+      2,
+      1,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16
+    ],
+    "early_stopping": null,
+    "episodes_completed": 1,
+    "episodes_requested": 1,
+    "initial_evaluations_included": true,
+    "limitations": "finite count/output-partition candidates; short same-workload learning; no global-optimum or silicon PPA guarantee",
+    "oracle_budget_ceiling": 4,
+    "policy_updates": 4,
+    "requirements": {
+      "max_area_mm2": 16,
+      "max_latency_s": 1.0,
+      "max_power_w": 1,
+      "preference": "custom",
+      "weights": [
+        0.3333333333333333,
+        0.3333333333333333,
+        0.3333333333333333
+      ]
+    },
+    "requirements_status": "FEASIBLE_DESIGN_FOUND",
+    "resize_steps": 1,
+    "retile_steps": 1,
+    "reward_contract": {
+      "accepts_worse_feasible_states": true,
+      "gamma": 1.0,
+      "global_reference": "fixed initial feasibility-first PPA merit; scales frozen from vendor limits or initial metrics",
+      "lambda_c": 0.0,
+      "variant": "dense"
+    },
+    "search_stop_reason": "EPISODE_LIMIT",
+    "selected_assessment": {
+      "feasible": true,
+      "metrics": {
+        "area_mm2": 2,
+        "average_power_w": 0.007143896104737029,
+        "latency_s": 0.5213773030000006
+      },
+      "physical_feasible": true,
+      "search_merit": 0.17887434162551927,
+      "violation_excess": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "violations": [],
+      "weighted_cost": 0.2178403997015792
+    },
+    "selected_compute_count": 2,
+    "selected_total_chiplets": 2,
+    "single_policy": true,
+    "source_hashes": {
+      "__init__.py": "f15da83f8ebbbc6cbf2a1239c6b490edeeb03fe47b676e4a89e19324c0072f8b",
+      "actions.py": "99a29720868d3fbd2f609d4b8f0db720733a88bf4ab5693f0c64cc2e830ac306",
+      "architecture.py": "17b4231e14b76adc4d46d112ee74c2c638145809e824468d4af56d35137c8d3f",
+      "baselines.py": "17d670f2092803b9c75a2754d37fe62df1abc2978b33bbeb8544fe39c940eeb0",
+      "cli.py": "c1dcbbcc9de3c5b6365b7bbdd79e80cc61ee5a288f87768c2f323469d3f4eb73",
+      "cnn_fixture.py": "a955a1dba481253c85d8787b67a29d4b035892eb12bfbd7d84d24b167682fc5e",
+      "environment.py": "a6756415095d98319ad97608524aff18f0592dba70e90c217d63e76caa281be5",
+      "examples.py": "cc016a3444cfe399050f9628b656a29e0bd45a98f6266bcfbc8191aa3f87e41d",
+      "frontend.py": "790134b5c9853b0b62b24b561dc3aa8d96ed0fad76583d018b28be44526ad3db",
+      "hardware.py": "ba74fef0c8f4e95d0ec5a9abd97ef90e5a38126cb85b545404525d792969f2d8",
+      "initialization.py": "bfa4124a6e3f1372af22a3a8c2f39b51fb5e90b402cccfbff0d10024490e2a7a",
+      "mapping.py": "dffe139aacb76409ecbec94af60e95af23fd8c7cf5769e20e1a4a79e729bb8ca",
+      "mesh.py": "08c36358ad23e80aa76db10885e0c813fe516ea7411e36d66fcd22952bf573bf",
+      "model_validation.py": "01d565999d3a2046fcafe1b63e5db451326880ed726463705cbd951f3d70e899",
+      "network.py": "284e4e63647fbc5f980b602db2ef989570069cebc14bd56a1128e8e848312efa",
+      "observation.py": "6bd390198df910f7211529985939342ebe1504da45b7a7b8e2cf277f33521d70",
+      "oracle.py": "ca9872cf06b7cea0e45bcd6a584840df9237ace873fe1d9aca46891a23b9b850",
+      "parameters.py": "abb59819a0e3000c4381a8b1df4c70c6fd4e0c54d54a2517adea3589c3939126",
+      "policy.py": "5666ec5df2010fabb3267e930479d50e877c79783509ba384dc4b6b6d45fc1d4",
+      "reference.py": "caab84d5d1574953c4af7ea1b0a2e14fa4562cdd255594dd3b7939a15ab8daf4",
+      "requirements.py": "afdf3ef670e32a7a94998778f59a167aebd60a9d9a2fd1e28c32a4b955d6efc6",
+      "rewards.py": "2c0ce3ef0068cc2193dab28cabee7858a283e612d387ba09cd8481a90ee3e9ce",
+      "schedule.py": "e061b5af06f53dfb71d36a773e32f7997994062d3cf500dea574cf000fc5f5dd",
+      "serialization.py": "fce7b4132b42ec16600dfdc22de08ad41019ccd8c9b437570f55955d0c3b21aa",
+      "statistics.py": "717af83f3ee87b2b25b6e6a9702ceaf520b8e90546b54beb9b6ed8d6ca20866a",
+      "stopping.py": "332e61826a36f5a2154bf52000bbf96369d7ffe7c1d52a5c340cdf27d5d3134f",
+      "tiles.py": "2a1d0ffa325c3a384cd880beef6891fe2af80897b9259fce549a2f8cce2b5c08",
+      "training.py": "a0d65584bb8a82474694d2eae1e0fa81e4b2791bda4157c2d20da8d05de03433",
+      "vendor_input.py": "b41b296a903ae8d34d2884fec76f0b4dad58b82ad42f91c0e8a6f073a34ccbda",
+      "workload.py": "7ae1e8a0fe48717d78b3541df2a832ba88da2e14c5db279b0b26b31ab27ee391"
+    },
+    "status": "UNIFIED_RL_DEVELOPMENT_PILOT",
+    "total_oracle_evaluations": 4,
+    "wall_time_s": 10.75458083290141
+  },
+  "training_curve": [
+    {
+      "action_selection_time_s": 0.08047012402676046,
+      "actor_loss": -0.11763781180587096,
+      "best_objective": 1.0,
+      "best_weighted_ppa_cost": 0.2178403997015792,
+      "cache_hits": 0,
+      "compute_count": 2,
+      "entropy": 6.839750349435488,
+      "environment_step_time_s": 8.984016291913576,
+      "episode": 0,
+      "initial_action_support": 1496,
+      "max_action_support": 6921,
+      "mean_action_support": 5043.666666666667,
+      "oracle_evaluations": 4,
+      "oracle_requests": 4,
+      "parameter_updates": 4,
+      "plateau_stale_episodes": null,
+      "ppo_update_time_s": 0.6230445409892127,
+      "requirements_satisfied": true,
+      "resize_steps": 1,
+      "retile_steps": 1,
+      "return": 0.0,
+      "steps": 3,
+      "termination": "budget_exhausted",
+      "value_loss": 0.07842643627148788
+    }
+  ]
+}

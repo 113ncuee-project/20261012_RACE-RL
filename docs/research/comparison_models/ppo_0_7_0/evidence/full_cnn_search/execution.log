@@ -1,0 +1,3 @@
+resnet18: PASSED; 69 operators; 1814073344 MACs
+Unified PPO episode 1: best compute=2, PPA cost=8.84961267, compliant=False, evaluations=4, resize=2, retile=0
+NO_FEASIBLE_DESIGN_FOUND: selected compute chiplets=2; evaluations=4

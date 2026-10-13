@@ -1,0 +1,2612 @@
+{
+  "placement": [
+    [
+      "conv1:0",
+      "c0"
+    ],
+    [
+      "bn1:0",
+      "c1"
+    ],
+    [
+      "relu:0",
+      "c0"
+    ],
+    [
+      "maxpool:0",
+      "c1"
+    ],
+    [
+      "layer1_0_conv1:0",
+      "c0"
+    ],
+    [
+      "layer1_0_bn1:0",
+      "c1"
+    ],
+    [
+      "layer1_0_relu:0",
+      "c0"
+    ],
+    [
+      "layer1_0_conv2:0",
+      "c1"
+    ],
+    [
+      "layer1_0_bn2:0",
+      "c0"
+    ],
+    [
+      "add:0",
+      "c1"
+    ],
+    [
+      "layer1_0_relu_1:0",
+      "c0"
+    ],
+    [
+      "layer1_1_conv1:0",
+      "c1"
+    ],
+    [
+      "layer1_1_bn1:0",
+      "c0"
+    ],
+    [
+      "layer1_1_relu:0",
+      "c1"
+    ],
+    [
+      "layer1_1_conv2:0",
+      "c0"
+    ],
+    [
+      "layer1_1_bn2:0",
+      "c1"
+    ],
+    [
+      "add_1:0",
+      "c0"
+    ],
+    [
+      "layer1_1_relu_1:0",
+      "c1"
+    ],
+    [
+      "layer2_0_conv1:0",
+      "c0"
+    ],
+    [
+      "layer2_0_bn1:0",
+      "c1"
+    ],
+    [
+      "layer2_0_relu:0",
+      "c0"
+    ],
+    [
+      "layer2_0_conv2:0",
+      "c1"
+    ],
+    [
+      "layer2_0_bn2:0",
+      "c0"
+    ],
+    [
+      "layer2_0_downsample_0:0",
+      "c1"
+    ],
+    [
+      "layer2_0_downsample_1:0",
+      "c0"
+    ],
+    [
+      "add_2:0",
+      "c1"
+    ],
+    [
+      "layer2_0_relu_1:0",
+      "c0"
+    ],
+    [
+      "layer2_1_conv1:0",
+      "c1"
+    ],
+    [
+      "layer2_1_bn1:0",
+      "c0"
+    ],
+    [
+      "layer2_1_relu:0",
+      "c1"
+    ],
+    [
+      "layer2_1_conv2:0",
+      "c0"
+    ],
+    [
+      "layer2_1_bn2:0",
+      "c1"
+    ],
+    [
+      "add_3:0",
+      "c0"
+    ],
+    [
+      "layer2_1_relu_1:0",
+      "c1"
+    ],
+    [
+      "layer3_0_conv1:0",
+      "c0"
+    ],
+    [
+      "layer3_0_bn1:0",
+      "c1"
+    ],
+    [
+      "layer3_0_relu:0",
+      "c0"
+    ],
+    [
+      "layer3_0_conv2:0",
+      "c1"
+    ],
+    [
+      "layer3_0_bn2:0",
+      "c0"
+    ],
+    [
+      "layer3_0_downsample_0:0",
+      "c1"
+    ],
+    [
+      "layer3_0_downsample_1:0",
+      "c0"
+    ],
+    [
+      "add_4:0",
+      "c1"
+    ],
+    [
+      "layer3_0_relu_1:0",
+      "c0"
+    ],
+    [
+      "layer3_1_conv1:0",
+      "c1"
+    ],
+    [
+      "layer3_1_bn1:0",
+      "c0"
+    ],
+    [
+      "layer3_1_relu:0",
+      "c1"
+    ],
+    [
+      "layer3_1_conv2:0",
+      "c0"
+    ],
+    [
+      "layer3_1_bn2:0",
+      "c1"
+    ],
+    [
+      "add_5:0",
+      "c0"
+    ],
+    [
+      "layer3_1_relu_1:0",
+      "c1"
+    ],
+    [
+      "layer4_0_conv1:0",
+      "c0"
+    ],
+    [
+      "layer4_0_bn1:0",
+      "c1"
+    ],
+    [
+      "layer4_0_relu:0",
+      "c0"
+    ],
+    [
+      "layer4_0_conv2:0",
+      "c1"
+    ],
+    [
+      "layer4_0_bn2:0",
+      "c0"
+    ],
+    [
+      "layer4_0_downsample_0:0",
+      "c1"
+    ],
+    [
+      "layer4_0_downsample_1:0",
+      "c0"
+    ],
+    [
+      "add_6:0",
+      "c1"
+    ],
+    [
+      "layer4_0_relu_1:0",
+      "c0"
+    ],
+    [
+      "layer4_1_conv1:0",
+      "c1"
+    ],
+    [
+      "layer4_1_bn1:0",
+      "c0"
+    ],
+    [
+      "layer4_1_relu:0",
+      "c1"
+    ],
+    [
+      "layer4_1_conv2:0",
+      "c0"
+    ],
+    [
+      "layer4_1_bn2:0",
+      "c1"
+    ],
+    [
+      "add_7:0",
+      "c0"
+    ],
+    [
+      "layer4_1_relu_1:0",
+      "c1"
+    ],
+    [
+      "avgpool:0",
+      "c0"
+    ],
+    [
+      "flatten:0",
+      "c1"
+    ],
+    [
+      "fc:0",
+      "c0"
+    ]
+  ],
+  "storage": [
+    [
+      "add",
+      "dram0"
+    ],
+    [
+      "add_1",
+      "dram0"
+    ],
+    [
+      "add_2",
+      "dram0"
+    ],
+    [
+      "add_3",
+      "dram0"
+    ],
+    [
+      "add_4",
+      "dram0"
+    ],
+    [
+      "add_5",
+      "dram0"
+    ],
+    [
+      "add_6",
+      "dram0"
+    ],
+    [
+      "add_7",
+      "dram0"
+    ],
+    [
+      "avgpool",
+      "dram0"
+    ],
+    [
+      "bias:fc",
+      "dram0"
+    ],
+    [
+      "bn1",
+      "dram0"
+    ],
+    [
+      "conv1",
+      "dram0"
+    ],
+    [
+      "fc",
+      "dram0"
+    ],
+    [
+      "flatten",
+      "dram0"
+    ],
+    [
+      "layer1_0_bn1",
+      "dram0"
+    ],
+    [
+      "layer1_0_bn2",
+      "dram0"
+    ],
+    [
+      "layer1_0_conv1",
+      "dram0"
+    ],
+    [
+      "layer1_0_conv2",
+      "dram0"
+    ],
+    [
+      "layer1_0_relu",
+      "dram0"
+    ],
+    [
+      "layer1_0_relu_1",
+      "dram0"
+    ],
+    [
+      "layer1_1_bn1",
+      "dram0"
+    ],
+    [
+      "layer1_1_bn2",
+      "dram0"
+    ],
+    [
+      "layer1_1_conv1",
+      "dram0"
+    ],
+    [
+      "layer1_1_conv2",
+      "dram0"
+    ],
+    [
+      "layer1_1_relu",
+      "dram0"
+    ],
+    [
+      "layer1_1_relu_1",
+      "dram0"
+    ],
+    [
+      "layer2_0_bn1",
+      "dram0"
+    ],
+    [
+      "layer2_0_bn2",
+      "dram0"
+    ],
+    [
+      "layer2_0_conv1",
+      "dram0"
+    ],
+    [
+      "layer2_0_conv2",
+      "dram0"
+    ],
+    [
+      "layer2_0_downsample_0",
+      "dram0"
+    ],
+    [
+      "layer2_0_downsample_1",
+      "dram0"
+    ],
+    [
+      "layer2_0_relu",
+      "dram0"
+    ],
+    [
+      "layer2_0_relu_1",
+      "dram0"
+    ],
+    [
+      "layer2_1_bn1",
+      "dram0"
+    ],
+    [
+      "layer2_1_bn2",
+      "dram0"
+    ],
+    [
+      "layer2_1_conv1",
+      "dram0"
+    ],
+    [
+      "layer2_1_conv2",
+      "dram0"
+    ],
+    [
+      "layer2_1_relu",
+      "dram0"
+    ],
+    [
+      "layer2_1_relu_1",
+      "dram0"
+    ],
+    [
+      "layer3_0_bn1",
+      "dram0"
+    ],
+    [
+      "layer3_0_bn2",
+      "dram0"
+    ],
+    [
+      "layer3_0_conv1",
+      "dram0"
+    ],
+    [
+      "layer3_0_conv2",
+      "dram0"
+    ],
+    [
+      "layer3_0_downsample_0",
+      "dram0"
+    ],
+    [
+      "layer3_0_downsample_1",
+      "dram0"
+    ],
+    [
+      "layer3_0_relu",
+      "dram0"
+    ],
+    [
+      "layer3_0_relu_1",
+      "dram0"
+    ],
+    [
+      "layer3_1_bn1",
+      "dram0"
+    ],
+    [
+      "layer3_1_bn2",
+      "dram0"
+    ],
+    [
+      "layer3_1_conv1",
+      "dram0"
+    ],
+    [
+      "layer3_1_conv2",
+      "dram0"
+    ],
+    [
+      "layer3_1_relu",
+      "dram0"
+    ],
+    [
+      "layer3_1_relu_1",
+      "dram0"
+    ],
+    [
+      "layer4_0_bn1",
+      "dram0"
+    ],
+    [
+      "layer4_0_bn2",
+      "dram0"
+    ],
+    [
+      "layer4_0_conv1",
+      "dram0"
+    ],
+    [
+      "layer4_0_conv2",
+      "dram0"
+    ],
+    [
+      "layer4_0_downsample_0",
+      "dram0"
+    ],
+    [
+      "layer4_0_downsample_1",
+      "dram0"
+    ],
+    [
+      "layer4_0_relu",
+      "dram0"
+    ],
+    [
+      "layer4_0_relu_1",
+      "dram0"
+    ],
+    [
+      "layer4_1_bn1",
+      "dram0"
+    ],
+    [
+      "layer4_1_bn2",
+      "dram0"
+    ],
+    [
+      "layer4_1_conv1",
+      "dram0"
+    ],
+    [
+      "layer4_1_conv2",
+      "dram0"
+    ],
+    [
+      "layer4_1_relu",
+      "dram0"
+    ],
+    [
+      "layer4_1_relu_1",
+      "dram0"
+    ],
+    [
+      "maxpool",
+      "dram0"
+    ],
+    [
+      "mean:bn1",
+      "dram0"
+    ],
+    [
+      "mean:layer1_0_bn1",
+      "dram0"
+    ],
+    [
+      "mean:layer1_0_bn2",
+      "dram0"
+    ],
+    [
+      "mean:layer1_1_bn1",
+      "dram0"
+    ],
+    [
+      "mean:layer1_1_bn2",
+      "dram0"
+    ],
+    [
+      "mean:layer2_0_bn1",
+      "dram0"
+    ],
+    [
+      "mean:layer2_0_bn2",
+      "dram0"
+    ],
+    [
+      "mean:layer2_0_downsample_1",
+      "dram0"
+    ],
+    [
+      "mean:layer2_1_bn1",
+      "dram0"
+    ],
+    [
+      "mean:layer2_1_bn2",
+      "dram0"
+    ],
+    [
+      "mean:layer3_0_bn1",
+      "dram0"
+    ],
+    [
+      "mean:layer3_0_bn2",
+      "dram0"
+    ],
+    [
+      "mean:layer3_0_downsample_1",
+      "dram0"
+    ],
+    [
+      "mean:layer3_1_bn1",
+      "dram0"
+    ],
+    [
+      "mean:layer3_1_bn2",
+      "dram0"
+    ],
+    [
+      "mean:layer4_0_bn1",
+      "dram0"
+    ],
+    [
+      "mean:layer4_0_bn2",
+      "dram0"
+    ],
+    [
+      "mean:layer4_0_downsample_1",
+      "dram0"
+    ],
+    [
+      "mean:layer4_1_bn1",
+      "dram0"
+    ],
+    [
+      "mean:layer4_1_bn2",
+      "dram0"
+    ],
+    [
+      "relu",
+      "dram0"
+    ],
+    [
+      "scale:bn1",
+      "dram0"
+    ],
+    [
+      "scale:layer1_0_bn1",
+      "dram0"
+    ],
+    [
+      "scale:layer1_0_bn2",
+      "dram0"
+    ],
+    [
+      "scale:layer1_1_bn1",
+      "dram0"
+    ],
+    [
+      "scale:layer1_1_bn2",
+      "dram0"
+    ],
+    [
+      "scale:layer2_0_bn1",
+      "dram0"
+    ],
+    [
+      "scale:layer2_0_bn2",
+      "dram0"
+    ],
+    [
+      "scale:layer2_0_downsample_1",
+      "dram0"
+    ],
+    [
+      "scale:layer2_1_bn1",
+      "dram0"
+    ],
+    [
+      "scale:layer2_1_bn2",
+      "dram0"
+    ],
+    [
+      "scale:layer3_0_bn1",
+      "dram0"
+    ],
+    [
+      "scale:layer3_0_bn2",
+      "dram0"
+    ],
+    [
+      "scale:layer3_0_downsample_1",
+      "dram0"
+    ],
+    [
+      "scale:layer3_1_bn1",
+      "dram0"
+    ],
+    [
+      "scale:layer3_1_bn2",
+      "dram0"
+    ],
+    [
+      "scale:layer4_0_bn1",
+      "dram0"
+    ],
+    [
+      "scale:layer4_0_bn2",
+      "dram0"
+    ],
+    [
+      "scale:layer4_0_downsample_1",
+      "dram0"
+    ],
+    [
+      "scale:layer4_1_bn1",
+      "dram0"
+    ],
+    [
+      "scale:layer4_1_bn2",
+      "dram0"
+    ],
+    [
+      "shift:bn1",
+      "dram0"
+    ],
+    [
+      "shift:layer1_0_bn1",
+      "dram0"
+    ],
+    [
+      "shift:layer1_0_bn2",
+      "dram0"
+    ],
+    [
+      "shift:layer1_1_bn1",
+      "dram0"
+    ],
+    [
+      "shift:layer1_1_bn2",
+      "dram0"
+    ],
+    [
+      "shift:layer2_0_bn1",
+      "dram0"
+    ],
+    [
+      "shift:layer2_0_bn2",
+      "dram0"
+    ],
+    [
+      "shift:layer2_0_downsample_1",
+      "dram0"
+    ],
+    [
+      "shift:layer2_1_bn1",
+      "dram0"
+    ],
+    [
+      "shift:layer2_1_bn2",
+      "dram0"
+    ],
+    [
+      "shift:layer3_0_bn1",
+      "dram0"
+    ],
+    [
+      "shift:layer3_0_bn2",
+      "dram0"
+    ],
+    [
+      "shift:layer3_0_downsample_1",
+      "dram0"
+    ],
+    [
+      "shift:layer3_1_bn1",
+      "dram0"
+    ],
+    [
+      "shift:layer3_1_bn2",
+      "dram0"
+    ],
+    [
+      "shift:layer4_0_bn1",
+      "dram0"
+    ],
+    [
+      "shift:layer4_0_bn2",
+      "dram0"
+    ],
+    [
+      "shift:layer4_0_downsample_1",
+      "dram0"
+    ],
+    [
+      "shift:layer4_1_bn1",
+      "dram0"
+    ],
+    [
+      "shift:layer4_1_bn2",
+      "dram0"
+    ],
+    [
+      "variance:bn1",
+      "dram0"
+    ],
+    [
+      "variance:layer1_0_bn1",
+      "dram0"
+    ],
+    [
+      "variance:layer1_0_bn2",
+      "dram0"
+    ],
+    [
+      "variance:layer1_1_bn1",
+      "dram0"
+    ],
+    [
+      "variance:layer1_1_bn2",
+      "dram0"
+    ],
+    [
+      "variance:layer2_0_bn1",
+      "dram0"
+    ],
+    [
+      "variance:layer2_0_bn2",
+      "dram0"
+    ],
+    [
+      "variance:layer2_0_downsample_1",
+      "dram0"
+    ],
+    [
+      "variance:layer2_1_bn1",
+      "dram0"
+    ],
+    [
+      "variance:layer2_1_bn2",
+      "dram0"
+    ],
+    [
+      "variance:layer3_0_bn1",
+      "dram0"
+    ],
+    [
+      "variance:layer3_0_bn2",
+      "dram0"
+    ],
+    [
+      "variance:layer3_0_downsample_1",
+      "dram0"
+    ],
+    [
+      "variance:layer3_1_bn1",
+      "dram0"
+    ],
+    [
+      "variance:layer3_1_bn2",
+      "dram0"
+    ],
+    [
+      "variance:layer4_0_bn1",
+      "dram0"
+    ],
+    [
+      "variance:layer4_0_bn2",
+      "dram0"
+    ],
+    [
+      "variance:layer4_0_downsample_1",
+      "dram0"
+    ],
+    [
+      "variance:layer4_1_bn1",
+      "dram0"
+    ],
+    [
+      "variance:layer4_1_bn2",
+      "dram0"
+    ],
+    [
+      "weights:conv1",
+      "dram0"
+    ],
+    [
+      "weights:fc",
+      "dram0"
+    ],
+    [
+      "weights:layer1_0_conv1",
+      "dram0"
+    ],
+    [
+      "weights:layer1_0_conv2",
+      "dram0"
+    ],
+    [
+      "weights:layer1_1_conv1",
+      "dram0"
+    ],
+    [
+      "weights:layer1_1_conv2",
+      "dram0"
+    ],
+    [
+      "weights:layer2_0_conv1",
+      "dram0"
+    ],
+    [
+      "weights:layer2_0_conv2",
+      "dram0"
+    ],
+    [
+      "weights:layer2_0_downsample_0",
+      "dram0"
+    ],
+    [
+      "weights:layer2_1_conv1",
+      "dram0"
+    ],
+    [
+      "weights:layer2_1_conv2",
+      "dram0"
+    ],
+    [
+      "weights:layer3_0_conv1",
+      "dram0"
+    ],
+    [
+      "weights:layer3_0_conv2",
+      "dram0"
+    ],
+    [
+      "weights:layer3_0_downsample_0",
+      "dram0"
+    ],
+    [
+      "weights:layer3_1_conv1",
+      "dram0"
+    ],
+    [
+      "weights:layer3_1_conv2",
+      "dram0"
+    ],
+    [
+      "weights:layer4_0_conv1",
+      "dram0"
+    ],
+    [
+      "weights:layer4_0_conv2",
+      "dram0"
+    ],
+    [
+      "weights:layer4_0_downsample_0",
+      "dram0"
+    ],
+    [
+      "weights:layer4_1_conv1",
+      "dram0"
+    ],
+    [
+      "weights:layer4_1_conv2",
+      "dram0"
+    ],
+    [
+      "x",
+      "dram0"
+    ]
+  ],
+  "tiles": [
+    {
+      "id": "conv1:0",
+      "operator": "conv1",
+      "output": {
+        "bounds": [
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            64
+          ],
+          [
+            0,
+            112
+          ],
+          [
+            0,
+            112
+          ]
+        ]
+      }
+    },
+    {
+      "id": "bn1:0",
+      "operator": "bn1",
+      "output": {
+        "bounds": [
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            64
+          ],
+          [
+            0,
+            112
+          ],
+          [
+            0,
+            112
+          ]
+        ]
+      }
+    },
+    {
+      "id": "relu:0",
+      "operator": "relu",
+      "output": {
+        "bounds": [
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            64
+          ],
+          [
+            0,
+            112
+          ],
+          [
+            0,
+            112
+          ]
+        ]
+      }
+    },
+    {
+      "id": "maxpool:0",
+      "operator": "maxpool",
+      "output": {
+        "bounds": [
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            64
+          ],
+          [
+            0,
+            56
+          ],
+          [
+            0,
+            56
+          ]
+        ]
+      }
+    },
+    {
+      "id": "layer1_0_conv1:0",
+      "operator": "layer1_0_conv1",
+      "output": {
+        "bounds": [
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            64
+          ],
+          [
+            0,
+            56
+          ],
+          [
+            0,
+            56
+          ]
+        ]
+      }
+    },
+    {
+      "id": "layer1_0_bn1:0",
+      "operator": "layer1_0_bn1",
+      "output": {
+        "bounds": [
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            64
+          ],
+          [
+            0,
+            56
+          ],
+          [
+            0,
+            56
+          ]
+        ]
+      }
+    },
+    {
+      "id": "layer1_0_relu:0",
+      "operator": "layer1_0_relu",
+      "output": {
+        "bounds": [
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            64
+          ],
+          [
+            0,
+            56
+          ],
+          [
+            0,
+            56
+          ]
+        ]
+      }
+    },
+    {
+      "id": "layer1_0_conv2:0",
+      "operator": "layer1_0_conv2",
+      "output": {
+        "bounds": [
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            64
+          ],
+          [
+            0,
+            56
+          ],
+          [
+            0,
+            56
+          ]
+        ]
+      }
+    },
+    {
+      "id": "layer1_0_bn2:0",
+      "operator": "layer1_0_bn2",
+      "output": {
+        "bounds": [
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            64
+          ],
+          [
+            0,
+            56
+          ],
+          [
+            0,
+            56
+          ]
+        ]
+      }
+    },
+    {
+      "id": "add:0",
+      "operator": "add",
+      "output": {
+        "bounds": [
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            64
+          ],
+          [
+            0,
+            56
+          ],
+          [
+            0,
+            56
+          ]
+        ]
+      }
+    },
+    {
+      "id": "layer1_0_relu_1:0",
+      "operator": "layer1_0_relu_1",
+      "output": {
+        "bounds": [
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            64
+          ],
+          [
+            0,
+            56
+          ],
+          [
+            0,
+            56
+          ]
+        ]
+      }
+    },
+    {
+      "id": "layer1_1_conv1:0",
+      "operator": "layer1_1_conv1",
+      "output": {
+        "bounds": [
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            64
+          ],
+          [
+            0,
+            56
+          ],
+          [
+            0,
+            56
+          ]
+        ]
+      }
+    },
+    {
+      "id": "layer1_1_bn1:0",
+      "operator": "layer1_1_bn1",
+      "output": {
+        "bounds": [
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            64
+          ],
+          [
+            0,
+            56
+          ],
+          [
+            0,
+            56
+          ]
+        ]
+      }
+    },
+    {
+      "id": "layer1_1_relu:0",
+      "operator": "layer1_1_relu",
+      "output": {
+        "bounds": [
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            64
+          ],
+          [
+            0,
+            56
+          ],
+          [
+            0,
+            56
+          ]
+        ]
+      }
+    },
+    {
+      "id": "layer1_1_conv2:0",
+      "operator": "layer1_1_conv2",
+      "output": {
+        "bounds": [
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            64
+          ],
+          [
+            0,
+            56
+          ],
+          [
+            0,
+            56
+          ]
+        ]
+      }
+    },
+    {
+      "id": "layer1_1_bn2:0",
+      "operator": "layer1_1_bn2",
+      "output": {
+        "bounds": [
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            64
+          ],
+          [
+            0,
+            56
+          ],
+          [
+            0,
+            56
+          ]
+        ]
+      }
+    },
+    {
+      "id": "add_1:0",
+      "operator": "add_1",
+      "output": {
+        "bounds": [
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            64
+          ],
+          [
+            0,
+            56
+          ],
+          [
+            0,
+            56
+          ]
+        ]
+      }
+    },
+    {
+      "id": "layer1_1_relu_1:0",
+      "operator": "layer1_1_relu_1",
+      "output": {
+        "bounds": [
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            64
+          ],
+          [
+            0,
+            56
+          ],
+          [
+            0,
+            56
+          ]
+        ]
+      }
+    },
+    {
+      "id": "layer2_0_conv1:0",
+      "operator": "layer2_0_conv1",
+      "output": {
+        "bounds": [
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            128
+          ],
+          [
+            0,
+            28
+          ],
+          [
+            0,
+            28
+          ]
+        ]
+      }
+    },
+    {
+      "id": "layer2_0_bn1:0",
+      "operator": "layer2_0_bn1",
+      "output": {
+        "bounds": [
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            128
+          ],
+          [
+            0,
+            28
+          ],
+          [
+            0,
+            28
+          ]
+        ]
+      }
+    },
+    {
+      "id": "layer2_0_relu:0",
+      "operator": "layer2_0_relu",
+      "output": {
+        "bounds": [
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            128
+          ],
+          [
+            0,
+            28
+          ],
+          [
+            0,
+            28
+          ]
+        ]
+      }
+    },
+    {
+      "id": "layer2_0_conv2:0",
+      "operator": "layer2_0_conv2",
+      "output": {
+        "bounds": [
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            128
+          ],
+          [
+            0,
+            28
+          ],
+          [
+            0,
+            28
+          ]
+        ]
+      }
+    },
+    {
+      "id": "layer2_0_bn2:0",
+      "operator": "layer2_0_bn2",
+      "output": {
+        "bounds": [
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            128
+          ],
+          [
+            0,
+            28
+          ],
+          [
+            0,
+            28
+          ]
+        ]
+      }
+    },
+    {
+      "id": "layer2_0_downsample_0:0",
+      "operator": "layer2_0_downsample_0",
+      "output": {
+        "bounds": [
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            128
+          ],
+          [
+            0,
+            28
+          ],
+          [
+            0,
+            28
+          ]
+        ]
+      }
+    },
+    {
+      "id": "layer2_0_downsample_1:0",
+      "operator": "layer2_0_downsample_1",
+      "output": {
+        "bounds": [
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            128
+          ],
+          [
+            0,
+            28
+          ],
+          [
+            0,
+            28
+          ]
+        ]
+      }
+    },
+    {
+      "id": "add_2:0",
+      "operator": "add_2",
+      "output": {
+        "bounds": [
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            128
+          ],
+          [
+            0,
+            28
+          ],
+          [
+            0,
+            28
+          ]
+        ]
+      }
+    },
+    {
+      "id": "layer2_0_relu_1:0",
+      "operator": "layer2_0_relu_1",
+      "output": {
+        "bounds": [
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            128
+          ],
+          [
+            0,
+            28
+          ],
+          [
+            0,
+            28
+          ]
+        ]
+      }
+    },
+    {
+      "id": "layer2_1_conv1:0",
+      "operator": "layer2_1_conv1",
+      "output": {
+        "bounds": [
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            128
+          ],
+          [
+            0,
+            28
+          ],
+          [
+            0,
+            28
+          ]
+        ]
+      }
+    },
+    {
+      "id": "layer2_1_bn1:0",
+      "operator": "layer2_1_bn1",
+      "output": {
+        "bounds": [
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            128
+          ],
+          [
+            0,
+            28
+          ],
+          [
+            0,
+            28
+          ]
+        ]
+      }
+    },
+    {
+      "id": "layer2_1_relu:0",
+      "operator": "layer2_1_relu",
+      "output": {
+        "bounds": [
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            128
+          ],
+          [
+            0,
+            28
+          ],
+          [
+            0,
+            28
+          ]
+        ]
+      }
+    },
+    {
+      "id": "layer2_1_conv2:0",
+      "operator": "layer2_1_conv2",
+      "output": {
+        "bounds": [
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            128
+          ],
+          [
+            0,
+            28
+          ],
+          [
+            0,
+            28
+          ]
+        ]
+      }
+    },
+    {
+      "id": "layer2_1_bn2:0",
+      "operator": "layer2_1_bn2",
+      "output": {
+        "bounds": [
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            128
+          ],
+          [
+            0,
+            28
+          ],
+          [
+            0,
+            28
+          ]
+        ]
+      }
+    },
+    {
+      "id": "add_3:0",
+      "operator": "add_3",
+      "output": {
+        "bounds": [
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            128
+          ],
+          [
+            0,
+            28
+          ],
+          [
+            0,
+            28
+          ]
+        ]
+      }
+    },
+    {
+      "id": "layer2_1_relu_1:0",
+      "operator": "layer2_1_relu_1",
+      "output": {
+        "bounds": [
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            128
+          ],
+          [
+            0,
+            28
+          ],
+          [
+            0,
+            28
+          ]
+        ]
+      }
+    },
+    {
+      "id": "layer3_0_conv1:0",
+      "operator": "layer3_0_conv1",
+      "output": {
+        "bounds": [
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            256
+          ],
+          [
+            0,
+            14
+          ],
+          [
+            0,
+            14
+          ]
+        ]
+      }
+    },
+    {
+      "id": "layer3_0_bn1:0",
+      "operator": "layer3_0_bn1",
+      "output": {
+        "bounds": [
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            256
+          ],
+          [
+            0,
+            14
+          ],
+          [
+            0,
+            14
+          ]
+        ]
+      }
+    },
+    {
+      "id": "layer3_0_relu:0",
+      "operator": "layer3_0_relu",
+      "output": {
+        "bounds": [
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            256
+          ],
+          [
+            0,
+            14
+          ],
+          [
+            0,
+            14
+          ]
+        ]
+      }
+    },
+    {
+      "id": "layer3_0_conv2:0",
+      "operator": "layer3_0_conv2",
+      "output": {
+        "bounds": [
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            256
+          ],
+          [
+            0,
+            14
+          ],
+          [
+            0,
+            14
+          ]
+        ]
+      }
+    },
+    {
+      "id": "layer3_0_bn2:0",
+      "operator": "layer3_0_bn2",
+      "output": {
+        "bounds": [
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            256
+          ],
+          [
+            0,
+            14
+          ],
+          [
+            0,
+            14
+          ]
+        ]
+      }
+    },
+    {
+      "id": "layer3_0_downsample_0:0",
+      "operator": "layer3_0_downsample_0",
+      "output": {
+        "bounds": [
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            256
+          ],
+          [
+            0,
+            14
+          ],
+          [
+            0,
+            14
+          ]
+        ]
+      }
+    },
+    {
+      "id": "layer3_0_downsample_1:0",
+      "operator": "layer3_0_downsample_1",
+      "output": {
+        "bounds": [
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            256
+          ],
+          [
+            0,
+            14
+          ],
+          [
+            0,
+            14
+          ]
+        ]
+      }
+    },
+    {
+      "id": "add_4:0",
+      "operator": "add_4",
+      "output": {
+        "bounds": [
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            256
+          ],
+          [
+            0,
+            14
+          ],
+          [
+            0,
+            14
+          ]
+        ]
+      }
+    },
+    {
+      "id": "layer3_0_relu_1:0",
+      "operator": "layer3_0_relu_1",
+      "output": {
+        "bounds": [
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            256
+          ],
+          [
+            0,
+            14
+          ],
+          [
+            0,
+            14
+          ]
+        ]
+      }
+    },
+    {
+      "id": "layer3_1_conv1:0",
+      "operator": "layer3_1_conv1",
+      "output": {
+        "bounds": [
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            256
+          ],
+          [
+            0,
+            14
+          ],
+          [
+            0,
+            14
+          ]
+        ]
+      }
+    },
+    {
+      "id": "layer3_1_bn1:0",
+      "operator": "layer3_1_bn1",
+      "output": {
+        "bounds": [
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            256
+          ],
+          [
+            0,
+            14
+          ],
+          [
+            0,
+            14
+          ]
+        ]
+      }
+    },
+    {
+      "id": "layer3_1_relu:0",
+      "operator": "layer3_1_relu",
+      "output": {
+        "bounds": [
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            256
+          ],
+          [
+            0,
+            14
+          ],
+          [
+            0,
+            14
+          ]
+        ]
+      }
+    },
+    {
+      "id": "layer3_1_conv2:0",
+      "operator": "layer3_1_conv2",
+      "output": {
+        "bounds": [
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            256
+          ],
+          [
+            0,
+            14
+          ],
+          [
+            0,
+            14
+          ]
+        ]
+      }
+    },
+    {
+      "id": "layer3_1_bn2:0",
+      "operator": "layer3_1_bn2",
+      "output": {
+        "bounds": [
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            256
+          ],
+          [
+            0,
+            14
+          ],
+          [
+            0,
+            14
+          ]
+        ]
+      }
+    },
+    {
+      "id": "add_5:0",
+      "operator": "add_5",
+      "output": {
+        "bounds": [
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            256
+          ],
+          [
+            0,
+            14
+          ],
+          [
+            0,
+            14
+          ]
+        ]
+      }
+    },
+    {
+      "id": "layer3_1_relu_1:0",
+      "operator": "layer3_1_relu_1",
+      "output": {
+        "bounds": [
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            256
+          ],
+          [
+            0,
+            14
+          ],
+          [
+            0,
+            14
+          ]
+        ]
+      }
+    },
+    {
+      "id": "layer4_0_conv1:0",
+      "operator": "layer4_0_conv1",
+      "output": {
+        "bounds": [
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            512
+          ],
+          [
+            0,
+            7
+          ],
+          [
+            0,
+            7
+          ]
+        ]
+      }
+    },
+    {
+      "id": "layer4_0_bn1:0",
+      "operator": "layer4_0_bn1",
+      "output": {
+        "bounds": [
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            512
+          ],
+          [
+            0,
+            7
+          ],
+          [
+            0,
+            7
+          ]
+        ]
+      }
+    },
+    {
+      "id": "layer4_0_relu:0",
+      "operator": "layer4_0_relu",
+      "output": {
+        "bounds": [
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            512
+          ],
+          [
+            0,
+            7
+          ],
+          [
+            0,
+            7
+          ]
+        ]
+      }
+    },
+    {
+      "id": "layer4_0_conv2:0",
+      "operator": "layer4_0_conv2",
+      "output": {
+        "bounds": [
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            512
+          ],
+          [
+            0,
+            7
+          ],
+          [
+            0,
+            7
+          ]
+        ]
+      }
+    },
+    {
+      "id": "layer4_0_bn2:0",
+      "operator": "layer4_0_bn2",
+      "output": {
+        "bounds": [
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            512
+          ],
+          [
+            0,
+            7
+          ],
+          [
+            0,
+            7
+          ]
+        ]
+      }
+    },
+    {
+      "id": "layer4_0_downsample_0:0",
+      "operator": "layer4_0_downsample_0",
+      "output": {
+        "bounds": [
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            512
+          ],
+          [
+            0,
+            7
+          ],
+          [
+            0,
+            7
+          ]
+        ]
+      }
+    },
+    {
+      "id": "layer4_0_downsample_1:0",
+      "operator": "layer4_0_downsample_1",
+      "output": {
+        "bounds": [
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            512
+          ],
+          [
+            0,
+            7
+          ],
+          [
+            0,
+            7
+          ]
+        ]
+      }
+    },
+    {
+      "id": "add_6:0",
+      "operator": "add_6",
+      "output": {
+        "bounds": [
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            512
+          ],
+          [
+            0,
+            7
+          ],
+          [
+            0,
+            7
+          ]
+        ]
+      }
+    },
+    {
+      "id": "layer4_0_relu_1:0",
+      "operator": "layer4_0_relu_1",
+      "output": {
+        "bounds": [
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            512
+          ],
+          [
+            0,
+            7
+          ],
+          [
+            0,
+            7
+          ]
+        ]
+      }
+    },
+    {
+      "id": "layer4_1_conv1:0",
+      "operator": "layer4_1_conv1",
+      "output": {
+        "bounds": [
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            512
+          ],
+          [
+            0,
+            7
+          ],
+          [
+            0,
+            7
+          ]
+        ]
+      }
+    },
+    {
+      "id": "layer4_1_bn1:0",
+      "operator": "layer4_1_bn1",
+      "output": {
+        "bounds": [
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            512
+          ],
+          [
+            0,
+            7
+          ],
+          [
+            0,
+            7
+          ]
+        ]
+      }
+    },
+    {
+      "id": "layer4_1_relu:0",
+      "operator": "layer4_1_relu",
+      "output": {
+        "bounds": [
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            512
+          ],
+          [
+            0,
+            7
+          ],
+          [
+            0,
+            7
+          ]
+        ]
+      }
+    },
+    {
+      "id": "layer4_1_conv2:0",
+      "operator": "layer4_1_conv2",
+      "output": {
+        "bounds": [
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            512
+          ],
+          [
+            0,
+            7
+          ],
+          [
+            0,
+            7
+          ]
+        ]
+      }
+    },
+    {
+      "id": "layer4_1_bn2:0",
+      "operator": "layer4_1_bn2",
+      "output": {
+        "bounds": [
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            512
+          ],
+          [
+            0,
+            7
+          ],
+          [
+            0,
+            7
+          ]
+        ]
+      }
+    },
+    {
+      "id": "add_7:0",
+      "operator": "add_7",
+      "output": {
+        "bounds": [
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            512
+          ],
+          [
+            0,
+            7
+          ],
+          [
+            0,
+            7
+          ]
+        ]
+      }
+    },
+    {
+      "id": "layer4_1_relu_1:0",
+      "operator": "layer4_1_relu_1",
+      "output": {
+        "bounds": [
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            512
+          ],
+          [
+            0,
+            7
+          ],
+          [
+            0,
+            7
+          ]
+        ]
+      }
+    },
+    {
+      "id": "avgpool:0",
+      "operator": "avgpool",
+      "output": {
+        "bounds": [
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            512
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            1
+          ]
+        ]
+      }
+    },
+    {
+      "id": "flatten:0",
+      "operator": "flatten",
+      "output": {
+        "bounds": [
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            512
+          ]
+        ]
+      }
+    },
+    {
+      "id": "fc:0",
+      "operator": "fc",
+      "output": {
+        "bounds": [
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            1000
+          ]
+        ]
+      }
+    }
+  ]
+}

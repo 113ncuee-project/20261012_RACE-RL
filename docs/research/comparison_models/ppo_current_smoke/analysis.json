@@ -1,0 +1,13 @@
+{
+  "aggregate": [
+    {
+      "independent_seeds": 2,
+      "mean_J": 0.12771049608927248,
+      "median_J": 0.12771049608927248,
+      "std_J": 0.08142312046918924,
+      "variant": "full_dense"
+    }
+  ],
+  "comparisons": [],
+  "hypotheses_status": "H1/H2/H3 NOT ESTABLISHED BY THIS PILOT"
+}

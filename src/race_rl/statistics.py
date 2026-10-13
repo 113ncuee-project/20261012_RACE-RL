@@ -16,7 +16,7 @@ def paired_summary(left,right,*,bootstrap_samples=10000,seed=0):
     return {"pairs":len(a),"paired_mean_difference":float(delta.mean()),
             "paired_median_difference":float(np.median(delta)),"paired_std":float(delta.std(ddof=1)),
             "paired_bootstrap_ci95":[float(low),float(high)],"bootstrap_samples":bootstrap_samples,
-            "bootstrap_seed":seed,"interpretation":"lower normalized EDP is better; negative left-minus-right favors left"}
+            "bootstrap_seed":seed,"interpretation":"lower normalized PPA_merit is better; negative left-minus-right favors left"}
 
 
 def holm_adjust(p_values):

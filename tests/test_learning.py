@@ -19,9 +19,12 @@ class LearningTests(unittest.TestCase):
         d,v = trainer.policy.distribution(o)
         self.assertAlmostEqual(d.probs.sum().item(),1,places=6)
         self.assertTrue(torch.isfinite(d.logits).all())
+        self.assertFalse(o.dependency_link_relations)
+        self.assertIsNone(v)
+        self.assertEqual(len(d.probs),len(env.actions))
+        o,_,_=env.step(env.actions[0])
         self.assertTrue(o.dependency_link_relations)
         self.assertTrue(o.feature_valid_masks)
-        self.assertEqual(len(d.probs),len(env.actions))
 
     def test_mask_zero_probability(self):
         from dataclasses import replace
@@ -35,14 +38,14 @@ class LearningTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             trainer.policy.distribution(replace(o,legal_action_masks=tuple(False for _ in masks)))
 
-    def test_actor_and_critic_update_real_parameters(self):
-        trainer = RACETrainer(seed=3,width=8,epochs=2)
+    def test_actor_updates_without_critic(self):
+        trainer = RACETrainer(seed=3,width=8)
         before = {k:v.clone() for k,v in trainer.policy.state_dict().items()}
         stats = trainer.run_episode(self.env())
         after = trainer.policy.state_dict()
-        self.assertEqual(stats["parameter_updates"],2)
+        self.assertEqual(stats["parameter_updates"],1)
         self.assertTrue(any(not torch.equal(before[k],after[k]) for k in before if "critic" not in k))
-        self.assertTrue(any(not torch.equal(before[k],after[k]) for k in before if "critic" in k))
+        self.assertFalse(any("critic" in k for k in after))
         self.assertGreater(trainer.training_evaluations,0)
 
     def test_fixed_seed_trace(self):
@@ -55,7 +58,7 @@ class LearningTests(unittest.TestCase):
         self.assertEqual(*trajectories)
 
     def test_checkpoint_resume_episode_boundary(self):
-        trainer = RACETrainer(seed=4,width=8,epochs=1)
+        trainer = RACETrainer(seed=4,width=8)
         trainer.run_episode(self.env())
         with tempfile.TemporaryDirectory() as folder:
             path = Path(folder)/"checkpoint.pt"

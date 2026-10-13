@@ -13,5 +13,5 @@ dist/
 /checkpoints/
 *.pt
 *.pth
-# Original source and archived reference evidence are intentionally retained.
+# Current source and small verified evidence are tracked.
 # Generated full-scale results go in ignored runs/; small verified evidence is tracked.

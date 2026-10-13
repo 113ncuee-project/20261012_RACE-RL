@@ -1,0 +1,314 @@
+[
+  {
+    "action": {
+      "compute_count": 8,
+      "kind": "resize_mesh"
+    },
+    "best_objective": 0.15367742705869425,
+    "cache_hits": 0,
+    "candidate_compute_count": 8,
+    "candidate_hardware_hash": "11e768cbaecbcdb4207c36768a79fa364b0464c9fb9c5e1ff783d30cdc340044",
+    "candidate_mapping_hash": "ab236e5a1c11b976415f785a94266ee021f546667ad12edcca672eeae801f490",
+    "compute_count": 8,
+    "current_objective": 0.15367742705869425,
+    "evaluations": 1,
+    "feasible": true,
+    "physical_feasible": true,
+    "ppa_assessment": {
+      "feasible": true,
+      "metrics": {
+        "area_mm2": 8,
+        "average_power_w": 0.013528007648940028,
+        "latency_s": 3.0331e-05
+      },
+      "physical_feasible": true,
+      "search_merit": 0.18158256907245707,
+      "violation_excess": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "violations": [],
+      "weighted_cost": 0.22187035882980008
+    },
+    "requests": 1,
+    "reward": 1.8728995028620514,
+    "termination": null
+  },
+  {
+    "action": {
+      "kind": "place_tile",
+      "operator": "",
+      "parts": 0,
+      "storage": "",
+      "target": "c2",
+      "tile": "conv_b:0"
+    },
+    "best_objective": 0.15367742705869425,
+    "cache_hits": 0,
+    "candidate_compute_count": 8,
+    "candidate_hardware_hash": "11e768cbaecbcdb4207c36768a79fa364b0464c9fb9c5e1ff783d30cdc340044",
+    "candidate_mapping_hash": "b18b6b2edff175fb1e9aad504287e9a9607e887455b7636c51513616fad567e1",
+    "compute_count": 8,
+    "current_objective": 0.15428463050383823,
+    "evaluations": 2,
+    "feasible": true,
+    "physical_feasible": true,
+    "ppa_assessment": {
+      "feasible": true,
+      "metrics": {
+        "area_mm2": 8,
+        "average_power_w": 0.014111668669163899,
+        "latency_s": 2.8298000000000002e-05
+      },
+      "physical_feasible": true,
+      "search_merit": 0.1824309171485838,
+      "violation_excess": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "violations": [],
+      "weighted_cost": 0.223138228897213
+    },
+    "requests": 2,
+    "reward": 0.0,
+    "termination": null
+  },
+  {
+    "action": {
+      "kind": "place_tile",
+      "operator": "",
+      "parts": 0,
+      "storage": "",
+      "target": "c5",
+      "tile": "conv_b:0"
+    },
+    "best_objective": 0.15367742705869425,
+    "cache_hits": 0,
+    "candidate_compute_count": 8,
+    "candidate_hardware_hash": "11e768cbaecbcdb4207c36768a79fa364b0464c9fb9c5e1ff783d30cdc340044",
+    "candidate_mapping_hash": "9ad812f3dde60600b5cb3aa19797fc4160a9b6bcc4a1e1d85883c2cfa98a8a6b",
+    "compute_count": 8,
+    "current_objective": 0.15428463050383823,
+    "evaluations": 3,
+    "feasible": true,
+    "physical_feasible": true,
+    "ppa_assessment": {
+      "feasible": true,
+      "metrics": {
+        "area_mm2": 8,
+        "average_power_w": 0.014111668669163899,
+        "latency_s": 2.8298000000000002e-05
+      },
+      "physical_feasible": true,
+      "search_merit": 0.1824309171485838,
+      "violation_excess": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "violations": [],
+      "weighted_cost": 0.223138228897213
+    },
+    "requests": 3,
+    "reward": 0.0,
+    "termination": null
+  },
+  {
+    "action": {
+      "kind": "place_tile",
+      "operator": "",
+      "parts": 0,
+      "storage": "",
+      "target": "c4",
+      "tile": "conv_a:0"
+    },
+    "best_objective": 0.15367742705869425,
+    "cache_hits": 0,
+    "candidate_compute_count": 8,
+    "candidate_hardware_hash": "11e768cbaecbcdb4207c36768a79fa364b0464c9fb9c5e1ff783d30cdc340044",
+    "candidate_mapping_hash": "d3cbc5dcc96433833e8702da851db1285ec4c8e652ff8a475259308221a5761d",
+    "compute_count": 8,
+    "current_objective": 0.15464149874598448,
+    "evaluations": 4,
+    "feasible": true,
+    "physical_feasible": true,
+    "ppa_assessment": {
+      "feasible": true,
+      "metrics": {
+        "area_mm2": 8,
+        "average_power_w": 0.014099540132415772,
+        "latency_s": 3.0661000000000003e-05
+      },
+      "physical_feasible": true,
+      "search_merit": 0.18293008057124557,
+      "violation_excess": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "violations": [],
+      "weighted_cost": 0.22388546710805257
+    },
+    "requests": 4,
+    "reward": 0.0,
+    "termination": null
+  },
+  {
+    "action": {
+      "kind": "partition_operator",
+      "operator": "conv_a",
+      "parts": 4,
+      "storage": "",
+      "target": "",
+      "tile": ""
+    },
+    "best_objective": 0.15367742705869425,
+    "cache_hits": 0,
+    "candidate_compute_count": 8,
+    "candidate_hardware_hash": "11e768cbaecbcdb4207c36768a79fa364b0464c9fb9c5e1ff783d30cdc340044",
+    "candidate_mapping_hash": "ade4c3dcbf0c0173e9b846775d81a5ca9f00c2fd83fd72871f2629d57eb6c0fc",
+    "compute_count": 8,
+    "current_objective": 0.15564769217263788,
+    "evaluations": 5,
+    "feasible": true,
+    "physical_feasible": true,
+    "ppa_assessment": {
+      "feasible": true,
+      "metrics": {
+        "area_mm2": 8,
+        "average_power_w": 0.014073195599678026,
+        "latency_s": 3.7269999999999994e-05
+      },
+      "physical_feasible": true,
+      "search_merit": 0.18433974862121408,
+      "violation_excess": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "violations": [],
+      "weighted_cost": 0.22600065199892674
+    },
+    "requests": 5,
+    "reward": 0.0,
+    "termination": null
+  },
+  {
+    "action": {
+      "compute_count": 9,
+      "kind": "resize_mesh"
+    },
+    "best_objective": 0.15367742705869425,
+    "cache_hits": 0,
+    "candidate_compute_count": 9,
+    "candidate_hardware_hash": "d78397ef79d566d1671f5c4f63026cd69bb957bc86d1b1a382be3a5d39c05440",
+    "candidate_mapping_hash": "ade4c3dcbf0c0173e9b846775d81a5ca9f00c2fd83fd72871f2629d57eb6c0fc",
+    "compute_count": 9,
+    "current_objective": 0.16773689787763527,
+    "evaluations": 6,
+    "feasible": true,
+    "physical_feasible": true,
+    "ppa_assessment": {
+      "feasible": true,
+      "metrics": {
+        "area_mm2": 9,
+        "average_power_w": 0.015740232962913377,
+        "latency_s": 3.7344999999999996e-05
+      },
+      "physical_feasible": true,
+      "search_merit": 0.20154311473125175,
+      "violation_excess": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "violations": [],
+      "weighted_cost": 0.2524157765430446
+    },
+    "requests": 6,
+    "reward": 0.0,
+    "termination": null
+  },
+  {
+    "action": {
+      "kind": "place_tile",
+      "operator": "",
+      "parts": 0,
+      "storage": "",
+      "target": "c5",
+      "tile": "conv_a:0"
+    },
+    "best_objective": 0.15367742705869425,
+    "cache_hits": 0,
+    "candidate_compute_count": 9,
+    "candidate_hardware_hash": "d78397ef79d566d1671f5c4f63026cd69bb957bc86d1b1a382be3a5d39c05440",
+    "candidate_mapping_hash": "a140dcf86c6c2c710e3db8f77a51589b321109446e90cab4c2d44dfeeb80c972",
+    "compute_count": 9,
+    "current_objective": 0.16789333444992735,
+    "evaluations": 7,
+    "feasible": true,
+    "physical_feasible": true,
+    "ppa_assessment": {
+      "feasible": true,
+      "metrics": {
+        "area_mm2": 9,
+        "average_power_w": 0.01586935905380284,
+        "latency_s": 3.7117e-05
+      },
+      "physical_feasible": true,
+      "search_merit": 0.20176900558648903,
+      "violation_excess": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "violations": [],
+      "weighted_cost": 0.25277019684600943
+    },
+    "requests": 7,
+    "reward": 0.0,
+    "termination": null
+  },
+  {
+    "action": {
+      "kind": "place_tile",
+      "operator": "",
+      "parts": 0,
+      "storage": "",
+      "target": "c7",
+      "tile": "residual:0"
+    },
+    "best_objective": 0.15367742705869425,
+    "cache_hits": 0,
+    "candidate_compute_count": 9,
+    "candidate_hardware_hash": "d78397ef79d566d1671f5c4f63026cd69bb957bc86d1b1a382be3a5d39c05440",
+    "candidate_mapping_hash": "b80b40247764f70f35ed5e1797967658574db82e8e3475a5b48c5dd1f5360171",
+    "compute_count": 9,
+    "current_objective": 0.16913907784046492,
+    "evaluations": 8,
+    "feasible": true,
+    "physical_feasible": true,
+    "ppa_assessment": {
+      "feasible": true,
+      "metrics": {
+        "area_mm2": 9,
+        "average_power_w": 0.01640674849674502,
+        "latency_s": 4.024600000000001e-05
+      },
+      "physical_feasible": true,
+      "search_merit": 0.20357086647046352,
+      "violation_excess": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "violations": [],
+      "weighted_cost": 0.25560449498915006
+    },
+    "requests": 8,
+    "reward": 0.0,
+    "termination": "budget_exhausted"
+  }
+]

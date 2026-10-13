@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>RACE-RL · 設計探索</title><link rel="stylesheet" href="/style.css"><script src="/app.js" defer></script></head>
+<body>
+<header><div class="brand"><span class="logo">R</span><div><strong>RACE-RL</strong><span class="subbrand">Chiplet 設計探索</span></div></div><span class="local"><i></i> 本機運行</span></header>
+<main>
+<div class="intro"><div><p class="eyebrow">需求 → 單一 RL 動作 → 環境 PPA 回饋</p><h1>從你的需求，找到設計方向。</h1><p>設定功耗、效能與面積的限制，讓同一個 RL Agent 探索顆數、模型切分與配置。</p></div><span class="research">分析式研究模型</span></div>
+<div class="layout">
+<form id="search-form" class="card">
+<div class="section-heading"><span class="step">01</span><div><h2>設定 PPA 限制</h2><p>三項都必須達標，才會列為可交付候選。</p></div></div>
+<label class="model-label" for="model">工作模型<select id="model" name="model"></select></label>
+<div class="limits">
+<label for="power"><span>功耗上限 <small>Power</small></span><div class="unit-field"><input id="power" type="number" min="0" step="any" required placeholder="例如 1"><span>W</span></div><small>整次推論的平均功耗</small></label>
+<label for="latency"><span>延遲上限 <small>Performance</small></span><div class="unit-field"><input id="latency" type="number" min="0" step="any" required placeholder="例如 100"><span>ms</span></div><small>單次推論耗時，越低越快</small></label>
+<label for="area"><span>面積上限 <small>Area</small></span><div class="unit-field"><input id="area" type="number" min="0" step="any" required placeholder="例如 16"><span>mm²</span></div><small>運算晶粒的面積總和</small></label>
+</div>
+<div class="separator"></div>
+<div class="section-heading"><span class="step">02</span><div><h2>選擇你的偏好</h2><p>在達標方案中，優先改善你重視的項目。</p></div></div>
+<fieldset id="preferences"><legend class="sr-only">PPA 偏好</legend><div id="preference-options" class="preference-options"></div></fieldset>
+<div id="custom-weights" hidden><div class="weight-inputs"><label for="weight-power">功耗權重<input id="weight-power" type="number" min="0" step="any" value="1"></label><label for="weight-performance">效能權重<input id="weight-performance" type="number" min="0" step="any" value="1"></label><label for="weight-area">面積權重<input id="weight-area" type="number" min="0" step="any" value="1"></label></div></div>
+<div class="weight-preview" id="weight-preview" aria-live="polite"></div>
+<div class="recommended">預設模式：完整聯合動作一產生就送進環境，回饋後再選下一個動作。最多訓練 60 回合。先訓練 20 回合，連續 15 回合改善不足 0.1% 時提前停止。</div><details class="advanced"><summary>進階選項 · 自行調整搜尋設定</summary><div class="advanced-grid">
+<label for="episodes">訓練回合上限<input id="episodes" type="number" min="1" max="1000" step="1" value="60" required></label>
+
+<label for="seed">隨機種子<input id="seed" type="number" min="0" max="2147483647" step="1" value="7" required></label>
+<label for="input-size">輸入邊長<input id="input-size" type="number" min="64" max="512" step="1" value="224" required></label>
+<label for="scope">聯合調整範圍<select id="scope"><option value="1">1 個 Tile（比較設定）</option><option value="2" selected>最多 2 個相依 Tile</option><option value="3">最多 3 個</option><option value="4">最多 4 個</option></select></label>
+
+</div><label class="toggle" for="early-stop"><input id="early-stop" type="checkbox" checked> 啟用搜尋穩定時提前停止</label><div class="advanced-grid"><label for="warmup">至少訓練回合<input id="warmup" type="number" min="1" max="1000" step="1" value="20" required></label><label for="patience">持續無明顯改善回合<input id="patience" type="number" min="1" max="1000" step="1" value="15" required></label><label for="threshold">明顯改善門檻（%）<input id="threshold" type="number" min="0" max="99" step="any" value="0.1" required></label></div><p class="hint">提前停止表示已觀察到的目標趨於穩定，不代表 RL 或全域最優已被證明收斂。</p><p class="hint">正式版本使用 REINFORCE，沒有 PPO 或 Critic。固定 mesh；RL 自行選擇 1–16 顆。起始不計算 PPA；完整聯合動作一產生就送進環境，回饋後才產生下一個動作。</p></details>
+<div id="form-error" class="error" role="alert" hidden></div>
+<div class="form-actions"><button id="start" class="primary" type="submit" disabled>開始設計探索 <span>↗</span></button><p>結果與執行紀錄只保存在本機。</p></div>
+</form>
+<aside>
+<section class="card status-card" aria-live="polite"><div class="section-heading"><span class="step">03</span><div><h2>探索狀態</h2><p id="status-subtitle">等待你的 PPA 需求</p></div></div><div class="status-line"><span id="status-badge" class="badge">尚未開始</span><span id="elapsed">—</span></div><progress id="progress" max="1" value="0" aria-label="完成的訓練回合"></progress><div class="progress-meta"><span id="progress-text">模型驗證通過後開始搜尋</span><button id="cancel" class="text-button" type="button" hidden>停止搜尋</button></div><div id="running-task" class="task-summary" hidden></div><details class="log-details"><summary>查看執行紀錄</summary><pre id="execution-log">開始探索後，這裡會顯示最新進度。</pre></details></section>
+<section class="card result-card"><div class="result-title"><h2>探索結果</h2><button id="download" class="text-button" type="button" hidden>下載報告 ↓</button></div><div id="empty-result" class="empty-result"><div class="mesh-icon" aria-hidden="true">▦</div><h3>結果會顯示在這裡</h3><p>查看原始 PPA、限制使用比例、<br>選出的顆數與達標狀態。</p></div><div id="result" hidden><div id="result-banner" class="result-banner"></div><div class="result-metrics"><div><span>運算 chiplet</span><strong id="result-count">—</strong></div><div><span>加權 PPA 成本</span><strong id="result-cost">—</strong></div></div><div id="ppa-metrics"></div><ul id="violations" class="violations"></ul><p id="output-folder" class="output-folder"></p></div></section>
+<section class="model-note"><strong>如何解讀結果</strong><p>先達標，再依偏好比較。權重作用於各項相對限制的比例。若沒有找到達標方案，會顯示最佳搜尋進度與超標原因。</p><p>目前係數未校準；功耗為平均值，面積不含封裝及外部記憶體。短期搜尋不保證全域最優或產業可行。</p></section>
+</aside>
+</div>
+<section id="design-card" class="card design-card" hidden><div class="result-title"><div><h2>搜尋出的 chiplet 設計</h2><p id="design-caption" class="hint"></p></div><button id="download-design" class="text-button" type="button">下載設計圖 SVG ↓</button></div><div class="diagram-legend"><span>■ 運算 chiplet（顏色深淺表示配置的 Tile 數）</span><span>→ 方向與累計傳輸量</span><span>┄ 外部記憶體服務</span></div><p class="hint">較窄的視窗可左右捲動完整圖；點選晶粒與箭頭查看細節。</p><div id="design-diagram" class="diagram-scroll"></div><div id="node-detail" class="node-detail" aria-live="polite">點選晶粒查看模型配置。</div><details class="design-details"><summary>模型配置與主要資料傳輸</summary><h3>各層配置</h3><div class="table-scroll"><table><thead><tr><th>模型工作</th><th>晶粒與 Tile 數</th></tr></thead><tbody id="placement-table"></tbody></table></div><h3>主要資料傳輸（依單筆資料量排列）</h3><div class="table-scroll"><table><thead><tr><th>資料</th><th>來源 → 目的</th><th>資料量</th><th>實體路徑</th></tr></thead><tbody id="transfer-table"></tbody></table></div></details></section><footer>REINFORCE · 單一 Agent · Compute-only mesh · 最多 16 顆 · Float64</footer>
+</main>
+</body></html>

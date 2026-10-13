@@ -18,7 +18,7 @@ def main():
     import matplotlib.pyplot as plt
     fig,ax = plt.subplots(figsize=(6,3.5),constrained_layout=True)
     ax.step([1]+[r["evaluations"] for r in rows],[1]+[r["best_objective"] for r in rows],where="post")
-    ax.set(xlabel="Charged analytical mapping evaluations",ylabel="Best normalized EDP",title=args.label)
+    ax.set(xlabel="Charged analytical mapping evaluations",ylabel="Best normalized PPA_merit",title=args.label)
     ax.grid(alpha=.25)
     args.out.parent.mkdir(parents=True,exist_ok=True)
     fig.savefig(args.out,dpi=180)

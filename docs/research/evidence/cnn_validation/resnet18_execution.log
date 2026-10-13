@@ -1,0 +1,2 @@
+resnet18: PASSED; 69 operators; 1814073344 MACs
+Synthetic analytical check: feasible=True

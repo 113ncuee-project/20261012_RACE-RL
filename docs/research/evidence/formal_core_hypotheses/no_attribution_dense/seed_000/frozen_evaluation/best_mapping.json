@@ -1,0 +1,228 @@
+{
+  "placement": [
+    [
+      "conv_a:0",
+      "c0"
+    ],
+    [
+      "conv_a:1",
+      "c0"
+    ],
+    [
+      "residual:0",
+      "c0"
+    ],
+    [
+      "conv_b:0",
+      "c0"
+    ],
+    [
+      "conv_b:1",
+      "c0"
+    ],
+    [
+      "conv_b:2",
+      "c0"
+    ],
+    [
+      "conv_b:3",
+      "c0"
+    ]
+  ],
+  "storage": [
+    [
+      "a",
+      "dram0"
+    ],
+    [
+      "b",
+      "dram0"
+    ],
+    [
+      "weights:conv_a",
+      "dram0"
+    ],
+    [
+      "weights:conv_b",
+      "dram0"
+    ],
+    [
+      "x",
+      "dram0"
+    ],
+    [
+      "y",
+      "dram0"
+    ]
+  ],
+  "tiles": [
+    {
+      "id": "conv_a:0",
+      "operator": "conv_a",
+      "output": {
+        "bounds": [
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            2
+          ],
+          [
+            0,
+            4
+          ],
+          [
+            0,
+            8
+          ]
+        ]
+      }
+    },
+    {
+      "id": "conv_a:1",
+      "operator": "conv_a",
+      "output": {
+        "bounds": [
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            2
+          ],
+          [
+            4,
+            8
+          ],
+          [
+            0,
+            8
+          ]
+        ]
+      }
+    },
+    {
+      "id": "residual:0",
+      "operator": "residual",
+      "output": {
+        "bounds": [
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            2
+          ],
+          [
+            0,
+            8
+          ],
+          [
+            0,
+            8
+          ]
+        ]
+      }
+    },
+    {
+      "id": "conv_b:0",
+      "operator": "conv_b",
+      "output": {
+        "bounds": [
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            2
+          ],
+          [
+            0,
+            2
+          ],
+          [
+            0,
+            8
+          ]
+        ]
+      }
+    },
+    {
+      "id": "conv_b:1",
+      "operator": "conv_b",
+      "output": {
+        "bounds": [
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            2
+          ],
+          [
+            2,
+            4
+          ],
+          [
+            0,
+            8
+          ]
+        ]
+      }
+    },
+    {
+      "id": "conv_b:2",
+      "operator": "conv_b",
+      "output": {
+        "bounds": [
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            2
+          ],
+          [
+            4,
+            6
+          ],
+          [
+            0,
+            8
+          ]
+        ]
+      }
+    },
+    {
+      "id": "conv_b:3",
+      "operator": "conv_b",
+      "output": {
+        "bounds": [
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            2
+          ],
+          [
+            6,
+            8
+          ],
+          [
+            0,
+            8
+          ]
+        ]
+      }
+    }
+  ]
+}

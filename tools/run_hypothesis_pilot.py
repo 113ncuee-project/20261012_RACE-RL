@@ -17,6 +17,7 @@ from race_rl.training import RACETrainer
 from race_rl.serialization import save_json,digest,code_hashes
 from race_rl.cli import export
 from race_rl.statistics import paired_summary
+from race_rl.requirements import PPARequirements
 
 VARIANTS = {
     'full_dense':dict(state='full',action='coupled',reward='dense',lambda_c=0.0),
@@ -52,8 +53,15 @@ def main():
     parser.add_argument('--spatial',type=int,default=8)
     parser.add_argument('--max-scope',type=int,default=2)
     parser.add_argument('--width',type=int,default=16)
+    parser.add_argument('--comparison-model',choices=['ppo'],help='explicit comparison model only; default is formal REINFORCE')
+    parser.add_argument('--requirements',type=Path,default=Path('configs/research_requirements.json'))
     parser.add_argument('--out',type=Path,default=Path('experiments/runs/hypothesis_pilot'))
     args = parser.parse_args()
+    Trainer = RACETrainer
+    trainer_extra = {}
+    if args.comparison_model == 'ppo':
+        from race_rl.comparisons.ppo import PPOTrainer
+        Trainer,trainer_extra = PPOTrainer,{'epochs':4}
     if len(set(args.seeds)) != len(args.seeds) or len(args.seeds) < 2 or min(args.seeds) < 0:
         parser.error('at least two distinct nonnegative paired seeds required')
     if args.train_episodes < 1 or args.spatial < 2 or args.width < 1 or len(set(args.variants)) != len(args.variants):
@@ -61,22 +69,28 @@ def main():
     if args.out.exists() and any(args.out.iterdir()): parser.error('choose a fresh output directory')
     w = toy_workload(args.spatial)
     w = replace(w,tensors=tuple(replace(t,bytes_per_element=8) for t in w.tensors))
-    common = dict(compute_counts=tuple(args.compute_counts),budget=args.budget,max_scope=args.max_scope)
+    from race_rl.vendor_input import load_requirements
+    requirements = load_requirements(args.requirements)
+    common = dict(compute_counts=tuple(args.compute_counts),budget=args.budget,max_scope=args.max_scope,requirements=requirements)
     DesignEnvironment(w,**common)
     args.out.mkdir(parents=True,exist_ok=True)
     protocol = {'status':'PAIRED_DEVELOPMENT_PILOT_NOT_FORMAL_CNN_VALIDATION','workload':w,'workload_hash':digest(w),
         'seeds':args.seeds,'variants':{k:VARIANTS[k] for k in args.variants},'environment':common,
         'memory_model':'compute-only mesh; dram0/1 external-memory services attach to c0/cN-1, have no die geometry and never relay; their capacity/bandwidth/dynamic/static energy remain charged',
-        'train_episodes':args.train_episodes,'width':args.width,'epochs':4,'precision':'float64','gamma':1.0,
+        'train_episodes':args.train_episodes,'width':args.width,
+        'algorithm':'ppo_comparison' if args.comparison_model else 'reinforce',
+        'model_role':'comparison' if args.comparison_model else 'formal',
+        'updates_per_episode':4 if args.comparison_model else 1,'precision':'float64','gamma':1.0,
+        'initial_ppa_evaluations':0,'evaluation_contract':'one action before every environment query',
         'evaluation':'one frozen-policy rollout per variant/seed; independent action RNG seed 10000+seed',
         'selection':'all declared variants and seeds reported; no best-seed selection',
         'coefficient_selection':'lambda_c=0.1 exploratory fixed pilot value, not validation optimized',
-        'metrics':['frozen_best_normalized_EDP','training_oracle_evaluations','frozen_oracle_evaluations','wall_time_s','parameter_count'],
+        'metrics':['frozen_best_normalized_ppa_merit','training_oracle_evaluations','frozen_oracle_evaluations','wall_time_s','parameter_count'],
         'bootstrap':{'samples':10000,'seed':1234,'scope':'exploratory descriptive seed variability; not formal significance'},
         'comparisons':COMPARISONS,'source_hashes':code_hashes(),
         'limitations':['one tiny synthetic development workload','no held-out workload family','few policy seeds','uncalibrated physical model',
             'independent partition inherits old owner by overlap; resize transition shared by all variants',
-            'action families have different supports; report supports and timings, not just EDP'],
+            'action families have different supports; report supports and timings, not just PPA_merit'],
         'implementation_sha256':hashlib.sha256(Path(__file__).read_bytes()).hexdigest()}
     # Freeze exact protocol before executing any measured trial.
     save_json(args.out/'protocol.json',protocol)
@@ -97,14 +111,15 @@ def main():
         for seed in args.seeds:
             folder = args.out/name/f'seed_{seed:03d}'
             settings = {**common,'action_mode':config['action'],'reward_variant':config['reward'],'lambda_c':config['lambda_c']}
-            trainer = RACETrainer(seed=seed,width=args.width,state_variant=config['state'],precision='float64',epochs=4)
+            trainer = Trainer(seed=seed,width=args.width,state_variant=config['state'],precision='float64',**trainer_extra)
             before = policy_hash(trainer.policy)
             trial_started = time.perf_counter()
-            training_actions,training_queries = 0,0
+            training_actions,training_queries,training_coupled_steps = 0,0,0
             for episode in range(args.train_episodes):
                 env = DesignEnvironment(w,**settings)
                 stats = trainer.run_episode(env)
                 training_actions += stats['steps'];training_queries += env.oracle.requests
+                training_coupled_steps += sum(len(getattr(r['action'],'scope',()))>1 for r in env.trace)
                 export(folder/f'train_{episode+1:03d}',env,stats)
                 save_json(folder/f'train_{episode+1:03d}'/'best_hardware.json',env.best_hardware)
             trained = policy_hash(trainer.policy)
@@ -120,11 +135,13 @@ def main():
             save_json(folder/'frozen_evaluation'/'best_hardware.json',env.best_hardware)
             row = {'variant':name,'seed':seed,'protocol_hash':protocol_hash,'workload_hash':digest(w),
                 'state':config['state'],'action':config['action'],'reward':config['reward'],'lambda_c':config['lambda_c'],
-                'initial_EDP':env.reference,'frozen_best_normalized_EDP':env.best_objective,'best_EDP':env.best_record.edp_js,
+                'archive_sentinel':env.reference,'frozen_best_normalized_ppa_merit':env.best_objective,'best_weighted_ppa_cost':env.scorer.assess(env.best_record)['weighted_cost'],
                 'best_compute_count':len(env.best_hardware.compute_ids),'counts_visited':sorted({r['compute_count'] for r in env.oracle.request_log}),
                 'training_oracle_evaluations':trainer.training_evaluations,'frozen_oracle_evaluations':env.oracle.evaluations,
                 'training_requests':training_queries,'frozen_requests':env.oracle.requests,
                 'training_actions':training_actions,'frozen_actions':evaluation['steps'],
+                'training_multi_tile_coupled_steps':training_coupled_steps,
+                'frozen_multi_tile_coupled_steps':sum(len(getattr(r['action'],'scope',()))>1 for r in env.trace),
                 'initial_action_support':evaluation['initial_action_support'],
                 'mean_action_support':evaluation['mean_action_support'],'max_action_support':evaluation['max_action_support'],
                 'final_action_support':len(env.actions),'frozen_structural_generation_time_s':env.structural_validation_time_s,
@@ -139,15 +156,15 @@ def main():
     analysis = []
     for hypothesis,left,right in COMPARISONS:
         if left not in args.variants or right not in args.variants: continue
-        a = [next(r['frozen_best_normalized_EDP'] for r in rows if r['variant'] == left and r['seed'] == s) for s in args.seeds]
-        b = [next(r['frozen_best_normalized_EDP'] for r in rows if r['variant'] == right and r['seed'] == s) for s in args.seeds]
+        a = [next(r['frozen_best_normalized_ppa_merit'] for r in rows if r['variant'] == left and r['seed'] == s) for s in args.seeds]
+        b = [next(r['frozen_best_normalized_ppa_merit'] for r in rows if r['variant'] == right and r['seed'] == s) for s in args.seeds]
         summary = paired_summary(a,b,bootstrap_samples=10000,seed=1234)
         analysis.append({'hypothesis':hypothesis,'left':left,'right':right,**summary,
             'wins':sum(x<y for x,y in zip(a,b)),'ties':sum(x==y for x,y in zip(a,b)),
             'status':'EXPLORATORY_ONLY_NO_FORMAL_HYPOTHESIS_ACCEPTANCE'})
     aggregate = []
     for name in args.variants:
-        values = np.array([r['frozen_best_normalized_EDP'] for r in rows if r['variant'] == name])
+        values = np.array([r['frozen_best_normalized_ppa_merit'] for r in rows if r['variant'] == name])
         aggregate.append({'variant':name,'mean_J':float(values.mean()),'median_J':float(np.median(values)),
             'std_J':float(values.std(ddof=1)),'independent_seeds':len(values)})
     save_json(args.out/'analysis.json',{'comparisons':analysis,'aggregate':aggregate,'hypotheses_status':'H1/H2/H3 NOT ESTABLISHED BY THIS PILOT'})

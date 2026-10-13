@@ -1,0 +1,21 @@
+{
+  "best_objective": 0.9986642331139104,
+  "cache_hits": 0,
+  "episode": 2,
+  "initial_action_support": 25,
+  "max_action_support": 50,
+  "mean_action_support": 34.857142857142854,
+  "native_hardware_context_builds": 2,
+  "native_setup_time_s": 0.00386545795481652,
+  "oracle_evaluations": 8,
+  "oracle_requests": 8,
+  "parameter_updates": 0,
+  "physical_failures": 0,
+  "requirements_status": "FEASIBLE_DESIGN_FOUND",
+  "return": 0.0013366598179309682,
+  "steps": 7,
+  "structural_invalid_proposals": 0,
+  "structural_validation_time_s": 0.0004299158463254571,
+  "termination": "budget_exhausted",
+  "unique_mapping_evaluation_time_s": 0.013817626051604748
+}

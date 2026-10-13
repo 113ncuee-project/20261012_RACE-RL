@@ -77,16 +77,18 @@ class GuardedMemoryTests(unittest.TestCase):
         self.assertNotEqual(x.identity,y.identity)
         with self.assertRaises(ValueError): Oracle(w,h,scheduling_policy='unknown')
 
-    def test_feasible_guarded_environment_counts_initial_and_failures(self):
+    def test_guarded_environment_only_counts_actions(self):
         w,h = self.fixture()
         mapping,_ = conservative_initial_mapping(w,h)
-        env = RACEEnvironment(w,h,mapping,budget=2,max_scope=1,scheduling_policy='serial_node_tiles')
+        env = RACEEnvironment(w,h,mapping,budget=1,max_scope=1,scheduling_policy='serial_node_tiles')
         env.reset()
-        self.assertTrue(env.best_record.feasible)
+        self.assertIsNone(env.best_record)
+        self.assertEqual(env.oracle.evaluations,0)
         # Retiling a complete multi-tile operator needs scope closure; migrate
         # one tile to another compute resource while keeping the paid contract.
         action = next(a for a in env.actions if a.kind == 'cut_migrate')
         env.step(action)
-        self.assertEqual(env.oracle.evaluations,2)
+        self.assertEqual(env.oracle.evaluations,1)
+        self.assertTrue(env.best_record.feasible)
         self.assertTrue(env.done)
         self.assertLessEqual(env.best_objective,1)

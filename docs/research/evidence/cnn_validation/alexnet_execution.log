@@ -1,0 +1,2 @@
+alexnet: PASSED; 22 operators; 714188480 MACs
+Synthetic analytical check: feasible=True

@@ -1,0 +1,74 @@
+[
+  {
+    "cached": false,
+    "compute_count": 2,
+    "design_hash": "5364041d1b14df8ab9e92a2772f551d3f14e5827d9c5dbb3b1d5ce5aed026580",
+    "evaluations": 1,
+    "feasible": true,
+    "hardware_hash": "e3369d0b53eba55aa89ff8d34a6d9866888b677b7d41a69d56a4d1672c841ac5",
+    "mapping_hash": "ab236e5a1c11b976415f785a94266ee021f546667ad12edcca672eeae801f490"
+  },
+  {
+    "cached": false,
+    "compute_count": 2,
+    "design_hash": "015033e856707db1fbd445f48b5235f0d58510104889e6949339e09970804e9d",
+    "evaluations": 2,
+    "feasible": true,
+    "hardware_hash": "e3369d0b53eba55aa89ff8d34a6d9866888b677b7d41a69d56a4d1672c841ac5",
+    "mapping_hash": "64ad5db2c0914fbdbfb7a0748697f4f0225ed4602830b3ff806c68d8a2c3b188"
+  },
+  {
+    "cached": false,
+    "compute_count": 2,
+    "design_hash": "b51da3ea0e7f6380db0b6f55997100cf6cf0986912f696ba30286ece039778be",
+    "evaluations": 3,
+    "feasible": true,
+    "hardware_hash": "e3369d0b53eba55aa89ff8d34a6d9866888b677b7d41a69d56a4d1672c841ac5",
+    "mapping_hash": "b92123f38906bb04565a710f904fa53e2c2b56eed350b5c088762b5b228a0348"
+  },
+  {
+    "cached": false,
+    "compute_count": 4,
+    "design_hash": "46fabb6cdfd607f0ef5fe0e97785516bf2aded9f87d6ff7be491b55a00c58b59",
+    "evaluations": 4,
+    "feasible": true,
+    "hardware_hash": "ec937318a8d9f704d5e7627b1735decf2f12581ff075ae10c3d9ac1ec5c410d3",
+    "mapping_hash": "b92123f38906bb04565a710f904fa53e2c2b56eed350b5c088762b5b228a0348"
+  },
+  {
+    "cached": false,
+    "compute_count": 6,
+    "design_hash": "5b4213818df0c5006fe3564f8a81fedd6725c757d02d54106eddf03a615e38a6",
+    "evaluations": 5,
+    "feasible": true,
+    "hardware_hash": "658e7bd91a38d50f7711ab7565fb1cdb495586ea36faa5c8a443529f2f5ac203",
+    "mapping_hash": "b92123f38906bb04565a710f904fa53e2c2b56eed350b5c088762b5b228a0348"
+  },
+  {
+    "cached": false,
+    "compute_count": 6,
+    "design_hash": "1aa3ae949c1b6802039c6e022e7f9ef92b7db9450e874430b17d8b1f29d129b6",
+    "evaluations": 6,
+    "feasible": true,
+    "hardware_hash": "658e7bd91a38d50f7711ab7565fb1cdb495586ea36faa5c8a443529f2f5ac203",
+    "mapping_hash": "dddbb6dfac7b09d88e38186e7acd454849f5555e79fca6e97c744b3ad800e90b"
+  },
+  {
+    "cached": false,
+    "compute_count": 6,
+    "design_hash": "5fe831bbd817c16f36c2a7917ab71f6e27d763e118eba59a72f6eba593e821d5",
+    "evaluations": 7,
+    "feasible": true,
+    "hardware_hash": "658e7bd91a38d50f7711ab7565fb1cdb495586ea36faa5c8a443529f2f5ac203",
+    "mapping_hash": "e71468f4eed4dee366eca1c7235d7a49ad60dd24d69268004be118b883b8f26e"
+  },
+  {
+    "cached": false,
+    "compute_count": 2,
+    "design_hash": "d2ca867b0989c6adb6c16010488883207d47752926d5b310fcb1fa961772371f",
+    "evaluations": 8,
+    "feasible": true,
+    "hardware_hash": "e3369d0b53eba55aa89ff8d34a6d9866888b677b7d41a69d56a4d1672c841ac5",
+    "mapping_hash": "0ef6e288f6bfc93644070e3741984d30db72756f2b3030a0d7e62a97291a5632"
+  }
+]

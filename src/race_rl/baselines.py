@@ -22,9 +22,9 @@ def run_baseline(env,method,seed=7):
                 candidate = apply(env.workload,env.hardware,env.current_mapping,a)
                 record = env.oracle.evaluate(candidate)
                 if env.feasible(record):
-                    cost = record.edp_js/env.reference
+                    cost = env.scorer.objective(record)
                     scored.append((cost,a,candidate,record))
-                    if cost < env.best_objective:
+                    if env.scorer.better(record,env.best_record):
                         env.best_objective,env.best_mapping,env.best_record = cost,candidate,record
             if scored:
                 cost,a,candidate,record = min(scored,key=lambda row:row[0])
