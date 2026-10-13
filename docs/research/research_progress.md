@@ -10,7 +10,7 @@ reset 不評估 PPA、不建立原生後端。起始 observation 只有結構、
 
 ## 驗證範圍
 
-自動測試核對 reset／Actor 零評估、一步一次環境入口、reward 與 PPA 回到 observation、快速 mask 與逐候選編譯的 action 支援及順序一致、聯合動作中間零評估／一次完整回饋、正式 REINFORCE 梯度、Actor 更新與凍結不更新、PPO 模型隔離、checkpoint 不能跨算法、全部動作失敗不輸出假最佳設計。最新 149 個自動測試通過；流程 audit 位於 `evidence/`。
+自動測試核對 reset／Actor 零評估、一步一次環境入口、reward 與 PPA 回到 observation、快速 mask 與逐候選編譯的 action 支援及順序一致、聯合動作中間零評估／一次完整回饋、正式 REINFORCE 梯度、Actor 更新與凍結不更新、PPO 模型隔離、checkpoint 不能跨算法、全部動作失敗不輸出假最佳設計。最新 152 個自動測試通過；流程 audit 位於 `evidence/`。
 
 現行小型 smoke 與 GUI 測試只證明流程可執行；尚未建立 PPO 或 REINFORCE 的比較優勢，也未證明收斂。0.7.0 PPO 的完整 CNN 短搜尋與 H1/H2/H3 pilot 已移到比較模型紀錄，不能充當新正式模型的成果。
 
@@ -41,3 +41,5 @@ Mac／Windows 啟動器改為自動選空閒連接埠，並以專案身分重用
 GUI／CLI 預設壓縮的精簡 SQLite；逐 action feedback 保留，最終完整選中設計保留，所有候選帳本只在明確 full 模式輸出。測試確認兩種紀錄下動作、PPA、reward、policy 及 RNG 一致。60 回合正式結果仍待使用者執行，不以 smoke 宣稱收斂或成效。
 
 依使用者要求，在驗證後刪除舊的大型訓練 raw（約 4.55 GiB）；歷史小型證據保留，舊 raw manifest 的路徑已不再存在。清理紀錄見 evidence/training_output_cleanup.json，流程驗證見 evidence/model_suite_validation.json。
+
+終端進度已改為固定單行刷新，按中文字寬對齊並依視窗寬度縮排；完成／失敗才留下摘要行。重新導向輸出不含控制碼。此修改只涉及顯示，不改訓練、PPA 或檔案紀錄頻率。

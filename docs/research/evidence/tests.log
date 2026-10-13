@@ -73,8 +73,11 @@ test_compact_state_preserves_unchanged_design_on_a_physical_failure (test_model_
 test_episode_boundary_resume_matches_uninterrupted_training (test_model_suite.ModelSuiteTests.test_episode_boundary_resume_matches_uninterrupted_training) ... ok
 test_frozen_before_test_preserves_the_training_rng_and_policy (test_model_suite.ModelSuiteTests.test_frozen_before_test_preserves_the_training_rng_and_policy) ... ok
 test_identity_mismatch_refuses_resume (test_model_suite.ModelSuiteTests.test_identity_mismatch_refuses_resume) ... ok
+test_progress_alignment_and_chinese_width_do_not_wrap (test_model_suite.ModelSuiteTests.test_progress_alignment_and_chinese_width_do_not_wrap) ... ok
 test_progress_uses_all_interactions_and_does_not_double_count_commits (test_model_suite.ModelSuiteTests.test_progress_uses_all_interactions_and_does_not_double_count_commits) ... ok
+test_redirected_output_has_no_live_control_codes_or_progress_flood (test_model_suite.ModelSuiteTests.test_redirected_output_has_no_live_control_codes_or_progress_flood) ... ok
 test_terminal_default_runs_the_seven_model_suite_and_optional_single_model (test_model_suite.ModelSuiteTests.test_terminal_default_runs_the_seven_model_suite_and_optional_single_model) ... ok
+test_terminal_updates_same_row_and_finishes_with_one_summary (test_model_suite.ModelSuiteTests.test_terminal_updates_same_row_and_finishes_with_one_summary) ... ok
 test_adaptive_pool_nondivisible_and_upsampling (test_operator_extensions.ExtendedOperatorTests.test_adaptive_pool_nondivisible_and_upsampling) ... ok
 test_avgpool_ceil_divisor_and_padding (test_operator_extensions.ExtendedOperatorTests.test_avgpool_ceil_divisor_and_padding) ... ok
 test_batchnorm_affine_and_nonaffine (test_operator_extensions.ExtendedOperatorTests.test_batchnorm_affine_and_nonaffine) ... ok
@@ -186,6 +189,6 @@ test_weights_and_limits_condition_same_policy_probabilities (test_vendor_require
 test_zero_weight_tie_does_not_keep_dominated_design (test_vendor_requirements.VendorRequirementsTests.test_zero_weight_tie_does_not_keep_dominated_design) ... ok
 
 ----------------------------------------------------------------------
-Ran 149 tests in 12.630s
+Ran 152 tests in 8.353s
 
 OK

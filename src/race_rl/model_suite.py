@@ -9,6 +9,8 @@ import subprocess
 import sys
 import time
 import traceback
+import shutil
+import unicodedata
 
 from .serialization import code_hashes, digest, plain, save_json
 from .recording import CompactRecorder, policy_hash
@@ -146,6 +148,91 @@ def human_time(seconds):
     return f'{hours}時{minutes:02d}分' if hours else f'{minutes}分{seconds:02d}秒'
 
 
+def display_width(text):
+    return sum(0 if unicodedata.combining(c) else
+               2 if unicodedata.east_asian_width(c) in ('W','F') else 1 for c in text)
+
+
+def progress_clock(seconds):
+    if seconds is None: return '--:--:--'
+    hours, remainder = divmod(max(0,int(seconds)),3600)
+    minutes, seconds = divmod(remainder,60)
+    return f'{hours:02d}:{minutes:02d}:{seconds:02d}'
+
+
+def progress_line(index, model, config, total, status, active, columns):
+    phase = status.get('phase','validation')
+    label = {'validation':'驗證','baseline':'前測','train':'訓練',
+             'final':'後測','completed':'完成'}.get(phase,'準備')
+    if active.get('stage') == 'UPDATING_POLICY': label = '更新'
+    number = status.get('current_episode',0)
+    limit = config['episodes'] if phase == 'train' else 1
+    steps = active.get('requests',0)
+    eta = progress_clock(total['estimated_remaining_s'])
+    line = (f'[{index}/{total["total_models"]}] {model:<12} {label}{number:02d}/{limit:02d}  '
+            f'互動{steps:02d}/{config["steps_per_episode"]:02d}  '
+            f'{100*total["progress_fraction"]:5.1f}%  '
+            f'已用{progress_clock(total["elapsed_active_s"])}  剩餘{eta}')
+    if display_width(line) > columns-1:
+        line = (f'[{index}/{total["total_models"]}] {model} {label}{number:02d}/{limit:02d} '
+                f'{steps:02d}/{config["steps_per_episode"]:02d} '
+                f'{100*total["progress_fraction"]:5.1f}% ETA{eta}')
+    ppa = active.get('current_ppa')
+    if ppa:
+        extra = (f'  P {ppa["power_w"]:.4g}W  L {1000*ppa["latency_s"]:.4g}ms'
+                 f'  A {ppa["area_mm2"]:.4g}mm²')
+        if display_width(line+extra) < columns: line += extra
+    # Reserve the final column to prevent terminal auto-wrap. Chinese glyphs
+    # occupy two columns; Python len()/ljust() alone cannot enforce this.
+    clipped, width = [], 0
+    for char in line:
+        size = display_width(char)
+        if width+size > max(0,columns-1): break
+        clipped.append(char); width += size
+    return ''.join(clipped)
+
+
+class LiveProgress:
+    """One aligned terminal row; redirected output receives summaries only."""
+    def __init__(self, stream):
+        self.stream = stream
+        self.live = stream.isatty()
+        self.active = False
+        self.previous_width = 0
+        self.ansi = os.name != 'nt'
+        if self.live and os.name == 'nt':
+            try:
+                import ctypes
+                import msvcrt
+                handle = msvcrt.get_osfhandle(stream.fileno())
+                mode = ctypes.c_ulong()
+                kernel = ctypes.windll.kernel32
+                # Explicit handle types prevent truncating 64-bit handles.
+                kernel.GetConsoleMode.argtypes = [ctypes.c_void_p,ctypes.POINTER(ctypes.c_ulong)]
+                kernel.SetConsoleMode.argtypes = [ctypes.c_void_p,ctypes.c_ulong]
+                self.ansi = bool(kernel.GetConsoleMode(handle,ctypes.byref(mode)) and
+                                 kernel.SetConsoleMode(handle,mode.value|0x0004))
+            except (OSError,ValueError,AttributeError):
+                self.ansi = False
+
+    def update(self, text, columns):
+        if not self.live: return
+        padding = max(0,min(self.previous_width,columns-1)-display_width(text))
+        self.stream.write(('\r\033[2K' if self.ansi else '\r')+text+(' '*padding if not self.ansi else ''))
+        self.stream.flush()
+        self.active = True
+        self.previous_width = display_width(text)
+
+    def finish(self, message=None):
+        if self.active:
+            self.stream.write('\r\033[2K' if self.ansi else '\r'+' '*self.previous_width+'\r')
+        if message is not None: self.stream.write(message+'\n')
+        elif self.active: self.stream.write('\n')
+        self.stream.flush()
+        self.active = False
+        self.previous_width = 0
+
+
 def progress_state(run, protocol, elapsed):
     config = protocol['config']
     per_model = (config['episodes']+2*len(config['evaluation_seeds']))*config['steps_per_episode']
@@ -195,6 +282,7 @@ def run_suite(run, protocol):
     print('訓練前後另做等預算凍結策略測試；不更新參數。總進度按實際互動數計算。')
     print('ETA 依已跑速度暫估，跨模型、切分增長與策略更新可能讓預估變動。Ctrl+C 可停止並保留完整回合。')
     with (run/'terminal.log').open('a', encoding='utf-8') as terminal_log:
+        screen = LiveProgress(sys.stdout)
         try:
             for index, model in enumerate(protocol['config']['models'], 1):
                 if read_json(run/model/'status.json', {}).get('status') == 'COMPLETED': continue
@@ -206,7 +294,7 @@ def run_suite(run, protocol):
                         '--worker', '--run', str(run), '--model', model], cwd=ROOT,
                         stdout=log, stderr=subprocess.STDOUT,
                         env=dict(os.environ, PYTHONUTF8='1', PYTHONUNBUFFERED='1'))
-                    last_log, last_screen, last_key = 0.0, 0.0, None
+                    last_log, last_key = 0.0, None
                     while process.poll() is None:
                         elapsed = elapsed_before+time.perf_counter()-started
                         total = progress_state(run, protocol, elapsed)
@@ -224,16 +312,8 @@ def run_suite(run, protocol):
                                 f'| 已用 {human_time(elapsed)} | 剩餘約 {human_time(total["estimated_remaining_s"])}')
                         total.update(status='RUNNING', model=model, phase=phase, current_stage=active.get('stage'))
                         save_json(run/'status.json', total)
-                        if time.monotonic()-last_screen >= (5 if sys.stdout.isatty() else 30) or key != last_key:
-                            stages = {'SELECTING_ACTION':'產生動作','ENVIRONMENT_STEP':'環境計算 PPA',
-                                      'UPDATING_POLICY':'更新策略','RECEIVED_FEEDBACK':'收到回饋',
-                                      'EPISODE_COMPLETED':'回合完成'}
-                            print(text+' | '+stages.get(active.get('stage'), '準備中'), flush=True)
-                            ppa = active.get('current_ppa')
-                            if ppa:
-                                print(f'  目前狀態 PPA：{ppa["power_w"]:.6g} W／'
-                                      f'{1000*ppa["latency_s"]:.6g} ms／{ppa["area_mm2"]:.6g} mm²',flush=True)
-                            last_screen = time.monotonic()
+                        columns = shutil.get_terminal_size(fallback=(100,24)).columns
+                        screen.update(progress_line(index,model,protocol['config'],total,s,active,columns),columns)
                         if time.monotonic()-last_log >= 30 or key != last_key:
                             terminal_log.write(timestamp()+' '+text+'\n'); terminal_log.flush()
                             last_log, last_key = time.monotonic(), key
@@ -242,7 +322,11 @@ def run_suite(run, protocol):
                 if process.returncode:
                     state.update(status='FAILED')
                     save_json(folder/'status.json', state)
-                    print(f'{model} 失敗；保留已完成回合。紀錄：{folder / "execution.log"}', flush=True)
+                    screen.finish(f'[{index}/{len(protocol["config"]["models"])}] {model:<12} 失敗；保留已完成回合。紀錄：{folder / "execution.log"}')
+                else:
+                    screen.finish(f'[{index}/{len(protocol["config"]["models"])}] {model:<12} 完成  '
+                                  f'{state.get("training_completed",0)}/{protocol["config"]["episodes"]} 回合  '
+                                  f'耗時 {progress_clock(time.perf_counter()-model_started)}')
                 record_attempt(model,'COMPLETED' if process.returncode == 0 else 'FAILED')
                 export_suite(run, protocol)
             failures = [m for m in protocol['config']['models']
@@ -255,6 +339,7 @@ def run_suite(run, protocol):
             print(f'批次狀態：{status["status"]}；報告：{run / "report.html"}', flush=True)
             return 1 if failures else 0
         except KeyboardInterrupt:
+            screen.finish()
             stop_process(process)
             # The worker checkpoint/records commit only at episode boundaries.
             if process is not None and model_started is not None:
@@ -269,6 +354,7 @@ def run_suite(run, protocol):
             print(f'\n已停止。從最後完整回合繼續：\n{sys.executable} tools/train_model_suite.py --resume {run}')
             return 130
         finally:
+            screen.finish()
             stop_process(process)
 
 

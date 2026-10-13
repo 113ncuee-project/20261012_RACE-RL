@@ -8,7 +8,7 @@ import torch
 
 from race_rl.architecture import DesignEnvironment, search_mesh
 from race_rl.examples import toy_workload
-from race_rl.model_suite import frozen_episode, progress_state
+from race_rl.model_suite import frozen_episode, progress_state, progress_line, display_width, LiveProgress
 from race_rl.recording import CompactRecorder, interaction_records, policy_hash, unpacked
 from race_rl.serialization import plain, save_json
 from race_rl.training import RACETrainer
@@ -17,6 +17,40 @@ from race_rl.training import RACETrainer
 class ModelSuiteTests(unittest.TestCase):
     def environment(self):
         return DesignEnvironment(toy_workload(), compute_counts=(2, 1, 4), budget=3)
+
+    def test_terminal_updates_same_row_and_finishes_with_one_summary(self):
+        class Tty(io.StringIO):
+            def isatty(self): return True
+        stream = Tty(); screen = LiveProgress(stream)
+        screen.update('resnet50 訓練 01/60',80)
+        screen.update('resnet50 更新 60/60',80)
+        self.assertNotIn('\n',stream.getvalue())
+        self.assertEqual(stream.getvalue().count('\r'),2)
+        screen.finish('resnet50 完成')
+        self.assertEqual(stream.getvalue().count('\n'),1)
+        self.assertTrue(stream.getvalue().endswith('resnet50 完成\n'))
+
+    def test_redirected_output_has_no_live_control_codes_or_progress_flood(self):
+        stream = io.StringIO(); screen = LiveProgress(stream)
+        for step in range(64): screen.update(f'action {step}',80)
+        self.assertEqual(stream.getvalue(),'')
+        screen.finish('model completed')
+        self.assertEqual(stream.getvalue(),'model completed\n')
+
+    def test_progress_alignment_and_chinese_width_do_not_wrap(self):
+        config = {'episodes':60,'steps_per_episode':64}
+        total = {'total_models':7,'progress_fraction':.182,'elapsed_active_s':723,
+                 'estimated_remaining_s':5100}
+        status = {'phase':'train','current_episode':12}
+        active = {'requests':31,'current_ppa':{'power_w':.02,'latency_s':.1,'area_mm2':7}}
+        rows = [progress_line(1,m,config,total,status,active,80) for m in ('resnet18','mobilenet_v2')]
+        self.assertEqual(display_width(rows[0][:rows[0].index('互動')]),
+                         display_width(rows[1][:rows[1].index('互動')]))
+        self.assertTrue(all('剩餘01:25:00' in row for row in rows))
+        for columns in (40,60,80,120,160):
+            row = progress_line(1,'mobilenet_v2',config,total,status,active,columns)
+            self.assertLess(display_width(row),columns)
+            self.assertNotIn('\n',row)
 
     def test_compact_and_full_recording_have_identical_training_and_feedback(self):
         with tempfile.TemporaryDirectory() as directory:

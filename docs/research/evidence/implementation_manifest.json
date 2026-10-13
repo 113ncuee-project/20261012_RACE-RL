@@ -83,9 +83,9 @@
     "launchers/start_macos.command": "fb322ea29aaa84a0475d9e23910979d0b732af5cbfa6bba9cc18fd2b60bed17a",
     "launchers/start_windows.bat": "03594170a8b3a492e00a86c288ba002ca09296b3e5228563037531573aa9a01e",
     "src/race_rl/recording.py": "48f0e81a551caea825be7479e59292b9071244e8696f53c969c7e342d3256b3f",
-    "src/race_rl/model_suite.py": "3704c44c072d27d35b47c8f415365da59797aba28722d4a7658458566c349a8d",
+    "src/race_rl/model_suite.py": "03c9ccddbd860dc39695fc0e465fb22fbba60c5dab9e7a7ad4ad5192dae64f81",
     "src/race_rl/suite_report.py": "480bd0b2d52397b34a4486f1591513bce3fdde9ce15d2fc83b8de15d2a9cfcb4",
-    "tests/test_model_suite.py": "ceaebb75abe7f6a319db5b50f071099785ef472e726498cbe02f75131dc01263",
+    "tests/test_model_suite.py": "4c54cac3f87d3695c311c0cd348439943269fa7999fecff6aaac261c0ab06242",
     "tools/train_model_suite.py": "dee4f0935330457dcecb2d582827a9cd9d1dcd946e77b1ed3a6c64d1052f07d1"
   }
 }

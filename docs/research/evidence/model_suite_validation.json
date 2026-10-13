@@ -98,6 +98,7 @@
     "started_at_utc": "2026-10-13T16:25:13.555872+00:00"
   },
   "current_timing_test_actions": 6,
+  "latest_local_test_count": 152,
   "local_test_count": 149,
   "models": [
     {
@@ -795,5 +796,16 @@
   },
   "smoke_only": true,
   "status": "PASSED",
+  "terminal_display_update": {
+    "checks": [
+      "TTY updates contain no newlines until model summary",
+      "redirected output receives summaries only",
+      "Chinese alignment and no auto-wrap at 40/60/80/120/160 columns",
+      "real macOS PTY single-row smoke"
+    ],
+    "scope": "presentation only; no training or recording-frequency change",
+    "status": "PASSED",
+    "windows_hardware_verification": "NOT_PERFORMED"
+  },
   "windows_hardware_verification": "NOT_PERFORMED"
 }

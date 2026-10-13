@@ -70,7 +70,7 @@ Windows（在專案資料夾）：
 .venv\Scripts\python.exe tools\train_model_suite.py
 ```
 
-PPA 讀取原有 `configs/vendor_requirements.json`；預設 1 W／100 ms／16 mm²、PPA 平均。終端顯示目前模型、回合、互動、PPA、總進度、已用時間與暫估剩餘時間。結果集中在 `experiments/runs/model_suite/training/<時間>/`，完成後開啟其中的 `report.html`。前後另各做一次相同 64 次互動的凍結策略測試，不更新參數，也不改變訓練亂數序列；這些測試時間另記。
+PPA 讀取原有 `configs/vendor_requirements.json`；預設 1 W／100 ms／16 mm²、PPA 平均。終端在同一行對齊並刷新模型、回合、互動、總進度、已用與暫估剩餘時間；寬視窗同列顯示 PPA，完成模型才換行。結果集中在 `experiments/runs/model_suite/training/<時間>/`，完成後開啟其中的 `report.html`。前後另各做一次相同 64 次互動的凍結策略測試，不更新參數，也不改變訓練亂數序列；這些測試時間另記。
 
 中斷後使用終端印出的目錄接續：`python tools/train_model_suite.py --resume <輸出目錄>`。只接續最後完整提交的回合，來源或條件不一致會拒絕。詳細紀錄與精簡保存規則見 [實驗說明](experiments/README.md)。正式訓練由使用者啟動；`--smoke` 是短流程驗證，不能當成 60 回合成果。
 
