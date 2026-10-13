@@ -2,6 +2,7 @@
 
 - [正式與比較模型](comparison_models.md)
 - [詳細訓練流程](training_process.md)
+- [Windows CI 修正與驗證](ci_verification.md)
 - [Python 本機 GUI](gui.md)
 - [評分公平性與研究意義核對](scoring_review.md)
 - [廠商 PPA 輸入與五種偏好](vendor_requirements.md)

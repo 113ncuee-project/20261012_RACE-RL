@@ -1,0 +1,18 @@
+{
+  "status": "LOCAL_REGRESSION_PASSED_WINDOWS_CI_PENDING_PUSH",
+  "failing_commit": "8c33e2b56773270f7a4cb48987aa616febf0e6c6",
+  "workflow_run_id": 38328098999,
+  "windows_job_id": 115076242124,
+  "workflow_url": "https://github.com/113ncuee-project/20261012_RACE-RL/actions/runs/38328098999",
+  "failed_step": "python tools/verify_sources.py",
+  "ubuntu_job_conclusion": "success",
+  "macos_job_conclusion": "success",
+  "windows_job_conclusion": "failure",
+  "cause_reproduction": "isolated Git repo with core.autocrlf=true and the four exact pinned source blobs",
+  "before_attributes": "all four hashes mismatch because LF was checked out as CRLF",
+  "after_attributes": "all four hashes and raw source bytes match the original lock",
+  "local_tests": 135,
+  "local_test_result": "PASSED",
+  "windows_cloud_after_fix": "NOT_RUN_NOT_PUSHED",
+  "source_verification_contract": "strict byte SHA256 remains unchanged; no lock values changed"
+}

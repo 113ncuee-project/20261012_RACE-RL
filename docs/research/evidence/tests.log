@@ -6,6 +6,7 @@ test_dense_and_potential_telescope (test_actions_rewards.ActionRewardTests.test_
 test_physical_failure_reward_telescope (test_actions_rewards.ActionRewardTests.test_physical_failure_reward_telescope) ... ok
 test_retile_coverage_and_routes_rebuilt (test_actions_rewards.ActionRewardTests.test_retile_coverage_and_routes_rebuilt) ... ok
 test_worse_feasible_current_does_not_replace_archive (test_actions_rewards.ActionRewardTests.test_worse_feasible_current_does_not_replace_archive) ... ok
+test_windows_autocrlf_preserves_pinned_sources_with_attributes (test_checkout_line_endings.CheckoutLineEndingTests.test_windows_autocrlf_preserves_pinned_sources_with_attributes) ... ok
 test_checkpoints_cannot_cross_learning_algorithms (test_comparison_ppo.ComparisonPPOTests.test_checkpoints_cannot_cross_learning_algorithms) ... ok
 test_comparison_uses_same_actor_initialization_and_environment (test_comparison_ppo.ComparisonPPOTests.test_comparison_uses_same_actor_initialization_and_environment) ... ok
 test_formal_has_no_critic_or_ppo_configuration (test_comparison_ppo.ComparisonPPOTests.test_formal_has_no_critic_or_ppo_configuration) ... ok
@@ -166,6 +167,6 @@ test_weights_and_limits_condition_same_policy_probabilities (test_vendor_require
 test_zero_weight_tie_does_not_keep_dominated_design (test_vendor_requirements.VendorRequirementsTests.test_zero_weight_tie_does_not_keep_dominated_design) ... ok
 
 ----------------------------------------------------------------------
-Ran 134 tests in 6.550s
+Ran 135 tests in 8.416s
 
 OK

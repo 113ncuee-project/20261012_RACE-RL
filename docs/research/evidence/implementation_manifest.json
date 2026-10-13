@@ -75,6 +75,8 @@
     "configs/comparison_models.json": "4e38c810194795e3abc41693f247b1d31a53d54ded118604d14b1dad3b528c49",
     "configs/physical_parameters.json": "9de1b223bee63a240791830be9389e5e88efe7338938d386e3dbfa7fecafe86c",
     "configs/research_requirements.json": "6cb25f615cbb279c3ca013258fc76d3f5f107ee143cc025df12b40fb4ae51700",
-    "configs/vendor_requirements.json": "18a88c2fcad537f465b571a062e5e337cab7dd9fb49bf1833462cb0a607271da"
+    "configs/vendor_requirements.json": "18a88c2fcad537f465b571a062e5e337cab7dd9fb49bf1833462cb0a607271da",
+    ".gitattributes": "f65a4f9956332d0a3dd3a3923f6c83c44a6906f943d7a939b232c7b1e949a2b7",
+    "tests/test_checkout_line_endings.py": "f0193dcc911f59de98509ca74e0959a72b0e46727e44f2c63bf8dc5aace5d0b5"
   }
 }

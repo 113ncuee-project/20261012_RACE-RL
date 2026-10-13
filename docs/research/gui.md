@@ -70,7 +70,7 @@ py -3.12 -m venv .venv
 
 自動測試涵蓋同一 PPA 契約、ms 換算、輸入拒絕、參數传遞、本機 HTTP、執行失敗、同時搜尋拒絕與取消。另以真實 CLI 搜尋核對 GUI 的輸入／輸出。
 
-本機驗證平台為 macOS。GitHub Actions 已加入 Ubuntu／macOS／Windows matrix，但尚未執行雲端 CI，也沒有在 Windows 實機驗收；因此目前是跨平台實作，不能寫成 Windows 已實測通過。物理係數未校準，GUI 不把分析式結果稱為矽片量測。
+本機驗證平台為 macOS。GitHub Actions 的 Ubuntu／macOS 已在 commit 8c33e2b 通過；Windows 在來源換行造成的雜湊檢查失敗。LF 簽出規則與回歸測試已修正，修正後 Windows 雲端 CI 仍待推送，尚沒有 Windows GUI 實機驗收；不能寫成 Windows 全部已實測通過。物理係數未校準，GUI 不把分析式結果稱為矽片量測。
 
 ## 本次網頁驗證
 

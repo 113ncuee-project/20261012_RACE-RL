@@ -1,0 +1,6 @@
+# Keep source bytes identical across Linux, macOS and Windows checkouts.
+# RapidChiplet source locks and research identities hash the exact bytes.
+* text=auto eol=lf
+
+# Windows command launchers use their native line endings.
+*.bat text eol=crlf

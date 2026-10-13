@@ -20,3 +20,5 @@ Python 3.12；新輸出目錄需為空：
 圖的重現：安裝 `.[reports]`，用支援繁體中文的字型執行 `tools/draw_rl_architecture.py`；PNG／SVG 皆存入 `docs/research/figures/`。正式 REINFORCE 算法、budget、外部記憶體與 state/action 定義見 [RL 架構](rl_architecture.md)。
 
 本次正式完整結果位於 `experiments/runs/formal_core_hypotheses/`，相應 compact evidence 在 `docs/research/evidence/formal_core_hypotheses/`；逐筆 raw 評估與 checkpoint 另有完整 SHA256 manifest。GUI 真實執行證據在 `evidence/gui_validation/`。動作產生效能可用 `python tools/benchmark_action_generation.py --out experiments/runs/action_generation_benchmark.json` 重跑。PPO 必須明確用 `--comparison-model ppo`，不會被 GUI 選中。
+
+Git 簽出位元組由 `.gitattributes` 固定：文字來源使用 LF，Windows `.bat` 使用 CRLF。RapidChiplet 仍依原始位元組 SHA256 嚴格驗證，不可改 lock 值來繞過換行造成的不符。Windows 簽出回歸與 CI 狀態見[CI 紀錄](ci_verification.md)。

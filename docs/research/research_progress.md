@@ -10,7 +10,7 @@ reset 不評估 PPA、不建立原生後端。起始 observation 只有結構、
 
 ## 驗證範圍
 
-自動測試核對 reset／Actor 零評估、一步一次環境入口、reward 與 PPA 回到 observation、快速 mask 與逐候選編譯的 action 支援及順序一致、聯合動作中間零評估／一次完整回饋、正式 REINFORCE 梯度、Actor 更新與凍結不更新、PPO 模型隔離、checkpoint 不能跨算法、全部動作失敗不輸出假最佳設計。最新 134 個自動測試通過；流程 audit 位於 `evidence/`。
+自動測試核對 reset／Actor 零評估、一步一次環境入口、reward 與 PPA 回到 observation、快速 mask 與逐候選編譯的 action 支援及順序一致、聯合動作中間零評估／一次完整回饋、正式 REINFORCE 梯度、Actor 更新與凍結不更新、PPO 模型隔離、checkpoint 不能跨算法、全部動作失敗不輸出假最佳設計。最新 135 個自動測試通過；流程 audit 位於 `evidence/`。
 
 現行小型 smoke 與 GUI 測試只證明流程可執行；尚未建立 PPO 或 REINFORCE 的比較優勢，也未證明收斂。0.7.0 PPO 的完整 CNN 短搜尋與 H1/H2/H3 pilot 已移到比較模型紀錄，不能充當新正式模型的成果。
 
@@ -25,3 +25,7 @@ reset 不評估 PPA、不建立原生後端。起始 observation 只有結構、
 ResNet-18、64×64、1 回合、預設內部 64 次完整互動、scope=2、PPA 限制 1 W／1000 ms／16 mm²。總耗時 54.99 秒：動作生成合計 5.16 秒（平均 0.081 秒）、環境 step 合計 24.38 秒、單次 REINFORCE 更新 16.47 秒，其餘為載入／數值驗證／輸出。63 次新評估＋1 次快取，23 次多 Tile 聯合修改；選出 2 顆達標設計，網頁直接顯示 272 筆實測資料傳輸。此測試不能外推 224×224、所有 CNN 或最長訓練時間。
 
 GUI 已移除每回合評估／動作次數欄位；完整 action 生成後立即交給環境。內部仍有限訓練預算以避免無限搜尋，與「組成 action」的成本不同。
+
+## 推送後 CI
+
+commit 8c33e2b 的 Ubuntu／macOS workflow 全部成功；Windows 在原生來源雜湊核對失敗。已重現 Git 的 CRLF 換行轉換並新增來源 LF 規則與回歸測試，本機 135 個測試通過。修正後 Windows 雲端 CI 尚待推送驗證，見[CI 紀錄](ci_verification.md)。
