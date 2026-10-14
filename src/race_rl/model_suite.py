@@ -388,7 +388,7 @@ def run_suite(run, protocol):
             status['status'] = 'INTERRUPTED'
             save_json(run/'status.json', status)
             export_suite(run, protocol)
-            print(f'\n已停止。從最後完整回合繼續：\n{sys.executable} tools/train_model_suite.py --resume {run}')
+            print(f'\n已停止。從最後完整回合繼續：\n{sys.executable} tools/train_model_suite.py --legacy-synthetic --resume {run}')
             return 130
         finally:
             screen.finish()

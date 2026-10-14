@@ -1,0 +1,728 @@
+{
+  "algorithm": "reinforce",
+  "best_assessment": {
+    "feasible": true,
+    "metrics": {
+      "area_mm2": 9.0,
+      "average_power_w": 0.018157533815665306,
+      "latency_s": 6.358e-05
+    },
+    "physical_feasible": true,
+    "search_merit": 0.16217993397336689,
+    "violation_excess": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "violations": [],
+    "weighted_cost": 0.19357370460522177
+  },
+  "best_design": {
+    "compute_count": 9,
+    "double_buffer": false,
+    "k_tile": 64,
+    "m_tile": 64,
+    "n_tile": 64,
+    "retain_weights": true,
+    "spread": false,
+    "target": 3
+  },
+  "best_ppa_source": {
+    "area_boundary": "compute chiplets including array, GB, LB, RF, accumulator, DMA/router/PHY; package and external DRAM excluded",
+    "area_mm2": 9.0,
+    "average_power_w": 0.018157533815665306,
+    "coefficient_evidence_status": "TEST_FIXTURE",
+    "confidence": "TEST_ONLY",
+    "cost_profile": {
+      "accumulator_byte_j": 1e-12,
+      "chiplet_area_mm2": 1.0,
+      "chiplet_static_power_w": 0.001,
+      "clock_hz": 100000000.0,
+      "dma_byte_j": 1e-12,
+      "dram_static_power_w": 0.001,
+      "evidence_status": "TEST_FIXTURE",
+      "external_byte_j": 1e-11,
+      "gb_byte_j": 1e-12,
+      "lb_byte_j": 1e-12,
+      "link_byte_hop_j": 1e-12,
+      "mac_j": 1e-12,
+      "memory_hierarchy_identity": "baef097bcbd8db6311aa0d2029ff393f05d30d2ba9d0478eee12dccae69ace00",
+      "name": "integration_fixture_NOT_REAL_HARDWARE",
+      "rf_byte_j": 1e-12,
+      "sources": {
+        "accumulator_byte_j": "Synthetic integration-test constant; no RTL, technology or silicon claim",
+        "chiplet_area_mm2": "Synthetic integration-test constant; no RTL, technology or silicon claim",
+        "chiplet_static_power_w": "Synthetic integration-test constant; no RTL, technology or silicon claim",
+        "clock_hz": "Synthetic integration-test constant; no RTL, technology or silicon claim",
+        "dma_byte_j": "Synthetic integration-test constant; no RTL, technology or silicon claim",
+        "dram_static_power_w": "Synthetic integration-test constant; no RTL, technology or silicon claim",
+        "external_byte_j": "Synthetic integration-test constant; no RTL, technology or silicon claim",
+        "gb_byte_j": "Synthetic integration-test constant; no RTL, technology or silicon claim",
+        "lb_byte_j": "Synthetic integration-test constant; no RTL, technology or silicon claim",
+        "link_byte_hop_j": "Synthetic integration-test constant; no RTL, technology or silicon claim",
+        "mac_j": "Synthetic integration-test constant; no RTL, technology or silicon claim",
+        "rf_byte_j": "Synthetic integration-test constant; no RTL, technology or silicon claim"
+      }
+    },
+    "cost_profile_identity": "8d5afe40e0012f7b4414593025a36df35a4d06d2a526fda4eea667f5cfa7bae2",
+    "energy_components": {
+      "accumulator": 1.6384e-08,
+      "dma": 6.656e-09,
+      "external_memory": 6.656e-08,
+      "global_buffer": 1.3312e-08,
+      "interconnect": 6.656e-09,
+      "local_buffer": 3.7888e-08,
+      "mac": 3.2768e-08,
+      "register_file": 3.38432e-07,
+      "static": 6.358000000000001e-07
+    },
+    "energy_j": 1.1544560000000002e-06,
+    "latency_s": 6.358e-05,
+    "mac_coefficient_boundary": "arithmetic datapath only; excludes all separately counted GB/LB/RF/ACC/DMA/network accesses",
+    "timing_calibration_status": "ANALYTICAL_UNVALIDATED"
+  },
+  "coefficient_evidence_status": "TEST_FIXTURE",
+  "critic_used": false,
+  "episodes": [
+    {
+      "algorithm": "reinforce",
+      "best_objective": 0.1395480417725776,
+      "cache_hits": 0,
+      "critic_used": false,
+      "entropy": 8.596984436047137,
+      "episode": 0,
+      "first_step_reward_fraction": 1.0,
+      "gradient_clip_limit": 0.5,
+      "gradient_norm_before_clip": 1.2482748567938056,
+      "initial_action_support": 5419,
+      "max_action_support": 5419,
+      "mean_action_support": 5419.0,
+      "nonzero_reward_steps": 1,
+      "normalized_entropy": 0.9999206599240642,
+      "oracle_evaluations": 4,
+      "oracle_requests": 4,
+      "parameter_updates": 1,
+      "policy_loss": 16.79068517500448,
+      "return": 1.9693463515412741,
+      "steps": 4,
+      "termination": "budget_exhausted"
+    },
+    {
+      "algorithm": "reinforce",
+      "best_objective": 0.16953217110352,
+      "cache_hits": 0,
+      "critic_used": false,
+      "entropy": 8.596896027491606,
+      "episode": 1,
+      "first_step_reward_fraction": 0.8984221670176216,
+      "gradient_clip_limit": 0.5,
+      "gradient_norm_before_clip": 1.1684021370335336,
+      "initial_action_support": 5419,
+      "max_action_support": 5419,
+      "mean_action_support": 5419.0,
+      "nonzero_reward_steps": 2,
+      "normalized_entropy": 0.9999103770694369,
+      "oracle_evaluations": 4,
+      "oracle_requests": 4,
+      "parameter_updates": 1,
+      "policy_loss": 16.741376595574128,
+      "return": 1.7747125701506101,
+      "steps": 4,
+      "termination": "budget_exhausted"
+    }
+  ],
+  "feedback": {
+    "backend": "race_gemmini_hierarchy_ws_v2",
+    "compute_count": 12,
+    "current_design": {
+      "compute_count": 12,
+      "double_buffer": false,
+      "k_tile": 64,
+      "m_tile": 32,
+      "n_tile": 32,
+      "retain_weights": true,
+      "spread": false,
+      "target": 1
+    },
+    "global_feature_width": 22,
+    "hardware_feature_width": 9,
+    "hardware_nodes": 193,
+    "last_reward_placeholder_or_value": 0.0,
+    "last_reward_valid": true,
+    "legal_action_count": 5419,
+    "model_feedback_valid": true,
+    "ppa_valid": true,
+    "schema": 7,
+    "tile_feature_width": 23,
+    "tile_nodes": 5,
+    "units": "schema 7: hardware throughput MAC/cycle, bandwidth bytes/cycle; PPA feedback retains SI units"
+  },
+  "mode": "INTEGRATION_TEST_ONLY",
+  "policy_after": "0ca94204858d102de30802382acc2d39129b87eeecc68d271743e220efd9297e",
+  "policy_before": "5c2a970fcb14928a6f89251f8356ff70db8c4ca12d30ef57049ca092cfe88158",
+  "policy_updates": 2,
+  "ppa_available": true,
+  "research_ppa_result": false,
+  "schema5_checkpoints_reused": false,
+  "single_agent": true,
+  "source_audit": {
+    "claim_scope": "source identity and configuration facts; not RTL/PPA validation",
+    "commit": "8c3f9923a44a2fe2c7930587be297d6d4f8c09ca",
+    "dependency": "Gemmini reference",
+    "files_checked": 7,
+    "mismatches": [],
+    "parameters_checked": 21,
+    "status": "PASSED"
+  },
+  "source_identity": "5c1d4948be9c3601eca35325e9645cb08dec3ad069f0e2d599ef772e3b02d388",
+  "status": "INTEGRATION_SMOKE_PASSED",
+  "timing_status": "ANALYTICAL_UNVALIDATED",
+  "trace": [
+    {
+      "action": {
+        "compute_count": 9,
+        "double_buffer": false,
+        "k_tile": 64,
+        "m_tile": 64,
+        "n_tile": 64,
+        "retain_weights": true,
+        "spread": false,
+        "target": 3
+      },
+      "best_objective": 0.1395480417725776,
+      "cache_hits": 0,
+      "current_objective": 0.1395480417725776,
+      "design_hash": "33ba056b9b45b8999d50f5edb24ada5aa798e0f0a0e49aa73de74134968cb3a1",
+      "episode": 1,
+      "evaluations": 1,
+      "model_cycles": 6358,
+      "model_traffic": {
+        "by_operand": {
+          "A": 2048,
+          "B": 512,
+          "C": 4096
+        },
+        "directed_link_byte_hops": 6656,
+        "dma_transactions": 160,
+        "external_bytes": 6656,
+        "hierarchy_movement_bytes": {
+          "accumulator->lb": 8192,
+          "dram->gb": 2560,
+          "gb->dram": 4096,
+          "gb->lb": 2560,
+          "lb->accumulator": 8192,
+          "lb->gb": 4096,
+          "lb->rf": 6656,
+          "rf->lb": 8192
+        },
+        "storage_access_bytes": {
+          "accumulator": 16384,
+          "gb": 13312,
+          "lb": 37888,
+          "rf": 338432
+        }
+      },
+      "physical_feasible": true,
+      "ppa_assessment": {
+        "feasible": true,
+        "metrics": {
+          "area_mm2": 9.0,
+          "average_power_w": 0.018157533815665306,
+          "latency_s": 6.358e-05
+        },
+        "physical_feasible": true,
+        "search_merit": 0.16217993397336689,
+        "violation_excess": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "violations": [],
+        "weighted_cost": 0.19357370460522177
+      },
+      "requests": 1,
+      "reward": 1.9693463515412741,
+      "scorable": true,
+      "status": "EVALUATED",
+      "termination": null
+    },
+    {
+      "action": {
+        "compute_count": 13,
+        "double_buffer": false,
+        "k_tile": 32,
+        "m_tile": 32,
+        "n_tile": 16,
+        "retain_weights": true,
+        "spread": false,
+        "target": 7
+      },
+      "best_objective": 0.1395480417725776,
+      "cache_hits": 0,
+      "current_objective": 0.17882956356836982,
+      "design_hash": "c75b8a9e0eceb8fce050fc1154bb36cfdf4ac8706f441b6168b3a1291cdb8681",
+      "episode": 1,
+      "evaluations": 2,
+      "model_cycles": 6486,
+      "model_traffic": {
+        "by_operand": {
+          "A": 2048,
+          "B": 512,
+          "C": 4096
+        },
+        "directed_link_byte_hops": 46592,
+        "dma_transactions": 160,
+        "external_bytes": 6656,
+        "hierarchy_movement_bytes": {
+          "accumulator->lb": 8192,
+          "dram->gb": 2560,
+          "gb->dram": 4096,
+          "gb->lb": 3072,
+          "lb->accumulator": 8192,
+          "lb->gb": 4096,
+          "lb->rf": 7168,
+          "rf->lb": 8192
+        },
+        "storage_access_bytes": {
+          "accumulator": 16384,
+          "gb": 13824,
+          "lb": 38912,
+          "rf": 338944
+        }
+      },
+      "physical_feasible": true,
+      "ppa_assessment": {
+        "feasible": true,
+        "metrics": {
+          "area_mm2": 13.0,
+          "average_power_w": 0.02264384828862165,
+          "latency_s": 6.486e-05
+        },
+        "physical_feasible": true,
+        "search_merit": 0.21777399140849243,
+        "violation_excess": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "violations": [],
+        "weighted_cost": 0.2784029027628739
+      },
+      "requests": 2,
+      "reward": 0.0,
+      "scorable": true,
+      "status": "EVALUATED",
+      "termination": null
+    },
+    {
+      "action": {
+        "compute_count": 13,
+        "double_buffer": false,
+        "k_tile": 32,
+        "m_tile": 32,
+        "n_tile": 16,
+        "retain_weights": false,
+        "spread": false,
+        "target": 2
+      },
+      "best_objective": 0.1395480417725776,
+      "cache_hits": 0,
+      "current_objective": 0.1786845209203165,
+      "design_hash": "578faf58bf9367f836a5ded06805c53dda80dc1b5bcdea32c6c4fe2e1dc48c6b",
+      "episode": 1,
+      "evaluations": 3,
+      "model_cycles": 7048,
+      "model_traffic": {
+        "by_operand": {
+          "A": 2048,
+          "B": 1024,
+          "C": 4096
+        },
+        "directed_link_byte_hops": 14336,
+        "dma_transactions": 192,
+        "external_bytes": 7168,
+        "hierarchy_movement_bytes": {
+          "accumulator->lb": 8192,
+          "dram->gb": 3072,
+          "gb->dram": 4096,
+          "gb->lb": 3072,
+          "lb->accumulator": 8192,
+          "lb->gb": 4096,
+          "lb->rf": 7168,
+          "rf->lb": 8192
+        },
+        "storage_access_bytes": {
+          "accumulator": 16384,
+          "gb": 14336,
+          "lb": 38912,
+          "rf": 338944
+        }
+      },
+      "physical_feasible": true,
+      "ppa_assessment": {
+        "feasible": true,
+        "metrics": {
+          "area_mm2": 13.0,
+          "average_power_w": 0.021584108967082863,
+          "latency_s": 7.048e-05
+        },
+        "physical_feasible": true,
+        "search_merit": 0.21755893499114318,
+        "violation_excess": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "violations": [],
+        "weighted_cost": 0.2780515296556943
+      },
+      "requests": 3,
+      "reward": 0.0,
+      "scorable": true,
+      "status": "EVALUATED",
+      "termination": null
+    },
+    {
+      "action": {
+        "compute_count": 15,
+        "double_buffer": true,
+        "k_tile": 16,
+        "m_tile": 16,
+        "n_tile": 16,
+        "retain_weights": false,
+        "spread": true,
+        "target": 6
+      },
+      "best_objective": 0.1395480417725776,
+      "cache_hits": 0,
+      "current_objective": 0.1952540272641231,
+      "design_hash": "9d0c2ffa8c58de3bae3d2f3e375bc0290a5eb0418fea27f163f30b90659d9fcd",
+      "episode": 1,
+      "evaluations": 4,
+      "model_cycles": 7546,
+      "model_traffic": {
+        "by_operand": {
+          "A": 2048,
+          "B": 2048,
+          "C": 4096
+        },
+        "directed_link_byte_hops": 28672,
+        "dma_transactions": 320,
+        "external_bytes": 8192,
+        "hierarchy_movement_bytes": {
+          "accumulator->lb": 8192,
+          "dram->gb": 4096,
+          "gb->dram": 4096,
+          "gb->lb": 4096,
+          "lb->accumulator": 8192,
+          "lb->gb": 4096,
+          "lb->rf": 8192,
+          "rf->lb": 8192
+        },
+        "storage_access_bytes": {
+          "accumulator": 16384,
+          "gb": 16384,
+          "lb": 40960,
+          "rf": 339968
+        }
+      },
+      "physical_feasible": true,
+      "ppa_assessment": {
+        "feasible": true,
+        "metrics": {
+          "area_mm2": 15.0,
+          "average_power_w": 0.023490697058043998,
+          "latency_s": 7.546e-05
+        },
+        "physical_feasible": true,
+        "search_merit": 0.24262815084407613,
+        "violation_excess": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "violations": [],
+        "weighted_cost": 0.3203553856860147
+      },
+      "requests": 4,
+      "reward": 0.0,
+      "scorable": true,
+      "status": "EVALUATED",
+      "termination": "budget_exhausted"
+    },
+    {
+      "action": {
+        "compute_count": 16,
+        "double_buffer": false,
+        "k_tile": 64,
+        "m_tile": 32,
+        "n_tile": 32,
+        "retain_weights": true,
+        "spread": false,
+        "target": 13
+      },
+      "best_objective": 0.2030219631149803,
+      "cache_hits": 0,
+      "current_objective": 0.2030219631149803,
+      "design_hash": "53b8f98ef801bf2c8b8eb4d70e6ee241932f502fa4312ac25fbabe3fd000ca78",
+      "episode": 2,
+      "evaluations": 1,
+      "model_cycles": 6456,
+      "model_traffic": {
+        "by_operand": {
+          "A": 2048,
+          "B": 512,
+          "C": 4096
+        },
+        "directed_link_byte_hops": 26624,
+        "dma_transactions": 160,
+        "external_bytes": 6656,
+        "hierarchy_movement_bytes": {
+          "accumulator->lb": 8192,
+          "dram->gb": 2560,
+          "gb->dram": 4096,
+          "gb->lb": 3072,
+          "lb->accumulator": 8192,
+          "lb->gb": 4096,
+          "lb->rf": 7168,
+          "rf->lb": 8192
+        },
+        "storage_access_bytes": {
+          "accumulator": 16384,
+          "gb": 13824,
+          "lb": 38912,
+          "rf": 338944
+        }
+      },
+      "physical_feasible": true,
+      "ppa_assessment": {
+        "feasible": true,
+        "metrics": {
+          "area_mm2": 16.0,
+          "average_power_w": 0.02537472118959108,
+          "latency_s": 6.456e-05
+        },
+        "physical_feasible": true,
+        "search_merit": 0.25473972144638957,
+        "violation_excess": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "violations": [],
+        "weighted_cost": 0.3418130937298637
+      },
+      "requests": 1,
+      "reward": 1.594441113108124,
+      "scorable": true,
+      "status": "EVALUATED",
+      "termination": null
+    },
+    {
+      "action": {
+        "compute_count": 12,
+        "double_buffer": false,
+        "k_tile": 32,
+        "m_tile": 16,
+        "n_tile": 32,
+        "retain_weights": false,
+        "spread": false,
+        "target": 2
+      },
+      "best_objective": 0.16953217110352,
+      "cache_hits": 0,
+      "current_objective": 0.16953217110352,
+      "design_hash": "0e5a2cb6deb4af6cb0d0e4b4369533d82a0bc0f965d87f8277d7b94edfd1d349",
+      "episode": 2,
+      "evaluations": 2,
+      "model_cycles": 8608,
+      "model_traffic": {
+        "by_operand": {
+          "A": 2048,
+          "B": 2048,
+          "C": 4096
+        },
+        "directed_link_byte_hops": 16384,
+        "dma_transactions": 256,
+        "external_bytes": 8192,
+        "hierarchy_movement_bytes": {
+          "accumulator->lb": 8192,
+          "dram->gb": 4096,
+          "gb->dram": 4096,
+          "gb->lb": 4096,
+          "lb->accumulator": 8192,
+          "lb->gb": 4096,
+          "lb->rf": 8192,
+          "rf->lb": 8192
+        },
+        "storage_access_bytes": {
+          "accumulator": 16384,
+          "gb": 16384,
+          "lb": 40960,
+          "rf": 339968
+        }
+      },
+      "physical_feasible": true,
+      "ppa_assessment": {
+        "feasible": true,
+        "metrics": {
+          "area_mm2": 12.0,
+          "average_power_w": 0.01942379182156134,
+          "latency_s": 8.608e-05
+        },
+        "physical_feasible": true,
+        "search_merit": 0.20414056415501755,
+        "violation_excess": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "violations": [],
+        "weighted_cost": 0.25650329060718713
+      },
+      "requests": 2,
+      "reward": 0.18027145704248612,
+      "scorable": true,
+      "status": "EVALUATED",
+      "termination": null
+    },
+    {
+      "action": {
+        "compute_count": 16,
+        "double_buffer": false,
+        "k_tile": 32,
+        "m_tile": 32,
+        "n_tile": 16,
+        "retain_weights": false,
+        "spread": true,
+        "target": 8
+      },
+      "best_objective": 0.16953217110352,
+      "cache_hits": 0,
+      "current_objective": 0.20332275314154274,
+      "design_hash": "5a9599dfe36ab2cc4c2b930a19765e9ee505c7dec8525127885a59174c46988b",
+      "episode": 2,
+      "evaluations": 3,
+      "model_cycles": 4914,
+      "model_traffic": {
+        "by_operand": {
+          "A": 2048,
+          "B": 1024,
+          "C": 4096
+        },
+        "directed_link_byte_hops": 17920,
+        "dma_transactions": 192,
+        "external_bytes": 7168,
+        "hierarchy_movement_bytes": {
+          "accumulator->lb": 8192,
+          "dram->gb": 3072,
+          "gb->dram": 4096,
+          "gb->lb": 3072,
+          "lb->accumulator": 8192,
+          "lb->gb": 4096,
+          "lb->rf": 7168,
+          "rf->lb": 8192
+        },
+        "storage_access_bytes": {
+          "accumulator": 16384,
+          "gb": 14336,
+          "lb": 38912,
+          "rf": 338944
+        }
+      },
+      "physical_feasible": true,
+      "ppa_assessment": {
+        "feasible": true,
+        "metrics": {
+          "area_mm2": 16.0,
+          "average_power_w": 0.027950590150590152,
+          "latency_s": 4.914e-05
+        },
+        "physical_feasible": true,
+        "search_merit": 0.25521345556598574,
+        "violation_excess": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "violations": [],
+        "weighted_cost": 0.34266657671686335
+      },
+      "requests": 3,
+      "reward": 0.0,
+      "scorable": true,
+      "status": "EVALUATED",
+      "termination": null
+    },
+    {
+      "action": {
+        "compute_count": 12,
+        "double_buffer": false,
+        "k_tile": 64,
+        "m_tile": 32,
+        "n_tile": 32,
+        "retain_weights": true,
+        "spread": false,
+        "target": 1
+      },
+      "best_objective": 0.16953217110352,
+      "cache_hits": 0,
+      "current_objective": 0.16977334237599687,
+      "design_hash": "782bcc8746cd0a122d3b4fa7e79060bbb7ef032901870ead06f08f2fafee7a78",
+      "episode": 2,
+      "evaluations": 4,
+      "model_cycles": 6426,
+      "model_traffic": {
+        "by_operand": {
+          "A": 2048,
+          "B": 512,
+          "C": 4096
+        },
+        "directed_link_byte_hops": 6656,
+        "dma_transactions": 160,
+        "external_bytes": 6656,
+        "hierarchy_movement_bytes": {
+          "accumulator->lb": 8192,
+          "dram->gb": 2560,
+          "gb->dram": 4096,
+          "gb->lb": 3072,
+          "lb->accumulator": 8192,
+          "lb->gb": 4096,
+          "lb->rf": 7168,
+          "rf->lb": 8192
+        },
+        "storage_access_bytes": {
+          "accumulator": 16384,
+          "gb": 13824,
+          "lb": 38912,
+          "rf": 338944
+        }
+      },
+      "physical_feasible": true,
+      "ppa_assessment": {
+        "feasible": true,
+        "metrics": {
+          "area_mm2": 12.0,
+          "average_power_w": 0.021103081232492996,
+          "latency_s": 6.426e-05
+        },
+        "physical_feasible": true,
+        "search_merit": 0.20449035310654237,
+        "violation_excess": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "violations": [],
+        "weighted_cost": 0.257055780410831
+      },
+      "requests": 4,
+      "reward": 0.0,
+      "scorable": true,
+      "status": "EVALUATED",
+      "termination": "budget_exhausted"
+    }
+  ],
+  "wall_time_s": 0.6464423749130219,
+  "whole_cnn_supported": false
+}

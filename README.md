@@ -1,14 +1,20 @@
 # RACE-RL
 
-讓廠商先輸入 PPA 限制值與偏好，再由**單一 RL Agent** 聯合搜尋 chiplet 數量、DNN 切分、工作配置及資料配置。正式策略採 REINFORCE，沒有 PPO 或 Critic；PPO 僅列入[比較模型](docs/research/comparison_models.md)。主流程採 float64；實體硬體為 compute-only mesh，外部記憶體以服務介面建模。
+讓廠商先輸入 PPA 限制值與偏好，再由**單一 RL Agent** 聯合搜尋 chiplet 數量、DNN 切分、工作配置及資料配置。正式策略採 REINFORCE，沒有 PPO 或 Critic；PPO 僅列入[比較模型](docs/research/comparison_models.md)。主流程採 float64；硬體研究配置為 compute-only mesh，外部記憶體以服務介面建模。
 
-![RL 架構](docs/research/figures/rl_architecture.png)
+![RL 架構](docs/research/figures/cnn_rl_architecture.png)
 
-[現行硬體與資料流](docs/research/hardware_model.md)｜[七模型完整訓練基準與研究修正](docs/research/model_suite_20261014.md)
+[現行 CNN 硬體與資料流](docs/research/cnn_hierarchy.md)｜[七模型完整訓練基準與研究修正](docs/research/model_suite_20261014.md)
+
+**完整 CNN 已接入新記憶體研究後端與 GUI**：[完整流程與操作](docs/research/cnn_hierarchy.md)｜[硬體圖 PNG](docs/research/figures/memory_hierarchy.png)｜[公開配置與可信度](docs/research/gemmini_hardware.md)。單一 REINFORCE Agent 聯合改顆數、H／W／輸出通道切分、K blocking、mapping 與駐留；環境逐層計帳 GB／LB／RF／ACC，處理 activation 生命週期與 peer mesh 傳輸。新增 FP32 vector 為研究擴充，尚無匹配 RTL／PPA 校準。
+
+未提供成本檔時，PPA 保持缺值，不訓練策略。先執行 `python tools/train_model_suite.py --inspect --models all --input-size 64 --out experiments/runs/cnn_hierarchy_inspect`，即可逐模型取得一次完整動作的模型回饋與報告。
+
+正式估計模式使用 `--train --ppa-profile path/to/sourced_cnn_costs.json --requirements path/to/vendor_limits.json`，預設全部模型依序、每模型 60 回合、輸入 64。`--integration-smoke` 只驗證 TEST_FIXTURE 串接，不能當成真實 PPA 或成效。原合成版本須明選 `--legacy-synthetic`。
 
 [本機 GUI 使用方法](docs/research/gui.md)｜[評分公平性核對](docs/research/scoring_review.md)｜[廠商 PPA 輸入與評分](docs/research/vendor_requirements.md)｜[RL 架構定義](docs/research/rl_architecture.md)｜[中文研究進度](docs/research/research_progress.md)｜[核心假說驗證](docs/research/hypothesis_results.md)
 
-研究名稱：**Relational Attribution and Coupled-Edit Reinforcement Learning**。一次 action 聯合修改相依範圍，完整後立即交給環境評估一次；動作產生中間零 PPA 評估。正式預設最多 2 個相依 Tile，單項修改作比較設定。
+研究名稱：**Relational Attribution and Coupled-Edit Reinforcement Learning**。一次 action 聯合修改相依範圍，完整後立即交給環境評估一次；動作產生中間零 PPA 評估。新版預設最多 2 個相依實作算子，單項修改作比較設定。
 
 ## 本機網頁 GUI
 
@@ -34,7 +40,7 @@ python -m race_gui.server
 
 先判定 PPA 是否全部達標，再以正規化加權成本排序。需求直接輸入共享 encoder，影響 Actor 與環境 reward。搜尋可走過暫時超標的物理合法設計；結束仍無達標方案時，明確輸出 `NO_FEASIBLE_DESIGN_FOUND` 與 `closest_*`。
 
-## 執行
+## 新版執行
 
 Python 3.12 建議：
 
@@ -43,19 +49,18 @@ python3 -m venv .venv
 .venv/bin/python -m pip install -e '.[rl,cnn,reports]'
 .venv/bin/python tools/verify_sources.py
 .venv/bin/python -m unittest discover -s tests -v
-.venv/bin/python -m race_rl.cli search-mesh --interactive --out experiments/runs/vendor_search
+.venv/bin/python -m race_rl.cli search-cnn --inspect --models all --input-size 64 --out experiments/runs/cnn_inspect
 ```
 
-自動化可先修改範例需求檔，再使用：
+提供有來源的新硬體成本與廠商限制後，使用：
 
 ```sh
-.venv/bin/python -m race_rl.cli search-mesh --requirements configs/vendor_requirements.json --model resnet18 --episodes 3 --budget 16 --out experiments/runs/vendor_search
-.venv/bin/python tools/run_hypothesis_pilot.py --requirements configs/research_requirements.json --out experiments/runs/new_hypotheses
+.venv/bin/python tools/train_model_suite.py --train --models all --input-size 64 --episodes 60 --ppa-profile path/to/sourced_cnn_costs.json --requirements path/to/vendor_limits.json --out experiments/runs/cnn_training
 ```
 
-JSON 延遲單位為秒。範例限制只是合成數字，需替換成廠商需求。新輸出目錄須為空；`vendor_report.json` 記錄需求、權重、原始 PPA、達標判定與違規原因。
+JSON 延遲單位為秒。舊限制／可行性證據不可直接套用新硬體；新成本模板為 `configs/cnn_ppa_template.json`，缺值不會自動填入合成係數。新輸出目錄須為空；`vendor_report.json` 記錄需求、權重、原始 PPA、達標判定與違規原因。
 
-## 七模型終端訓練
+## 舊合成比較：七模型終端訓練
 
 在終端機執行一次，依序訓練 ResNet18、ResNet34、ResNet50、VGG16、VGG19、MobileNetV2、AlexNet；每個模型從新策略開始，固定 60 回合、64×64 輸入、每回合最多 64 次完整互動，停用提前停止。模型不並行。
 
@@ -63,20 +68,20 @@ macOS：
 
 ```sh
 cd /Users/hsuyuchia/Documents/RACE-RL
-.venv/bin/python tools/train_model_suite.py
+.venv/bin/python tools/train_model_suite.py --legacy-synthetic
 ```
 
 Windows（在專案資料夾）：
 
 ```powershell
-.venv\Scripts\python.exe tools\train_model_suite.py
+.venv\Scripts\python.exe tools\train_model_suite.py --legacy-synthetic
 ```
 
 預設使用 `configs/model_suite_tasks.json` 的各模型合成研究限制，具有先導實測的可行設計憑證；數值與出處見[研究修正紀錄](docs/research/model_suite_20261014.md)。不再對全部 CNN 套用已證明不合理的 100 ms。指定 `--requirements <檔案>` 則完全採廠商限制，不自動放寬；GUI 也保留使用者自行輸入。
 
 終端同一行對齊顯示模型、回合、互動、進度、已用與暫估剩餘時間。結果集中在 `experiments/runs/model_suite/training/<時間>/`，完成後開啟 `report.html`。前後各做 10 個配對 seed、各 64 次互動的凍結策略測試，還原所有 RNG、零參數更新；每模型總 5,120 次互動。比較方法及中途測試預設停用；選用 `--comparisons random sa --evaluation-interval 10` 才增加相關預算。時間與查詢均另計，不能把額外實驗成本當成訓練器變慢。
 
-中斷後使用終端印出的目錄接續：`python tools/train_model_suite.py --resume <輸出目錄>`。只接續最後完整提交的回合，來源或條件不一致會拒絕。詳細紀錄與精簡保存規則見 [實驗說明](experiments/README.md)。正式訓練由使用者啟動；`--smoke` 是短流程驗證，不能當成 60 回合成果。
+中斷後使用終端印出的目錄接續：`python tools/train_model_suite.py --legacy-synthetic --resume <輸出目錄>`。只接續最後完整提交的回合，來源或條件不一致會拒絕。詳細紀錄與精簡保存規則見 [實驗說明](experiments/README.md)。正式訓練由使用者啟動；舊比較入口的 `--smoke` 是短流程驗證，不能當成 60 回合成果。
 
 ## 搜尋設定與驗證範圍
 

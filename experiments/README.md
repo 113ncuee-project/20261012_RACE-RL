@@ -1,3 +1,13 @@
+# 新版 CNN 記憶體階層實驗
+
+主入口 `python tools/train_model_suite.py` 已切換為新 CNN 分層記憶體，操作與模型界線見 [完整 CNN 實驗說明](../docs/research/cnn_hierarchy.md)。未提供成本時預設 inspection；formal training 須明列完整有來源成本／廠商限制。舊合成比較須 `--legacy-synthetic`。
+
+新輸出為每模型一個 SQLite（壓縮逐次回饋／一個 checkpoint）、JSON manifests／回合統計／一套 selected feedback，以及一份 batch HTML。Ctrl+C 保留完整回合；新入口續跑為 `--out <原目錄> --resume`。不要用舊成本、witness 或 checkpoint 續跑新模型。
+
+以下為原合成入口的歷史保存規則。
+
+---
+
 # 當前實驗
 
 新輸出集中在忽略的 `runs/model_suite/`。現行 compute-only mesh／外部記憶體版本的小型可核對證據位於 `docs/research/evidence/`。每次實驗需使用全新輸出目錄，並在開始前凍結 protocol／來源身份；不得把開發用 workload 改稱 held-out test。

@@ -7,12 +7,95 @@ import time
 import unittest
 from urllib.request import Request,urlopen
 from urllib.error import HTTPError
-from race_gui.server import JobManager,LocalServer,validate_request
+from race_gui.server import JobManager,LocalServer,validate_request,validate_gui_cost_profile
 
 PAYLOAD=dict(model='resnet18',max_power_w=1,max_latency_ms=100,max_area_mm2=16,preference='balanced')
 
 
 class GuiTests(unittest.TestCase):
+    def test_cost_template_and_bad_profiles_fail_before_job_creation(self):
+        from copy import deepcopy
+        from dataclasses import asdict
+        from race_rl.accelerators.cnn_search import fixture
+        from race_rl.accelerators.memory_hierarchy import MemoryHierarchy
+        template=json.loads((Path(__file__).resolve().parents[1]/'configs/cnn_ppa_template.json').read_text())
+        complete=asdict(fixture(MemoryHierarchy()))
+        # For validator tests only: no training or hardware measurement is claimed.
+        complete['base']['evidence_status']='DECLARED_ESTIMATE'
+        self.assertEqual(validate_gui_cost_profile(complete).base.evidence_status,'DECLARED_ESTIMATE')
+        cases=[(template,'尚未填寫'),(None,'格式不符'),([], '格式不符'),({},'格式不符')]
+        for key,value,expected in (
+                ('evidence_status',None,'證據狀態'),('evidence_status','TEST_FIXTURE','軟體測試'),
+                ('clock_hz',None,'clock_hz'),('clock_hz',0,'大於零'),
+                ('sources',{},'缺少來源'),('sources',None,'逐項來源'),
+                ('memory_hierarchy_identity','0'*64,'記憶體階層')):
+            record=deepcopy(complete);record['base'][key]=value;cases.append((record,expected))
+        for key,value,expected in (('vector_op_j',None,'向量運算'),
+                ('vector_op_source','','向量運算'),('cnn_hardware_identity','0'*64,'硬體識別碼')):
+            record=deepcopy(complete);record[key]=value;cases.append((record,expected))
+        for record,expected in cases:
+            with self.subTest(expected=expected),self.assertRaisesRegex(ValueError,expected):
+                validate_gui_cost_profile(record)
+        with tempfile.TemporaryDirectory() as folder:
+            manager=JobManager(folder)
+            with self.assertRaisesRegex(ValueError,'尚未填寫'):
+                manager.start({**PAYLOAD,'cost_profile':template})
+            self.assertEqual(manager.jobs,{})
+            self.assertFalse((Path(folder)/'experiments').exists())
+
+    def test_cost_upload_endpoint_checks_production_contract_without_starting_job(self):
+        from dataclasses import asdict
+        from race_rl.accelerators.cnn_search import fixture
+        from race_rl.accelerators.memory_hierarchy import MemoryHierarchy
+        with tempfile.TemporaryDirectory() as folder:
+            manager=JobManager(folder);server=LocalServer(('127.0.0.1',0),manager)
+            thread=threading.Thread(target=server.serve_forever,daemon=True);thread.start()
+            root=f'http://127.0.0.1:{server.server_port}'
+            record=asdict(fixture(MemoryHierarchy()))
+            try:
+                headers={'Content-Type':'application/json','X-RACE-Token':server.token}
+                for status,expected in (('UNAVAILABLE','尚未填寫'),('TEST_FIXTURE','軟體測試'),('unknown','證據狀態')):
+                    record['base']['evidence_status']=status
+                    with self.assertRaises(HTTPError) as error:
+                        urlopen(Request(root+'/api/validate-cost-profile',data=json.dumps(record).encode(),headers=headers))
+                    self.assertEqual(error.exception.code,400)
+                    self.assertIn(expected,json.loads(error.exception.read())['error'])
+                record['base']['evidence_status']='DECLARED_ESTIMATE'
+                with urlopen(Request(root+'/api/validate-cost-profile',data=json.dumps(record).encode(),headers=headers)) as response:
+                    self.assertTrue(json.load(response)['valid'])
+                with self.assertRaises(HTTPError) as error:
+                    urlopen(Request(root+'/api/validate-cost-profile',data=json.dumps(record).encode(),headers={'Content-Type':'application/json'}))
+                self.assertEqual(error.exception.code,403)
+                self.assertEqual(manager.jobs,{})
+                self.assertFalse((Path(folder)/'experiments').exists())
+            finally:server.shutdown();server.server_close();thread.join()
+
+    def test_legacy_backend_requires_explicit_selection_and_new_costs_cannot_be_test_data(self):
+        from dataclasses import asdict
+        from race_rl.accelerators.cnn_search import fixture
+        from race_rl.accelerators.memory_hierarchy import MemoryHierarchy
+        current=validate_request(PAYLOAD)
+        self.assertEqual(current['backend'],'gemmini_cnn')
+        self.assertEqual(current['mode'],'inspect')
+        legacy=validate_request({**PAYLOAD,'backend':'legacy_synthetic'})
+        self.assertEqual(legacy['mode'],'train')
+        with self.assertRaises(ValueError):validate_request({**PAYLOAD,'cost_profile':asdict(fixture(MemoryHierarchy()))})
+
+    def test_new_gui_runs_real_frozen_cnn_and_reports_missing_ppa_without_training(self):
+        with tempfile.TemporaryDirectory() as folder:
+            manager=JobManager(folder)
+            jid=manager.start({**PAYLOAD,'input_size':64,'early_stop':False})
+            for _ in range(1500):
+                state=manager.snapshot(jid)
+                if state['status'] in ('COMPLETED','FAILED'):break
+                time.sleep(.02)
+            self.assertEqual(state['status'],'COMPLETED',state['log'])
+            self.assertEqual(state['report']['status'],'PPA_UNAVAILABLE')
+            self.assertEqual(state['episodes_completed'],0)
+            self.assertEqual(state['design_view']['coordinate_unit'],'grid')
+            self.assertTrue(state['report']['assessment']['physical_feasible'])
+            self.assertIn('成本資料缺值',state['report']['assessment']['violations'][0])
+            self.assertTrue(all(v is None for v in state['report']['assessment']['metrics'].values()))
     def test_same_requirements_contract_and_ms_conversion(self):
         settings=validate_request({**PAYLOAD,'preference':'custom','weights':[5,3,2]})
         self.assertEqual(settings['requirements'].max_latency_s,.1)
@@ -34,8 +117,10 @@ class GuiTests(unittest.TestCase):
             command=manager._command(job)
             self.assertEqual(command[0],sys.executable)
             self.assertIn(str(Path(folder)/'requirements.json'),command)
-            self.assertEqual(command[command.index('--budget')+1],'2')
-            self.assertEqual(command[-16:],[str(n) for n in (2,1,*range(3,17))])
+            self.assertEqual(command[command.index('--interactions')+1],'2')
+            self.assertIn('race_rl.accelerators.cnn_search',command)
+            self.assertIn('--inspect',command)
+            self.assertNotIn('--compute-counts',command)
 
     def test_http_static_contract_and_local_request_validation(self):
         with tempfile.TemporaryDirectory() as folder:
@@ -51,7 +136,9 @@ class GuiTests(unittest.TestCase):
                 config=json.load(urlopen(root+'/api/config'))
                 self.assertEqual(len(config['preferences']),5)
                 self.assertNotIn('id="budget"',html)
-                self.assertIn('最多 2 個相依 Tile',html)
+                self.assertIn('最多 2 個相依算子',html)
+                self.assertIn('id="cost-profile"',html)
+                self.assertEqual(config['backend'],'gemmini_cnn')
                 self.assertIn('完整聯合動作一產生就送進環境',html)
                 with self.assertRaises(HTTPError) as error:
                     urlopen(Request(root+'/api/jobs',data=json.dumps(PAYLOAD).encode(),headers={'Content-Type':'application/json'}))

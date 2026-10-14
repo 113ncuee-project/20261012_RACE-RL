@@ -6,29 +6,32 @@ from .requirements import TASK_FEATURE_SIZE
 
 
 class RelationalEncoder(nn.Module):
-    def __init__(self,width=32,variant="full"):
+    def __init__(self,width=32,variant="full",schema_version=5):
         super().__init__()
         if variant not in {"full","compact","dnngraph","hardwaregraph","no_attribution","no_criticality"}:
             raise ValueError("unknown state ablation")
-        self.variant,self.width = variant,width
-        self.tile = nn.Sequential(nn.Linear(TILE_FEATURE_SIZE,width),nn.Tanh())
+        if schema_version not in (5,6,7,8): raise ValueError('unsupported encoder schema')
+        self.variant,self.width,self.schema_version = variant,width,schema_version
+        # Schemas 6/7 add exact output-block coordinates and Gemmini execution state.
+        extra=25 if schema_version==8 else 6 if schema_version in (6,7) else 0
+        self.tile = nn.Sequential(nn.Linear(TILE_FEATURE_SIZE+extra,width),nn.Tanh())
         self.hardware = nn.Sequential(nn.Linear(9,width),nn.Tanh())
         self.dnn_message = nn.Linear(width,width,bias=False)
         self.hw_message = nn.Linear(width,width,bias=False)
         self.memory_message = nn.Linear(width,width,bias=False)
         self.cross_message = nn.Linear(width,width,bias=False)
         self.link_message = nn.Linear(4,width,bias=False)
-        self.global_net = nn.Sequential(nn.Linear(10+TASK_FEATURE_SIZE+2*width,width),nn.Tanh())
+        self.global_net = nn.Sequential(nn.Linear((22 if schema_version in (6,7,8) else 10)+TASK_FEATURE_SIZE+2*width,width),nn.Tanh())
 
     def forward(self,o):
-        if o.schema_version != 5:
+        if o.schema_version != self.schema_version:
             raise ValueError("incompatible observation schema; old checkpoints require their frozen source")
         dtype = self.tile[0].weight.dtype
         tf = torch.tensor(o.tile_features,dtype=dtype)
         hf = torch.tensor(o.hardware_features,dtype=dtype)
         ef = torch.tensor(o.hardware_edge_features,dtype=dtype).reshape(-1,4)
         if self.variant == "no_criticality":
-            tf[:,-2:] = 0
+            tf[:,TILE_FEATURE_SIZE-2:TILE_FEATURE_SIZE] = 0
             ef[:,-1] = 0
         t,h = self.tile(tf),self.hardware(hf)
         tm,hm = torch.zeros_like(t),torch.zeros_like(h)

@@ -1,0 +1,2348 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="628.2pt" height="569.238313pt" viewBox="0 0 628.2 569.238313" xmlns="http://www.w3.org/2000/svg" version="1.1">
+ <metadata>
+  <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <cc:Work>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:date>2026-10-14T21:30:31.236225</dc:date>
+    <dc:format>image/svg+xml</dc:format>
+    <dc:creator>
+     <cc:Agent>
+      <dc:title>Matplotlib v3.11.2, https://matplotlib.org/</dc:title>
+     </cc:Agent>
+    </dc:creator>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="figure_1">
+  <g id="patch_1">
+   <path d="M 0 569.238313 
+L 628.2 569.238313 
+L 628.2 0 
+L 0 0 
+z
+" style="fill: #ffffff"/>
+  </g>
+  <g id="axes_1">
+   <g id="patch_2">
+    <path d="M 78.066 91.352712 
+L 410.634 91.352712 
+Q 415.098 91.352712 415.098 86.917512 
+L 415.098 45.891912 
+Q 415.098 41.456712 410.634 41.456712 
+L 78.066 41.456712 
+Q 73.602 41.456712 73.602 45.891912 
+L 73.602 86.917512 
+Q 73.602 91.352712 78.066 91.352712 
+z
+" clip-path="url(#pcbe3b7c3a2)" style="fill: #f5f0e7; stroke: #173745; stroke-width: 1.25; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_3">
+    <path d="M 43.47 486.085512 
+L 579.15 486.085512 
+Q 583.614 486.085512 583.614 481.650312 
+L 583.614 132.378312 
+Q 583.614 127.943112 579.15 127.943112 
+L 43.47 127.943112 
+Q 39.006 127.943112 39.006 132.378312 
+L 39.006 481.650312 
+Q 39.006 486.085512 43.47 486.085512 
+z
+" clip-path="url(#pcbe3b7c3a2)" style="fill: #fafcfc; stroke: #a8bdc3; stroke-width: 1.2; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_4">
+    <path d="M 78.066 214.983912 
+L 410.634 214.983912 
+Q 415.098 214.983912 415.098 210.548712 
+L 415.098 165.642312 
+Q 415.098 161.207112 410.634 161.207112 
+L 78.066 161.207112 
+Q 73.602 161.207112 73.602 165.642312 
+L 73.602 210.548712 
+Q 73.602 214.983912 78.066 214.983912 
+z
+" clip-path="url(#pcbe3b7c3a2)" style="fill: #edf5f7; stroke: #173745; stroke-width: 1.25; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_5">
+    <path d="M 244.35 95.695583 
+Q 244.35 126.833942 244.35 157.9723 
+" clip-path="url(#pcbe3b7c3a2)" style="fill: none; stroke: #176f70; stroke-width: 1.6; stroke-linecap: round"/>
+    <path d="M 241.55 101.295583 
+L 244.35 95.695583 
+L 247.15 101.295583 
+" clip-path="url(#pcbe3b7c3a2)" style="fill: none; stroke: #176f70; stroke-width: 1.6; stroke-linecap: round"/>
+    <path d="M 247.15 152.3723 
+L 244.35 157.9723 
+L 241.55 152.3723 
+" clip-path="url(#pcbe3b7c3a2)" style="fill: none; stroke: #176f70; stroke-width: 1.6; stroke-linecap: round"/>
+   </g>
+   <g id="patch_6">
+    <path d="M 78.066 299.252712 
+L 410.634 299.252712 
+Q 415.098 299.252712 415.098 294.817512 
+L 415.098 248.247912 
+Q 415.098 243.812712 410.634 243.812712 
+L 78.066 243.812712 
+Q 73.602 243.812712 73.602 248.247912 
+L 73.602 294.817512 
+Q 73.602 299.252712 78.066 299.252712 
+z
+" clip-path="url(#pcbe3b7c3a2)" style="fill: #edf5f7; stroke: #173745; stroke-width: 1.25; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_7">
+    <path d="M 244.35 219.879356 
+Q 244.35 229.398189 244.35 238.917021 
+" clip-path="url(#pcbe3b7c3a2)" style="fill: none; stroke: #176f70; stroke-width: 1.6; stroke-linecap: round"/>
+    <path d="M 241.55 225.479356 
+L 244.35 219.879356 
+L 247.15 225.479356 
+" clip-path="url(#pcbe3b7c3a2)" style="fill: none; stroke: #176f70; stroke-width: 1.6; stroke-linecap: round"/>
+    <path d="M 247.15 233.317021 
+L 244.35 238.917021 
+L 241.55 233.317021 
+" clip-path="url(#pcbe3b7c3a2)" style="fill: none; stroke: #176f70; stroke-width: 1.6; stroke-linecap: round"/>
+   </g>
+   <g id="patch_8">
+    <path d="M 439.65 312.003912 
+L 546.228 312.003912 
+Q 550.692 312.003912 550.692 307.568712 
+L 550.692 238.823112 
+Q 550.692 234.387912 546.228 234.387912 
+L 439.65 234.387912 
+Q 435.186 234.387912 435.186 238.823112 
+L 435.186 307.568712 
+Q 435.186 312.003912 439.65 312.003912 
+z
+" clip-path="url(#pcbe3b7c3a2)" style="fill: #fff2dd; stroke: #173745; stroke-width: 1.25; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_9">
+    <path d="M 419.445399 274.859113 
+Q 424.863478 274.859113 430.281557 274.859113 
+" clip-path="url(#pcbe3b7c3a2)" style="fill: none; stroke: #176f70; stroke-width: 1.6; stroke-linecap: round"/>
+    <path d="M 425.045399 277.659113 
+L 419.445399 274.859113 
+L 425.045399 272.059113 
+" clip-path="url(#pcbe3b7c3a2)" style="fill: none; stroke: #176f70; stroke-width: 1.6; stroke-linecap: round"/>
+    <path d="M 424.681557 272.059113 
+L 430.281557 274.859113 
+L 424.681557 277.659113 
+" clip-path="url(#pcbe3b7c3a2)" style="fill: none; stroke: #176f70; stroke-width: 1.6; stroke-linecap: round"/>
+   </g>
+   <g id="patch_10">
+    <path d="M 78.066 389.065512 
+L 410.634 389.065512 
+Q 415.098 389.065512 415.098 384.630312 
+L 415.098 334.734312 
+Q 415.098 330.299112 410.634 330.299112 
+L 78.066 330.299112 
+Q 73.602 330.299112 73.602 334.734312 
+L 73.602 384.630312 
+Q 73.602 389.065512 78.066 389.065512 
+z
+" clip-path="url(#pcbe3b7c3a2)" style="fill: #edf6ef; stroke: #173745; stroke-width: 1.25; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_11">
+    <path d="M 439.65 396.272713 
+L 546.228 396.272713 
+Q 550.692 396.272713 550.692 391.837513 
+L 550.692 341.387113 
+Q 550.692 336.951912 546.228 336.951912 
+L 439.65 336.951912 
+Q 435.186 336.951912 435.186 341.387113 
+L 435.186 391.837513 
+Q 435.186 396.272713 439.65 396.272713 
+z
+" clip-path="url(#pcbe3b7c3a2)" style="fill: #eaf1fb; stroke: #173745; stroke-width: 1.25; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_12">
+    <path d="M 419.445399 364.671913 
+Q 424.863478 364.671913 430.281557 364.671913 
+" clip-path="url(#pcbe3b7c3a2)" style="fill: none; stroke: #176f70; stroke-width: 1.6; stroke-linecap: round"/>
+    <path d="M 425.045399 367.471913 
+L 419.445399 364.671913 
+L 425.045399 361.871913 
+" clip-path="url(#pcbe3b7c3a2)" style="fill: none; stroke: #176f70; stroke-width: 1.6; stroke-linecap: round"/>
+    <path d="M 424.681557 361.871913 
+L 430.281557 364.671913 
+L 424.681557 367.471913 
+" clip-path="url(#pcbe3b7c3a2)" style="fill: none; stroke: #176f70; stroke-width: 1.6; stroke-linecap: round"/>
+   </g>
+   <g id="patch_13">
+    <path d="M 244.35 304.152758 
+Q 244.35 314.776685 244.35 325.400611 
+" clip-path="url(#pcbe3b7c3a2)" style="fill: none; stroke: #176f70; stroke-width: 1.6; stroke-linecap: round"/>
+    <path d="M 241.55 309.752758 
+L 244.35 304.152758 
+L 247.15 309.752758 
+" clip-path="url(#pcbe3b7c3a2)" style="fill: none; stroke: #176f70; stroke-width: 1.6; stroke-linecap: round"/>
+    <path d="M 247.15 319.800611 
+L 244.35 325.400611 
+L 241.55 319.800611 
+" clip-path="url(#pcbe3b7c3a2)" style="fill: none; stroke: #176f70; stroke-width: 1.6; stroke-linecap: round"/>
+   </g>
+   <g id="patch_14">
+    <path d="M 78.066 462.800712 
+L 410.634 462.800712 
+Q 415.098 462.800712 415.098 458.365512 
+L 415.098 414.013512 
+Q 415.098 409.578312 410.634 409.578312 
+L 78.066 409.578312 
+Q 73.602 409.578312 73.602 414.013512 
+L 73.602 458.365512 
+Q 73.602 462.800712 78.066 462.800712 
+z
+" clip-path="url(#pcbe3b7c3a2)" style="fill: #edf6ef; stroke: #173745; stroke-width: 1.25; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_15">
+    <path d="M 244.35 393.959738 
+Q 244.35 399.31944 244.35 404.679142 
+" clip-path="url(#pcbe3b7c3a2)" style="fill: none; stroke: #176f70; stroke-width: 1.6; stroke-linecap: round"/>
+    <path d="M 241.55 399.559738 
+L 244.35 393.959738 
+L 247.15 399.559738 
+" clip-path="url(#pcbe3b7c3a2)" style="fill: none; stroke: #176f70; stroke-width: 1.6; stroke-linecap: round"/>
+    <path d="M 247.15 399.079142 
+L 244.35 404.679142 
+L 241.55 399.079142 
+" clip-path="url(#pcbe3b7c3a2)" style="fill: none; stroke: #176f70; stroke-width: 1.6; stroke-linecap: round"/>
+   </g>
+   <g id="patch_16">
+    <path d="M 465.876 453.375913 
+L 468.5544 453.375913 
+L 468.5544 450.714793 
+L 465.876 450.714793 
+z
+" clip-path="url(#pcbe3b7c3a2)" style="fill: #176f70"/>
+   </g>
+   <g id="patch_17">
+    <path d="M 469.224 453.375913 
+L 471.9024 453.375913 
+L 471.9024 450.714793 
+L 469.224 450.714793 
+z
+" clip-path="url(#pcbe3b7c3a2)" style="fill: #176f70"/>
+   </g>
+   <g id="patch_18">
+    <path d="M 472.572 453.375913 
+L 475.2504 453.375913 
+L 475.2504 450.714793 
+L 472.572 450.714793 
+z
+" clip-path="url(#pcbe3b7c3a2)" style="fill: #176f70"/>
+   </g>
+   <g id="patch_19">
+    <path d="M 475.92 453.375913 
+L 478.5984 453.375913 
+L 478.5984 450.714793 
+L 475.92 450.714793 
+z
+" clip-path="url(#pcbe3b7c3a2)" style="fill: #176f70"/>
+   </g>
+   <g id="patch_20">
+    <path d="M 479.268 453.375913 
+L 481.9464 453.375913 
+L 481.9464 450.714793 
+L 479.268 450.714793 
+z
+" clip-path="url(#pcbe3b7c3a2)" style="fill: #176f70"/>
+   </g>
+   <g id="patch_21">
+    <path d="M 482.616 453.375913 
+L 485.2944 453.375913 
+L 485.2944 450.714793 
+L 482.616 450.714793 
+z
+" clip-path="url(#pcbe3b7c3a2)" style="fill: #176f70"/>
+   </g>
+   <g id="patch_22">
+    <path d="M 485.964 453.375913 
+L 488.6424 453.375913 
+L 488.6424 450.714793 
+L 485.964 450.714793 
+z
+" clip-path="url(#pcbe3b7c3a2)" style="fill: #176f70"/>
+   </g>
+   <g id="patch_23">
+    <path d="M 489.312 453.375913 
+L 491.9904 453.375913 
+L 491.9904 450.714793 
+L 489.312 450.714793 
+z
+" clip-path="url(#pcbe3b7c3a2)" style="fill: #176f70"/>
+   </g>
+   <g id="patch_24">
+    <path d="M 492.66 453.375913 
+L 495.3384 453.375913 
+L 495.3384 450.714793 
+L 492.66 450.714793 
+z
+" clip-path="url(#pcbe3b7c3a2)" style="fill: #176f70"/>
+   </g>
+   <g id="patch_25">
+    <path d="M 496.008 453.375913 
+L 498.6864 453.375913 
+L 498.6864 450.714793 
+L 496.008 450.714793 
+z
+" clip-path="url(#pcbe3b7c3a2)" style="fill: #176f70"/>
+   </g>
+   <g id="patch_26">
+    <path d="M 499.356 453.375913 
+L 502.0344 453.375913 
+L 502.0344 450.714793 
+L 499.356 450.714793 
+z
+" clip-path="url(#pcbe3b7c3a2)" style="fill: #176f70"/>
+   </g>
+   <g id="patch_27">
+    <path d="M 502.704 453.375913 
+L 505.3824 453.375913 
+L 505.3824 450.714793 
+L 502.704 450.714793 
+z
+" clip-path="url(#pcbe3b7c3a2)" style="fill: #176f70"/>
+   </g>
+   <g id="patch_28">
+    <path d="M 506.052 453.375913 
+L 508.7304 453.375913 
+L 508.7304 450.714793 
+L 506.052 450.714793 
+z
+" clip-path="url(#pcbe3b7c3a2)" style="fill: #176f70"/>
+   </g>
+   <g id="patch_29">
+    <path d="M 509.4 453.375913 
+L 512.0784 453.375913 
+L 512.0784 450.714793 
+L 509.4 450.714793 
+z
+" clip-path="url(#pcbe3b7c3a2)" style="fill: #176f70"/>
+   </g>
+   <g id="patch_30">
+    <path d="M 512.748 453.375913 
+L 515.4264 453.375913 
+L 515.4264 450.714793 
+L 512.748 450.714793 
+z
+" clip-path="url(#pcbe3b7c3a2)" style="fill: #176f70"/>
+   </g>
+   <g id="patch_31">
+    <path d="M 516.096 453.375913 
+L 518.7744 453.375913 
+L 518.7744 450.714793 
+L 516.096 450.714793 
+z
+" clip-path="url(#pcbe3b7c3a2)" style="fill: #176f70"/>
+   </g>
+   <g id="patch_32">
+    <path d="M 465.876 450.049512 
+L 468.5544 450.049512 
+L 468.5544 447.388393 
+L 465.876 447.388393 
+z
+" clip-path="url(#pcbe3b7c3a2)" style="fill: #176f70"/>
+   </g>
+   <g id="patch_33">
+    <path d="M 469.224 450.049512 
+L 471.9024 450.049512 
+L 471.9024 447.388393 
+L 469.224 447.388393 
+z
+" clip-path="url(#pcbe3b7c3a2)" style="fill: #176f70"/>
+   </g>
+   <g id="patch_34">
+    <path d="M 472.572 450.049512 
+L 475.2504 450.049512 
+L 475.2504 447.388393 
+L 472.572 447.388393 
+z
+" clip-path="url(#pcbe3b7c3a2)" style="fill: #176f70"/>
+   </g>
+   <g id="patch_35">
+    <path d="M 475.92 450.049512 
+L 478.5984 450.049512 
+L 478.5984 447.388393 
+L 475.92 447.388393 
+z
+" clip-path="url(#pcbe3b7c3a2)" style="fill: #176f70"/>
+   </g>
+   <g id="patch_36">
+    <path d="M 479.268 450.049512 
+L 481.9464 450.049512 
+L 481.9464 447.388393 
+L 479.268 447.388393 
+z
+" clip-path="url(#pcbe3b7c3a2)" style="fill: #176f70"/>
+   </g>
+   <g id="patch_37">
+    <path d="M 482.616 450.049512 
+L 485.2944 450.049512 
+L 485.2944 447.388393 
+L 482.616 447.388393 
+z
+" clip-path="url(#pcbe3b7c3a2)" style="fill: #176f70"/>
+   </g>
+   <g id="patch_38">
+    <path d="M 485.964 450.049512 
+L 488.6424 450.049512 
+L 488.6424 447.388393 
+L 485.964 447.388393 
+z
+" clip-path="url(#pcbe3b7c3a2)" style="fill: #176f70"/>
+   </g>
+   <g id="patch_39">
+    <path d="M 489.312 450.049512 
+L 491.9904 450.049512 
+L 491.9904 447.388393 
+L 489.312 447.388393 
+z
+" clip-path="url(#pcbe3b7c3a2)" style="fill: #176f70"/>
+   </g>
+   <g id="patch_40">
+    <path d="M 492.66 450.049512 
+L 495.3384 450.049512 
+L 495.3384 447.388393 
+L 492.66 447.388393 
+z
+" clip-path="url(#pcbe3b7c3a2)" style="fill: #176f70"/>
+   </g>
+   <g id="patch_41">
+    <path d="M 496.008 450.049512 
+L 498.6864 450.049512 
+L 498.6864 447.388393 
+L 496.008 447.388393 
+z
+" clip-path="url(#pcbe3b7c3a2)" style="fill: #176f70"/>
+   </g>
+   <g id="patch_42">
+    <path d="M 499.356 450.049512 
+L 502.0344 450.049512 
+L 502.0344 447.388393 
+L 499.356 447.388393 
+z
+" clip-path="url(#pcbe3b7c3a2)" style="fill: #176f70"/>
+   </g>
+   <g id="patch_43">
+    <path d="M 502.704 450.049512 
+L 505.3824 450.049512 
+L 505.3824 447.388393 
+L 502.704 447.388393 
+z
+" clip-path="url(#pcbe3b7c3a2)" style="fill: #176f70"/>
+   </g>
+   <g id="patch_44">
+    <path d="M 506.052 450.049512 
+L 508.7304 450.049512 
+L 508.7304 447.388393 
+L 506.052 447.388393 
+z
+" clip-path="url(#pcbe3b7c3a2)" style="fill: #176f70"/>
+   </g>
+   <g id="patch_45">
+    <path d="M 509.4 450.049512 
+L 512.0784 450.049512 
+L 512.0784 447.388393 
+L 509.4 447.388393 
+z
+" clip-path="url(#pcbe3b7c3a2)" style="fill: #176f70"/>
+   </g>
+   <g id="patch_46">
+    <path d="M 512.748 450.049512 
+L 515.4264 450.049512 
+L 515.4264 447.388393 
+L 512.748 447.388393 
+z
+" clip-path="url(#pcbe3b7c3a2)" style="fill: #176f70"/>
+   </g>
+   <g id="patch_47">
+    <path d="M 516.096 450.049512 
+L 518.7744 450.049512 
+L 518.7744 447.388393 
+L 516.096 447.388393 
+z
+" clip-path="url(#pcbe3b7c3a2)" style="fill: #176f70"/>
+   </g>
+   <g id="patch_48">
+    <path d="M 465.876 446.723113 
+L 468.5544 446.723113 
+L 468.5544 444.061993 
+L 465.876 444.061993 
+z
+" clip-path="url(#pcbe3b7c3a2)" style="fill: #176f70"/>
+   </g>
+   <g id="patch_49">
+    <path d="M 469.224 446.723113 
+L 471.9024 446.723113 
+L 471.9024 444.061993 
+L 469.224 444.061993 
+z
+" clip-path="url(#pcbe3b7c3a2)" style="fill: #176f70"/>
+   </g>
+   <g id="patch_50">
+    <path d="M 472.572 446.723113 
+L 475.2504 446.723113 
+L 475.2504 444.061993 
+L 472.572 444.061993 
+z
+" clip-path="url(#pcbe3b7c3a2)" style="fill: #176f70"/>
+   </g>
+   <g id="patch_51">
+    <path d="M 475.92 446.723113 
+L 478.5984 446.723113 
+L 478.5984 444.061993 
+L 475.92 444.061993 
+z
+" clip-path="url(#pcbe3b7c3a2)" style="fill: #176f70"/>
+   </g>
+   <g id="patch_52">
+    <path d="M 479.268 446.723113 
+L 481.9464 446.723113 
+L 481.9464 444.061993 
+L 479.268 444.061993 
+z
+" clip-path="url(#pcbe3b7c3a2)" style="fill: #176f70"/>
+   </g>
+   <g id="patch_53">
+    <path d="M 482.616 446.723113 
+L 485.2944 446.723113 
+L 485.2944 444.061993 
+L 482.616 444.061993 
+z
+" clip-path="url(#pcbe3b7c3a2)" style="fill: #176f70"/>
+   </g>
+   <g id="patch_54">
+    <path d="M 485.964 446.723113 
+L 488.6424 446.723113 
+L 488.6424 444.061993 
+L 485.964 444.061993 
+z
+" clip-path="url(#pcbe3b7c3a2)" style="fill: #176f70"/>
+   </g>
+   <g id="patch_55">
+    <path d="M 489.312 446.723113 
+L 491.9904 446.723113 
+L 491.9904 444.061993 
+L 489.312 444.061993 
+z
+" clip-path="url(#pcbe3b7c3a2)" style="fill: #176f70"/>
+   </g>
+   <g id="patch_56">
+    <path d="M 492.66 446.723113 
+L 495.3384 446.723113 
+L 495.3384 444.061993 
+L 492.66 444.061993 
+z
+" clip-path="url(#pcbe3b7c3a2)" style="fill: #176f70"/>
+   </g>
+   <g id="patch_57">
+    <path d="M 496.008 446.723113 
+L 498.6864 446.723113 
+L 498.6864 444.061993 
+L 496.008 444.061993 
+z
+" clip-path="url(#pcbe3b7c3a2)" style="fill: #176f70"/>
+   </g>
+   <g id="patch_58">
+    <path d="M 499.356 446.723113 
+L 502.0344 446.723113 
+L 502.0344 444.061993 
+L 499.356 444.061993 
+z
+" clip-path="url(#pcbe3b7c3a2)" style="fill: #176f70"/>
+   </g>
+   <g id="patch_59">
+    <path d="M 502.704 446.723113 
+L 505.3824 446.723113 
+L 505.3824 444.061993 
+L 502.704 444.061993 
+z
+" clip-path="url(#pcbe3b7c3a2)" style="fill: #176f70"/>
+   </g>
+   <g id="patch_60">
+    <path d="M 506.052 446.723113 
+L 508.7304 446.723113 
+L 508.7304 444.061993 
+L 506.052 444.061993 
+z
+" clip-path="url(#pcbe3b7c3a2)" style="fill: #176f70"/>
+   </g>
+   <g id="patch_61">
+    <path d="M 509.4 446.723113 
+L 512.0784 446.723113 
+L 512.0784 444.061993 
+L 509.4 444.061993 
+z
+" clip-path="url(#pcbe3b7c3a2)" style="fill: #176f70"/>
+   </g>
+   <g id="patch_62">
+    <path d="M 512.748 446.723113 
+L 515.4264 446.723113 
+L 515.4264 444.061993 
+L 512.748 444.061993 
+z
+" clip-path="url(#pcbe3b7c3a2)" style="fill: #176f70"/>
+   </g>
+   <g id="patch_63">
+    <path d="M 516.096 446.723113 
+L 518.7744 446.723113 
+L 518.7744 444.061993 
+L 516.096 444.061993 
+z
+" clip-path="url(#pcbe3b7c3a2)" style="fill: #176f70"/>
+   </g>
+   <g id="patch_64">
+    <path d="M 465.876 443.396713 
+L 468.5544 443.396713 
+L 468.5544 440.735593 
+L 465.876 440.735593 
+z
+" clip-path="url(#pcbe3b7c3a2)" style="fill: #176f70"/>
+   </g>
+   <g id="patch_65">
+    <path d="M 469.224 443.396713 
+L 471.9024 443.396713 
+L 471.9024 440.735593 
+L 469.224 440.735593 
+z
+" clip-path="url(#pcbe3b7c3a2)" style="fill: #176f70"/>
+   </g>
+   <g id="patch_66">
+    <path d="M 472.572 443.396713 
+L 475.2504 443.396713 
+L 475.2504 440.735593 
+L 472.572 440.735593 
+z
+" clip-path="url(#pcbe3b7c3a2)" style="fill: #176f70"/>
+   </g>
+   <g id="patch_67">
+    <path d="M 475.92 443.396713 
+L 478.5984 443.396713 
+L 478.5984 440.735593 
+L 475.92 440.735593 
+z
+" clip-path="url(#pcbe3b7c3a2)" style="fill: #176f70"/>
+   </g>
+   <g id="patch_68">
+    <path d="M 479.268 443.396713 
+L 481.9464 443.396713 
+L 481.9464 440.735593 
+L 479.268 440.735593 
+z
+" clip-path="url(#pcbe3b7c3a2)" style="fill: #176f70"/>
+   </g>
+   <g id="patch_69">
+    <path d="M 482.616 443.396713 
+L 485.2944 443.396713 
+L 485.2944 440.735593 
+L 482.616 440.735593 
+z
+" clip-path="url(#pcbe3b7c3a2)" style="fill: #176f70"/>
+   </g>
+   <g id="patch_70">
+    <path d="M 485.964 443.396713 
+L 488.6424 443.396713 
+L 488.6424 440.735593 
+L 485.964 440.735593 
+z
+" clip-path="url(#pcbe3b7c3a2)" style="fill: #176f70"/>
+   </g>
+   <g id="patch_71">
+    <path d="M 489.312 443.396713 
+L 491.9904 443.396713 
+L 491.9904 440.735593 
+L 489.312 440.735593 
+z
+" clip-path="url(#pcbe3b7c3a2)" style="fill: #176f70"/>
+   </g>
+   <g id="patch_72">
+    <path d="M 492.66 443.396713 
+L 495.3384 443.396713 
+L 495.3384 440.735593 
+L 492.66 440.735593 
+z
+" clip-path="url(#pcbe3b7c3a2)" style="fill: #176f70"/>
+   </g>
+   <g id="patch_73">
+    <path d="M 496.008 443.396713 
+L 498.6864 443.396713 
+L 498.6864 440.735593 
+L 496.008 440.735593 
+z
+" clip-path="url(#pcbe3b7c3a2)" style="fill: #176f70"/>
+   </g>
+   <g id="patch_74">
+    <path d="M 499.356 443.396713 
+L 502.0344 443.396713 
+L 502.0344 440.735593 
+L 499.356 440.735593 
+z
+" clip-path="url(#pcbe3b7c3a2)" style="fill: #176f70"/>
+   </g>
+   <g id="patch_75">
+    <path d="M 502.704 443.396713 
+L 505.3824 443.396713 
+L 505.3824 440.735593 
+L 502.704 440.735593 
+z
+" clip-path="url(#pcbe3b7c3a2)" style="fill: #176f70"/>
+   </g>
+   <g id="patch_76">
+    <path d="M 506.052 443.396713 
+L 508.7304 443.396713 
+L 508.7304 440.735593 
+L 506.052 440.735593 
+z
+" clip-path="url(#pcbe3b7c3a2)" style="fill: #176f70"/>
+   </g>
+   <g id="patch_77">
+    <path d="M 509.4 443.396713 
+L 512.0784 443.396713 
+L 512.0784 440.735593 
+L 509.4 440.735593 
+z
+" clip-path="url(#pcbe3b7c3a2)" style="fill: #176f70"/>
+   </g>
+   <g id="patch_78">
+    <path d="M 512.748 443.396713 
+L 515.4264 443.396713 
+L 515.4264 440.735593 
+L 512.748 440.735593 
+z
+" clip-path="url(#pcbe3b7c3a2)" style="fill: #176f70"/>
+   </g>
+   <g id="patch_79">
+    <path d="M 516.096 443.396713 
+L 518.7744 443.396713 
+L 518.7744 440.735593 
+L 516.096 440.735593 
+z
+" clip-path="url(#pcbe3b7c3a2)" style="fill: #176f70"/>
+   </g>
+   <g id="patch_80">
+    <path d="M 465.876 440.070312 
+L 468.5544 440.070312 
+L 468.5544 437.409193 
+L 465.876 437.409193 
+z
+" clip-path="url(#pcbe3b7c3a2)" style="fill: #176f70"/>
+   </g>
+   <g id="patch_81">
+    <path d="M 469.224 440.070312 
+L 471.9024 440.070312 
+L 471.9024 437.409193 
+L 469.224 437.409193 
+z
+" clip-path="url(#pcbe3b7c3a2)" style="fill: #176f70"/>
+   </g>
+   <g id="patch_82">
+    <path d="M 472.572 440.070312 
+L 475.2504 440.070312 
+L 475.2504 437.409193 
+L 472.572 437.409193 
+z
+" clip-path="url(#pcbe3b7c3a2)" style="fill: #176f70"/>
+   </g>
+   <g id="patch_83">
+    <path d="M 475.92 440.070312 
+L 478.5984 440.070312 
+L 478.5984 437.409193 
+L 475.92 437.409193 
+z
+" clip-path="url(#pcbe3b7c3a2)" style="fill: #176f70"/>
+   </g>
+   <g id="patch_84">
+    <path d="M 479.268 440.070312 
+L 481.9464 440.070312 
+L 481.9464 437.409193 
+L 479.268 437.409193 
+z
+" clip-path="url(#pcbe3b7c3a2)" style="fill: #176f70"/>
+   </g>
+   <g id="patch_85">
+    <path d="M 482.616 440.070312 
+L 485.2944 440.070312 
+L 485.2944 437.409193 
+L 482.616 437.409193 
+z
+" clip-path="url(#pcbe3b7c3a2)" style="fill: #176f70"/>
+   </g>
+   <g id="patch_86">
+    <path d="M 485.964 440.070312 
+L 488.6424 440.070312 
+L 488.6424 437.409193 
+L 485.964 437.409193 
+z
+" clip-path="url(#pcbe3b7c3a2)" style="fill: #176f70"/>
+   </g>
+   <g id="patch_87">
+    <path d="M 489.312 440.070312 
+L 491.9904 440.070312 
+L 491.9904 437.409193 
+L 489.312 437.409193 
+z
+" clip-path="url(#pcbe3b7c3a2)" style="fill: #176f70"/>
+   </g>
+   <g id="patch_88">
+    <path d="M 492.66 440.070312 
+L 495.3384 440.070312 
+L 495.3384 437.409193 
+L 492.66 437.409193 
+z
+" clip-path="url(#pcbe3b7c3a2)" style="fill: #176f70"/>
+   </g>
+   <g id="patch_89">
+    <path d="M 496.008 440.070312 
+L 498.6864 440.070312 
+L 498.6864 437.409193 
+L 496.008 437.409193 
+z
+" clip-path="url(#pcbe3b7c3a2)" style="fill: #176f70"/>
+   </g>
+   <g id="patch_90">
+    <path d="M 499.356 440.070312 
+L 502.0344 440.070312 
+L 502.0344 437.409193 
+L 499.356 437.409193 
+z
+" clip-path="url(#pcbe3b7c3a2)" style="fill: #176f70"/>
+   </g>
+   <g id="patch_91">
+    <path d="M 502.704 440.070312 
+L 505.3824 440.070312 
+L 505.3824 437.409193 
+L 502.704 437.409193 
+z
+" clip-path="url(#pcbe3b7c3a2)" style="fill: #176f70"/>
+   </g>
+   <g id="patch_92">
+    <path d="M 506.052 440.070312 
+L 508.7304 440.070312 
+L 508.7304 437.409193 
+L 506.052 437.409193 
+z
+" clip-path="url(#pcbe3b7c3a2)" style="fill: #176f70"/>
+   </g>
+   <g id="patch_93">
+    <path d="M 509.4 440.070312 
+L 512.0784 440.070312 
+L 512.0784 437.409193 
+L 509.4 437.409193 
+z
+" clip-path="url(#pcbe3b7c3a2)" style="fill: #176f70"/>
+   </g>
+   <g id="patch_94">
+    <path d="M 512.748 440.070312 
+L 515.4264 440.070312 
+L 515.4264 437.409193 
+L 512.748 437.409193 
+z
+" clip-path="url(#pcbe3b7c3a2)" style="fill: #176f70"/>
+   </g>
+   <g id="patch_95">
+    <path d="M 516.096 440.070312 
+L 518.7744 440.070312 
+L 518.7744 437.409193 
+L 516.096 437.409193 
+z
+" clip-path="url(#pcbe3b7c3a2)" style="fill: #176f70"/>
+   </g>
+   <g id="patch_96">
+    <path d="M 465.876 436.743913 
+L 468.5544 436.743913 
+L 468.5544 434.082793 
+L 465.876 434.082793 
+z
+" clip-path="url(#pcbe3b7c3a2)" style="fill: #176f70"/>
+   </g>
+   <g id="patch_97">
+    <path d="M 469.224 436.743913 
+L 471.9024 436.743913 
+L 471.9024 434.082793 
+L 469.224 434.082793 
+z
+" clip-path="url(#pcbe3b7c3a2)" style="fill: #176f70"/>
+   </g>
+   <g id="patch_98">
+    <path d="M 472.572 436.743913 
+L 475.2504 436.743913 
+L 475.2504 434.082793 
+L 472.572 434.082793 
+z
+" clip-path="url(#pcbe3b7c3a2)" style="fill: #176f70"/>
+   </g>
+   <g id="patch_99">
+    <path d="M 475.92 436.743913 
+L 478.5984 436.743913 
+L 478.5984 434.082793 
+L 475.92 434.082793 
+z
+" clip-path="url(#pcbe3b7c3a2)" style="fill: #176f70"/>
+   </g>
+   <g id="patch_100">
+    <path d="M 479.268 436.743913 
+L 481.9464 436.743913 
+L 481.9464 434.082793 
+L 479.268 434.082793 
+z
+" clip-path="url(#pcbe3b7c3a2)" style="fill: #176f70"/>
+   </g>
+   <g id="patch_101">
+    <path d="M 482.616 436.743913 
+L 485.2944 436.743913 
+L 485.2944 434.082793 
+L 482.616 434.082793 
+z
+" clip-path="url(#pcbe3b7c3a2)" style="fill: #176f70"/>
+   </g>
+   <g id="patch_102">
+    <path d="M 485.964 436.743913 
+L 488.6424 436.743913 
+L 488.6424 434.082793 
+L 485.964 434.082793 
+z
+" clip-path="url(#pcbe3b7c3a2)" style="fill: #176f70"/>
+   </g>
+   <g id="patch_103">
+    <path d="M 489.312 436.743913 
+L 491.9904 436.743913 
+L 491.9904 434.082793 
+L 489.312 434.082793 
+z
+" clip-path="url(#pcbe3b7c3a2)" style="fill: #176f70"/>
+   </g>
+   <g id="patch_104">
+    <path d="M 492.66 436.743913 
+L 495.3384 436.743913 
+L 495.3384 434.082793 
+L 492.66 434.082793 
+z
+" clip-path="url(#pcbe3b7c3a2)" style="fill: #176f70"/>
+   </g>
+   <g id="patch_105">
+    <path d="M 496.008 436.743913 
+L 498.6864 436.743913 
+L 498.6864 434.082793 
+L 496.008 434.082793 
+z
+" clip-path="url(#pcbe3b7c3a2)" style="fill: #176f70"/>
+   </g>
+   <g id="patch_106">
+    <path d="M 499.356 436.743913 
+L 502.0344 436.743913 
+L 502.0344 434.082793 
+L 499.356 434.082793 
+z
+" clip-path="url(#pcbe3b7c3a2)" style="fill: #176f70"/>
+   </g>
+   <g id="patch_107">
+    <path d="M 502.704 436.743913 
+L 505.3824 436.743913 
+L 505.3824 434.082793 
+L 502.704 434.082793 
+z
+" clip-path="url(#pcbe3b7c3a2)" style="fill: #176f70"/>
+   </g>
+   <g id="patch_108">
+    <path d="M 506.052 436.743913 
+L 508.7304 436.743913 
+L 508.7304 434.082793 
+L 506.052 434.082793 
+z
+" clip-path="url(#pcbe3b7c3a2)" style="fill: #176f70"/>
+   </g>
+   <g id="patch_109">
+    <path d="M 509.4 436.743913 
+L 512.0784 436.743913 
+L 512.0784 434.082793 
+L 509.4 434.082793 
+z
+" clip-path="url(#pcbe3b7c3a2)" style="fill: #176f70"/>
+   </g>
+   <g id="patch_110">
+    <path d="M 512.748 436.743913 
+L 515.4264 436.743913 
+L 515.4264 434.082793 
+L 512.748 434.082793 
+z
+" clip-path="url(#pcbe3b7c3a2)" style="fill: #176f70"/>
+   </g>
+   <g id="patch_111">
+    <path d="M 516.096 436.743913 
+L 518.7744 436.743913 
+L 518.7744 434.082793 
+L 516.096 434.082793 
+z
+" clip-path="url(#pcbe3b7c3a2)" style="fill: #176f70"/>
+   </g>
+   <g id="patch_112">
+    <path d="M 465.876 433.417513 
+L 468.5544 433.417513 
+L 468.5544 430.756393 
+L 465.876 430.756393 
+z
+" clip-path="url(#pcbe3b7c3a2)" style="fill: #176f70"/>
+   </g>
+   <g id="patch_113">
+    <path d="M 469.224 433.417513 
+L 471.9024 433.417513 
+L 471.9024 430.756393 
+L 469.224 430.756393 
+z
+" clip-path="url(#pcbe3b7c3a2)" style="fill: #176f70"/>
+   </g>
+   <g id="patch_114">
+    <path d="M 472.572 433.417513 
+L 475.2504 433.417513 
+L 475.2504 430.756393 
+L 472.572 430.756393 
+z
+" clip-path="url(#pcbe3b7c3a2)" style="fill: #176f70"/>
+   </g>
+   <g id="patch_115">
+    <path d="M 475.92 433.417513 
+L 478.5984 433.417513 
+L 478.5984 430.756393 
+L 475.92 430.756393 
+z
+" clip-path="url(#pcbe3b7c3a2)" style="fill: #176f70"/>
+   </g>
+   <g id="patch_116">
+    <path d="M 479.268 433.417513 
+L 481.9464 433.417513 
+L 481.9464 430.756393 
+L 479.268 430.756393 
+z
+" clip-path="url(#pcbe3b7c3a2)" style="fill: #176f70"/>
+   </g>
+   <g id="patch_117">
+    <path d="M 482.616 433.417513 
+L 485.2944 433.417513 
+L 485.2944 430.756393 
+L 482.616 430.756393 
+z
+" clip-path="url(#pcbe3b7c3a2)" style="fill: #176f70"/>
+   </g>
+   <g id="patch_118">
+    <path d="M 485.964 433.417513 
+L 488.6424 433.417513 
+L 488.6424 430.756393 
+L 485.964 430.756393 
+z
+" clip-path="url(#pcbe3b7c3a2)" style="fill: #176f70"/>
+   </g>
+   <g id="patch_119">
+    <path d="M 489.312 433.417513 
+L 491.9904 433.417513 
+L 491.9904 430.756393 
+L 489.312 430.756393 
+z
+" clip-path="url(#pcbe3b7c3a2)" style="fill: #176f70"/>
+   </g>
+   <g id="patch_120">
+    <path d="M 492.66 433.417513 
+L 495.3384 433.417513 
+L 495.3384 430.756393 
+L 492.66 430.756393 
+z
+" clip-path="url(#pcbe3b7c3a2)" style="fill: #176f70"/>
+   </g>
+   <g id="patch_121">
+    <path d="M 496.008 433.417513 
+L 498.6864 433.417513 
+L 498.6864 430.756393 
+L 496.008 430.756393 
+z
+" clip-path="url(#pcbe3b7c3a2)" style="fill: #176f70"/>
+   </g>
+   <g id="patch_122">
+    <path d="M 499.356 433.417513 
+L 502.0344 433.417513 
+L 502.0344 430.756393 
+L 499.356 430.756393 
+z
+" clip-path="url(#pcbe3b7c3a2)" style="fill: #176f70"/>
+   </g>
+   <g id="patch_123">
+    <path d="M 502.704 433.417513 
+L 505.3824 433.417513 
+L 505.3824 430.756393 
+L 502.704 430.756393 
+z
+" clip-path="url(#pcbe3b7c3a2)" style="fill: #176f70"/>
+   </g>
+   <g id="patch_124">
+    <path d="M 506.052 433.417513 
+L 508.7304 433.417513 
+L 508.7304 430.756393 
+L 506.052 430.756393 
+z
+" clip-path="url(#pcbe3b7c3a2)" style="fill: #176f70"/>
+   </g>
+   <g id="patch_125">
+    <path d="M 509.4 433.417513 
+L 512.0784 433.417513 
+L 512.0784 430.756393 
+L 509.4 430.756393 
+z
+" clip-path="url(#pcbe3b7c3a2)" style="fill: #176f70"/>
+   </g>
+   <g id="patch_126">
+    <path d="M 512.748 433.417513 
+L 515.4264 433.417513 
+L 515.4264 430.756393 
+L 512.748 430.756393 
+z
+" clip-path="url(#pcbe3b7c3a2)" style="fill: #176f70"/>
+   </g>
+   <g id="patch_127">
+    <path d="M 516.096 433.417513 
+L 518.7744 433.417513 
+L 518.7744 430.756393 
+L 516.096 430.756393 
+z
+" clip-path="url(#pcbe3b7c3a2)" style="fill: #176f70"/>
+   </g>
+   <g id="patch_128">
+    <path d="M 465.876 430.091113 
+L 468.5544 430.091113 
+L 468.5544 427.429993 
+L 465.876 427.429993 
+z
+" clip-path="url(#pcbe3b7c3a2)" style="fill: #176f70"/>
+   </g>
+   <g id="patch_129">
+    <path d="M 469.224 430.091113 
+L 471.9024 430.091113 
+L 471.9024 427.429993 
+L 469.224 427.429993 
+z
+" clip-path="url(#pcbe3b7c3a2)" style="fill: #176f70"/>
+   </g>
+   <g id="patch_130">
+    <path d="M 472.572 430.091113 
+L 475.2504 430.091113 
+L 475.2504 427.429993 
+L 472.572 427.429993 
+z
+" clip-path="url(#pcbe3b7c3a2)" style="fill: #176f70"/>
+   </g>
+   <g id="patch_131">
+    <path d="M 475.92 430.091113 
+L 478.5984 430.091113 
+L 478.5984 427.429993 
+L 475.92 427.429993 
+z
+" clip-path="url(#pcbe3b7c3a2)" style="fill: #176f70"/>
+   </g>
+   <g id="patch_132">
+    <path d="M 479.268 430.091113 
+L 481.9464 430.091113 
+L 481.9464 427.429993 
+L 479.268 427.429993 
+z
+" clip-path="url(#pcbe3b7c3a2)" style="fill: #176f70"/>
+   </g>
+   <g id="patch_133">
+    <path d="M 482.616 430.091113 
+L 485.2944 430.091113 
+L 485.2944 427.429993 
+L 482.616 427.429993 
+z
+" clip-path="url(#pcbe3b7c3a2)" style="fill: #176f70"/>
+   </g>
+   <g id="patch_134">
+    <path d="M 485.964 430.091113 
+L 488.6424 430.091113 
+L 488.6424 427.429993 
+L 485.964 427.429993 
+z
+" clip-path="url(#pcbe3b7c3a2)" style="fill: #176f70"/>
+   </g>
+   <g id="patch_135">
+    <path d="M 489.312 430.091113 
+L 491.9904 430.091113 
+L 491.9904 427.429993 
+L 489.312 427.429993 
+z
+" clip-path="url(#pcbe3b7c3a2)" style="fill: #176f70"/>
+   </g>
+   <g id="patch_136">
+    <path d="M 492.66 430.091113 
+L 495.3384 430.091113 
+L 495.3384 427.429993 
+L 492.66 427.429993 
+z
+" clip-path="url(#pcbe3b7c3a2)" style="fill: #176f70"/>
+   </g>
+   <g id="patch_137">
+    <path d="M 496.008 430.091113 
+L 498.6864 430.091113 
+L 498.6864 427.429993 
+L 496.008 427.429993 
+z
+" clip-path="url(#pcbe3b7c3a2)" style="fill: #176f70"/>
+   </g>
+   <g id="patch_138">
+    <path d="M 499.356 430.091113 
+L 502.0344 430.091113 
+L 502.0344 427.429993 
+L 499.356 427.429993 
+z
+" clip-path="url(#pcbe3b7c3a2)" style="fill: #176f70"/>
+   </g>
+   <g id="patch_139">
+    <path d="M 502.704 430.091113 
+L 505.3824 430.091113 
+L 505.3824 427.429993 
+L 502.704 427.429993 
+z
+" clip-path="url(#pcbe3b7c3a2)" style="fill: #176f70"/>
+   </g>
+   <g id="patch_140">
+    <path d="M 506.052 430.091113 
+L 508.7304 430.091113 
+L 508.7304 427.429993 
+L 506.052 427.429993 
+z
+" clip-path="url(#pcbe3b7c3a2)" style="fill: #176f70"/>
+   </g>
+   <g id="patch_141">
+    <path d="M 509.4 430.091113 
+L 512.0784 430.091113 
+L 512.0784 427.429993 
+L 509.4 427.429993 
+z
+" clip-path="url(#pcbe3b7c3a2)" style="fill: #176f70"/>
+   </g>
+   <g id="patch_142">
+    <path d="M 512.748 430.091113 
+L 515.4264 430.091113 
+L 515.4264 427.429993 
+L 512.748 427.429993 
+z
+" clip-path="url(#pcbe3b7c3a2)" style="fill: #176f70"/>
+   </g>
+   <g id="patch_143">
+    <path d="M 516.096 430.091113 
+L 518.7744 430.091113 
+L 518.7744 427.429993 
+L 516.096 427.429993 
+z
+" clip-path="url(#pcbe3b7c3a2)" style="fill: #176f70"/>
+   </g>
+   <g id="patch_144">
+    <path d="M 465.876 426.764713 
+L 468.5544 426.764713 
+L 468.5544 424.103593 
+L 465.876 424.103593 
+z
+" clip-path="url(#pcbe3b7c3a2)" style="fill: #176f70"/>
+   </g>
+   <g id="patch_145">
+    <path d="M 469.224 426.764713 
+L 471.9024 426.764713 
+L 471.9024 424.103593 
+L 469.224 424.103593 
+z
+" clip-path="url(#pcbe3b7c3a2)" style="fill: #176f70"/>
+   </g>
+   <g id="patch_146">
+    <path d="M 472.572 426.764713 
+L 475.2504 426.764713 
+L 475.2504 424.103593 
+L 472.572 424.103593 
+z
+" clip-path="url(#pcbe3b7c3a2)" style="fill: #176f70"/>
+   </g>
+   <g id="patch_147">
+    <path d="M 475.92 426.764713 
+L 478.5984 426.764713 
+L 478.5984 424.103593 
+L 475.92 424.103593 
+z
+" clip-path="url(#pcbe3b7c3a2)" style="fill: #176f70"/>
+   </g>
+   <g id="patch_148">
+    <path d="M 479.268 426.764713 
+L 481.9464 426.764713 
+L 481.9464 424.103593 
+L 479.268 424.103593 
+z
+" clip-path="url(#pcbe3b7c3a2)" style="fill: #176f70"/>
+   </g>
+   <g id="patch_149">
+    <path d="M 482.616 426.764713 
+L 485.2944 426.764713 
+L 485.2944 424.103593 
+L 482.616 424.103593 
+z
+" clip-path="url(#pcbe3b7c3a2)" style="fill: #176f70"/>
+   </g>
+   <g id="patch_150">
+    <path d="M 485.964 426.764713 
+L 488.6424 426.764713 
+L 488.6424 424.103593 
+L 485.964 424.103593 
+z
+" clip-path="url(#pcbe3b7c3a2)" style="fill: #176f70"/>
+   </g>
+   <g id="patch_151">
+    <path d="M 489.312 426.764713 
+L 491.9904 426.764713 
+L 491.9904 424.103593 
+L 489.312 424.103593 
+z
+" clip-path="url(#pcbe3b7c3a2)" style="fill: #176f70"/>
+   </g>
+   <g id="patch_152">
+    <path d="M 492.66 426.764713 
+L 495.3384 426.764713 
+L 495.3384 424.103593 
+L 492.66 424.103593 
+z
+" clip-path="url(#pcbe3b7c3a2)" style="fill: #176f70"/>
+   </g>
+   <g id="patch_153">
+    <path d="M 496.008 426.764713 
+L 498.6864 426.764713 
+L 498.6864 424.103593 
+L 496.008 424.103593 
+z
+" clip-path="url(#pcbe3b7c3a2)" style="fill: #176f70"/>
+   </g>
+   <g id="patch_154">
+    <path d="M 499.356 426.764713 
+L 502.0344 426.764713 
+L 502.0344 424.103593 
+L 499.356 424.103593 
+z
+" clip-path="url(#pcbe3b7c3a2)" style="fill: #176f70"/>
+   </g>
+   <g id="patch_155">
+    <path d="M 502.704 426.764713 
+L 505.3824 426.764713 
+L 505.3824 424.103593 
+L 502.704 424.103593 
+z
+" clip-path="url(#pcbe3b7c3a2)" style="fill: #176f70"/>
+   </g>
+   <g id="patch_156">
+    <path d="M 506.052 426.764713 
+L 508.7304 426.764713 
+L 508.7304 424.103593 
+L 506.052 424.103593 
+z
+" clip-path="url(#pcbe3b7c3a2)" style="fill: #176f70"/>
+   </g>
+   <g id="patch_157">
+    <path d="M 509.4 426.764713 
+L 512.0784 426.764713 
+L 512.0784 424.103593 
+L 509.4 424.103593 
+z
+" clip-path="url(#pcbe3b7c3a2)" style="fill: #176f70"/>
+   </g>
+   <g id="patch_158">
+    <path d="M 512.748 426.764713 
+L 515.4264 426.764713 
+L 515.4264 424.103593 
+L 512.748 424.103593 
+z
+" clip-path="url(#pcbe3b7c3a2)" style="fill: #176f70"/>
+   </g>
+   <g id="patch_159">
+    <path d="M 516.096 426.764713 
+L 518.7744 426.764713 
+L 518.7744 424.103593 
+L 516.096 424.103593 
+z
+" clip-path="url(#pcbe3b7c3a2)" style="fill: #176f70"/>
+   </g>
+   <g id="patch_160">
+    <path d="M 465.876 423.438312 
+L 468.5544 423.438312 
+L 468.5544 420.777193 
+L 465.876 420.777193 
+z
+" clip-path="url(#pcbe3b7c3a2)" style="fill: #176f70"/>
+   </g>
+   <g id="patch_161">
+    <path d="M 469.224 423.438312 
+L 471.9024 423.438312 
+L 471.9024 420.777193 
+L 469.224 420.777193 
+z
+" clip-path="url(#pcbe3b7c3a2)" style="fill: #176f70"/>
+   </g>
+   <g id="patch_162">
+    <path d="M 472.572 423.438312 
+L 475.2504 423.438312 
+L 475.2504 420.777193 
+L 472.572 420.777193 
+z
+" clip-path="url(#pcbe3b7c3a2)" style="fill: #176f70"/>
+   </g>
+   <g id="patch_163">
+    <path d="M 475.92 423.438312 
+L 478.5984 423.438312 
+L 478.5984 420.777193 
+L 475.92 420.777193 
+z
+" clip-path="url(#pcbe3b7c3a2)" style="fill: #176f70"/>
+   </g>
+   <g id="patch_164">
+    <path d="M 479.268 423.438312 
+L 481.9464 423.438312 
+L 481.9464 420.777193 
+L 479.268 420.777193 
+z
+" clip-path="url(#pcbe3b7c3a2)" style="fill: #176f70"/>
+   </g>
+   <g id="patch_165">
+    <path d="M 482.616 423.438312 
+L 485.2944 423.438312 
+L 485.2944 420.777193 
+L 482.616 420.777193 
+z
+" clip-path="url(#pcbe3b7c3a2)" style="fill: #176f70"/>
+   </g>
+   <g id="patch_166">
+    <path d="M 485.964 423.438312 
+L 488.6424 423.438312 
+L 488.6424 420.777193 
+L 485.964 420.777193 
+z
+" clip-path="url(#pcbe3b7c3a2)" style="fill: #176f70"/>
+   </g>
+   <g id="patch_167">
+    <path d="M 489.312 423.438312 
+L 491.9904 423.438312 
+L 491.9904 420.777193 
+L 489.312 420.777193 
+z
+" clip-path="url(#pcbe3b7c3a2)" style="fill: #176f70"/>
+   </g>
+   <g id="patch_168">
+    <path d="M 492.66 423.438312 
+L 495.3384 423.438312 
+L 495.3384 420.777193 
+L 492.66 420.777193 
+z
+" clip-path="url(#pcbe3b7c3a2)" style="fill: #176f70"/>
+   </g>
+   <g id="patch_169">
+    <path d="M 496.008 423.438312 
+L 498.6864 423.438312 
+L 498.6864 420.777193 
+L 496.008 420.777193 
+z
+" clip-path="url(#pcbe3b7c3a2)" style="fill: #176f70"/>
+   </g>
+   <g id="patch_170">
+    <path d="M 499.356 423.438312 
+L 502.0344 423.438312 
+L 502.0344 420.777193 
+L 499.356 420.777193 
+z
+" clip-path="url(#pcbe3b7c3a2)" style="fill: #176f70"/>
+   </g>
+   <g id="patch_171">
+    <path d="M 502.704 423.438312 
+L 505.3824 423.438312 
+L 505.3824 420.777193 
+L 502.704 420.777193 
+z
+" clip-path="url(#pcbe3b7c3a2)" style="fill: #176f70"/>
+   </g>
+   <g id="patch_172">
+    <path d="M 506.052 423.438312 
+L 508.7304 423.438312 
+L 508.7304 420.777193 
+L 506.052 420.777193 
+z
+" clip-path="url(#pcbe3b7c3a2)" style="fill: #176f70"/>
+   </g>
+   <g id="patch_173">
+    <path d="M 509.4 423.438312 
+L 512.0784 423.438312 
+L 512.0784 420.777193 
+L 509.4 420.777193 
+z
+" clip-path="url(#pcbe3b7c3a2)" style="fill: #176f70"/>
+   </g>
+   <g id="patch_174">
+    <path d="M 512.748 423.438312 
+L 515.4264 423.438312 
+L 515.4264 420.777193 
+L 512.748 420.777193 
+z
+" clip-path="url(#pcbe3b7c3a2)" style="fill: #176f70"/>
+   </g>
+   <g id="patch_175">
+    <path d="M 516.096 423.438312 
+L 518.7744 423.438312 
+L 518.7744 420.777193 
+L 516.096 420.777193 
+z
+" clip-path="url(#pcbe3b7c3a2)" style="fill: #176f70"/>
+   </g>
+   <g id="patch_176">
+    <path d="M 465.876 420.111913 
+L 468.5544 420.111913 
+L 468.5544 417.450793 
+L 465.876 417.450793 
+z
+" clip-path="url(#pcbe3b7c3a2)" style="fill: #176f70"/>
+   </g>
+   <g id="patch_177">
+    <path d="M 469.224 420.111913 
+L 471.9024 420.111913 
+L 471.9024 417.450793 
+L 469.224 417.450793 
+z
+" clip-path="url(#pcbe3b7c3a2)" style="fill: #176f70"/>
+   </g>
+   <g id="patch_178">
+    <path d="M 472.572 420.111913 
+L 475.2504 420.111913 
+L 475.2504 417.450793 
+L 472.572 417.450793 
+z
+" clip-path="url(#pcbe3b7c3a2)" style="fill: #176f70"/>
+   </g>
+   <g id="patch_179">
+    <path d="M 475.92 420.111913 
+L 478.5984 420.111913 
+L 478.5984 417.450793 
+L 475.92 417.450793 
+z
+" clip-path="url(#pcbe3b7c3a2)" style="fill: #176f70"/>
+   </g>
+   <g id="patch_180">
+    <path d="M 479.268 420.111913 
+L 481.9464 420.111913 
+L 481.9464 417.450793 
+L 479.268 417.450793 
+z
+" clip-path="url(#pcbe3b7c3a2)" style="fill: #176f70"/>
+   </g>
+   <g id="patch_181">
+    <path d="M 482.616 420.111913 
+L 485.2944 420.111913 
+L 485.2944 417.450793 
+L 482.616 417.450793 
+z
+" clip-path="url(#pcbe3b7c3a2)" style="fill: #176f70"/>
+   </g>
+   <g id="patch_182">
+    <path d="M 485.964 420.111913 
+L 488.6424 420.111913 
+L 488.6424 417.450793 
+L 485.964 417.450793 
+z
+" clip-path="url(#pcbe3b7c3a2)" style="fill: #176f70"/>
+   </g>
+   <g id="patch_183">
+    <path d="M 489.312 420.111913 
+L 491.9904 420.111913 
+L 491.9904 417.450793 
+L 489.312 417.450793 
+z
+" clip-path="url(#pcbe3b7c3a2)" style="fill: #176f70"/>
+   </g>
+   <g id="patch_184">
+    <path d="M 492.66 420.111913 
+L 495.3384 420.111913 
+L 495.3384 417.450793 
+L 492.66 417.450793 
+z
+" clip-path="url(#pcbe3b7c3a2)" style="fill: #176f70"/>
+   </g>
+   <g id="patch_185">
+    <path d="M 496.008 420.111913 
+L 498.6864 420.111913 
+L 498.6864 417.450793 
+L 496.008 417.450793 
+z
+" clip-path="url(#pcbe3b7c3a2)" style="fill: #176f70"/>
+   </g>
+   <g id="patch_186">
+    <path d="M 499.356 420.111913 
+L 502.0344 420.111913 
+L 502.0344 417.450793 
+L 499.356 417.450793 
+z
+" clip-path="url(#pcbe3b7c3a2)" style="fill: #176f70"/>
+   </g>
+   <g id="patch_187">
+    <path d="M 502.704 420.111913 
+L 505.3824 420.111913 
+L 505.3824 417.450793 
+L 502.704 417.450793 
+z
+" clip-path="url(#pcbe3b7c3a2)" style="fill: #176f70"/>
+   </g>
+   <g id="patch_188">
+    <path d="M 506.052 420.111913 
+L 508.7304 420.111913 
+L 508.7304 417.450793 
+L 506.052 417.450793 
+z
+" clip-path="url(#pcbe3b7c3a2)" style="fill: #176f70"/>
+   </g>
+   <g id="patch_189">
+    <path d="M 509.4 420.111913 
+L 512.0784 420.111913 
+L 512.0784 417.450793 
+L 509.4 417.450793 
+z
+" clip-path="url(#pcbe3b7c3a2)" style="fill: #176f70"/>
+   </g>
+   <g id="patch_190">
+    <path d="M 512.748 420.111913 
+L 515.4264 420.111913 
+L 515.4264 417.450793 
+L 512.748 417.450793 
+z
+" clip-path="url(#pcbe3b7c3a2)" style="fill: #176f70"/>
+   </g>
+   <g id="patch_191">
+    <path d="M 516.096 420.111913 
+L 518.7744 420.111913 
+L 518.7744 417.450793 
+L 516.096 417.450793 
+z
+" clip-path="url(#pcbe3b7c3a2)" style="fill: #176f70"/>
+   </g>
+   <g id="patch_192">
+    <path d="M 465.876 416.785512 
+L 468.5544 416.785512 
+L 468.5544 414.124392 
+L 465.876 414.124392 
+z
+" clip-path="url(#pcbe3b7c3a2)" style="fill: #176f70"/>
+   </g>
+   <g id="patch_193">
+    <path d="M 469.224 416.785512 
+L 471.9024 416.785512 
+L 471.9024 414.124392 
+L 469.224 414.124392 
+z
+" clip-path="url(#pcbe3b7c3a2)" style="fill: #176f70"/>
+   </g>
+   <g id="patch_194">
+    <path d="M 472.572 416.785512 
+L 475.2504 416.785512 
+L 475.2504 414.124392 
+L 472.572 414.124392 
+z
+" clip-path="url(#pcbe3b7c3a2)" style="fill: #176f70"/>
+   </g>
+   <g id="patch_195">
+    <path d="M 475.92 416.785512 
+L 478.5984 416.785512 
+L 478.5984 414.124392 
+L 475.92 414.124392 
+z
+" clip-path="url(#pcbe3b7c3a2)" style="fill: #176f70"/>
+   </g>
+   <g id="patch_196">
+    <path d="M 479.268 416.785512 
+L 481.9464 416.785512 
+L 481.9464 414.124392 
+L 479.268 414.124392 
+z
+" clip-path="url(#pcbe3b7c3a2)" style="fill: #176f70"/>
+   </g>
+   <g id="patch_197">
+    <path d="M 482.616 416.785512 
+L 485.2944 416.785512 
+L 485.2944 414.124392 
+L 482.616 414.124392 
+z
+" clip-path="url(#pcbe3b7c3a2)" style="fill: #176f70"/>
+   </g>
+   <g id="patch_198">
+    <path d="M 485.964 416.785512 
+L 488.6424 416.785512 
+L 488.6424 414.124392 
+L 485.964 414.124392 
+z
+" clip-path="url(#pcbe3b7c3a2)" style="fill: #176f70"/>
+   </g>
+   <g id="patch_199">
+    <path d="M 489.312 416.785512 
+L 491.9904 416.785512 
+L 491.9904 414.124392 
+L 489.312 414.124392 
+z
+" clip-path="url(#pcbe3b7c3a2)" style="fill: #176f70"/>
+   </g>
+   <g id="patch_200">
+    <path d="M 492.66 416.785512 
+L 495.3384 416.785512 
+L 495.3384 414.124392 
+L 492.66 414.124392 
+z
+" clip-path="url(#pcbe3b7c3a2)" style="fill: #176f70"/>
+   </g>
+   <g id="patch_201">
+    <path d="M 496.008 416.785512 
+L 498.6864 416.785512 
+L 498.6864 414.124392 
+L 496.008 414.124392 
+z
+" clip-path="url(#pcbe3b7c3a2)" style="fill: #176f70"/>
+   </g>
+   <g id="patch_202">
+    <path d="M 499.356 416.785512 
+L 502.0344 416.785512 
+L 502.0344 414.124392 
+L 499.356 414.124392 
+z
+" clip-path="url(#pcbe3b7c3a2)" style="fill: #176f70"/>
+   </g>
+   <g id="patch_203">
+    <path d="M 502.704 416.785512 
+L 505.3824 416.785512 
+L 505.3824 414.124392 
+L 502.704 414.124392 
+z
+" clip-path="url(#pcbe3b7c3a2)" style="fill: #176f70"/>
+   </g>
+   <g id="patch_204">
+    <path d="M 506.052 416.785512 
+L 508.7304 416.785512 
+L 508.7304 414.124392 
+L 506.052 414.124392 
+z
+" clip-path="url(#pcbe3b7c3a2)" style="fill: #176f70"/>
+   </g>
+   <g id="patch_205">
+    <path d="M 509.4 416.785512 
+L 512.0784 416.785512 
+L 512.0784 414.124392 
+L 509.4 414.124392 
+z
+" clip-path="url(#pcbe3b7c3a2)" style="fill: #176f70"/>
+   </g>
+   <g id="patch_206">
+    <path d="M 512.748 416.785512 
+L 515.4264 416.785512 
+L 515.4264 414.124392 
+L 512.748 414.124392 
+z
+" clip-path="url(#pcbe3b7c3a2)" style="fill: #176f70"/>
+   </g>
+   <g id="patch_207">
+    <path d="M 516.096 416.785512 
+L 518.7744 416.785512 
+L 518.7744 414.124392 
+L 516.096 414.124392 
+z
+" clip-path="url(#pcbe3b7c3a2)" style="fill: #176f70"/>
+   </g>
+   <g id="patch_208">
+    <path d="M 465.876 413.459113 
+L 468.5544 413.459113 
+L 468.5544 410.797993 
+L 465.876 410.797993 
+z
+" clip-path="url(#pcbe3b7c3a2)" style="fill: #176f70"/>
+   </g>
+   <g id="patch_209">
+    <path d="M 469.224 413.459113 
+L 471.9024 413.459113 
+L 471.9024 410.797993 
+L 469.224 410.797993 
+z
+" clip-path="url(#pcbe3b7c3a2)" style="fill: #176f70"/>
+   </g>
+   <g id="patch_210">
+    <path d="M 472.572 413.459113 
+L 475.2504 413.459113 
+L 475.2504 410.797993 
+L 472.572 410.797993 
+z
+" clip-path="url(#pcbe3b7c3a2)" style="fill: #176f70"/>
+   </g>
+   <g id="patch_211">
+    <path d="M 475.92 413.459113 
+L 478.5984 413.459113 
+L 478.5984 410.797993 
+L 475.92 410.797993 
+z
+" clip-path="url(#pcbe3b7c3a2)" style="fill: #176f70"/>
+   </g>
+   <g id="patch_212">
+    <path d="M 479.268 413.459113 
+L 481.9464 413.459113 
+L 481.9464 410.797993 
+L 479.268 410.797993 
+z
+" clip-path="url(#pcbe3b7c3a2)" style="fill: #176f70"/>
+   </g>
+   <g id="patch_213">
+    <path d="M 482.616 413.459113 
+L 485.2944 413.459113 
+L 485.2944 410.797993 
+L 482.616 410.797993 
+z
+" clip-path="url(#pcbe3b7c3a2)" style="fill: #176f70"/>
+   </g>
+   <g id="patch_214">
+    <path d="M 485.964 413.459113 
+L 488.6424 413.459113 
+L 488.6424 410.797993 
+L 485.964 410.797993 
+z
+" clip-path="url(#pcbe3b7c3a2)" style="fill: #176f70"/>
+   </g>
+   <g id="patch_215">
+    <path d="M 489.312 413.459113 
+L 491.9904 413.459113 
+L 491.9904 410.797993 
+L 489.312 410.797993 
+z
+" clip-path="url(#pcbe3b7c3a2)" style="fill: #176f70"/>
+   </g>
+   <g id="patch_216">
+    <path d="M 492.66 413.459113 
+L 495.3384 413.459113 
+L 495.3384 410.797993 
+L 492.66 410.797993 
+z
+" clip-path="url(#pcbe3b7c3a2)" style="fill: #176f70"/>
+   </g>
+   <g id="patch_217">
+    <path d="M 496.008 413.459113 
+L 498.6864 413.459113 
+L 498.6864 410.797993 
+L 496.008 410.797993 
+z
+" clip-path="url(#pcbe3b7c3a2)" style="fill: #176f70"/>
+   </g>
+   <g id="patch_218">
+    <path d="M 499.356 413.459113 
+L 502.0344 413.459113 
+L 502.0344 410.797993 
+L 499.356 410.797993 
+z
+" clip-path="url(#pcbe3b7c3a2)" style="fill: #176f70"/>
+   </g>
+   <g id="patch_219">
+    <path d="M 502.704 413.459113 
+L 505.3824 413.459113 
+L 505.3824 410.797993 
+L 502.704 410.797993 
+z
+" clip-path="url(#pcbe3b7c3a2)" style="fill: #176f70"/>
+   </g>
+   <g id="patch_220">
+    <path d="M 506.052 413.459113 
+L 508.7304 413.459113 
+L 508.7304 410.797993 
+L 506.052 410.797993 
+z
+" clip-path="url(#pcbe3b7c3a2)" style="fill: #176f70"/>
+   </g>
+   <g id="patch_221">
+    <path d="M 509.4 413.459113 
+L 512.0784 413.459113 
+L 512.0784 410.797993 
+L 509.4 410.797993 
+z
+" clip-path="url(#pcbe3b7c3a2)" style="fill: #176f70"/>
+   </g>
+   <g id="patch_222">
+    <path d="M 512.748 413.459113 
+L 515.4264 413.459113 
+L 515.4264 410.797993 
+L 512.748 410.797993 
+z
+" clip-path="url(#pcbe3b7c3a2)" style="fill: #176f70"/>
+   </g>
+   <g id="patch_223">
+    <path d="M 516.096 413.459113 
+L 518.7744 413.459113 
+L 518.7744 410.797993 
+L 516.096 410.797993 
+z
+" clip-path="url(#pcbe3b7c3a2)" style="fill: #176f70"/>
+   </g>
+   <g id="patch_224">
+    <path d="M 465.876 410.132713 
+L 468.5544 410.132713 
+L 468.5544 407.471593 
+L 465.876 407.471593 
+z
+" clip-path="url(#pcbe3b7c3a2)" style="fill: #176f70"/>
+   </g>
+   <g id="patch_225">
+    <path d="M 469.224 410.132713 
+L 471.9024 410.132713 
+L 471.9024 407.471593 
+L 469.224 407.471593 
+z
+" clip-path="url(#pcbe3b7c3a2)" style="fill: #176f70"/>
+   </g>
+   <g id="patch_226">
+    <path d="M 472.572 410.132713 
+L 475.2504 410.132713 
+L 475.2504 407.471593 
+L 472.572 407.471593 
+z
+" clip-path="url(#pcbe3b7c3a2)" style="fill: #176f70"/>
+   </g>
+   <g id="patch_227">
+    <path d="M 475.92 410.132713 
+L 478.5984 410.132713 
+L 478.5984 407.471593 
+L 475.92 407.471593 
+z
+" clip-path="url(#pcbe3b7c3a2)" style="fill: #176f70"/>
+   </g>
+   <g id="patch_228">
+    <path d="M 479.268 410.132713 
+L 481.9464 410.132713 
+L 481.9464 407.471593 
+L 479.268 407.471593 
+z
+" clip-path="url(#pcbe3b7c3a2)" style="fill: #176f70"/>
+   </g>
+   <g id="patch_229">
+    <path d="M 482.616 410.132713 
+L 485.2944 410.132713 
+L 485.2944 407.471593 
+L 482.616 407.471593 
+z
+" clip-path="url(#pcbe3b7c3a2)" style="fill: #176f70"/>
+   </g>
+   <g id="patch_230">
+    <path d="M 485.964 410.132713 
+L 488.6424 410.132713 
+L 488.6424 407.471593 
+L 485.964 407.471593 
+z
+" clip-path="url(#pcbe3b7c3a2)" style="fill: #176f70"/>
+   </g>
+   <g id="patch_231">
+    <path d="M 489.312 410.132713 
+L 491.9904 410.132713 
+L 491.9904 407.471593 
+L 489.312 407.471593 
+z
+" clip-path="url(#pcbe3b7c3a2)" style="fill: #176f70"/>
+   </g>
+   <g id="patch_232">
+    <path d="M 492.66 410.132713 
+L 495.3384 410.132713 
+L 495.3384 407.471593 
+L 492.66 407.471593 
+z
+" clip-path="url(#pcbe3b7c3a2)" style="fill: #176f70"/>
+   </g>
+   <g id="patch_233">
+    <path d="M 496.008 410.132713 
+L 498.6864 410.132713 
+L 498.6864 407.471593 
+L 496.008 407.471593 
+z
+" clip-path="url(#pcbe3b7c3a2)" style="fill: #176f70"/>
+   </g>
+   <g id="patch_234">
+    <path d="M 499.356 410.132713 
+L 502.0344 410.132713 
+L 502.0344 407.471593 
+L 499.356 407.471593 
+z
+" clip-path="url(#pcbe3b7c3a2)" style="fill: #176f70"/>
+   </g>
+   <g id="patch_235">
+    <path d="M 502.704 410.132713 
+L 505.3824 410.132713 
+L 505.3824 407.471593 
+L 502.704 407.471593 
+z
+" clip-path="url(#pcbe3b7c3a2)" style="fill: #176f70"/>
+   </g>
+   <g id="patch_236">
+    <path d="M 506.052 410.132713 
+L 508.7304 410.132713 
+L 508.7304 407.471593 
+L 506.052 407.471593 
+z
+" clip-path="url(#pcbe3b7c3a2)" style="fill: #176f70"/>
+   </g>
+   <g id="patch_237">
+    <path d="M 509.4 410.132713 
+L 512.0784 410.132713 
+L 512.0784 407.471593 
+L 509.4 407.471593 
+z
+" clip-path="url(#pcbe3b7c3a2)" style="fill: #176f70"/>
+   </g>
+   <g id="patch_238">
+    <path d="M 512.748 410.132713 
+L 515.4264 410.132713 
+L 515.4264 407.471593 
+L 512.748 407.471593 
+z
+" clip-path="url(#pcbe3b7c3a2)" style="fill: #176f70"/>
+   </g>
+   <g id="patch_239">
+    <path d="M 516.096 410.132713 
+L 518.7744 410.132713 
+L 518.7744 407.471593 
+L 516.096 407.471593 
+z
+" clip-path="url(#pcbe3b7c3a2)" style="fill: #176f70"/>
+   </g>
+   <g id="patch_240">
+    <path d="M 465.876 406.806313 
+L 468.5544 406.806313 
+L 468.5544 404.145193 
+L 465.876 404.145193 
+z
+" clip-path="url(#pcbe3b7c3a2)" style="fill: #176f70"/>
+   </g>
+   <g id="patch_241">
+    <path d="M 469.224 406.806313 
+L 471.9024 406.806313 
+L 471.9024 404.145193 
+L 469.224 404.145193 
+z
+" clip-path="url(#pcbe3b7c3a2)" style="fill: #176f70"/>
+   </g>
+   <g id="patch_242">
+    <path d="M 472.572 406.806313 
+L 475.2504 406.806313 
+L 475.2504 404.145193 
+L 472.572 404.145193 
+z
+" clip-path="url(#pcbe3b7c3a2)" style="fill: #176f70"/>
+   </g>
+   <g id="patch_243">
+    <path d="M 475.92 406.806313 
+L 478.5984 406.806313 
+L 478.5984 404.145193 
+L 475.92 404.145193 
+z
+" clip-path="url(#pcbe3b7c3a2)" style="fill: #176f70"/>
+   </g>
+   <g id="patch_244">
+    <path d="M 479.268 406.806313 
+L 481.9464 406.806313 
+L 481.9464 404.145193 
+L 479.268 404.145193 
+z
+" clip-path="url(#pcbe3b7c3a2)" style="fill: #176f70"/>
+   </g>
+   <g id="patch_245">
+    <path d="M 482.616 406.806313 
+L 485.2944 406.806313 
+L 485.2944 404.145193 
+L 482.616 404.145193 
+z
+" clip-path="url(#pcbe3b7c3a2)" style="fill: #176f70"/>
+   </g>
+   <g id="patch_246">
+    <path d="M 485.964 406.806313 
+L 488.6424 406.806313 
+L 488.6424 404.145193 
+L 485.964 404.145193 
+z
+" clip-path="url(#pcbe3b7c3a2)" style="fill: #176f70"/>
+   </g>
+   <g id="patch_247">
+    <path d="M 489.312 406.806313 
+L 491.9904 406.806313 
+L 491.9904 404.145193 
+L 489.312 404.145193 
+z
+" clip-path="url(#pcbe3b7c3a2)" style="fill: #176f70"/>
+   </g>
+   <g id="patch_248">
+    <path d="M 492.66 406.806313 
+L 495.3384 406.806313 
+L 495.3384 404.145193 
+L 492.66 404.145193 
+z
+" clip-path="url(#pcbe3b7c3a2)" style="fill: #176f70"/>
+   </g>
+   <g id="patch_249">
+    <path d="M 496.008 406.806313 
+L 498.6864 406.806313 
+L 498.6864 404.145193 
+L 496.008 404.145193 
+z
+" clip-path="url(#pcbe3b7c3a2)" style="fill: #176f70"/>
+   </g>
+   <g id="patch_250">
+    <path d="M 499.356 406.806313 
+L 502.0344 406.806313 
+L 502.0344 404.145193 
+L 499.356 404.145193 
+z
+" clip-path="url(#pcbe3b7c3a2)" style="fill: #176f70"/>
+   </g>
+   <g id="patch_251">
+    <path d="M 502.704 406.806313 
+L 505.3824 406.806313 
+L 505.3824 404.145193 
+L 502.704 404.145193 
+z
+" clip-path="url(#pcbe3b7c3a2)" style="fill: #176f70"/>
+   </g>
+   <g id="patch_252">
+    <path d="M 506.052 406.806313 
+L 508.7304 406.806313 
+L 508.7304 404.145193 
+L 506.052 404.145193 
+z
+" clip-path="url(#pcbe3b7c3a2)" style="fill: #176f70"/>
+   </g>
+   <g id="patch_253">
+    <path d="M 509.4 406.806313 
+L 512.0784 406.806313 
+L 512.0784 404.145193 
+L 509.4 404.145193 
+z
+" clip-path="url(#pcbe3b7c3a2)" style="fill: #176f70"/>
+   </g>
+   <g id="patch_254">
+    <path d="M 512.748 406.806313 
+L 515.4264 406.806313 
+L 515.4264 404.145193 
+L 512.748 404.145193 
+z
+" clip-path="url(#pcbe3b7c3a2)" style="fill: #176f70"/>
+   </g>
+   <g id="patch_255">
+    <path d="M 516.096 406.806313 
+L 518.7744 406.806313 
+L 518.7744 404.145193 
+L 516.096 404.145193 
+z
+" clip-path="url(#pcbe3b7c3a2)" style="fill: #176f70"/>
+   </g>
+   <g id="patch_256">
+    <path d="M 465.876 403.479913 
+L 468.5544 403.479913 
+L 468.5544 400.818793 
+L 465.876 400.818793 
+z
+" clip-path="url(#pcbe3b7c3a2)" style="fill: #176f70"/>
+   </g>
+   <g id="patch_257">
+    <path d="M 469.224 403.479913 
+L 471.9024 403.479913 
+L 471.9024 400.818793 
+L 469.224 400.818793 
+z
+" clip-path="url(#pcbe3b7c3a2)" style="fill: #176f70"/>
+   </g>
+   <g id="patch_258">
+    <path d="M 472.572 403.479913 
+L 475.2504 403.479913 
+L 475.2504 400.818793 
+L 472.572 400.818793 
+z
+" clip-path="url(#pcbe3b7c3a2)" style="fill: #176f70"/>
+   </g>
+   <g id="patch_259">
+    <path d="M 475.92 403.479913 
+L 478.5984 403.479913 
+L 478.5984 400.818793 
+L 475.92 400.818793 
+z
+" clip-path="url(#pcbe3b7c3a2)" style="fill: #176f70"/>
+   </g>
+   <g id="patch_260">
+    <path d="M 479.268 403.479913 
+L 481.9464 403.479913 
+L 481.9464 400.818793 
+L 479.268 400.818793 
+z
+" clip-path="url(#pcbe3b7c3a2)" style="fill: #176f70"/>
+   </g>
+   <g id="patch_261">
+    <path d="M 482.616 403.479913 
+L 485.2944 403.479913 
+L 485.2944 400.818793 
+L 482.616 400.818793 
+z
+" clip-path="url(#pcbe3b7c3a2)" style="fill: #176f70"/>
+   </g>
+   <g id="patch_262">
+    <path d="M 485.964 403.479913 
+L 488.6424 403.479913 
+L 488.6424 400.818793 
+L 485.964 400.818793 
+z
+" clip-path="url(#pcbe3b7c3a2)" style="fill: #176f70"/>
+   </g>
+   <g id="patch_263">
+    <path d="M 489.312 403.479913 
+L 491.9904 403.479913 
+L 491.9904 400.818793 
+L 489.312 400.818793 
+z
+" clip-path="url(#pcbe3b7c3a2)" style="fill: #176f70"/>
+   </g>
+   <g id="patch_264">
+    <path d="M 492.66 403.479913 
+L 495.3384 403.479913 
+L 495.3384 400.818793 
+L 492.66 400.818793 
+z
+" clip-path="url(#pcbe3b7c3a2)" style="fill: #176f70"/>
+   </g>
+   <g id="patch_265">
+    <path d="M 496.008 403.479913 
+L 498.6864 403.479913 
+L 498.6864 400.818793 
+L 496.008 400.818793 
+z
+" clip-path="url(#pcbe3b7c3a2)" style="fill: #176f70"/>
+   </g>
+   <g id="patch_266">
+    <path d="M 499.356 403.479913 
+L 502.0344 403.479913 
+L 502.0344 400.818793 
+L 499.356 400.818793 
+z
+" clip-path="url(#pcbe3b7c3a2)" style="fill: #176f70"/>
+   </g>
+   <g id="patch_267">
+    <path d="M 502.704 403.479913 
+L 505.3824 403.479913 
+L 505.3824 400.818793 
+L 502.704 400.818793 
+z
+" clip-path="url(#pcbe3b7c3a2)" style="fill: #176f70"/>
+   </g>
+   <g id="patch_268">
+    <path d="M 506.052 403.479913 
+L 508.7304 403.479913 
+L 508.7304 400.818793 
+L 506.052 400.818793 
+z
+" clip-path="url(#pcbe3b7c3a2)" style="fill: #176f70"/>
+   </g>
+   <g id="patch_269">
+    <path d="M 509.4 403.479913 
+L 512.0784 403.479913 
+L 512.0784 400.818793 
+L 509.4 400.818793 
+z
+" clip-path="url(#pcbe3b7c3a2)" style="fill: #176f70"/>
+   </g>
+   <g id="patch_270">
+    <path d="M 512.748 403.479913 
+L 515.4264 403.479913 
+L 515.4264 400.818793 
+L 512.748 400.818793 
+z
+" clip-path="url(#pcbe3b7c3a2)" style="fill: #176f70"/>
+   </g>
+   <g id="patch_271">
+    <path d="M 516.096 403.479913 
+L 518.7744 403.479913 
+L 518.7744 400.818793 
+L 516.096 400.818793 
+z
+" clip-path="url(#pcbe3b7c3a2)" style="fill: #176f70"/>
+   </g>
+   <g id="text_1">
+    <text style="font-size: 23px; font-family: 'Times New Roman', 'DFKai-SB'; text-anchor: middle; fill: #173745" x="314.1" y="24.270313" transform="rotate(-0 314.1 24.270313)">RACE-RL 記憶體階層與資料路徑</text>
+   </g>
+   <g id="text_2">
+    <text style="font-size: 17px; font-family: 'Times New Roman', 'DFKai-SB'; text-anchor: middle; fill: #173745" x="244.35" y="63.121083" transform="rotate(-0 244.35 63.121083)">DRAM — External Memory</text>
+   </g>
+   <g id="text_3">
+    <text style="font-size: 12.5px; font-family: 'Times New Roman', 'DFKai-SB'; text-anchor: middle; fill: #173745" x="244.35" y="79.574222" transform="rotate(-0 244.35 79.574222)">1 GiB｜INT8 輸入／權重／CNN 輸出；FP32 常數</text>
+   </g>
+   <g id="text_4">
+    <text style="font-size: 13.5px; font-family: 'Times New Roman', 'DFKai-SB'; fill: #173745" transform="translate(434.173359 159.486682)">每顆 compute chiplet</text>
+    <text style="font-size: 13.5px; font-family: 'Times New Roman', 'DFKai-SB'; fill: #173745" transform="translate(452.222227 173.958313)">RL 選 1–16 顆</text>
+   </g>
+   <g id="text_5">
+    <text style="font-size: 17px; font-family: 'Times New Roman', 'DFKai-SB'; text-anchor: middle; fill: #173745" x="244.35" y="184.152147" transform="rotate(-0 244.35 184.152147)">GB — Global Buffer / SRAM</text>
+   </g>
+   <g id="text_6">
+    <text style="font-size: 12.5px; font-family: 'Times New Roman', 'DFKai-SB'; text-anchor: middle; fill: #173745" x="244.35" y="203.363916" transform="rotate(-0 244.35 203.363916)">256 KiB｜4 banks × 64 KiB｜每 bank 16 bytes/cycle</text>
+   </g>
+   <g id="text_7">
+    <text style="font-size: 11.5px; font-family: 'Times New Roman', 'DFKai-SB'; text-anchor: start; fill: #176f70" x="255.51" y="123.230585" transform="rotate(-0 255.51 123.230585)">DMA；其他晶粒經 mesh</text>
+   </g>
+   <g id="text_8">
+    <text style="font-size: 17px; font-family: 'Times New Roman', 'DFKai-SB'; text-anchor: middle; fill: #173745" x="244.35" y="267.306603" transform="rotate(-0 244.35 267.306603)">LB — Local Buffer / SRAM</text>
+   </g>
+   <g id="text_9">
+    <text style="font-size: 12.5px; font-family: 'Times New Roman', 'DFKai-SB'; text-anchor: middle; fill: #173745" x="244.35" y="285.921902" transform="rotate(-0 244.35 285.921902)">20 KiB｜A/B 各 2 × 4 KiB slots；輸出 4 KiB</text>
+   </g>
+   <g id="text_10">
+    <text style="font-size: 11.5px; font-family: 'Times New Roman', 'DFKai-SB'; text-anchor: start; fill: #176f70" x="255.51" y="232.537229" transform="rotate(-0 255.51 232.537229)">輸入／權重 ↓　完成輸出 ↑</text>
+   </g>
+   <g id="text_11">
+    <text style="font-size: 17px; font-family: 'Times New Roman', 'DFKai-SB'; text-anchor: middle; fill: #173745" x="492.939" y="265.199883" transform="rotate(-0 492.939 265.199883)">Accumulator</text>
+   </g>
+   <g id="text_12">
+    <text style="font-size: 12.5px; font-family: 'Times New Roman', 'DFKai-SB'; fill: #173745" transform="translate(455.429234 285.173173)">64 KiB SRAM</text>
+    <text style="font-size: 12.5px; font-family: 'Times New Roman', 'DFKai-SB'; fill: #173745" transform="translate(444.336461 298.424394)">INT32 partial sums</text>
+   </g>
+   <g id="text_13">
+    <text style="font-size: 11.5px; font-family: 'Times New Roman', 'DFKai-SB'; text-anchor: middle; fill: #176f70" x="492.66" y="324.755112" transform="rotate(-0 492.66 324.755112)">讀回／保存部分和</text>
+   </g>
+   <g id="text_14">
+    <text style="font-size: 17px; font-family: 'Times New Roman', 'DFKai-SB'; text-anchor: middle; fill: #173745" x="244.35" y="354.890715" transform="rotate(-0 244.35 354.890715)">RF — PE Register Storage</text>
+   </g>
+   <g id="text_15">
+    <text style="font-size: 12.5px; font-family: 'Times New Roman', 'DFKai-SB'; text-anchor: middle; fill: #173745" x="244.35" y="374.339443" transform="rotate(-0 244.35 374.339443)">A 256 B＋權重 256 B＋partial sums 1 KiB</text>
+   </g>
+   <g id="text_16">
+    <text style="font-size: 17px; font-family: 'Times New Roman', 'DFKai-SB'; text-anchor: middle; fill: #173745" x="492.939" y="361.717835" transform="rotate(-0 492.939 361.717835)">FP32 Vector</text>
+   </g>
+   <g id="text_17">
+    <text style="font-size: 12.5px; font-family: 'Times New Roman', 'DFKai-SB'; fill: #173745" transform="translate(472.283727 374.143731)">16 lanes</text>
+    <text style="font-size: 12.5px; font-family: 'Times New Roman', 'DFKai-SB'; fill: #173745" transform="translate(442.939 388.236748)">後處理／資料打包</text>
+   </g>
+   <g id="text_18">
+    <text style="font-size: 11.5px; font-family: 'Times New Roman', 'DFKai-SB'; text-anchor: start; fill: #176f70" x="255.51" y="316.04948" transform="rotate(-0 255.51 316.04948)">操作數 ↓　部分和 ↕</text>
+   </g>
+   <g id="text_19">
+    <text style="font-size: 17px; font-family: 'Times New Roman', 'DFKai-SB'; text-anchor: middle; fill: #173745" x="244.35" y="432.331763" transform="rotate(-0 244.35 432.331763)">PE Array — 16 × 16 MAC</text>
+   </g>
+   <g id="text_20">
+    <text style="font-size: 12.5px; font-family: 'Times New Roman', 'DFKai-SB'; text-anchor: middle; fill: #173745" x="244.35" y="450.09083" transform="rotate(-0 244.35 450.09083)">INT8 乘法、INT32 累加｜weight-stationary microtiles</text>
+   </g>
+   <g id="text_21">
+    <text style="font-size: 11.5px; font-family: 'Times New Roman', 'DFKai-SB'; text-anchor: start; fill: #176f70" x="255.51" y="402.183629" transform="rotate(-0 255.51 402.183629)">讀操作數／更新部分和</text>
+   </g>
+   <g id="text_22">
+    <text style="font-size: 11px; font-family: 'Times New Roman', 'DFKai-SB'; text-anchor: middle; fill: #173745" x="491.544" y="463.355113" transform="rotate(-0 491.544 463.355113)">256 PE</text>
+   </g>
+   <g id="text_23">
+    <text style="font-size: 14px; font-family: 'Times New Roman', 'DFKai-SB'; text-anchor: start; fill: #173745" x="54.63" y="501.054313" transform="rotate(-0 54.63 501.054313)">輸入／權重：DRAM → GB → LB → RF → PE</text>
+   </g>
+   <g id="text_24">
+    <text style="font-size: 13.5px; font-family: 'Times New Roman', 'DFKai-SB'; text-anchor: start; fill: #173745" x="54.63" y="518.795112" transform="rotate(-0 54.63 518.795112)">部分和：PE ↔ RF ↔ LB ↔ ACC；完成輸出：ACC → LB → GB → DRAM</text>
+   </g>
+   <g id="text_25">
+    <text style="font-size: 11.5px; font-family: 'Times New Roman', 'DFKai-SB'; fill: #536974" transform="translate(54.63 530.223136)">GB／ACC 容量與 PE 規格參考 Gemmini；LB／RF、向量單元與頻寬為研究擴充。</text>
+    <text style="font-size: 11.5px; font-family: 'Times New Roman', 'DFKai-SB'; fill: #536974" transform="translate(54.63 543.188712)">CNN 支援資料打包、量化與後處理；尚未實作擴充 RTL 或校準製程 PPA。</text>
+   </g>
+  </g>
+ </g>
+ <defs>
+  <clipPath id="pcbe3b7c3a2">
+   <rect x="7.2" y="7.638312" width="613.8" height="554.4"/>
+  </clipPath>
+ </defs>
+</svg>

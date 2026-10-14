@@ -17,7 +17,7 @@ def seed_all(seed):
 
 class RACETrainer:
     def __init__(self,*,seed=7,width=32,state_variant="full",lr=3e-4,
-                 entropy_coefficient=0.0,precision="float32"):
+                 entropy_coefficient=0.0,precision="float32",policy_backend="design"):
         seed_all(seed)
         if lr <= 0 or entropy_coefficient < 0:
             raise ValueError("invalid policy-gradient hyperparameters")
@@ -25,7 +25,17 @@ class RACETrainer:
             raise ValueError("unsupported policy precision")
         self.config = dict(algorithm="reinforce",seed=seed,width=width,state_variant=state_variant,
             lr=lr,entropy_coefficient=entropy_coefficient,gamma=1.0,precision=precision)
-        self.policy = AutoregressivePolicy(width,state_variant).to(
+        if policy_backend not in ('design','gemmini','gemmini_cnn'): raise ValueError('unknown policy backend')
+        policy_class = AutoregressivePolicy
+        if policy_backend == 'gemmini':
+            from .accelerators.gemmini_policy import GemminiPolicy
+            policy_class = GemminiPolicy
+            self.config['policy_backend'] = policy_backend
+        if policy_backend == 'gemmini_cnn':
+            from .accelerators.cnn_policy import CNNPolicy
+            policy_class = CNNPolicy
+            self.config['policy_backend'] = policy_backend
+        self.policy = policy_class(width,state_variant).to(
             dtype=torch.float64 if precision == "float64" else torch.float32)
         self.optimizer = torch.optim.Adam(self.policy.parameters(),lr=lr)
         self.episodes,self.training_evaluations,self.history = 0,0,[]
@@ -48,11 +58,13 @@ class RACETrainer:
             started=time.perf_counter()
             action,log_probability,value = self.policy.select(observation)
             timings["action_selection_time_s"]+=time.perf_counter()-started
-            index = observation.legal_actions.index(action)
+            index = action if getattr(self.policy,'structured_actions',False) else observation.legal_actions.index(action)
             progress("ENVIRONMENT_STEP")
             started=time.perf_counter()
             next_o,r,done = env.step(action)
             timings["environment_step_time_s"]+=time.perf_counter()-started
+            if r is None or not math.isfinite(r):
+                raise ValueError('environment returned unscorable feedback; missing PPA must not become a surrogate reward')
             samples.append((observation,index,log_probability,value,r))
             observation = next_o
             progress("RECEIVED_FEEDBACK")
@@ -61,8 +73,9 @@ class RACETrainer:
                  "best_objective":env.best_objective,"return":sum(s[4] for s in samples),
                  "termination":env.termination,"parameter_updates":0,
                  "algorithm":self.config["algorithm"],"critic_used":self.config["algorithm"]=="ppo_comparison"}
-        supports = [len(s[0].legal_actions) for s in samples]
-        stats.update(initial_action_support=supports[0] if supports else len(observation.legal_actions),
+        support_size=lambda o:o.action_support_size if getattr(self.policy,'structured_actions',False) else len(o.legal_actions)
+        supports = [support_size(s[0]) for s in samples]
+        stats.update(initial_action_support=supports[0] if supports else support_size(observation),
             mean_action_support=float(np.mean(supports)) if supports else 0.0,
             max_action_support=max(supports,default=0))
         if learn and samples:
@@ -90,9 +103,13 @@ class RACETrainer:
         returns = torch.tensor(list(reversed(returns)),dtype=dtype)
         logs,entropies = [],[]
         for o,index,*_ in samples:
-            distribution,_ = self.policy.distribution(o)
-            logs.append(distribution.log_prob(torch.tensor(index)))
-            entropies.append(distribution.entropy())
+            if getattr(self.policy,'structured_actions',False):
+                logp,entropy=self.policy.evaluate_action(o,index)
+                logs.append(logp);entropies.append(entropy)
+            else:
+                distribution,_ = self.policy.distribution(o)
+                logs.append(distribution.log_prob(torch.tensor(index)))
+                entropies.append(distribution.entropy())
         # Sum over steps: the episodic policy-gradient estimator.
         policy_loss = -(torch.stack(logs)*returns).sum()
         entropy = torch.stack(entropies).mean()
@@ -102,8 +119,8 @@ class RACETrainer:
         gradient_norm=torch.nn.utils.clip_grad_norm_(self.policy.parameters(),0.5)
         self.optimizer.step()
         stats.update(parameter_updates=1,policy_loss=policy_loss.item(),entropy=entropy.item(),
-            normalized_entropy=float(torch.stack([e/math.log(len(s[0].legal_actions))
-                if len(s[0].legal_actions)>1 else e*0 for e,s in zip(entropies,samples)]).mean().detach()),
+            normalized_entropy=float(torch.stack([e/math.log(s[0].action_support_size if getattr(self.policy,'structured_actions',False) else len(s[0].legal_actions))
+                if (s[0].action_support_size if getattr(self.policy,'structured_actions',False) else len(s[0].legal_actions))>1 else e*0 for e,s in zip(entropies,samples)]).mean().detach()),
             gradient_norm_before_clip=float(gradient_norm),gradient_clip_limit=0.5,
             nonzero_reward_steps=sum(abs(s[4])>1e-12 for s in samples),
             first_step_reward_fraction=samples[0][4]/sum(s[4] for s in samples) if sum(s[4] for s in samples) else 0.0,

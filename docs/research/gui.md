@@ -1,3 +1,21 @@
+# 新版 GUI：完整 CNN 分層記憶體
+
+預設已切換為 `gemmini_cnn`；詳細硬體、動作、限制與命令見 [完整 CNN 說明](cnn_hierarchy.md)。啟動命令維持 `python -m race_gui.server`，macOS／Windows launcher 相同。新版 server protocol=2，不會誤用仍在跑的舊版本。
+
+使用者輸入三項 PPA 限制與五種偏好；顆數固定由 RL 選 1–16。可載入有來源的 `cnn_ppa_template.json` 格式成本檔；空白模板與 TEST_FIXTURE 會被拒絕。未載入時只檢視一次完整 action，不訓練，不顯示假 PPA。
+
+成本檔選取後會立即交由伺服器檢查，只有通過才顯示「開始 PPA 設計搜尋」。空白模板的 `base.evidence_status=UNAVAILABLE`、空值與空白來源表示資料尚未取得，不能直接作為訓練輸入。只改成 `MEASURED` 或其他狀態並不能補足成本證據；不得冒稱量測。格式檢查通過也不代表來源已由程式獨立驗證，分析式時序仍未經 RTL 校準。
+
+不合格成本檔會顯示中文原因並停用開始按鈕，避免誤啟動訓練或悄悄改成設計檢視。可按「移除成本檔，改為設計檢視」，先查看完整動作、記憶體存取與 mesh 傳輸；此模式沒有 PPA 回報或參數更新。載入檢查不會建立 job、執行模型或評估候選設計。
+
+可直接選取 `configs/ppa_profiles/cnn_45nm_reference.json` 開始估計情境訓練；另有 `cnn_45nm_memory_2x.json` 與 `cnn_45nm_mesh_2x.json` 作敏感度比較。三份固定 500MHz、5.0mm²／chiplet，來源與假設見 [成本情境說明](cnn_hierarchy.md#可直接載入的估計成本情境)。請選成本 JSON，不要選說明用的 `provenance.json`。目前的成本檔是公開文獻代理與明列假設，不能當成 RTL／製程量測。選取成本檔不會替你改寫 PPA 上限。
+
+網頁直接顯示提出／選出的 mesh、算子與 HWC tile 配置、方向與模型累計 bytes、GB／LB／RF／ACC 存取。座標為格點。進階選項可選舊合成版本作比較；其結果不得改標為新硬體。
+
+以下為舊合成 GUI 的歷史操作與圖示，只有選擇舊比較後才適用。
+
+---
+
 # Python 本機網頁 GUI
 
 GUI 使用 Python 標準函式庫啟動 `127.0.0.1` 本機 HTTP server，使用瀏覽器操作。同一份介面與後端設計支援 macOS／Windows，不需要 Node.js 或另一個搜尋引擎。搜尋仍透過原有 `race_rl.cli search-mesh` 執行，數值驗證、PPA 評分、state/action 與正式 REINFORCE 不另寫一套。

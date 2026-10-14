@@ -1,0 +1,9 @@
+{
+  "preserved": "release verification summaries, calibration fixtures, user runs and active GUI result",
+  "removed": [
+    "experiments/runs/cnn_hierarchy_inspect_resnet18",
+    "experiments/runs/cnn_hierarchy_smoke_all",
+    "experiments/runs/cnn_hierarchy_verified_all"
+  ],
+  "scope": "intermediate test outputs created in this task only"
+}

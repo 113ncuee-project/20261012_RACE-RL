@@ -1,5 +1,23 @@
 # 目前研究進度
 
+## 完整 CNN 與 GUI 串接
+
+2026 年 10 月 14 日新增 schema 8／`race_gemmini_cnn_hierarchy_v1`：七模型經明定 INT8／INT32＋FP32 vector 的數值流程，已接入 H／W／Cout 分割、K blocking、GB activation 生命週期、權重替換與 peer mesh 傳輸。一次共享 Actor forward 產生完整 coupled action，最多 2 個相依實作算子可有不同 edits；同一 REINFORCE trainer 回合末更新。GUI 預設新版，無成本檔時只檢視，不造 PPA／reward。
+
+終端機每模型 60 回合／輸入 64／scope 2 的 sequential 入口已建立，壓縮 SQLite、transactional checkpoint、凍結前後測與時間報告可續跑。216 個本機測試通過，七模型各 2 回合的小型 TEST_FIXTURE 串接與凍結測試完成；實際 GUI 驗證使用 ResNet18／224×224。小型測試與來源紀錄見 [CNN 串接說明](cnn_hierarchy.md)。新增 LB／vector 尚無匹配 RTL，時序瓶頸估計與製程 PPA 未校準；不可宣稱實體 PPA／學習成效已驗證。下面第一階段與舊合成研究均為歷史脈絡。
+
+## Gemmini 參照與記憶體階層研究配置
+
+2026 年 10 月 14 日固定 Gemmini 官方 commit `8c3f9923a44a2fe2c7930587be297d6d4f8c09ca` 的 defaultConfig，已建立 INT8 GEMM／INT32 累加，並改為 DRAM→GB→LB→RF→PE 與獨立 accumulator 支線，逐層容量／頻寬／存取計帳、權重駐留、雙緩衝、DMA、bank 排程及研究用 mesh。來源核對、獨立整數數值測試與小型固定案例見 [Gemmini 硬體與可信度](gemmini_hardware.md)。
+
+新模型已[串接同一 RACETrainer 的 GEMM 後端](gemmini_rl_integration.md)：schema 7 表示 banks、配置、blocking 與回饋；單一 Encoder／Actor 聯合選 1–16 顆與完整交易。新增 11 個串接測試，新增記憶體層級後完整本機 197 個測試通過。測試係數 smoke 的 8 次互動與 2 次更新只證明串接，不是 Gemmini PPA 或學習成效。
+
+新增 LB 20 KiB、RF 1536 bytes 是研究擴充；GB 256 KiB 與 ACC 64 KiB 容量參照官方。改記憶體配置會改變實驗身份與模型成本，不能跟 v1 成效直接合併。新版圖、測試與證據見 [硬體配置](gemmini_hardware.md)。
+
+原 CNN／GUI 訓練條件沒有更改。估計 cycles 尚未對照 RTL；未提供成本資料時回傳新模型狀態但 reward 缺值，禁止策略更新。完整 CNN 與跨晶粒 activation／reduction 尚未接入。
+
+## 原合成環境的研究紀錄
+
 版本 0.9.0。正式版本仍為 **REINFORCE，沒有 PPO、沒有 Critic**；PPO 只保留為[比較模型](comparison_models.md)。廠商 PPA 限制、五種偏好、compute-only mesh、Agent 自行選 1–16 顆、Python 本機 GUI 與搜尋結果圖保留。
 
 七模型 0.8.0 的 60 回合正式執行已完成，總耗時 10:05:39；原始評分／reward／狀態／計費核對通過，但全部未達 100 ms，凍結策略前後測只有 1 改善、3 持平、3 退步。見[實際基準、平台與修正](model_suite_20261014.md)。0.9.0 預設模型別任務具已量測可行憑證，前後各 10 evaluation seeds；中途測試與等預算比較明確選用，不預設增加四倍預算。新完整長訓練尚未執行。

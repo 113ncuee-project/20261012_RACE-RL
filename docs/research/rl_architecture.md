@@ -1,3 +1,13 @@
+# 現行完整 CNN RL 架構
+
+最新主入口使用 schema 8 與一次 forward 產生的完整 coupled transaction，見 [CNN RL 流程與動作](cnn_hierarchy.md)。同一 REINFORCE trainer；沒有 PPO、Critic 或 action 產生中的環境評估。正式預設最多 2 個相依實作算子可有不同 edits，硬體評估需要完整成本來源。
+
+![最新 RL 圖](figures/cnn_rl_architecture.png)
+
+以下保留原合成後端的歷史定義，只有顯式比較時適用。
+
+---
+
 # 正式 RL 架構定義
 
 正式版本為一個圖 Encoder、一個條件式 Actor、一個 REINFORCE optimizer。沒有 Critic、PPO、額外的顆數 optimizer 或候選 PPA 預測器。PPO 為[比較模型](comparison_models.md)，不由 GUI 呼叫。

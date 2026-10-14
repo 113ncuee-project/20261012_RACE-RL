@@ -1,0 +1,2456 @@
+{
+  "cases": [
+    {
+      "case": "gemm_reuse",
+      "input_hashes": {
+        "A": "05ef39c6382542792abf9c5debef7e779b9ad2e355c9df3145bdde96126bd540",
+        "B": "aca649f90156585018ebe4c0935c182f23b4119cb794b4c96b6df5bf81248aa2"
+      },
+      "max_abs_error": 0,
+      "numerical_status": "PASSED",
+      "reference": "independent NumPy INT64 matmul",
+      "result_sha256_int64": "6fa3028aab3ce44fef000062fbb0e4eab6ba48dc08770f76790fd0c67455612a",
+      "variants": [
+        {
+          "action": {
+            "dataflow": "weight_stationary",
+            "double_buffer": true,
+            "k_tile": 16,
+            "m_tile": 16,
+            "n_tile": 16,
+            "placement": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "retain_weights": false
+          },
+          "array_padding_utilization": 1.0,
+          "assumptions": [
+            "A/B/C in external memory are zero-padded packed matrices aligned to 16 elements.",
+            "INT32 C is exported; requantization, bias and nonlinear operators are excluded.",
+            "GB uses pinned scratchpad capacity, with A bank 0/1 and retained B bank 2/3; output stages in free A banks.",
+            "LB/RF organization is a RACE-RL research extension, not the original Gemmini RTL.",
+            "Each LB A/B slot must hold the entire selected panel; RF holds one microtile. Oversize actions are rejected, not implicitly retiled.",
+            "Weights reuse in GB across M groups and in RF across M16; A reuses in LB across N16.",
+            "RF and SRAM accumulator are distinct: partial sums traverse RF -> LB -> ACC and back after each K16.",
+            "Output microtiles stream ACC -> LB -> GB -> DRAM. There is no direct DRAM/PE bypass.",
+            "Single-port GB/LB banks are exclusive; copies reserve both endpoints; RF/ACC read/write ports are separate.",
+            "Output groups on each chiplet serialize. K-panel copies overlap computation only in different slots.",
+            "Microprogram aggregated service phases serialize operand/psum copies; analytical conservative reservations need RTL validation.",
+            "External channel is shared by reads/writes; no implicit DRAM cache or multicast.",
+            "Mesh is a project extension. Gemmini itself is not a chiplet architecture."
+          ],
+          "chiplets": 1,
+          "configuration": {
+            "accumulator_banks": 2,
+            "accumulator_bits": 32,
+            "accumulator_bytes": 65536,
+            "accumulator_singleported": false,
+            "array_output_bits": 20,
+            "dataflows": [
+              "weight_stationary",
+              "output_stationary"
+            ],
+            "dma_bus_bits": 128,
+            "dma_max_bytes": 64,
+            "execute_queue_length": 8,
+            "input_bits": 8,
+            "load_queue_length": 8,
+            "max_in_flight_requests": 16,
+            "mesh_columns": 16,
+            "mesh_rows": 16,
+            "scratchpad_banks": 4,
+            "scratchpad_bytes": 262144,
+            "scratchpad_singleported": true,
+            "store_queue_length": 2,
+            "tile_columns": 1,
+            "tile_rows": 1,
+            "weight_bits": 8
+          },
+          "coverage": {
+            "activation_residency": false,
+            "cross_layer_fusion": false,
+            "executor": "INT8 GEMM, INT32 accumulated output, WS only",
+            "output_stationary": false,
+            "peer_to_peer_activation": false,
+            "queue_tlb_dram_protocol": false,
+            "reduction_across_chiplets": false,
+            "timing": "analytical service calendars; not RTL cycle accuracy",
+            "whole_cnn": false
+          },
+          "identity": "cf1603b6bb789ffb97799b4a894f5a6870f0cf32ea544ebd274199695be28dec",
+          "memory_hierarchy": {
+            "capacity_provenance": "GB/ACC capacity from pinned Gemmini; LB/RF organization and all port rates are project assumptions",
+            "identity": "baef097bcbd8db6311aa0d2029ff393f05d30d2ba9d0478eee12dccae69ace00",
+            "lb_total_bytes": 20480,
+            "parameters": {
+              "accumulator_bank_bytes_per_cycle": 64,
+              "gb_bank_bytes_per_cycle": 16,
+              "lb_bank_bytes_per_cycle": 16,
+              "lb_operand_slot_bytes": 4096,
+              "lb_output_bytes": 4096,
+              "rf_a_bytes": 256,
+              "rf_b_bytes": 256,
+              "rf_operand_bytes_per_cycle": 256,
+              "rf_psum_bytes": 1024,
+              "rf_psum_bytes_per_cycle": 1024
+            },
+            "pe_clusters_per_chiplet": 1,
+            "ports": "GB and operand LB bank single port; output LB single shared port; RF and ACC read/write separate; copies reserve both endpoints",
+            "profile": "race_memory_hierarchy_v2",
+            "rf_total_bytes": 1536,
+            "status": "RESEARCH_EXTENSION_NOT_GEMMINI_DEFAULT_RTL"
+          },
+          "mesh_shape": [
+            1,
+            1
+          ],
+          "model": "race_gemmini_hierarchy_ws_v2",
+          "model_source_sha256": "57b40989842be387482c48457559d0b620f27eadd404a1119aeeb0fd44c48da8",
+          "modeled_cycles": 8888,
+          "operations": {
+            "acc_read_bytes": 4096,
+            "acc_write_bytes": 8192,
+            "lb_a_read_bytes": 2048,
+            "lb_b_read_bytes": 2048,
+            "logical_macs": 32768,
+            "padded_macs": 32768
+          },
+          "platform_scenario": {
+            "clock_hz": null,
+            "dram_bytes_per_cycle": 16,
+            "dram_capacity_bytes": 1073741824,
+            "dram_first_response_cycles": 20,
+            "mesh_bytes_per_cycle": 16,
+            "mesh_hop_cycles": 2
+          },
+          "platform_status": "RESEARCH_ASSUMPTION",
+          "ppa": {
+            "area_mm2": null,
+            "average_power_w": null,
+            "eligible_for_formal_rl_scoring": false,
+            "energy_j": null,
+            "status": "UNAVAILABLE_WITHOUT_CALIBRATION"
+          },
+          "scenario_latency_s": null,
+          "shape": {
+            "k": 32,
+            "m": 64,
+            "n": 16
+          },
+          "source_provenance": {
+            "commit": "8c3f9923a44a2fe2c7930587be297d6d4f8c09ca",
+            "configuration": "GemminiConfigs.defaultConfig",
+            "parameters_match_public_default": true,
+            "profile_sha256": "c1b936ea670757fa7b13275fee41bd48c2fd95e5157558e8a146b948c8969f79",
+            "repository": "https://github.com/ucb-bar/gemmini",
+            "rtl_timing_validated": false,
+            "silicon_validated": false,
+            "source_file": "src/main/scala/gemmini/Configs.scala"
+          },
+          "storage": {
+            "blocks": [
+              {
+                "a_bank_bytes": 65536,
+                "a_slot_bytes": 256,
+                "a_slots": 2,
+                "accumulator_bytes": 1024,
+                "accumulator_capacity_bytes": 65536,
+                "b_allocation_bytes": 65536,
+                "b_bytes": 256,
+                "b_slots": 2,
+                "chiplet": 0,
+                "gb_output_bytes": 1024,
+                "gb_output_capacity_bytes": 131072,
+                "lb_a_slot_bytes": 256,
+                "lb_a_slots": 2,
+                "lb_b_slot_bytes": 256,
+                "lb_b_slots": 2,
+                "lb_operand_slot_capacity_bytes": 4096,
+                "lb_output_capacity_bytes": 4096,
+                "lb_output_peak_bytes": 1024,
+                "output_block": 0,
+                "rf_a_peak_bytes": 256,
+                "rf_b_peak_bytes": 256,
+                "rf_psum_peak_bytes": 1024
+              },
+              {
+                "a_bank_bytes": 65536,
+                "a_slot_bytes": 256,
+                "a_slots": 2,
+                "accumulator_bytes": 1024,
+                "accumulator_capacity_bytes": 65536,
+                "b_allocation_bytes": 65536,
+                "b_bytes": 256,
+                "b_slots": 2,
+                "chiplet": 0,
+                "gb_output_bytes": 1024,
+                "gb_output_capacity_bytes": 131072,
+                "lb_a_slot_bytes": 256,
+                "lb_a_slots": 2,
+                "lb_b_slot_bytes": 256,
+                "lb_b_slots": 2,
+                "lb_operand_slot_capacity_bytes": 4096,
+                "lb_output_capacity_bytes": 4096,
+                "lb_output_peak_bytes": 1024,
+                "output_block": 1,
+                "rf_a_peak_bytes": 256,
+                "rf_b_peak_bytes": 256,
+                "rf_psum_peak_bytes": 1024
+              },
+              {
+                "a_bank_bytes": 65536,
+                "a_slot_bytes": 256,
+                "a_slots": 2,
+                "accumulator_bytes": 1024,
+                "accumulator_capacity_bytes": 65536,
+                "b_allocation_bytes": 65536,
+                "b_bytes": 256,
+                "b_slots": 2,
+                "chiplet": 0,
+                "gb_output_bytes": 1024,
+                "gb_output_capacity_bytes": 131072,
+                "lb_a_slot_bytes": 256,
+                "lb_a_slots": 2,
+                "lb_b_slot_bytes": 256,
+                "lb_b_slots": 2,
+                "lb_operand_slot_capacity_bytes": 4096,
+                "lb_output_capacity_bytes": 4096,
+                "lb_output_peak_bytes": 1024,
+                "output_block": 2,
+                "rf_a_peak_bytes": 256,
+                "rf_b_peak_bytes": 256,
+                "rf_psum_peak_bytes": 1024
+              },
+              {
+                "a_bank_bytes": 65536,
+                "a_slot_bytes": 256,
+                "a_slots": 2,
+                "accumulator_bytes": 1024,
+                "accumulator_capacity_bytes": 65536,
+                "b_allocation_bytes": 65536,
+                "b_bytes": 256,
+                "b_slots": 2,
+                "chiplet": 0,
+                "gb_output_bytes": 1024,
+                "gb_output_capacity_bytes": 131072,
+                "lb_a_slot_bytes": 256,
+                "lb_a_slots": 2,
+                "lb_b_slot_bytes": 256,
+                "lb_b_slots": 2,
+                "lb_operand_slot_capacity_bytes": 4096,
+                "lb_output_capacity_bytes": 4096,
+                "lb_output_peak_bytes": 1024,
+                "output_block": 3,
+                "rf_a_peak_bytes": 256,
+                "rf_b_peak_bytes": 256,
+                "rf_psum_peak_bytes": 1024
+              }
+            ],
+            "external_allocation_bytes": 6656
+          },
+          "traffic": {
+            "by_operand": {
+              "A": 2048,
+              "B": 2048,
+              "C": 4096
+            },
+            "directed_link_byte_hops": 0,
+            "dma_transactions": 320,
+            "external_bytes": 8192,
+            "hierarchy_movement_bytes": {
+              "accumulator->lb": 8192,
+              "dram->gb": 4096,
+              "gb->dram": 4096,
+              "gb->lb": 4096,
+              "lb->accumulator": 8192,
+              "lb->gb": 4096,
+              "lb->rf": 8192,
+              "rf->lb": 8192
+            },
+            "storage_access_bytes": {
+              "accumulator": 16384,
+              "gb": 16384,
+              "lb": 40960,
+              "rf": 339968
+            }
+          }
+        },
+        {
+          "action": {
+            "dataflow": "weight_stationary",
+            "double_buffer": true,
+            "k_tile": 16,
+            "m_tile": 16,
+            "n_tile": 16,
+            "placement": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "retain_weights": true
+          },
+          "array_padding_utilization": 1.0,
+          "assumptions": [
+            "A/B/C in external memory are zero-padded packed matrices aligned to 16 elements.",
+            "INT32 C is exported; requantization, bias and nonlinear operators are excluded.",
+            "GB uses pinned scratchpad capacity, with A bank 0/1 and retained B bank 2/3; output stages in free A banks.",
+            "LB/RF organization is a RACE-RL research extension, not the original Gemmini RTL.",
+            "Each LB A/B slot must hold the entire selected panel; RF holds one microtile. Oversize actions are rejected, not implicitly retiled.",
+            "Weights reuse in GB across M groups and in RF across M16; A reuses in LB across N16.",
+            "RF and SRAM accumulator are distinct: partial sums traverse RF -> LB -> ACC and back after each K16.",
+            "Output microtiles stream ACC -> LB -> GB -> DRAM. There is no direct DRAM/PE bypass.",
+            "Single-port GB/LB banks are exclusive; copies reserve both endpoints; RF/ACC read/write ports are separate.",
+            "Output groups on each chiplet serialize. K-panel copies overlap computation only in different slots.",
+            "Microprogram aggregated service phases serialize operand/psum copies; analytical conservative reservations need RTL validation.",
+            "External channel is shared by reads/writes; no implicit DRAM cache or multicast.",
+            "Mesh is a project extension. Gemmini itself is not a chiplet architecture."
+          ],
+          "chiplets": 1,
+          "configuration": {
+            "accumulator_banks": 2,
+            "accumulator_bits": 32,
+            "accumulator_bytes": 65536,
+            "accumulator_singleported": false,
+            "array_output_bits": 20,
+            "dataflows": [
+              "weight_stationary",
+              "output_stationary"
+            ],
+            "dma_bus_bits": 128,
+            "dma_max_bytes": 64,
+            "execute_queue_length": 8,
+            "input_bits": 8,
+            "load_queue_length": 8,
+            "max_in_flight_requests": 16,
+            "mesh_columns": 16,
+            "mesh_rows": 16,
+            "scratchpad_banks": 4,
+            "scratchpad_bytes": 262144,
+            "scratchpad_singleported": true,
+            "store_queue_length": 2,
+            "tile_columns": 1,
+            "tile_rows": 1,
+            "weight_bits": 8
+          },
+          "coverage": {
+            "activation_residency": false,
+            "cross_layer_fusion": false,
+            "executor": "INT8 GEMM, INT32 accumulated output, WS only",
+            "output_stationary": false,
+            "peer_to_peer_activation": false,
+            "queue_tlb_dram_protocol": false,
+            "reduction_across_chiplets": false,
+            "timing": "analytical service calendars; not RTL cycle accuracy",
+            "whole_cnn": false
+          },
+          "identity": "841b55a84b19950632aef606d0cc5c92e71b6d6a5de4527ad5ace762747343c5",
+          "memory_hierarchy": {
+            "capacity_provenance": "GB/ACC capacity from pinned Gemmini; LB/RF organization and all port rates are project assumptions",
+            "identity": "baef097bcbd8db6311aa0d2029ff393f05d30d2ba9d0478eee12dccae69ace00",
+            "lb_total_bytes": 20480,
+            "parameters": {
+              "accumulator_bank_bytes_per_cycle": 64,
+              "gb_bank_bytes_per_cycle": 16,
+              "lb_bank_bytes_per_cycle": 16,
+              "lb_operand_slot_bytes": 4096,
+              "lb_output_bytes": 4096,
+              "rf_a_bytes": 256,
+              "rf_b_bytes": 256,
+              "rf_operand_bytes_per_cycle": 256,
+              "rf_psum_bytes": 1024,
+              "rf_psum_bytes_per_cycle": 1024
+            },
+            "pe_clusters_per_chiplet": 1,
+            "ports": "GB and operand LB bank single port; output LB single shared port; RF and ACC read/write separate; copies reserve both endpoints",
+            "profile": "race_memory_hierarchy_v2",
+            "rf_total_bytes": 1536,
+            "status": "RESEARCH_EXTENSION_NOT_GEMMINI_DEFAULT_RTL"
+          },
+          "mesh_shape": [
+            1,
+            1
+          ],
+          "model": "race_gemmini_hierarchy_ws_v2",
+          "model_source_sha256": "57b40989842be387482c48457559d0b620f27eadd404a1119aeeb0fd44c48da8",
+          "modeled_cycles": 6872,
+          "operations": {
+            "acc_read_bytes": 4096,
+            "acc_write_bytes": 8192,
+            "lb_a_read_bytes": 2048,
+            "lb_b_read_bytes": 2048,
+            "logical_macs": 32768,
+            "padded_macs": 32768
+          },
+          "platform_scenario": {
+            "clock_hz": null,
+            "dram_bytes_per_cycle": 16,
+            "dram_capacity_bytes": 1073741824,
+            "dram_first_response_cycles": 20,
+            "mesh_bytes_per_cycle": 16,
+            "mesh_hop_cycles": 2
+          },
+          "platform_status": "RESEARCH_ASSUMPTION",
+          "ppa": {
+            "area_mm2": null,
+            "average_power_w": null,
+            "eligible_for_formal_rl_scoring": false,
+            "energy_j": null,
+            "status": "UNAVAILABLE_WITHOUT_CALIBRATION"
+          },
+          "scenario_latency_s": null,
+          "shape": {
+            "k": 32,
+            "m": 64,
+            "n": 16
+          },
+          "source_provenance": {
+            "commit": "8c3f9923a44a2fe2c7930587be297d6d4f8c09ca",
+            "configuration": "GemminiConfigs.defaultConfig",
+            "parameters_match_public_default": true,
+            "profile_sha256": "c1b936ea670757fa7b13275fee41bd48c2fd95e5157558e8a146b948c8969f79",
+            "repository": "https://github.com/ucb-bar/gemmini",
+            "rtl_timing_validated": false,
+            "silicon_validated": false,
+            "source_file": "src/main/scala/gemmini/Configs.scala"
+          },
+          "storage": {
+            "blocks": [
+              {
+                "a_bank_bytes": 65536,
+                "a_slot_bytes": 256,
+                "a_slots": 2,
+                "accumulator_bytes": 1024,
+                "accumulator_capacity_bytes": 65536,
+                "b_allocation_bytes": 131072,
+                "b_bytes": 512,
+                "b_slots": 1,
+                "chiplet": 0,
+                "gb_output_bytes": 1024,
+                "gb_output_capacity_bytes": 131072,
+                "lb_a_slot_bytes": 256,
+                "lb_a_slots": 2,
+                "lb_b_slot_bytes": 256,
+                "lb_b_slots": 2,
+                "lb_operand_slot_capacity_bytes": 4096,
+                "lb_output_capacity_bytes": 4096,
+                "lb_output_peak_bytes": 1024,
+                "output_block": 0,
+                "rf_a_peak_bytes": 256,
+                "rf_b_peak_bytes": 256,
+                "rf_psum_peak_bytes": 1024
+              },
+              {
+                "a_bank_bytes": 65536,
+                "a_slot_bytes": 256,
+                "a_slots": 2,
+                "accumulator_bytes": 1024,
+                "accumulator_capacity_bytes": 65536,
+                "b_allocation_bytes": 131072,
+                "b_bytes": 512,
+                "b_slots": 1,
+                "chiplet": 0,
+                "gb_output_bytes": 1024,
+                "gb_output_capacity_bytes": 131072,
+                "lb_a_slot_bytes": 256,
+                "lb_a_slots": 2,
+                "lb_b_slot_bytes": 256,
+                "lb_b_slots": 2,
+                "lb_operand_slot_capacity_bytes": 4096,
+                "lb_output_capacity_bytes": 4096,
+                "lb_output_peak_bytes": 1024,
+                "output_block": 1,
+                "rf_a_peak_bytes": 256,
+                "rf_b_peak_bytes": 256,
+                "rf_psum_peak_bytes": 1024
+              },
+              {
+                "a_bank_bytes": 65536,
+                "a_slot_bytes": 256,
+                "a_slots": 2,
+                "accumulator_bytes": 1024,
+                "accumulator_capacity_bytes": 65536,
+                "b_allocation_bytes": 131072,
+                "b_bytes": 512,
+                "b_slots": 1,
+                "chiplet": 0,
+                "gb_output_bytes": 1024,
+                "gb_output_capacity_bytes": 131072,
+                "lb_a_slot_bytes": 256,
+                "lb_a_slots": 2,
+                "lb_b_slot_bytes": 256,
+                "lb_b_slots": 2,
+                "lb_operand_slot_capacity_bytes": 4096,
+                "lb_output_capacity_bytes": 4096,
+                "lb_output_peak_bytes": 1024,
+                "output_block": 2,
+                "rf_a_peak_bytes": 256,
+                "rf_b_peak_bytes": 256,
+                "rf_psum_peak_bytes": 1024
+              },
+              {
+                "a_bank_bytes": 65536,
+                "a_slot_bytes": 256,
+                "a_slots": 2,
+                "accumulator_bytes": 1024,
+                "accumulator_capacity_bytes": 65536,
+                "b_allocation_bytes": 131072,
+                "b_bytes": 512,
+                "b_slots": 1,
+                "chiplet": 0,
+                "gb_output_bytes": 1024,
+                "gb_output_capacity_bytes": 131072,
+                "lb_a_slot_bytes": 256,
+                "lb_a_slots": 2,
+                "lb_b_slot_bytes": 256,
+                "lb_b_slots": 2,
+                "lb_operand_slot_capacity_bytes": 4096,
+                "lb_output_capacity_bytes": 4096,
+                "lb_output_peak_bytes": 1024,
+                "output_block": 3,
+                "rf_a_peak_bytes": 256,
+                "rf_b_peak_bytes": 256,
+                "rf_psum_peak_bytes": 1024
+              }
+            ],
+            "external_allocation_bytes": 6656
+          },
+          "traffic": {
+            "by_operand": {
+              "A": 2048,
+              "B": 512,
+              "C": 4096
+            },
+            "directed_link_byte_hops": 0,
+            "dma_transactions": 224,
+            "external_bytes": 6656,
+            "hierarchy_movement_bytes": {
+              "accumulator->lb": 8192,
+              "dram->gb": 2560,
+              "gb->dram": 4096,
+              "gb->lb": 4096,
+              "lb->accumulator": 8192,
+              "lb->gb": 4096,
+              "lb->rf": 8192,
+              "rf->lb": 8192
+            },
+            "storage_access_bytes": {
+              "accumulator": 16384,
+              "gb": 14848,
+              "lb": 40960,
+              "rf": 339968
+            }
+          }
+        },
+        {
+          "action": {
+            "dataflow": "weight_stationary",
+            "double_buffer": true,
+            "k_tile": 16,
+            "m_tile": 16,
+            "n_tile": 16,
+            "placement": [
+              0,
+              1,
+              0,
+              1
+            ],
+            "retain_weights": true
+          },
+          "array_padding_utilization": 1.0,
+          "assumptions": [
+            "A/B/C in external memory are zero-padded packed matrices aligned to 16 elements.",
+            "INT32 C is exported; requantization, bias and nonlinear operators are excluded.",
+            "GB uses pinned scratchpad capacity, with A bank 0/1 and retained B bank 2/3; output stages in free A banks.",
+            "LB/RF organization is a RACE-RL research extension, not the original Gemmini RTL.",
+            "Each LB A/B slot must hold the entire selected panel; RF holds one microtile. Oversize actions are rejected, not implicitly retiled.",
+            "Weights reuse in GB across M groups and in RF across M16; A reuses in LB across N16.",
+            "RF and SRAM accumulator are distinct: partial sums traverse RF -> LB -> ACC and back after each K16.",
+            "Output microtiles stream ACC -> LB -> GB -> DRAM. There is no direct DRAM/PE bypass.",
+            "Single-port GB/LB banks are exclusive; copies reserve both endpoints; RF/ACC read/write ports are separate.",
+            "Output groups on each chiplet serialize. K-panel copies overlap computation only in different slots.",
+            "Microprogram aggregated service phases serialize operand/psum copies; analytical conservative reservations need RTL validation.",
+            "External channel is shared by reads/writes; no implicit DRAM cache or multicast.",
+            "Mesh is a project extension. Gemmini itself is not a chiplet architecture."
+          ],
+          "chiplets": 2,
+          "configuration": {
+            "accumulator_banks": 2,
+            "accumulator_bits": 32,
+            "accumulator_bytes": 65536,
+            "accumulator_singleported": false,
+            "array_output_bits": 20,
+            "dataflows": [
+              "weight_stationary",
+              "output_stationary"
+            ],
+            "dma_bus_bits": 128,
+            "dma_max_bytes": 64,
+            "execute_queue_length": 8,
+            "input_bits": 8,
+            "load_queue_length": 8,
+            "max_in_flight_requests": 16,
+            "mesh_columns": 16,
+            "mesh_rows": 16,
+            "scratchpad_banks": 4,
+            "scratchpad_bytes": 262144,
+            "scratchpad_singleported": true,
+            "store_queue_length": 2,
+            "tile_columns": 1,
+            "tile_rows": 1,
+            "weight_bits": 8
+          },
+          "coverage": {
+            "activation_residency": false,
+            "cross_layer_fusion": false,
+            "executor": "INT8 GEMM, INT32 accumulated output, WS only",
+            "output_stationary": false,
+            "peer_to_peer_activation": false,
+            "queue_tlb_dram_protocol": false,
+            "reduction_across_chiplets": false,
+            "timing": "analytical service calendars; not RTL cycle accuracy",
+            "whole_cnn": false
+          },
+          "identity": "049442b306c412ad0b0fe65dd8b9ba163accc49c542bafef2687af29c3346b96",
+          "memory_hierarchy": {
+            "capacity_provenance": "GB/ACC capacity from pinned Gemmini; LB/RF organization and all port rates are project assumptions",
+            "identity": "baef097bcbd8db6311aa0d2029ff393f05d30d2ba9d0478eee12dccae69ace00",
+            "lb_total_bytes": 20480,
+            "parameters": {
+              "accumulator_bank_bytes_per_cycle": 64,
+              "gb_bank_bytes_per_cycle": 16,
+              "lb_bank_bytes_per_cycle": 16,
+              "lb_operand_slot_bytes": 4096,
+              "lb_output_bytes": 4096,
+              "rf_a_bytes": 256,
+              "rf_b_bytes": 256,
+              "rf_operand_bytes_per_cycle": 256,
+              "rf_psum_bytes": 1024,
+              "rf_psum_bytes_per_cycle": 1024
+            },
+            "pe_clusters_per_chiplet": 1,
+            "ports": "GB and operand LB bank single port; output LB single shared port; RF and ACC read/write separate; copies reserve both endpoints",
+            "profile": "race_memory_hierarchy_v2",
+            "rf_total_bytes": 1536,
+            "status": "RESEARCH_EXTENSION_NOT_GEMMINI_DEFAULT_RTL"
+          },
+          "mesh_shape": [
+            1,
+            2
+          ],
+          "model": "race_gemmini_hierarchy_ws_v2",
+          "model_source_sha256": "57b40989842be387482c48457559d0b620f27eadd404a1119aeeb0fd44c48da8",
+          "modeled_cycles": 6076,
+          "operations": {
+            "acc_read_bytes": 4096,
+            "acc_write_bytes": 8192,
+            "lb_a_read_bytes": 2048,
+            "lb_b_read_bytes": 2048,
+            "logical_macs": 32768,
+            "padded_macs": 32768
+          },
+          "platform_scenario": {
+            "clock_hz": null,
+            "dram_bytes_per_cycle": 16,
+            "dram_capacity_bytes": 1073741824,
+            "dram_first_response_cycles": 20,
+            "mesh_bytes_per_cycle": 16,
+            "mesh_hop_cycles": 2
+          },
+          "platform_status": "RESEARCH_ASSUMPTION",
+          "ppa": {
+            "area_mm2": null,
+            "average_power_w": null,
+            "eligible_for_formal_rl_scoring": false,
+            "energy_j": null,
+            "status": "UNAVAILABLE_WITHOUT_CALIBRATION"
+          },
+          "scenario_latency_s": null,
+          "shape": {
+            "k": 32,
+            "m": 64,
+            "n": 16
+          },
+          "source_provenance": {
+            "commit": "8c3f9923a44a2fe2c7930587be297d6d4f8c09ca",
+            "configuration": "GemminiConfigs.defaultConfig",
+            "parameters_match_public_default": true,
+            "profile_sha256": "c1b936ea670757fa7b13275fee41bd48c2fd95e5157558e8a146b948c8969f79",
+            "repository": "https://github.com/ucb-bar/gemmini",
+            "rtl_timing_validated": false,
+            "silicon_validated": false,
+            "source_file": "src/main/scala/gemmini/Configs.scala"
+          },
+          "storage": {
+            "blocks": [
+              {
+                "a_bank_bytes": 65536,
+                "a_slot_bytes": 256,
+                "a_slots": 2,
+                "accumulator_bytes": 1024,
+                "accumulator_capacity_bytes": 65536,
+                "b_allocation_bytes": 131072,
+                "b_bytes": 512,
+                "b_slots": 1,
+                "chiplet": 0,
+                "gb_output_bytes": 1024,
+                "gb_output_capacity_bytes": 131072,
+                "lb_a_slot_bytes": 256,
+                "lb_a_slots": 2,
+                "lb_b_slot_bytes": 256,
+                "lb_b_slots": 2,
+                "lb_operand_slot_capacity_bytes": 4096,
+                "lb_output_capacity_bytes": 4096,
+                "lb_output_peak_bytes": 1024,
+                "output_block": 0,
+                "rf_a_peak_bytes": 256,
+                "rf_b_peak_bytes": 256,
+                "rf_psum_peak_bytes": 1024
+              },
+              {
+                "a_bank_bytes": 65536,
+                "a_slot_bytes": 256,
+                "a_slots": 2,
+                "accumulator_bytes": 1024,
+                "accumulator_capacity_bytes": 65536,
+                "b_allocation_bytes": 131072,
+                "b_bytes": 512,
+                "b_slots": 1,
+                "chiplet": 1,
+                "gb_output_bytes": 1024,
+                "gb_output_capacity_bytes": 131072,
+                "lb_a_slot_bytes": 256,
+                "lb_a_slots": 2,
+                "lb_b_slot_bytes": 256,
+                "lb_b_slots": 2,
+                "lb_operand_slot_capacity_bytes": 4096,
+                "lb_output_capacity_bytes": 4096,
+                "lb_output_peak_bytes": 1024,
+                "output_block": 1,
+                "rf_a_peak_bytes": 256,
+                "rf_b_peak_bytes": 256,
+                "rf_psum_peak_bytes": 1024
+              },
+              {
+                "a_bank_bytes": 65536,
+                "a_slot_bytes": 256,
+                "a_slots": 2,
+                "accumulator_bytes": 1024,
+                "accumulator_capacity_bytes": 65536,
+                "b_allocation_bytes": 131072,
+                "b_bytes": 512,
+                "b_slots": 1,
+                "chiplet": 0,
+                "gb_output_bytes": 1024,
+                "gb_output_capacity_bytes": 131072,
+                "lb_a_slot_bytes": 256,
+                "lb_a_slots": 2,
+                "lb_b_slot_bytes": 256,
+                "lb_b_slots": 2,
+                "lb_operand_slot_capacity_bytes": 4096,
+                "lb_output_capacity_bytes": 4096,
+                "lb_output_peak_bytes": 1024,
+                "output_block": 2,
+                "rf_a_peak_bytes": 256,
+                "rf_b_peak_bytes": 256,
+                "rf_psum_peak_bytes": 1024
+              },
+              {
+                "a_bank_bytes": 65536,
+                "a_slot_bytes": 256,
+                "a_slots": 2,
+                "accumulator_bytes": 1024,
+                "accumulator_capacity_bytes": 65536,
+                "b_allocation_bytes": 131072,
+                "b_bytes": 512,
+                "b_slots": 1,
+                "chiplet": 1,
+                "gb_output_bytes": 1024,
+                "gb_output_capacity_bytes": 131072,
+                "lb_a_slot_bytes": 256,
+                "lb_a_slots": 2,
+                "lb_b_slot_bytes": 256,
+                "lb_b_slots": 2,
+                "lb_operand_slot_capacity_bytes": 4096,
+                "lb_output_capacity_bytes": 4096,
+                "lb_output_peak_bytes": 1024,
+                "output_block": 3,
+                "rf_a_peak_bytes": 256,
+                "rf_b_peak_bytes": 256,
+                "rf_psum_peak_bytes": 1024
+              }
+            ],
+            "external_allocation_bytes": 6656
+          },
+          "traffic": {
+            "by_operand": {
+              "A": 2048,
+              "B": 1024,
+              "C": 4096
+            },
+            "directed_link_byte_hops": 3584,
+            "dma_transactions": 256,
+            "external_bytes": 7168,
+            "hierarchy_movement_bytes": {
+              "accumulator->lb": 8192,
+              "dram->gb": 3072,
+              "gb->dram": 4096,
+              "gb->lb": 4096,
+              "lb->accumulator": 8192,
+              "lb->gb": 4096,
+              "lb->rf": 8192,
+              "rf->lb": 8192
+            },
+            "storage_access_bytes": {
+              "accumulator": 16384,
+              "gb": 15360,
+              "lb": 40960,
+              "rf": 339968
+            }
+          }
+        }
+      ],
+      "workload": {
+        "kind": "GEMM"
+      }
+    },
+    {
+      "case": "gemm_tail",
+      "input_hashes": {
+        "A": "472565c0d39434b28a478594aeb99daad50f957a9fe24915dd8beec43c9b509c",
+        "B": "9614cc0e5fcf89ff3806cf330e52c369f81a9e5b75ca0de5636a3f6b0a248eed"
+      },
+      "max_abs_error": 0,
+      "numerical_status": "PASSED",
+      "reference": "independent NumPy INT64 matmul",
+      "result_sha256_int64": "fde56f64488118fef6082afb8748cd7035fb96d2b5daa3d143375793466e4d80",
+      "variants": [
+        {
+          "action": {
+            "dataflow": "weight_stationary",
+            "double_buffer": true,
+            "k_tile": 16,
+            "m_tile": 16,
+            "n_tile": 16,
+            "placement": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "retain_weights": false
+          },
+          "array_padding_utilization": 0.33099365234375,
+          "assumptions": [
+            "A/B/C in external memory are zero-padded packed matrices aligned to 16 elements.",
+            "INT32 C is exported; requantization, bias and nonlinear operators are excluded.",
+            "GB uses pinned scratchpad capacity, with A bank 0/1 and retained B bank 2/3; output stages in free A banks.",
+            "LB/RF organization is a RACE-RL research extension, not the original Gemmini RTL.",
+            "Each LB A/B slot must hold the entire selected panel; RF holds one microtile. Oversize actions are rejected, not implicitly retiled.",
+            "Weights reuse in GB across M groups and in RF across M16; A reuses in LB across N16.",
+            "RF and SRAM accumulator are distinct: partial sums traverse RF -> LB -> ACC and back after each K16.",
+            "Output microtiles stream ACC -> LB -> GB -> DRAM. There is no direct DRAM/PE bypass.",
+            "Single-port GB/LB banks are exclusive; copies reserve both endpoints; RF/ACC read/write ports are separate.",
+            "Output groups on each chiplet serialize. K-panel copies overlap computation only in different slots.",
+            "Microprogram aggregated service phases serialize operand/psum copies; analytical conservative reservations need RTL validation.",
+            "External channel is shared by reads/writes; no implicit DRAM cache or multicast.",
+            "Mesh is a project extension. Gemmini itself is not a chiplet architecture."
+          ],
+          "chiplets": 1,
+          "configuration": {
+            "accumulator_banks": 2,
+            "accumulator_bits": 32,
+            "accumulator_bytes": 65536,
+            "accumulator_singleported": false,
+            "array_output_bits": 20,
+            "dataflows": [
+              "weight_stationary",
+              "output_stationary"
+            ],
+            "dma_bus_bits": 128,
+            "dma_max_bytes": 64,
+            "execute_queue_length": 8,
+            "input_bits": 8,
+            "load_queue_length": 8,
+            "max_in_flight_requests": 16,
+            "mesh_columns": 16,
+            "mesh_rows": 16,
+            "scratchpad_banks": 4,
+            "scratchpad_bytes": 262144,
+            "scratchpad_singleported": true,
+            "store_queue_length": 2,
+            "tile_columns": 1,
+            "tile_rows": 1,
+            "weight_bits": 8
+          },
+          "coverage": {
+            "activation_residency": false,
+            "cross_layer_fusion": false,
+            "executor": "INT8 GEMM, INT32 accumulated output, WS only",
+            "output_stationary": false,
+            "peer_to_peer_activation": false,
+            "queue_tlb_dram_protocol": false,
+            "reduction_across_chiplets": false,
+            "timing": "analytical service calendars; not RTL cycle accuracy",
+            "whole_cnn": false
+          },
+          "identity": "d545d57831644f16c2a90340684981b92f239f0ef4062c493810ecf366d64c33",
+          "memory_hierarchy": {
+            "capacity_provenance": "GB/ACC capacity from pinned Gemmini; LB/RF organization and all port rates are project assumptions",
+            "identity": "baef097bcbd8db6311aa0d2029ff393f05d30d2ba9d0478eee12dccae69ace00",
+            "lb_total_bytes": 20480,
+            "parameters": {
+              "accumulator_bank_bytes_per_cycle": 64,
+              "gb_bank_bytes_per_cycle": 16,
+              "lb_bank_bytes_per_cycle": 16,
+              "lb_operand_slot_bytes": 4096,
+              "lb_output_bytes": 4096,
+              "rf_a_bytes": 256,
+              "rf_b_bytes": 256,
+              "rf_operand_bytes_per_cycle": 256,
+              "rf_psum_bytes": 1024,
+              "rf_psum_bytes_per_cycle": 1024
+            },
+            "pe_clusters_per_chiplet": 1,
+            "ports": "GB and operand LB bank single port; output LB single shared port; RF and ACC read/write separate; copies reserve both endpoints",
+            "profile": "race_memory_hierarchy_v2",
+            "rf_total_bytes": 1536,
+            "status": "RESEARCH_EXTENSION_NOT_GEMMINI_DEFAULT_RTL"
+          },
+          "mesh_shape": [
+            1,
+            1
+          ],
+          "model": "race_gemmini_hierarchy_ws_v2",
+          "model_source_sha256": "57b40989842be387482c48457559d0b620f27eadd404a1119aeeb0fd44c48da8",
+          "modeled_cycles": 11576,
+          "operations": {
+            "acc_read_bytes": 8192,
+            "acc_write_bytes": 12288,
+            "lb_a_read_bytes": 3072,
+            "lb_b_read_bytes": 3072,
+            "logical_macs": 16269,
+            "padded_macs": 49152
+          },
+          "platform_scenario": {
+            "clock_hz": null,
+            "dram_bytes_per_cycle": 16,
+            "dram_capacity_bytes": 1073741824,
+            "dram_first_response_cycles": 20,
+            "mesh_bytes_per_cycle": 16,
+            "mesh_hop_cycles": 2
+          },
+          "platform_status": "RESEARCH_ASSUMPTION",
+          "ppa": {
+            "area_mm2": null,
+            "average_power_w": null,
+            "eligible_for_formal_rl_scoring": false,
+            "energy_j": null,
+            "status": "UNAVAILABLE_WITHOUT_CALIBRATION"
+          },
+          "scenario_latency_s": null,
+          "shape": {
+            "k": 33,
+            "m": 29,
+            "n": 17
+          },
+          "source_provenance": {
+            "commit": "8c3f9923a44a2fe2c7930587be297d6d4f8c09ca",
+            "configuration": "GemminiConfigs.defaultConfig",
+            "parameters_match_public_default": true,
+            "profile_sha256": "c1b936ea670757fa7b13275fee41bd48c2fd95e5157558e8a146b948c8969f79",
+            "repository": "https://github.com/ucb-bar/gemmini",
+            "rtl_timing_validated": false,
+            "silicon_validated": false,
+            "source_file": "src/main/scala/gemmini/Configs.scala"
+          },
+          "storage": {
+            "blocks": [
+              {
+                "a_bank_bytes": 65536,
+                "a_slot_bytes": 256,
+                "a_slots": 2,
+                "accumulator_bytes": 1024,
+                "accumulator_capacity_bytes": 65536,
+                "b_allocation_bytes": 65536,
+                "b_bytes": 256,
+                "b_slots": 2,
+                "chiplet": 0,
+                "gb_output_bytes": 1024,
+                "gb_output_capacity_bytes": 131072,
+                "lb_a_slot_bytes": 256,
+                "lb_a_slots": 2,
+                "lb_b_slot_bytes": 256,
+                "lb_b_slots": 2,
+                "lb_operand_slot_capacity_bytes": 4096,
+                "lb_output_capacity_bytes": 4096,
+                "lb_output_peak_bytes": 1024,
+                "output_block": 0,
+                "rf_a_peak_bytes": 256,
+                "rf_b_peak_bytes": 256,
+                "rf_psum_peak_bytes": 1024
+              },
+              {
+                "a_bank_bytes": 65536,
+                "a_slot_bytes": 256,
+                "a_slots": 2,
+                "accumulator_bytes": 1024,
+                "accumulator_capacity_bytes": 65536,
+                "b_allocation_bytes": 65536,
+                "b_bytes": 256,
+                "b_slots": 2,
+                "chiplet": 0,
+                "gb_output_bytes": 1024,
+                "gb_output_capacity_bytes": 131072,
+                "lb_a_slot_bytes": 256,
+                "lb_a_slots": 2,
+                "lb_b_slot_bytes": 256,
+                "lb_b_slots": 2,
+                "lb_operand_slot_capacity_bytes": 4096,
+                "lb_output_capacity_bytes": 4096,
+                "lb_output_peak_bytes": 1024,
+                "output_block": 1,
+                "rf_a_peak_bytes": 256,
+                "rf_b_peak_bytes": 256,
+                "rf_psum_peak_bytes": 1024
+              },
+              {
+                "a_bank_bytes": 65536,
+                "a_slot_bytes": 256,
+                "a_slots": 2,
+                "accumulator_bytes": 1024,
+                "accumulator_capacity_bytes": 65536,
+                "b_allocation_bytes": 65536,
+                "b_bytes": 256,
+                "b_slots": 2,
+                "chiplet": 0,
+                "gb_output_bytes": 1024,
+                "gb_output_capacity_bytes": 131072,
+                "lb_a_slot_bytes": 256,
+                "lb_a_slots": 2,
+                "lb_b_slot_bytes": 256,
+                "lb_b_slots": 2,
+                "lb_operand_slot_capacity_bytes": 4096,
+                "lb_output_capacity_bytes": 4096,
+                "lb_output_peak_bytes": 1024,
+                "output_block": 2,
+                "rf_a_peak_bytes": 256,
+                "rf_b_peak_bytes": 256,
+                "rf_psum_peak_bytes": 1024
+              },
+              {
+                "a_bank_bytes": 65536,
+                "a_slot_bytes": 256,
+                "a_slots": 2,
+                "accumulator_bytes": 1024,
+                "accumulator_capacity_bytes": 65536,
+                "b_allocation_bytes": 65536,
+                "b_bytes": 256,
+                "b_slots": 2,
+                "chiplet": 0,
+                "gb_output_bytes": 1024,
+                "gb_output_capacity_bytes": 131072,
+                "lb_a_slot_bytes": 256,
+                "lb_a_slots": 2,
+                "lb_b_slot_bytes": 256,
+                "lb_b_slots": 2,
+                "lb_operand_slot_capacity_bytes": 4096,
+                "lb_output_capacity_bytes": 4096,
+                "lb_output_peak_bytes": 1024,
+                "output_block": 3,
+                "rf_a_peak_bytes": 256,
+                "rf_b_peak_bytes": 256,
+                "rf_psum_peak_bytes": 1024
+              }
+            ],
+            "external_allocation_bytes": 7168
+          },
+          "traffic": {
+            "by_operand": {
+              "A": 3072,
+              "B": 3072,
+              "C": 4096
+            },
+            "directed_link_byte_hops": 0,
+            "dma_transactions": 448,
+            "external_bytes": 10240,
+            "hierarchy_movement_bytes": {
+              "accumulator->lb": 12288,
+              "dram->gb": 6144,
+              "gb->dram": 4096,
+              "gb->lb": 6144,
+              "lb->accumulator": 12288,
+              "lb->gb": 4096,
+              "lb->rf": 14336,
+              "rf->lb": 12288
+            },
+            "storage_access_bytes": {
+              "accumulator": 24576,
+              "gb": 20480,
+              "lb": 61440,
+              "rf": 514048
+            }
+          }
+        },
+        {
+          "action": {
+            "dataflow": "weight_stationary",
+            "double_buffer": true,
+            "k_tile": 16,
+            "m_tile": 16,
+            "n_tile": 16,
+            "placement": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "retain_weights": true
+          },
+          "array_padding_utilization": 0.33099365234375,
+          "assumptions": [
+            "A/B/C in external memory are zero-padded packed matrices aligned to 16 elements.",
+            "INT32 C is exported; requantization, bias and nonlinear operators are excluded.",
+            "GB uses pinned scratchpad capacity, with A bank 0/1 and retained B bank 2/3; output stages in free A banks.",
+            "LB/RF organization is a RACE-RL research extension, not the original Gemmini RTL.",
+            "Each LB A/B slot must hold the entire selected panel; RF holds one microtile. Oversize actions are rejected, not implicitly retiled.",
+            "Weights reuse in GB across M groups and in RF across M16; A reuses in LB across N16.",
+            "RF and SRAM accumulator are distinct: partial sums traverse RF -> LB -> ACC and back after each K16.",
+            "Output microtiles stream ACC -> LB -> GB -> DRAM. There is no direct DRAM/PE bypass.",
+            "Single-port GB/LB banks are exclusive; copies reserve both endpoints; RF/ACC read/write ports are separate.",
+            "Output groups on each chiplet serialize. K-panel copies overlap computation only in different slots.",
+            "Microprogram aggregated service phases serialize operand/psum copies; analytical conservative reservations need RTL validation.",
+            "External channel is shared by reads/writes; no implicit DRAM cache or multicast.",
+            "Mesh is a project extension. Gemmini itself is not a chiplet architecture."
+          ],
+          "chiplets": 1,
+          "configuration": {
+            "accumulator_banks": 2,
+            "accumulator_bits": 32,
+            "accumulator_bytes": 65536,
+            "accumulator_singleported": false,
+            "array_output_bits": 20,
+            "dataflows": [
+              "weight_stationary",
+              "output_stationary"
+            ],
+            "dma_bus_bits": 128,
+            "dma_max_bytes": 64,
+            "execute_queue_length": 8,
+            "input_bits": 8,
+            "load_queue_length": 8,
+            "max_in_flight_requests": 16,
+            "mesh_columns": 16,
+            "mesh_rows": 16,
+            "scratchpad_banks": 4,
+            "scratchpad_bytes": 262144,
+            "scratchpad_singleported": true,
+            "store_queue_length": 2,
+            "tile_columns": 1,
+            "tile_rows": 1,
+            "weight_bits": 8
+          },
+          "coverage": {
+            "activation_residency": false,
+            "cross_layer_fusion": false,
+            "executor": "INT8 GEMM, INT32 accumulated output, WS only",
+            "output_stationary": false,
+            "peer_to_peer_activation": false,
+            "queue_tlb_dram_protocol": false,
+            "reduction_across_chiplets": false,
+            "timing": "analytical service calendars; not RTL cycle accuracy",
+            "whole_cnn": false
+          },
+          "identity": "e102a2c2d3cb32229fc33bc637786efa0144f960494899b87ac5c99fdb0c1d08",
+          "memory_hierarchy": {
+            "capacity_provenance": "GB/ACC capacity from pinned Gemmini; LB/RF organization and all port rates are project assumptions",
+            "identity": "baef097bcbd8db6311aa0d2029ff393f05d30d2ba9d0478eee12dccae69ace00",
+            "lb_total_bytes": 20480,
+            "parameters": {
+              "accumulator_bank_bytes_per_cycle": 64,
+              "gb_bank_bytes_per_cycle": 16,
+              "lb_bank_bytes_per_cycle": 16,
+              "lb_operand_slot_bytes": 4096,
+              "lb_output_bytes": 4096,
+              "rf_a_bytes": 256,
+              "rf_b_bytes": 256,
+              "rf_operand_bytes_per_cycle": 256,
+              "rf_psum_bytes": 1024,
+              "rf_psum_bytes_per_cycle": 1024
+            },
+            "pe_clusters_per_chiplet": 1,
+            "ports": "GB and operand LB bank single port; output LB single shared port; RF and ACC read/write separate; copies reserve both endpoints",
+            "profile": "race_memory_hierarchy_v2",
+            "rf_total_bytes": 1536,
+            "status": "RESEARCH_EXTENSION_NOT_GEMMINI_DEFAULT_RTL"
+          },
+          "mesh_shape": [
+            1,
+            1
+          ],
+          "model": "race_gemmini_hierarchy_ws_v2",
+          "model_source_sha256": "57b40989842be387482c48457559d0b620f27eadd404a1119aeeb0fd44c48da8",
+          "modeled_cycles": 9616,
+          "operations": {
+            "acc_read_bytes": 8192,
+            "acc_write_bytes": 12288,
+            "lb_a_read_bytes": 3072,
+            "lb_b_read_bytes": 3072,
+            "logical_macs": 16269,
+            "padded_macs": 49152
+          },
+          "platform_scenario": {
+            "clock_hz": null,
+            "dram_bytes_per_cycle": 16,
+            "dram_capacity_bytes": 1073741824,
+            "dram_first_response_cycles": 20,
+            "mesh_bytes_per_cycle": 16,
+            "mesh_hop_cycles": 2
+          },
+          "platform_status": "RESEARCH_ASSUMPTION",
+          "ppa": {
+            "area_mm2": null,
+            "average_power_w": null,
+            "eligible_for_formal_rl_scoring": false,
+            "energy_j": null,
+            "status": "UNAVAILABLE_WITHOUT_CALIBRATION"
+          },
+          "scenario_latency_s": null,
+          "shape": {
+            "k": 33,
+            "m": 29,
+            "n": 17
+          },
+          "source_provenance": {
+            "commit": "8c3f9923a44a2fe2c7930587be297d6d4f8c09ca",
+            "configuration": "GemminiConfigs.defaultConfig",
+            "parameters_match_public_default": true,
+            "profile_sha256": "c1b936ea670757fa7b13275fee41bd48c2fd95e5157558e8a146b948c8969f79",
+            "repository": "https://github.com/ucb-bar/gemmini",
+            "rtl_timing_validated": false,
+            "silicon_validated": false,
+            "source_file": "src/main/scala/gemmini/Configs.scala"
+          },
+          "storage": {
+            "blocks": [
+              {
+                "a_bank_bytes": 65536,
+                "a_slot_bytes": 256,
+                "a_slots": 2,
+                "accumulator_bytes": 1024,
+                "accumulator_capacity_bytes": 65536,
+                "b_allocation_bytes": 131072,
+                "b_bytes": 768,
+                "b_slots": 1,
+                "chiplet": 0,
+                "gb_output_bytes": 1024,
+                "gb_output_capacity_bytes": 131072,
+                "lb_a_slot_bytes": 256,
+                "lb_a_slots": 2,
+                "lb_b_slot_bytes": 256,
+                "lb_b_slots": 2,
+                "lb_operand_slot_capacity_bytes": 4096,
+                "lb_output_capacity_bytes": 4096,
+                "lb_output_peak_bytes": 1024,
+                "output_block": 0,
+                "rf_a_peak_bytes": 256,
+                "rf_b_peak_bytes": 256,
+                "rf_psum_peak_bytes": 1024
+              },
+              {
+                "a_bank_bytes": 65536,
+                "a_slot_bytes": 256,
+                "a_slots": 2,
+                "accumulator_bytes": 1024,
+                "accumulator_capacity_bytes": 65536,
+                "b_allocation_bytes": 131072,
+                "b_bytes": 768,
+                "b_slots": 1,
+                "chiplet": 0,
+                "gb_output_bytes": 1024,
+                "gb_output_capacity_bytes": 131072,
+                "lb_a_slot_bytes": 256,
+                "lb_a_slots": 2,
+                "lb_b_slot_bytes": 256,
+                "lb_b_slots": 2,
+                "lb_operand_slot_capacity_bytes": 4096,
+                "lb_output_capacity_bytes": 4096,
+                "lb_output_peak_bytes": 1024,
+                "output_block": 1,
+                "rf_a_peak_bytes": 256,
+                "rf_b_peak_bytes": 256,
+                "rf_psum_peak_bytes": 1024
+              },
+              {
+                "a_bank_bytes": 65536,
+                "a_slot_bytes": 256,
+                "a_slots": 2,
+                "accumulator_bytes": 1024,
+                "accumulator_capacity_bytes": 65536,
+                "b_allocation_bytes": 131072,
+                "b_bytes": 768,
+                "b_slots": 1,
+                "chiplet": 0,
+                "gb_output_bytes": 1024,
+                "gb_output_capacity_bytes": 131072,
+                "lb_a_slot_bytes": 256,
+                "lb_a_slots": 2,
+                "lb_b_slot_bytes": 256,
+                "lb_b_slots": 2,
+                "lb_operand_slot_capacity_bytes": 4096,
+                "lb_output_capacity_bytes": 4096,
+                "lb_output_peak_bytes": 1024,
+                "output_block": 2,
+                "rf_a_peak_bytes": 256,
+                "rf_b_peak_bytes": 256,
+                "rf_psum_peak_bytes": 1024
+              },
+              {
+                "a_bank_bytes": 65536,
+                "a_slot_bytes": 256,
+                "a_slots": 2,
+                "accumulator_bytes": 1024,
+                "accumulator_capacity_bytes": 65536,
+                "b_allocation_bytes": 131072,
+                "b_bytes": 768,
+                "b_slots": 1,
+                "chiplet": 0,
+                "gb_output_bytes": 1024,
+                "gb_output_capacity_bytes": 131072,
+                "lb_a_slot_bytes": 256,
+                "lb_a_slots": 2,
+                "lb_b_slot_bytes": 256,
+                "lb_b_slots": 2,
+                "lb_operand_slot_capacity_bytes": 4096,
+                "lb_output_capacity_bytes": 4096,
+                "lb_output_peak_bytes": 1024,
+                "output_block": 3,
+                "rf_a_peak_bytes": 256,
+                "rf_b_peak_bytes": 256,
+                "rf_psum_peak_bytes": 1024
+              }
+            ],
+            "external_allocation_bytes": 7168
+          },
+          "traffic": {
+            "by_operand": {
+              "A": 3072,
+              "B": 1536,
+              "C": 4096
+            },
+            "directed_link_byte_hops": 0,
+            "dma_transactions": 352,
+            "external_bytes": 8704,
+            "hierarchy_movement_bytes": {
+              "accumulator->lb": 12288,
+              "dram->gb": 4608,
+              "gb->dram": 4096,
+              "gb->lb": 6144,
+              "lb->accumulator": 12288,
+              "lb->gb": 4096,
+              "lb->rf": 14336,
+              "rf->lb": 12288
+            },
+            "storage_access_bytes": {
+              "accumulator": 24576,
+              "gb": 18944,
+              "lb": 61440,
+              "rf": 514048
+            }
+          }
+        },
+        {
+          "action": {
+            "dataflow": "weight_stationary",
+            "double_buffer": true,
+            "k_tile": 16,
+            "m_tile": 16,
+            "n_tile": 16,
+            "placement": [
+              0,
+              1,
+              0,
+              1
+            ],
+            "retain_weights": true
+          },
+          "array_padding_utilization": 0.33099365234375,
+          "assumptions": [
+            "A/B/C in external memory are zero-padded packed matrices aligned to 16 elements.",
+            "INT32 C is exported; requantization, bias and nonlinear operators are excluded.",
+            "GB uses pinned scratchpad capacity, with A bank 0/1 and retained B bank 2/3; output stages in free A banks.",
+            "LB/RF organization is a RACE-RL research extension, not the original Gemmini RTL.",
+            "Each LB A/B slot must hold the entire selected panel; RF holds one microtile. Oversize actions are rejected, not implicitly retiled.",
+            "Weights reuse in GB across M groups and in RF across M16; A reuses in LB across N16.",
+            "RF and SRAM accumulator are distinct: partial sums traverse RF -> LB -> ACC and back after each K16.",
+            "Output microtiles stream ACC -> LB -> GB -> DRAM. There is no direct DRAM/PE bypass.",
+            "Single-port GB/LB banks are exclusive; copies reserve both endpoints; RF/ACC read/write ports are separate.",
+            "Output groups on each chiplet serialize. K-panel copies overlap computation only in different slots.",
+            "Microprogram aggregated service phases serialize operand/psum copies; analytical conservative reservations need RTL validation.",
+            "External channel is shared by reads/writes; no implicit DRAM cache or multicast.",
+            "Mesh is a project extension. Gemmini itself is not a chiplet architecture."
+          ],
+          "chiplets": 2,
+          "configuration": {
+            "accumulator_banks": 2,
+            "accumulator_bits": 32,
+            "accumulator_bytes": 65536,
+            "accumulator_singleported": false,
+            "array_output_bits": 20,
+            "dataflows": [
+              "weight_stationary",
+              "output_stationary"
+            ],
+            "dma_bus_bits": 128,
+            "dma_max_bytes": 64,
+            "execute_queue_length": 8,
+            "input_bits": 8,
+            "load_queue_length": 8,
+            "max_in_flight_requests": 16,
+            "mesh_columns": 16,
+            "mesh_rows": 16,
+            "scratchpad_banks": 4,
+            "scratchpad_bytes": 262144,
+            "scratchpad_singleported": true,
+            "store_queue_length": 2,
+            "tile_columns": 1,
+            "tile_rows": 1,
+            "weight_bits": 8
+          },
+          "coverage": {
+            "activation_residency": false,
+            "cross_layer_fusion": false,
+            "executor": "INT8 GEMM, INT32 accumulated output, WS only",
+            "output_stationary": false,
+            "peer_to_peer_activation": false,
+            "queue_tlb_dram_protocol": false,
+            "reduction_across_chiplets": false,
+            "timing": "analytical service calendars; not RTL cycle accuracy",
+            "whole_cnn": false
+          },
+          "identity": "b9c390f609dad422c030165ea307a84e9280811bc8f09817f4f22d28fdede214",
+          "memory_hierarchy": {
+            "capacity_provenance": "GB/ACC capacity from pinned Gemmini; LB/RF organization and all port rates are project assumptions",
+            "identity": "baef097bcbd8db6311aa0d2029ff393f05d30d2ba9d0478eee12dccae69ace00",
+            "lb_total_bytes": 20480,
+            "parameters": {
+              "accumulator_bank_bytes_per_cycle": 64,
+              "gb_bank_bytes_per_cycle": 16,
+              "lb_bank_bytes_per_cycle": 16,
+              "lb_operand_slot_bytes": 4096,
+              "lb_output_bytes": 4096,
+              "rf_a_bytes": 256,
+              "rf_b_bytes": 256,
+              "rf_operand_bytes_per_cycle": 256,
+              "rf_psum_bytes": 1024,
+              "rf_psum_bytes_per_cycle": 1024
+            },
+            "pe_clusters_per_chiplet": 1,
+            "ports": "GB and operand LB bank single port; output LB single shared port; RF and ACC read/write separate; copies reserve both endpoints",
+            "profile": "race_memory_hierarchy_v2",
+            "rf_total_bytes": 1536,
+            "status": "RESEARCH_EXTENSION_NOT_GEMMINI_DEFAULT_RTL"
+          },
+          "mesh_shape": [
+            1,
+            2
+          ],
+          "model": "race_gemmini_hierarchy_ws_v2",
+          "model_source_sha256": "57b40989842be387482c48457559d0b620f27eadd404a1119aeeb0fd44c48da8",
+          "modeled_cycles": 10126,
+          "operations": {
+            "acc_read_bytes": 8192,
+            "acc_write_bytes": 12288,
+            "lb_a_read_bytes": 3072,
+            "lb_b_read_bytes": 3072,
+            "logical_macs": 16269,
+            "padded_macs": 49152
+          },
+          "platform_scenario": {
+            "clock_hz": null,
+            "dram_bytes_per_cycle": 16,
+            "dram_capacity_bytes": 1073741824,
+            "dram_first_response_cycles": 20,
+            "mesh_bytes_per_cycle": 16,
+            "mesh_hop_cycles": 2
+          },
+          "platform_status": "RESEARCH_ASSUMPTION",
+          "ppa": {
+            "area_mm2": null,
+            "average_power_w": null,
+            "eligible_for_formal_rl_scoring": false,
+            "energy_j": null,
+            "status": "UNAVAILABLE_WITHOUT_CALIBRATION"
+          },
+          "scenario_latency_s": null,
+          "shape": {
+            "k": 33,
+            "m": 29,
+            "n": 17
+          },
+          "source_provenance": {
+            "commit": "8c3f9923a44a2fe2c7930587be297d6d4f8c09ca",
+            "configuration": "GemminiConfigs.defaultConfig",
+            "parameters_match_public_default": true,
+            "profile_sha256": "c1b936ea670757fa7b13275fee41bd48c2fd95e5157558e8a146b948c8969f79",
+            "repository": "https://github.com/ucb-bar/gemmini",
+            "rtl_timing_validated": false,
+            "silicon_validated": false,
+            "source_file": "src/main/scala/gemmini/Configs.scala"
+          },
+          "storage": {
+            "blocks": [
+              {
+                "a_bank_bytes": 65536,
+                "a_slot_bytes": 256,
+                "a_slots": 2,
+                "accumulator_bytes": 1024,
+                "accumulator_capacity_bytes": 65536,
+                "b_allocation_bytes": 131072,
+                "b_bytes": 768,
+                "b_slots": 1,
+                "chiplet": 0,
+                "gb_output_bytes": 1024,
+                "gb_output_capacity_bytes": 131072,
+                "lb_a_slot_bytes": 256,
+                "lb_a_slots": 2,
+                "lb_b_slot_bytes": 256,
+                "lb_b_slots": 2,
+                "lb_operand_slot_capacity_bytes": 4096,
+                "lb_output_capacity_bytes": 4096,
+                "lb_output_peak_bytes": 1024,
+                "output_block": 0,
+                "rf_a_peak_bytes": 256,
+                "rf_b_peak_bytes": 256,
+                "rf_psum_peak_bytes": 1024
+              },
+              {
+                "a_bank_bytes": 65536,
+                "a_slot_bytes": 256,
+                "a_slots": 2,
+                "accumulator_bytes": 1024,
+                "accumulator_capacity_bytes": 65536,
+                "b_allocation_bytes": 131072,
+                "b_bytes": 768,
+                "b_slots": 1,
+                "chiplet": 1,
+                "gb_output_bytes": 1024,
+                "gb_output_capacity_bytes": 131072,
+                "lb_a_slot_bytes": 256,
+                "lb_a_slots": 2,
+                "lb_b_slot_bytes": 256,
+                "lb_b_slots": 2,
+                "lb_operand_slot_capacity_bytes": 4096,
+                "lb_output_capacity_bytes": 4096,
+                "lb_output_peak_bytes": 1024,
+                "output_block": 1,
+                "rf_a_peak_bytes": 256,
+                "rf_b_peak_bytes": 256,
+                "rf_psum_peak_bytes": 1024
+              },
+              {
+                "a_bank_bytes": 65536,
+                "a_slot_bytes": 256,
+                "a_slots": 2,
+                "accumulator_bytes": 1024,
+                "accumulator_capacity_bytes": 65536,
+                "b_allocation_bytes": 131072,
+                "b_bytes": 768,
+                "b_slots": 1,
+                "chiplet": 0,
+                "gb_output_bytes": 1024,
+                "gb_output_capacity_bytes": 131072,
+                "lb_a_slot_bytes": 256,
+                "lb_a_slots": 2,
+                "lb_b_slot_bytes": 256,
+                "lb_b_slots": 2,
+                "lb_operand_slot_capacity_bytes": 4096,
+                "lb_output_capacity_bytes": 4096,
+                "lb_output_peak_bytes": 1024,
+                "output_block": 2,
+                "rf_a_peak_bytes": 256,
+                "rf_b_peak_bytes": 256,
+                "rf_psum_peak_bytes": 1024
+              },
+              {
+                "a_bank_bytes": 65536,
+                "a_slot_bytes": 256,
+                "a_slots": 2,
+                "accumulator_bytes": 1024,
+                "accumulator_capacity_bytes": 65536,
+                "b_allocation_bytes": 131072,
+                "b_bytes": 768,
+                "b_slots": 1,
+                "chiplet": 1,
+                "gb_output_bytes": 1024,
+                "gb_output_capacity_bytes": 131072,
+                "lb_a_slot_bytes": 256,
+                "lb_a_slots": 2,
+                "lb_b_slot_bytes": 256,
+                "lb_b_slots": 2,
+                "lb_operand_slot_capacity_bytes": 4096,
+                "lb_output_capacity_bytes": 4096,
+                "lb_output_peak_bytes": 1024,
+                "output_block": 3,
+                "rf_a_peak_bytes": 256,
+                "rf_b_peak_bytes": 256,
+                "rf_psum_peak_bytes": 1024
+              }
+            ],
+            "external_allocation_bytes": 7168
+          },
+          "traffic": {
+            "by_operand": {
+              "A": 3072,
+              "B": 3072,
+              "C": 4096
+            },
+            "directed_link_byte_hops": 5120,
+            "dma_transactions": 448,
+            "external_bytes": 10240,
+            "hierarchy_movement_bytes": {
+              "accumulator->lb": 12288,
+              "dram->gb": 6144,
+              "gb->dram": 4096,
+              "gb->lb": 6144,
+              "lb->accumulator": 12288,
+              "lb->gb": 4096,
+              "lb->rf": 14336,
+              "rf->lb": 12288
+            },
+            "storage_access_bytes": {
+              "accumulator": 24576,
+              "gb": 20480,
+              "lb": 61440,
+              "rf": 514048
+            }
+          }
+        }
+      ],
+      "workload": {
+        "kind": "GEMM"
+      }
+    },
+    {
+      "case": "conv_8x8_dense",
+      "input_hashes": {
+        "A": "1f2be20f75eb1cab4c43b50273f326297ee83a433f3ae2efa8867f13ddbe43ef",
+        "B": "c50fbd0df2984e9ec7801b22ba651779da9f228b0b9acdee08c5b76d23247e77"
+      },
+      "max_abs_error": 0,
+      "numerical_status": "PASSED",
+      "reference": "independent direct convolution loops",
+      "result_sha256_int64": "7e0fac6810a1c1f701fb8a1afeab0c387dca24e72450645f5b6c5e5ef1f31178",
+      "variants": [
+        {
+          "action": {
+            "dataflow": "weight_stationary",
+            "double_buffer": true,
+            "k_tile": 16,
+            "m_tile": 16,
+            "n_tile": 16,
+            "placement": [
+              0,
+              0,
+              0
+            ],
+            "retain_weights": false
+          },
+          "array_padding_utilization": 0.28125,
+          "assumptions": [
+            "A/B/C in external memory are zero-padded packed matrices aligned to 16 elements.",
+            "INT32 C is exported; requantization, bias and nonlinear operators are excluded.",
+            "GB uses pinned scratchpad capacity, with A bank 0/1 and retained B bank 2/3; output stages in free A banks.",
+            "LB/RF organization is a RACE-RL research extension, not the original Gemmini RTL.",
+            "Each LB A/B slot must hold the entire selected panel; RF holds one microtile. Oversize actions are rejected, not implicitly retiled.",
+            "Weights reuse in GB across M groups and in RF across M16; A reuses in LB across N16.",
+            "RF and SRAM accumulator are distinct: partial sums traverse RF -> LB -> ACC and back after each K16.",
+            "Output microtiles stream ACC -> LB -> GB -> DRAM. There is no direct DRAM/PE bypass.",
+            "Single-port GB/LB banks are exclusive; copies reserve both endpoints; RF/ACC read/write ports are separate.",
+            "Output groups on each chiplet serialize. K-panel copies overlap computation only in different slots.",
+            "Microprogram aggregated service phases serialize operand/psum copies; analytical conservative reservations need RTL validation.",
+            "External channel is shared by reads/writes; no implicit DRAM cache or multicast.",
+            "Mesh is a project extension. Gemmini itself is not a chiplet architecture."
+          ],
+          "chiplets": 1,
+          "configuration": {
+            "accumulator_banks": 2,
+            "accumulator_bits": 32,
+            "accumulator_bytes": 65536,
+            "accumulator_singleported": false,
+            "array_output_bits": 20,
+            "dataflows": [
+              "weight_stationary",
+              "output_stationary"
+            ],
+            "dma_bus_bits": 128,
+            "dma_max_bytes": 64,
+            "execute_queue_length": 8,
+            "input_bits": 8,
+            "load_queue_length": 8,
+            "max_in_flight_requests": 16,
+            "mesh_columns": 16,
+            "mesh_rows": 16,
+            "scratchpad_banks": 4,
+            "scratchpad_bytes": 262144,
+            "scratchpad_singleported": true,
+            "store_queue_length": 2,
+            "tile_columns": 1,
+            "tile_rows": 1,
+            "weight_bits": 8
+          },
+          "coverage": {
+            "activation_residency": false,
+            "cross_layer_fusion": false,
+            "executor": "INT8 GEMM, INT32 accumulated output, WS only",
+            "output_stationary": false,
+            "peer_to_peer_activation": false,
+            "queue_tlb_dram_protocol": false,
+            "reduction_across_chiplets": false,
+            "timing": "analytical service calendars; not RTL cycle accuracy",
+            "whole_cnn": false
+          },
+          "identity": "41771f442e7434fccab1a2010bbed7f9df41d1c75d81f7b7139e7c0a67cdb1bb",
+          "memory_hierarchy": {
+            "capacity_provenance": "GB/ACC capacity from pinned Gemmini; LB/RF organization and all port rates are project assumptions",
+            "identity": "baef097bcbd8db6311aa0d2029ff393f05d30d2ba9d0478eee12dccae69ace00",
+            "lb_total_bytes": 20480,
+            "parameters": {
+              "accumulator_bank_bytes_per_cycle": 64,
+              "gb_bank_bytes_per_cycle": 16,
+              "lb_bank_bytes_per_cycle": 16,
+              "lb_operand_slot_bytes": 4096,
+              "lb_output_bytes": 4096,
+              "rf_a_bytes": 256,
+              "rf_b_bytes": 256,
+              "rf_operand_bytes_per_cycle": 256,
+              "rf_psum_bytes": 1024,
+              "rf_psum_bytes_per_cycle": 1024
+            },
+            "pe_clusters_per_chiplet": 1,
+            "ports": "GB and operand LB bank single port; output LB single shared port; RF and ACC read/write separate; copies reserve both endpoints",
+            "profile": "race_memory_hierarchy_v2",
+            "rf_total_bytes": 1536,
+            "status": "RESEARCH_EXTENSION_NOT_GEMMINI_DEFAULT_RTL"
+          },
+          "mesh_shape": [
+            1,
+            1
+          ],
+          "model": "race_gemmini_hierarchy_ws_v2",
+          "model_source_sha256": "57b40989842be387482c48457559d0b620f27eadd404a1119aeeb0fd44c48da8",
+          "modeled_cycles": 8682,
+          "operations": {
+            "acc_read_bytes": 6144,
+            "acc_write_bytes": 9216,
+            "lb_a_read_bytes": 2304,
+            "lb_b_read_bytes": 2304,
+            "logical_macs": 10368,
+            "padded_macs": 36864
+          },
+          "platform_scenario": {
+            "clock_hz": null,
+            "dram_bytes_per_cycle": 16,
+            "dram_capacity_bytes": 1073741824,
+            "dram_first_response_cycles": 20,
+            "mesh_bytes_per_cycle": 16,
+            "mesh_hop_cycles": 2
+          },
+          "platform_status": "RESEARCH_ASSUMPTION",
+          "ppa": {
+            "area_mm2": null,
+            "average_power_w": null,
+            "eligible_for_formal_rl_scoring": false,
+            "energy_j": null,
+            "status": "UNAVAILABLE_WITHOUT_CALIBRATION"
+          },
+          "scenario_latency_s": null,
+          "shape": {
+            "k": 36,
+            "m": 36,
+            "n": 8
+          },
+          "source_provenance": {
+            "commit": "8c3f9923a44a2fe2c7930587be297d6d4f8c09ca",
+            "configuration": "GemminiConfigs.defaultConfig",
+            "parameters_match_public_default": true,
+            "profile_sha256": "c1b936ea670757fa7b13275fee41bd48c2fd95e5157558e8a146b948c8969f79",
+            "repository": "https://github.com/ucb-bar/gemmini",
+            "rtl_timing_validated": false,
+            "silicon_validated": false,
+            "source_file": "src/main/scala/gemmini/Configs.scala"
+          },
+          "storage": {
+            "blocks": [
+              {
+                "a_bank_bytes": 65536,
+                "a_slot_bytes": 256,
+                "a_slots": 2,
+                "accumulator_bytes": 1024,
+                "accumulator_capacity_bytes": 65536,
+                "b_allocation_bytes": 65536,
+                "b_bytes": 256,
+                "b_slots": 2,
+                "chiplet": 0,
+                "gb_output_bytes": 1024,
+                "gb_output_capacity_bytes": 131072,
+                "lb_a_slot_bytes": 256,
+                "lb_a_slots": 2,
+                "lb_b_slot_bytes": 256,
+                "lb_b_slots": 2,
+                "lb_operand_slot_capacity_bytes": 4096,
+                "lb_output_capacity_bytes": 4096,
+                "lb_output_peak_bytes": 1024,
+                "output_block": 0,
+                "rf_a_peak_bytes": 256,
+                "rf_b_peak_bytes": 256,
+                "rf_psum_peak_bytes": 1024
+              },
+              {
+                "a_bank_bytes": 65536,
+                "a_slot_bytes": 256,
+                "a_slots": 2,
+                "accumulator_bytes": 1024,
+                "accumulator_capacity_bytes": 65536,
+                "b_allocation_bytes": 65536,
+                "b_bytes": 256,
+                "b_slots": 2,
+                "chiplet": 0,
+                "gb_output_bytes": 1024,
+                "gb_output_capacity_bytes": 131072,
+                "lb_a_slot_bytes": 256,
+                "lb_a_slots": 2,
+                "lb_b_slot_bytes": 256,
+                "lb_b_slots": 2,
+                "lb_operand_slot_capacity_bytes": 4096,
+                "lb_output_capacity_bytes": 4096,
+                "lb_output_peak_bytes": 1024,
+                "output_block": 1,
+                "rf_a_peak_bytes": 256,
+                "rf_b_peak_bytes": 256,
+                "rf_psum_peak_bytes": 1024
+              },
+              {
+                "a_bank_bytes": 65536,
+                "a_slot_bytes": 256,
+                "a_slots": 2,
+                "accumulator_bytes": 1024,
+                "accumulator_capacity_bytes": 65536,
+                "b_allocation_bytes": 65536,
+                "b_bytes": 256,
+                "b_slots": 2,
+                "chiplet": 0,
+                "gb_output_bytes": 1024,
+                "gb_output_capacity_bytes": 131072,
+                "lb_a_slot_bytes": 256,
+                "lb_a_slots": 2,
+                "lb_b_slot_bytes": 256,
+                "lb_b_slots": 2,
+                "lb_operand_slot_capacity_bytes": 4096,
+                "lb_output_capacity_bytes": 4096,
+                "lb_output_peak_bytes": 1024,
+                "output_block": 2,
+                "rf_a_peak_bytes": 256,
+                "rf_b_peak_bytes": 256,
+                "rf_psum_peak_bytes": 1024
+              }
+            ],
+            "external_allocation_bytes": 6144
+          },
+          "traffic": {
+            "by_operand": {
+              "A": 2304,
+              "B": 2304,
+              "C": 3072
+            },
+            "directed_link_byte_hops": 0,
+            "dma_transactions": 336,
+            "external_bytes": 7680,
+            "hierarchy_movement_bytes": {
+              "accumulator->lb": 9216,
+              "dram->gb": 4608,
+              "gb->dram": 3072,
+              "gb->lb": 4608,
+              "lb->accumulator": 9216,
+              "lb->gb": 3072,
+              "lb->rf": 10752,
+              "rf->lb": 9216
+            },
+            "storage_access_bytes": {
+              "accumulator": 18432,
+              "gb": 15360,
+              "lb": 46080,
+              "rf": 385536
+            }
+          }
+        },
+        {
+          "action": {
+            "dataflow": "weight_stationary",
+            "double_buffer": true,
+            "k_tile": 16,
+            "m_tile": 16,
+            "n_tile": 16,
+            "placement": [
+              0,
+              0,
+              0
+            ],
+            "retain_weights": true
+          },
+          "array_padding_utilization": 0.28125,
+          "assumptions": [
+            "A/B/C in external memory are zero-padded packed matrices aligned to 16 elements.",
+            "INT32 C is exported; requantization, bias and nonlinear operators are excluded.",
+            "GB uses pinned scratchpad capacity, with A bank 0/1 and retained B bank 2/3; output stages in free A banks.",
+            "LB/RF organization is a RACE-RL research extension, not the original Gemmini RTL.",
+            "Each LB A/B slot must hold the entire selected panel; RF holds one microtile. Oversize actions are rejected, not implicitly retiled.",
+            "Weights reuse in GB across M groups and in RF across M16; A reuses in LB across N16.",
+            "RF and SRAM accumulator are distinct: partial sums traverse RF -> LB -> ACC and back after each K16.",
+            "Output microtiles stream ACC -> LB -> GB -> DRAM. There is no direct DRAM/PE bypass.",
+            "Single-port GB/LB banks are exclusive; copies reserve both endpoints; RF/ACC read/write ports are separate.",
+            "Output groups on each chiplet serialize. K-panel copies overlap computation only in different slots.",
+            "Microprogram aggregated service phases serialize operand/psum copies; analytical conservative reservations need RTL validation.",
+            "External channel is shared by reads/writes; no implicit DRAM cache or multicast.",
+            "Mesh is a project extension. Gemmini itself is not a chiplet architecture."
+          ],
+          "chiplets": 1,
+          "configuration": {
+            "accumulator_banks": 2,
+            "accumulator_bits": 32,
+            "accumulator_bytes": 65536,
+            "accumulator_singleported": false,
+            "array_output_bits": 20,
+            "dataflows": [
+              "weight_stationary",
+              "output_stationary"
+            ],
+            "dma_bus_bits": 128,
+            "dma_max_bytes": 64,
+            "execute_queue_length": 8,
+            "input_bits": 8,
+            "load_queue_length": 8,
+            "max_in_flight_requests": 16,
+            "mesh_columns": 16,
+            "mesh_rows": 16,
+            "scratchpad_banks": 4,
+            "scratchpad_bytes": 262144,
+            "scratchpad_singleported": true,
+            "store_queue_length": 2,
+            "tile_columns": 1,
+            "tile_rows": 1,
+            "weight_bits": 8
+          },
+          "coverage": {
+            "activation_residency": false,
+            "cross_layer_fusion": false,
+            "executor": "INT8 GEMM, INT32 accumulated output, WS only",
+            "output_stationary": false,
+            "peer_to_peer_activation": false,
+            "queue_tlb_dram_protocol": false,
+            "reduction_across_chiplets": false,
+            "timing": "analytical service calendars; not RTL cycle accuracy",
+            "whole_cnn": false
+          },
+          "identity": "54d40856a72084c310463623ba77c8bb9a4c4331755b365ce0a24cc844340e7b",
+          "memory_hierarchy": {
+            "capacity_provenance": "GB/ACC capacity from pinned Gemmini; LB/RF organization and all port rates are project assumptions",
+            "identity": "baef097bcbd8db6311aa0d2029ff393f05d30d2ba9d0478eee12dccae69ace00",
+            "lb_total_bytes": 20480,
+            "parameters": {
+              "accumulator_bank_bytes_per_cycle": 64,
+              "gb_bank_bytes_per_cycle": 16,
+              "lb_bank_bytes_per_cycle": 16,
+              "lb_operand_slot_bytes": 4096,
+              "lb_output_bytes": 4096,
+              "rf_a_bytes": 256,
+              "rf_b_bytes": 256,
+              "rf_operand_bytes_per_cycle": 256,
+              "rf_psum_bytes": 1024,
+              "rf_psum_bytes_per_cycle": 1024
+            },
+            "pe_clusters_per_chiplet": 1,
+            "ports": "GB and operand LB bank single port; output LB single shared port; RF and ACC read/write separate; copies reserve both endpoints",
+            "profile": "race_memory_hierarchy_v2",
+            "rf_total_bytes": 1536,
+            "status": "RESEARCH_EXTENSION_NOT_GEMMINI_DEFAULT_RTL"
+          },
+          "mesh_shape": [
+            1,
+            1
+          ],
+          "model": "race_gemmini_hierarchy_ws_v2",
+          "model_source_sha256": "57b40989842be387482c48457559d0b620f27eadd404a1119aeeb0fd44c48da8",
+          "modeled_cycles": 6708,
+          "operations": {
+            "acc_read_bytes": 6144,
+            "acc_write_bytes": 9216,
+            "lb_a_read_bytes": 2304,
+            "lb_b_read_bytes": 2304,
+            "logical_macs": 10368,
+            "padded_macs": 36864
+          },
+          "platform_scenario": {
+            "clock_hz": null,
+            "dram_bytes_per_cycle": 16,
+            "dram_capacity_bytes": 1073741824,
+            "dram_first_response_cycles": 20,
+            "mesh_bytes_per_cycle": 16,
+            "mesh_hop_cycles": 2
+          },
+          "platform_status": "RESEARCH_ASSUMPTION",
+          "ppa": {
+            "area_mm2": null,
+            "average_power_w": null,
+            "eligible_for_formal_rl_scoring": false,
+            "energy_j": null,
+            "status": "UNAVAILABLE_WITHOUT_CALIBRATION"
+          },
+          "scenario_latency_s": null,
+          "shape": {
+            "k": 36,
+            "m": 36,
+            "n": 8
+          },
+          "source_provenance": {
+            "commit": "8c3f9923a44a2fe2c7930587be297d6d4f8c09ca",
+            "configuration": "GemminiConfigs.defaultConfig",
+            "parameters_match_public_default": true,
+            "profile_sha256": "c1b936ea670757fa7b13275fee41bd48c2fd95e5157558e8a146b948c8969f79",
+            "repository": "https://github.com/ucb-bar/gemmini",
+            "rtl_timing_validated": false,
+            "silicon_validated": false,
+            "source_file": "src/main/scala/gemmini/Configs.scala"
+          },
+          "storage": {
+            "blocks": [
+              {
+                "a_bank_bytes": 65536,
+                "a_slot_bytes": 256,
+                "a_slots": 2,
+                "accumulator_bytes": 1024,
+                "accumulator_capacity_bytes": 65536,
+                "b_allocation_bytes": 131072,
+                "b_bytes": 768,
+                "b_slots": 1,
+                "chiplet": 0,
+                "gb_output_bytes": 1024,
+                "gb_output_capacity_bytes": 131072,
+                "lb_a_slot_bytes": 256,
+                "lb_a_slots": 2,
+                "lb_b_slot_bytes": 256,
+                "lb_b_slots": 2,
+                "lb_operand_slot_capacity_bytes": 4096,
+                "lb_output_capacity_bytes": 4096,
+                "lb_output_peak_bytes": 1024,
+                "output_block": 0,
+                "rf_a_peak_bytes": 256,
+                "rf_b_peak_bytes": 256,
+                "rf_psum_peak_bytes": 1024
+              },
+              {
+                "a_bank_bytes": 65536,
+                "a_slot_bytes": 256,
+                "a_slots": 2,
+                "accumulator_bytes": 1024,
+                "accumulator_capacity_bytes": 65536,
+                "b_allocation_bytes": 131072,
+                "b_bytes": 768,
+                "b_slots": 1,
+                "chiplet": 0,
+                "gb_output_bytes": 1024,
+                "gb_output_capacity_bytes": 131072,
+                "lb_a_slot_bytes": 256,
+                "lb_a_slots": 2,
+                "lb_b_slot_bytes": 256,
+                "lb_b_slots": 2,
+                "lb_operand_slot_capacity_bytes": 4096,
+                "lb_output_capacity_bytes": 4096,
+                "lb_output_peak_bytes": 1024,
+                "output_block": 1,
+                "rf_a_peak_bytes": 256,
+                "rf_b_peak_bytes": 256,
+                "rf_psum_peak_bytes": 1024
+              },
+              {
+                "a_bank_bytes": 65536,
+                "a_slot_bytes": 256,
+                "a_slots": 2,
+                "accumulator_bytes": 1024,
+                "accumulator_capacity_bytes": 65536,
+                "b_allocation_bytes": 131072,
+                "b_bytes": 768,
+                "b_slots": 1,
+                "chiplet": 0,
+                "gb_output_bytes": 1024,
+                "gb_output_capacity_bytes": 131072,
+                "lb_a_slot_bytes": 256,
+                "lb_a_slots": 2,
+                "lb_b_slot_bytes": 256,
+                "lb_b_slots": 2,
+                "lb_operand_slot_capacity_bytes": 4096,
+                "lb_output_capacity_bytes": 4096,
+                "lb_output_peak_bytes": 1024,
+                "output_block": 2,
+                "rf_a_peak_bytes": 256,
+                "rf_b_peak_bytes": 256,
+                "rf_psum_peak_bytes": 1024
+              }
+            ],
+            "external_allocation_bytes": 6144
+          },
+          "traffic": {
+            "by_operand": {
+              "A": 2304,
+              "B": 768,
+              "C": 3072
+            },
+            "directed_link_byte_hops": 0,
+            "dma_transactions": 240,
+            "external_bytes": 6144,
+            "hierarchy_movement_bytes": {
+              "accumulator->lb": 9216,
+              "dram->gb": 3072,
+              "gb->dram": 3072,
+              "gb->lb": 4608,
+              "lb->accumulator": 9216,
+              "lb->gb": 3072,
+              "lb->rf": 10752,
+              "rf->lb": 9216
+            },
+            "storage_access_bytes": {
+              "accumulator": 18432,
+              "gb": 13824,
+              "lb": 46080,
+              "rf": 385536
+            }
+          }
+        },
+        {
+          "action": {
+            "dataflow": "weight_stationary",
+            "double_buffer": true,
+            "k_tile": 16,
+            "m_tile": 16,
+            "n_tile": 16,
+            "placement": [
+              0,
+              1,
+              0
+            ],
+            "retain_weights": true
+          },
+          "array_padding_utilization": 0.28125,
+          "assumptions": [
+            "A/B/C in external memory are zero-padded packed matrices aligned to 16 elements.",
+            "INT32 C is exported; requantization, bias and nonlinear operators are excluded.",
+            "GB uses pinned scratchpad capacity, with A bank 0/1 and retained B bank 2/3; output stages in free A banks.",
+            "LB/RF organization is a RACE-RL research extension, not the original Gemmini RTL.",
+            "Each LB A/B slot must hold the entire selected panel; RF holds one microtile. Oversize actions are rejected, not implicitly retiled.",
+            "Weights reuse in GB across M groups and in RF across M16; A reuses in LB across N16.",
+            "RF and SRAM accumulator are distinct: partial sums traverse RF -> LB -> ACC and back after each K16.",
+            "Output microtiles stream ACC -> LB -> GB -> DRAM. There is no direct DRAM/PE bypass.",
+            "Single-port GB/LB banks are exclusive; copies reserve both endpoints; RF/ACC read/write ports are separate.",
+            "Output groups on each chiplet serialize. K-panel copies overlap computation only in different slots.",
+            "Microprogram aggregated service phases serialize operand/psum copies; analytical conservative reservations need RTL validation.",
+            "External channel is shared by reads/writes; no implicit DRAM cache or multicast.",
+            "Mesh is a project extension. Gemmini itself is not a chiplet architecture."
+          ],
+          "chiplets": 2,
+          "configuration": {
+            "accumulator_banks": 2,
+            "accumulator_bits": 32,
+            "accumulator_bytes": 65536,
+            "accumulator_singleported": false,
+            "array_output_bits": 20,
+            "dataflows": [
+              "weight_stationary",
+              "output_stationary"
+            ],
+            "dma_bus_bits": 128,
+            "dma_max_bytes": 64,
+            "execute_queue_length": 8,
+            "input_bits": 8,
+            "load_queue_length": 8,
+            "max_in_flight_requests": 16,
+            "mesh_columns": 16,
+            "mesh_rows": 16,
+            "scratchpad_banks": 4,
+            "scratchpad_bytes": 262144,
+            "scratchpad_singleported": true,
+            "store_queue_length": 2,
+            "tile_columns": 1,
+            "tile_rows": 1,
+            "weight_bits": 8
+          },
+          "coverage": {
+            "activation_residency": false,
+            "cross_layer_fusion": false,
+            "executor": "INT8 GEMM, INT32 accumulated output, WS only",
+            "output_stationary": false,
+            "peer_to_peer_activation": false,
+            "queue_tlb_dram_protocol": false,
+            "reduction_across_chiplets": false,
+            "timing": "analytical service calendars; not RTL cycle accuracy",
+            "whole_cnn": false
+          },
+          "identity": "217409430764f0dfb9dd2d2f87950e5ff006dec410c3baebc8d8e48fc6a1e00a",
+          "memory_hierarchy": {
+            "capacity_provenance": "GB/ACC capacity from pinned Gemmini; LB/RF organization and all port rates are project assumptions",
+            "identity": "baef097bcbd8db6311aa0d2029ff393f05d30d2ba9d0478eee12dccae69ace00",
+            "lb_total_bytes": 20480,
+            "parameters": {
+              "accumulator_bank_bytes_per_cycle": 64,
+              "gb_bank_bytes_per_cycle": 16,
+              "lb_bank_bytes_per_cycle": 16,
+              "lb_operand_slot_bytes": 4096,
+              "lb_output_bytes": 4096,
+              "rf_a_bytes": 256,
+              "rf_b_bytes": 256,
+              "rf_operand_bytes_per_cycle": 256,
+              "rf_psum_bytes": 1024,
+              "rf_psum_bytes_per_cycle": 1024
+            },
+            "pe_clusters_per_chiplet": 1,
+            "ports": "GB and operand LB bank single port; output LB single shared port; RF and ACC read/write separate; copies reserve both endpoints",
+            "profile": "race_memory_hierarchy_v2",
+            "rf_total_bytes": 1536,
+            "status": "RESEARCH_EXTENSION_NOT_GEMMINI_DEFAULT_RTL"
+          },
+          "mesh_shape": [
+            1,
+            2
+          ],
+          "model": "race_gemmini_hierarchy_ws_v2",
+          "model_source_sha256": "57b40989842be387482c48457559d0b620f27eadd404a1119aeeb0fd44c48da8",
+          "modeled_cycles": 6696,
+          "operations": {
+            "acc_read_bytes": 6144,
+            "acc_write_bytes": 9216,
+            "lb_a_read_bytes": 2304,
+            "lb_b_read_bytes": 2304,
+            "logical_macs": 10368,
+            "padded_macs": 36864
+          },
+          "platform_scenario": {
+            "clock_hz": null,
+            "dram_bytes_per_cycle": 16,
+            "dram_capacity_bytes": 1073741824,
+            "dram_first_response_cycles": 20,
+            "mesh_bytes_per_cycle": 16,
+            "mesh_hop_cycles": 2
+          },
+          "platform_status": "RESEARCH_ASSUMPTION",
+          "ppa": {
+            "area_mm2": null,
+            "average_power_w": null,
+            "eligible_for_formal_rl_scoring": false,
+            "energy_j": null,
+            "status": "UNAVAILABLE_WITHOUT_CALIBRATION"
+          },
+          "scenario_latency_s": null,
+          "shape": {
+            "k": 36,
+            "m": 36,
+            "n": 8
+          },
+          "source_provenance": {
+            "commit": "8c3f9923a44a2fe2c7930587be297d6d4f8c09ca",
+            "configuration": "GemminiConfigs.defaultConfig",
+            "parameters_match_public_default": true,
+            "profile_sha256": "c1b936ea670757fa7b13275fee41bd48c2fd95e5157558e8a146b948c8969f79",
+            "repository": "https://github.com/ucb-bar/gemmini",
+            "rtl_timing_validated": false,
+            "silicon_validated": false,
+            "source_file": "src/main/scala/gemmini/Configs.scala"
+          },
+          "storage": {
+            "blocks": [
+              {
+                "a_bank_bytes": 65536,
+                "a_slot_bytes": 256,
+                "a_slots": 2,
+                "accumulator_bytes": 1024,
+                "accumulator_capacity_bytes": 65536,
+                "b_allocation_bytes": 131072,
+                "b_bytes": 768,
+                "b_slots": 1,
+                "chiplet": 0,
+                "gb_output_bytes": 1024,
+                "gb_output_capacity_bytes": 131072,
+                "lb_a_slot_bytes": 256,
+                "lb_a_slots": 2,
+                "lb_b_slot_bytes": 256,
+                "lb_b_slots": 2,
+                "lb_operand_slot_capacity_bytes": 4096,
+                "lb_output_capacity_bytes": 4096,
+                "lb_output_peak_bytes": 1024,
+                "output_block": 0,
+                "rf_a_peak_bytes": 256,
+                "rf_b_peak_bytes": 256,
+                "rf_psum_peak_bytes": 1024
+              },
+              {
+                "a_bank_bytes": 65536,
+                "a_slot_bytes": 256,
+                "a_slots": 2,
+                "accumulator_bytes": 1024,
+                "accumulator_capacity_bytes": 65536,
+                "b_allocation_bytes": 131072,
+                "b_bytes": 768,
+                "b_slots": 1,
+                "chiplet": 1,
+                "gb_output_bytes": 1024,
+                "gb_output_capacity_bytes": 131072,
+                "lb_a_slot_bytes": 256,
+                "lb_a_slots": 2,
+                "lb_b_slot_bytes": 256,
+                "lb_b_slots": 2,
+                "lb_operand_slot_capacity_bytes": 4096,
+                "lb_output_capacity_bytes": 4096,
+                "lb_output_peak_bytes": 1024,
+                "output_block": 1,
+                "rf_a_peak_bytes": 256,
+                "rf_b_peak_bytes": 256,
+                "rf_psum_peak_bytes": 1024
+              },
+              {
+                "a_bank_bytes": 65536,
+                "a_slot_bytes": 256,
+                "a_slots": 2,
+                "accumulator_bytes": 1024,
+                "accumulator_capacity_bytes": 65536,
+                "b_allocation_bytes": 131072,
+                "b_bytes": 768,
+                "b_slots": 1,
+                "chiplet": 0,
+                "gb_output_bytes": 1024,
+                "gb_output_capacity_bytes": 131072,
+                "lb_a_slot_bytes": 256,
+                "lb_a_slots": 2,
+                "lb_b_slot_bytes": 256,
+                "lb_b_slots": 2,
+                "lb_operand_slot_capacity_bytes": 4096,
+                "lb_output_capacity_bytes": 4096,
+                "lb_output_peak_bytes": 1024,
+                "output_block": 2,
+                "rf_a_peak_bytes": 256,
+                "rf_b_peak_bytes": 256,
+                "rf_psum_peak_bytes": 1024
+              }
+            ],
+            "external_allocation_bytes": 6144
+          },
+          "traffic": {
+            "by_operand": {
+              "A": 2304,
+              "B": 1536,
+              "C": 3072
+            },
+            "directed_link_byte_hops": 2560,
+            "dma_transactions": 288,
+            "external_bytes": 6912,
+            "hierarchy_movement_bytes": {
+              "accumulator->lb": 9216,
+              "dram->gb": 3840,
+              "gb->dram": 3072,
+              "gb->lb": 4608,
+              "lb->accumulator": 9216,
+              "lb->gb": 3072,
+              "lb->rf": 10752,
+              "rf->lb": 9216
+            },
+            "storage_access_bytes": {
+              "accumulator": 18432,
+              "gb": 14592,
+              "lb": 46080,
+              "rf": 385536
+            }
+          }
+        }
+      ],
+      "workload": {
+        "gemm_shape": {
+          "k": 36,
+          "m": 36,
+          "n": 8
+        },
+        "im2col_bytes": 1296,
+        "kind": "Conv GEMM stage",
+        "lowering": "explicit_im2col",
+        "original_input_bytes": 256,
+        "output_shape": [
+          1,
+          8,
+          6,
+          6
+        ],
+        "preprocessing_latency_energy": "NOT_MODELED; GEMM-stage results are not whole-convolution PPA"
+      }
+    }
+  ],
+  "configuration": {
+    "commit": "8c3f9923a44a2fe2c7930587be297d6d4f8c09ca",
+    "configuration": "GemminiConfigs.defaultConfig",
+    "parameters_match_public_default": true,
+    "profile_sha256": "c1b936ea670757fa7b13275fee41bd48c2fd95e5157558e8a146b948c8969f79",
+    "repository": "https://github.com/ucb-bar/gemmini",
+    "rtl_timing_validated": false,
+    "silicon_validated": false,
+    "source_file": "src/main/scala/gemmini/Configs.scala"
+  },
+  "execution_platform": {
+    "machine": "arm64",
+    "numpy": "2.5.4",
+    "python": "3.12.14 (main, Aug 25 2026, 13:50:33) [Clang 22.1.3 ]",
+    "system": "Darwin"
+  },
+  "findings": {
+    "gemm_weight_bytes_reload": 2048,
+    "gemm_weight_bytes_retained": 512,
+    "gemm_weight_bytes_two_chiplets": 1024,
+    "interpretation": "same logical GEMM work; residency reduces model traffic, replication across chiplets costs bytes; no silicon speedup claim"
+  },
+  "platform_source_record": {
+    "clock_hz": null,
+    "dram_bytes_per_cycle": 16,
+    "dram_capacity_bytes": 1073741824,
+    "dram_first_response_cycles": 20,
+    "mesh_bytes_per_cycle": 16,
+    "mesh_hop_cycles": 2,
+    "name": "gemmini_foundation_scenario",
+    "provenance": {
+      "clock_hz": "No implementation clock is inferred from defaultConfig. Reports use cycles until an explicit scenario clock is supplied.",
+      "dram": "One shared external channel attached to chiplet c0; finite bandwidth and capacity; scenario values, not a measured DRAM device.",
+      "mesh": "Project extension: rectangular compute-only mesh, deterministic XY routing and atomic directed-path reservations. Not present in Gemmini RTL.",
+      "ppa": "Area, average power and energy remain unavailable; missing calibration blocks formal PPA scoring.",
+      "status": "RESEARCH_ASSUMPTION_NOT_GEMMINI_SPEC"
+    }
+  },
+  "platform_source_sha256": "d95b0fb99bdad8b399d4346d876e3d39d5a6bfcbf8427d1c42515e78e7297696",
+  "recorded_at": "2026-10-14T18:35:46.663604+08:00",
+  "scope": "fixed-action foundation verification; not training or accelerator performance validation",
+  "seed": 20261014,
+  "source_audit": {
+    "claim_scope": "source identity and configuration facts; not RTL/PPA validation",
+    "commit": "8c3f9923a44a2fe2c7930587be297d6d4f8c09ca",
+    "dependency": "Gemmini reference",
+    "files_checked": 7,
+    "mismatches": [],
+    "parameters_checked": 21,
+    "status": "PASSED"
+  },
+  "status": "PASSED",
+  "trust": {
+    "arithmetic": "INDEPENDENT_INTEGER_REFERENCE_VERIFIED",
+    "capacity_and_resources": "MODEL_INVARIANTS_TESTED",
+    "configuration": "PINNED_PRIMARY_SOURCE_VERIFIED",
+    "platform_and_chiplet_mesh": "DECLARED_RESEARCH_ASSUMPTIONS",
+    "power_area": "NOT_AVAILABLE",
+    "timing": "ANALYTICAL_UNCALIBRATED"
+  },
+  "wall_time_s": 0.03412225004285574
+}

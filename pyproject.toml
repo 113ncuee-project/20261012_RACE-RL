@@ -17,9 +17,11 @@ reports = ["matplotlib>=3.8,<4"]
 [project.scripts]
 race-rl = "race_rl.cli:main"
 race-rl-gui = "race_gui.server:main"
+race-rl-cnn = "race_rl.accelerators.cnn_search:main"
 
 [tool.setuptools.packages.find]
 where = ["src"]
 
 [tool.setuptools.package-data]
 race_gui = ["static/*.html", "static/*.css", "static/*.js"]
+race_rl = ["accelerators/*.json"]

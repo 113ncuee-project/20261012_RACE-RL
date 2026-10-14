@@ -1,0 +1,26 @@
+{
+  "status": "PASSED",
+  "local_regression_tests": 188,
+  "local_regression_elapsed_s": 8.64,
+  "new_integration_tests": 11,
+  "runtime_platform": "macOS arm64, Python 3.12.14, CPU",
+  "inspection": {
+    "requests": 1,
+    "new_model_evaluations": 1,
+    "policy_updates": 0,
+    "reward": null,
+    "status": "ACTION_FEEDBACK_CONNECTED_PPA_BLOCKED"
+  },
+  "smoke": {
+    "complete_interactions": 8,
+    "policy_updates": 2,
+    "policy_hash_changed": true,
+    "coefficient_status": "TEST_FIXTURE",
+    "research_ppa_result": false
+  },
+  "train_without_ppa_profile": "REJECTED_BEFORE_TRAINING_AND_NO_OUTPUT_CREATED",
+  "source_identity": "17601c54fcd9f36156255e4420203cd323bc736c3aa6bccc426d9d6b5fdcd5fd",
+  "runner_source_sha256": "9fdeeb26cac1d464207be972986d600ead6edf943570500bff8825c7ecaa236d",
+  "claim_scope": "GEMM adapter and REINFORCE mechanism; no full CNN migration, RTL timing, convergence, or silicon PPA claim",
+  "windows_status": "portable tests and LF checkout regression; not Windows cloud CI execution"
+}

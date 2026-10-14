@@ -21,7 +21,8 @@ jobs:
       - run: race-rl train --episodes 1 --budget 4 --out experiments/runs/ci_training
       - run: race-rl validate-cnn --model resnet18 --input-size 32 --precision float64 --analytical-check --guarded-memory --out experiments/runs/ci_cnn
       - run: race-rl search-mesh --requirements configs/vendor_requirements.json --model resnet18 --input-size 32 --compute-counts 2 16 --episodes 1 --budget 2 --max-scope 1 --out experiments/runs/ci_joint_search
-      - run: python tools/train_model_suite.py --model resnet18 --smoke --evaluation-seeds 1007 --out experiments/runs/ci_suite
+      - run: python tools/train_model_suite.py --legacy-synthetic --model resnet18 --smoke --evaluation-seeds 1007 --out experiments/runs/ci_suite
+      - run: race-rl search-cnn --integration-smoke --models resnet18 --input-size 64 --evaluation-seeds 17 --out experiments/runs/ci_cnn_hierarchy
       - uses: actions/upload-artifact@v4
         if: always()
         with:
@@ -30,4 +31,7 @@ jobs:
             experiments/runs/ci_logs
             experiments/runs/ci_suite/*/execution.log
             experiments/runs/ci_suite/status.json
+            experiments/runs/ci_cnn_hierarchy/*/execution.log
+            experiments/runs/ci_cnn_hierarchy/*/status.json
+            experiments/runs/ci_cnn_hierarchy/*/report.json
           retention-days: 7

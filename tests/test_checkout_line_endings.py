@@ -17,6 +17,10 @@ class CheckoutLineEndingTests(unittest.TestCase):
         lock=json.loads((ROOT/'rapidchiplet.lock.json').read_text(encoding='utf-8'))
         expected=lock['reference_sha256']
         sources={name:(ROOT/'third_party/rapidchiplet-main'/name).read_bytes() for name in expected}
+        gemmini=json.loads((ROOT/'gemmini.lock.json').read_text(encoding='utf-8'))
+        expected={**expected,**{'gemmini/'+name:record['sha256'] for name,record in gemmini['reference_files'].items()}}
+        sources.update({'gemmini/'+name:(ROOT/'third_party/gemmini-reference'/name).read_bytes()
+                        for name in gemmini['reference_files']})
         # Isolate both configuration and attributes from the developer's Git.
         env=dict(os.environ,GIT_CONFIG_NOSYSTEM='1',GIT_CONFIG_GLOBAL=os.devnull,GIT_ATTR_NOSYSTEM='1')
         with tempfile.TemporaryDirectory(prefix='race checkout ') as folder:

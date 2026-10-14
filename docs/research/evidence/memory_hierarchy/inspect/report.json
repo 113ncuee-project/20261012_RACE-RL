@@ -1,0 +1,145 @@
+{
+  "algorithm": "reinforce",
+  "best_assessment": null,
+  "best_design": null,
+  "best_ppa_source": null,
+  "coefficient_evidence_status": "UNAVAILABLE",
+  "critic_used": false,
+  "episodes": [],
+  "feedback": {
+    "action_log_probability": -8.52607836977978,
+    "after": {
+      "backend": "race_gemmini_hierarchy_ws_v2",
+      "compute_count": 9,
+      "current_design": {
+        "compute_count": 9,
+        "double_buffer": false,
+        "k_tile": 64,
+        "m_tile": 64,
+        "n_tile": 64,
+        "retain_weights": true,
+        "spread": false,
+        "target": 3
+      },
+      "global_feature_width": 22,
+      "hardware_feature_width": 9,
+      "hardware_nodes": 145,
+      "last_reward_placeholder_or_value": 0.0,
+      "last_reward_valid": false,
+      "legal_action_count": 5419,
+      "model_feedback_valid": true,
+      "ppa_valid": false,
+      "schema": 7,
+      "tile_feature_width": 23,
+      "tile_nodes": 4,
+      "units": "schema 7: hardware throughput MAC/cycle, bandwidth bytes/cycle; PPA feedback retains SI units"
+    },
+    "before": {
+      "backend": "race_gemmini_hierarchy_ws_v2",
+      "compute_count": 2,
+      "current_design": {
+        "compute_count": 2,
+        "double_buffer": true,
+        "k_tile": 16,
+        "m_tile": 16,
+        "n_tile": 16,
+        "retain_weights": true,
+        "spread": true,
+        "target": 0
+      },
+      "global_feature_width": 22,
+      "hardware_feature_width": 9,
+      "hardware_nodes": 33,
+      "last_reward_placeholder_or_value": 0.0,
+      "last_reward_valid": false,
+      "legal_action_count": 5419,
+      "model_feedback_valid": false,
+      "ppa_valid": false,
+      "schema": 7,
+      "tile_feature_width": 23,
+      "tile_nodes": 7,
+      "units": "schema 7: hardware throughput MAC/cycle, bandwidth bytes/cycle; PPA feedback retains SI units"
+    },
+    "critic_value": null,
+    "done": true,
+    "evaluations_before_first_action": 0,
+    "oracle_evaluations": 1,
+    "oracle_requests": 1,
+    "reward": null
+  },
+  "mode": "FROZEN_INSPECTION",
+  "policy_after": "5c2a970fcb14928a6f89251f8356ff70db8c4ca12d30ef57049ca092cfe88158",
+  "policy_before": "5c2a970fcb14928a6f89251f8356ff70db8c4ca12d30ef57049ca092cfe88158",
+  "policy_updates": 0,
+  "ppa_available": false,
+  "research_ppa_result": false,
+  "schema5_checkpoints_reused": false,
+  "single_agent": true,
+  "source_audit": {
+    "claim_scope": "source identity and configuration facts; not RTL/PPA validation",
+    "commit": "8c3f9923a44a2fe2c7930587be297d6d4f8c09ca",
+    "dependency": "Gemmini reference",
+    "files_checked": 7,
+    "mismatches": [],
+    "parameters_checked": 21,
+    "status": "PASSED"
+  },
+  "source_identity": "1696847be7c8bfd617de622941601f95ce9b30918f7e807d5c507b9453046870",
+  "status": "ACTION_FEEDBACK_CONNECTED_PPA_BLOCKED",
+  "timing_status": "ANALYTICAL_UNVALIDATED",
+  "trace": [
+    {
+      "action": {
+        "compute_count": 9,
+        "double_buffer": false,
+        "k_tile": 64,
+        "m_tile": 64,
+        "n_tile": 64,
+        "retain_weights": true,
+        "spread": false,
+        "target": 3
+      },
+      "best_objective": 1.0,
+      "cache_hits": 0,
+      "current_objective": 1.0,
+      "design_hash": "00a25f3c7bd15bf8cedf469dc25c4d1375917c8d9ef40621a712b2601e72d686",
+      "evaluations": 1,
+      "model_cycles": 6358,
+      "model_traffic": {
+        "by_operand": {
+          "A": 2048,
+          "B": 512,
+          "C": 4096
+        },
+        "directed_link_byte_hops": 6656,
+        "dma_transactions": 160,
+        "external_bytes": 6656,
+        "hierarchy_movement_bytes": {
+          "accumulator->lb": 8192,
+          "dram->gb": 2560,
+          "gb->dram": 4096,
+          "gb->lb": 2560,
+          "lb->accumulator": 8192,
+          "lb->gb": 4096,
+          "lb->rf": 6656,
+          "rf->lb": 8192
+        },
+        "storage_access_bytes": {
+          "accumulator": 16384,
+          "gb": 13312,
+          "lb": 37888,
+          "rf": 338432
+        }
+      },
+      "physical_feasible": true,
+      "ppa_assessment": null,
+      "requests": 1,
+      "reward": null,
+      "scorable": false,
+      "status": "PPA_UNAVAILABLE",
+      "termination": "ppa_unavailable"
+    }
+  ],
+  "wall_time_s": 0.0570180828217417,
+  "whole_cnn_supported": false
+}

@@ -4,6 +4,7 @@ import json
 import os
 from pathlib import Path
 import secrets
+import signal
 import subprocess
 import sys
 import threading
@@ -22,9 +23,46 @@ ROOT=Path(__file__).resolve().parents[2]
 GUI_COUNTS=(2,1,*range(3,17))  # Fixed initial 2; RL may choose any count 1–16.
 
 
+def validate_gui_cost_profile(record):
+    """Use the production cost validator with actionable Chinese GUI errors."""
+    from race_rl.accelerators.cnn_ppa import load_cnn_cost_profile
+    from race_rl.accelerators.gemmini_ppa import GemminiCostProfile
+    if (not isinstance(record,dict) or set(record)!=
+            {'base','vector_op_j','vector_op_source','cnn_hardware_identity'} or
+            not isinstance(record['base'],dict)):
+        raise ValueError('成本檔格式不符：需要完整 CNN 成本資料，不能使用 GEMM 或舊合成模型成本檔。')
+    base=record['base']
+    status=base.get('evidence_status')
+    if status=='UNAVAILABLE':
+        raise ValueError('這是尚未填寫的成本模板，不能進行 PPA 訓練。請補齊時脈、晶粒面積、各層能耗係數與來源；只修改證據狀態無效。可移除成本檔，先檢視設計與傳輸。')
+    if status=='TEST_FIXTURE':
+        raise ValueError('此成本檔是軟體測試資料，不能用於 GUI 的 PPA 訓練。請提供有來源的硬體成本資料。')
+    if status not in ('DECLARED_ESTIMATE','RTL_DERIVED','MEASURED'):
+        raise ValueError('成本檔缺少有效的證據狀態（base.evidence_status）：請依實際來源標示估計、RTL 推導或量測，並補齊成本係數及來源。')
+    if set(base)!=set(GemminiCostProfile.__dataclass_fields__):
+        raise ValueError('成本檔 base 欄位不完整或含不支援的欄位，請依 CNN 成本模板填寫。')
+    try:
+        return load_cnn_cost_profile(record) # Never allow test fixtures in GUI.
+    except (ValueError,TypeError) as exc:
+        message=str(exc)
+        for prefix,translated in (
+                ('missing or invalid PPA coefficient: ','成本係數缺值或不是有效的非負數：'),
+                ('positive PPA coefficient required: ','此成本係數必須大於零：'),
+                ('source or explicit assumption required for ','此成本係數缺少來源或明確假設：')):
+            if message.startswith(prefix):raise ValueError(translated+message[len(prefix):]) from exc
+        translations={
+            'PPA source metadata required':'成本檔需提供名稱與逐項來源（base.name、base.sources）。',
+            'PPA profile must identify the exact memory hierarchy':'成本檔缺少有效的記憶體階層識別碼。',
+            'CNN vector-unit energy coefficient and source required':'請提供大於零的向量運算能耗 vector_op_j，以及其來源 vector_op_source。',
+            'CNN PPA profile does not match fixed vector/memory hardware':'成本檔的 CNN 硬體識別碼與目前固定硬體不同，不能套用。',
+            'CNN cost-profile memory identity mismatch':'成本檔的記憶體階層與目前 GB／LB／RF／ACC 配置不同，不能套用。'}
+        raise ValueError(translations.get(message,'成本檔內容不正確，請核對 CNN 模板的數值、來源及硬體識別碼。')) from exc
+
+
 def validate_request(payload):
     allowed={'model','max_power_w','max_latency_ms','max_area_mm2','preference','weights',
-        'episodes','budget','seed','max_scope','input_size','early_stop','warmup_episodes','patience','relative_improvement'}
+        'episodes','budget','seed','max_scope','input_size','early_stop','warmup_episodes','patience','relative_improvement',
+        'backend','cost_profile'}
     if not isinstance(payload,dict) or set(payload)-allowed: raise ValueError('不支援的輸入欄位。')
     for name in ('model','max_power_w','max_latency_ms','max_area_mm2','preference'):
         if name not in payload: raise ValueError('請完整輸入 PPA 限制與偏好。')
@@ -48,6 +86,13 @@ def validate_request(payload):
         settings['early_stopping']=plain(PlateauSettings(payload.get('warmup_episodes',20),
             payload.get('patience',15),payload.get('relative_improvement',.001)))
     settings.update(model=payload['model'],compute_counts=list(GUI_COUNTS),requirements=req)
+    backend=payload.get('backend','gemmini_cnn')
+    if backend not in ('gemmini_cnn','legacy_synthetic'):raise ValueError('請選擇新的記憶體階層或舊合成比較模型。')
+    cost_record=payload.get('cost_profile')
+    if cost_record is not None:
+        if backend!='gemmini_cnn':raise ValueError('新版成本資料不能套用舊合成模型。')
+        validate_gui_cost_profile(cost_record)
+    settings.update(backend=backend,cost_profile=cost_record,mode='train' if cost_record or backend=='legacy_synthetic' else 'inspect')
     return settings
 
 
@@ -66,6 +111,7 @@ class JobManager:
             folder.mkdir(parents=True)
             save_json(folder/'requirements.json',settings['requirements'])
             save_json(folder/'request.json',payload)
+            if settings['cost_profile'] is not None:save_json(folder/'cost_profile.json',settings['cost_profile'])
             job={'id':jid,'status':'RUNNING','created_at':time.time(),'settings':settings,
                 'request':dict(payload),'folder':folder,'process':None,'report':None,'summary':None,'design_view':None,'error':None}
             self.jobs[jid]=job
@@ -74,6 +120,18 @@ class JobManager:
 
     def _command(self,job):
         s=job['settings']
+        if s['backend']=='gemmini_cnn':
+            command=[self.python,'-u','-m','race_rl.accelerators.cnn_search','--models',s['model'],
+                '--requirements',str(job['folder']/'requirements.json'),'--out',str(job['folder']/'results'),
+                '--input-size',str(s['input_size']),'--episodes',str(s['episodes']),'--interactions',str(s['budget']),
+                '--seed',str(s['seed']),'--max-scope',str(s['max_scope'])]
+            if s['cost_profile'] is not None:command+=['--train','--ppa-profile',str(job['folder']/'cost_profile.json')]
+            else:command+=['--inspect']
+            if s['early_stopping']:
+                stop=s['early_stopping']
+                command+=['--early-stop','--min-episodes',str(stop['min_episodes']),
+                          '--patience',str(stop['patience']),'--min-improvement',str(stop['relative_improvement'])]
+            return command
         command = [self.python,'-u','-m','race_rl.cli','search-mesh','--model',s['model'],
             '--requirements',str(job['folder']/'requirements.json'),'--out',str(job['folder']/'results'),
             '--episodes',str(s['episodes']),'--budget',str(s['budget']),'--seed',str(s['seed']),
@@ -94,7 +152,8 @@ class JobManager:
                     env=dict(os.environ, PYTHONUNBUFFERED='1',PYTHONUTF8='1')
                     # All arguments are fixed/validated and passed as a list, never a shell string.
                     job['process']=subprocess.Popen(self._command(job),cwd=self.root,stdout=log,
-                        stderr=subprocess.STDOUT,env=env)
+                        stderr=subprocess.STDOUT,env=env,start_new_session=os.name!='nt',
+                        creationflags=subprocess.CREATE_NEW_PROCESS_GROUP if os.name=='nt' else 0)
                 code=job['process'].wait()
             with self.lock:
                 job['exit_code']=code
@@ -102,6 +161,13 @@ class JobManager:
                 elif code!=0:
                     job['status']='FAILED';job['error']='搜尋未完成，請查看執行紀錄。'
                 else:
+                    if job['settings']['backend']=='gemmini_cnn':
+                        search=job['folder']/'results'/job['settings']['model']
+                        for key,name in (('report','vendor_report'),('summary','summary'),('design_view','design_view')):
+                            job[key]=json.loads((search/(name+'.json')).read_text(encoding='utf-8'))
+                        save_json(job['folder']/'design_view.json',job['design_view'])
+                        job['status']='COMPLETED'
+                        return
                     search=job['folder']/'results'/'search'
                     job['report']=json.loads((search/'vendor_report.json').read_text(encoding='utf-8'))
                     job['summary']=json.loads((search/'summary.json').read_text(encoding='utf-8'))
@@ -125,7 +191,17 @@ class JobManager:
             if job is None:raise KeyError('找不到搜尋。')
             if job['status']=='RUNNING':
                 job['status']='CANCELLING'
-                if job['process'] is not None:job['process'].terminate()
+                if job['process'] is not None:
+                    # CNN master catches the interrupt and stops its worker;
+                    # terminating only the master would orphan that worker.
+                    try:job['process'].send_signal(signal.CTRL_BREAK_EVENT if os.name=='nt' else signal.SIGINT)
+                    except ProcessLookupError:pass
+                    except OSError:
+                        if os.name!='nt':raise
+                        # GUI/pythonw or hosted runners may lack a console.
+                        # Kill only this job's process tree, not other apps.
+                        subprocess.run(['taskkill','/PID',str(job['process'].pid),'/T','/F'],
+                            stdout=subprocess.DEVNULL,stderr=subprocess.DEVNULL,check=False,timeout=5)
             return self.snapshot(jid)
 
     def snapshot(self,jid):
@@ -137,7 +213,8 @@ class JobManager:
                 with logfile.open('rb') as log:
                     log.seek(0,2);log.seek(max(0,log.tell()-12000))
                     tail=log.read().decode('utf-8',errors='replace')
-            live_path=job['folder']/'results'/'search'/'progress.json'
+            search=job['folder']/'results'/(job['settings']['model'] if job['settings']['backend']=='gemmini_cnn' else 'search')
+            live_path=search/'progress.json'
             constraint_path=job['folder']/'results'/'constraint_check.json'
             constraint=None
             try:
@@ -147,7 +224,7 @@ class JobManager:
             try:
                 if live_path.exists():live=json.loads(live_path.read_text(encoding='utf-8'))
             except (OSError,ValueError):pass
-            curve=job['folder']/'results'/'search'/'training_curve.json'
+            curve=search/'training_curve.json'
             history=[]
             try:
                 if curve.exists():history=json.loads(curve.read_text(encoding='utf-8'))
@@ -191,10 +268,11 @@ class Handler(BaseHTTPRequestHandler):
         if not self.valid_host():return self.send(403,{'error':'僅允許本機連線。'})
         path=urlsplit(self.path).path
         if path=='/api/identity':
-            return self.send(200,{'application':'race-rl-gui','protocol':1,
+            return self.send(200,{'application':'race-rl-gui','protocol':2,
                 'workspace':str(self.server.manager.root)})
         if path=='/api/config':
-            return self.send(200,{'csrf_token':self.server.token,'models':list(SUPPORTED_MODELS),
+            return self.send(200,{'csrf_token':self.server.token,'models':list(SUPPORTED_MODELS),'backend':'gemmini_cnn',
+                'memory_hierarchy':'DRAM → GB → LB → RF → PE；LB ↔ accumulator；FP32 vector postprocessing',
                 'preferences':[{'id':k,'label':v,'weights':PRESET_WEIGHTS.get(k)} for k,v in PREFERENCE_LABELS.items()]})
         if path.startswith('/api/jobs/'):
             parts=path.strip('/').split('/')
@@ -220,6 +298,10 @@ class Handler(BaseHTTPRequestHandler):
             if not 0<size<=65536:raise ValueError('輸入大小不正確。')
             payload=json.loads(self.rfile.read(size))
             path=urlsplit(self.path).path
+            if path=='/api/validate-cost-profile':
+                profile=validate_gui_cost_profile(payload)
+                return self.send(200,{'valid':True,'evidence_status':profile.base.evidence_status,
+                    'name':profile.base.name,'identity':profile.identity})
             if path=='/api/jobs':return self.send(202,{'id':self.server.manager.start(payload)})
             parts=path.strip('/').split('/')
             if len(parts)==4 and parts[:2]==['api','jobs'] and parts[3]=='cancel':

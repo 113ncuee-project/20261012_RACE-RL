@@ -1,4 +1,6 @@
-# 現行硬體與資料流
+# 舊 CNN／GUI 合成硬體與資料流
+
+本頁描述仍由 GUI／原 CNN 搜尋使用的合成服務模型。[Gemmini 單晶粒模型](gemmini_hardware.md)已建立公開配置參照與 DRAM→GB→LB→RF→PE 的研究擴充，並[接入同一 REINFORCE trainer 的 GEMM 後端](gemmini_rl_integration.md)。缺少成本資料時禁止 PPA reward 與策略更新；GUI 預設與七模型主入口已改為 [完整 CNN 新階層](cnn_hierarchy.md)；本頁僅供顯式選取的舊合成比較。
 
 ![現行硬體與資料流](figures/hardware_dataflow.png)
 

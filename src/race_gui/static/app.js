@@ -1,6 +1,7 @@
 'use strict';
 const $=id=>document.getElementById(id);
-let config=null,jobId=null,pollTimer=null,completedJob=null,formLocked=false;
+let config=null,jobId=null,pollTimer=null,completedJob=null,formLocked=false,loadedCost=null;
+let costError='',costChecking=false,costSelection=0;
 const form=$('search-form');
 const number=id=>Number($(id).value);
 const fmt=(n,d=4)=>Number(n).toLocaleString('zh-TW',{maximumSignificantDigits:d});
@@ -27,6 +28,7 @@ function lockForm(active){
   formLocked=active;
   for(const el of form.querySelectorAll('input,select,button'))el.disabled=active;
   $('cancel').hidden=!active;$('cancel').disabled=false;stoppingControls();
+  updateCostStatus();
 }
 function result(job){
   const report=job.report,summary=job.summary;
@@ -34,7 +36,7 @@ function result(job){
   completedJob=job;$('empty-result').hidden=true;$('result').hidden=false;$('download').hidden=false;
   const a=report.assessment,good=report.status==='FEASIBLE_DESIGN_FOUND';
   $('result-banner').className=`result-banner${good?'':' unmet'}`;
-  $('result-banner').textContent=good?'已找到符合三項限制的候選設計':'本次未找到達標設計 · 以下為最佳搜尋進度';
+  $('result-banner').textContent=report.status==='PPA_UNAVAILABLE'?'設計檢視完成 · PPA 缺少成本資料，未訓練策略':good?'已找到符合三項限制的候選設計':'本次未找到達標設計 · 以下為最佳搜尋進度';
   $('result-count').textContent=summary.selected_compute_count??'尚未取得有效結果';
   $('result-cost').textContent=a.weighted_cost===null?'尚未測得':fmt(a.weighted_cost,5);
   $('ppa-metrics').replaceChildren();
@@ -55,11 +57,19 @@ function result(job){
   $('output-folder').textContent=`結果儲存位置：${job.output_folder}`;
   if(job.design_view)renderDesign(job.design_view);
 }
-function restoreRequest(payload){
+async function restoreRequest(payload){
   const fields={power:'max_power_w',latency:'max_latency_ms',area:'max_area_mm2',model:'model',episodes:'episodes',seed:'seed','input-size':'input_size',scope:'max_scope',warmup:'warmup_episodes',patience:'patience'};
   for(const [id,key] of Object.entries(fields))if(payload[key]!==undefined)$(id).value=payload[key];
   for(const el of form.querySelectorAll('input[name=preference]'))el.checked=el.value===payload.preference;
   if(payload.weights)for(const [i,id] of ['weight-power','weight-performance','weight-area'].entries())$(id).value=payload.weights[i];
+  if(payload.backend)$('backend').value=payload.backend;
+  if(payload.cost_profile){
+    loadedCost=null;costError='';costChecking=true;updateCostStatus();
+    try{await checkCostRecord(payload.cost_profile,++costSelection);}
+    catch(error){costError=error.message;showError(costError);}
+    finally{costChecking=false;updateCostStatus();}
+  }
+  else clearCost();
   if(payload.early_stop!==undefined)$('early-stop').checked=payload.early_stop;
   if(payload.relative_improvement!==undefined)$('threshold').value=payload.relative_improvement*100;
   updateWeights();stoppingControls();$('running-task').hidden=false;
@@ -82,13 +92,18 @@ async function poll(){
       $('status-subtitle').textContent=stages[live.stage]||'搜尋執行中';
       $('progress-text').textContent=`第 ${live.episode} / ${job.episodes_requested} 回合 · 已完成 ${live.requests} 次完整動作與環境互動`;
     }
-    if(!active){clearInterval(pollTimer);pollTimer=null;lockForm(false);if(job.error)showError(job.constraint_check?.warnings?.join(' ')||job.error);if(job.status==='COMPLETED'){result(job);if(job.summary?.search_stop_reason==='OBJECTIVE_PLATEAU')$('progress-text').textContent=`搜尋趨於穩定，提前停止（${job.episodes_completed} / ${job.episodes_requested} 回合）`;}}
+    if(!active){clearInterval(pollTimer);pollTimer=null;lockForm(false);if(job.error)showError(job.constraint_check?.warnings?.join(' ')||job.error);if(job.status==='COMPLETED'){result(job);if(job.summary?.search_stop_reason==='FROZEN_INSPECTION'){$('progress').max=1;$('progress').value=1;$('progress-text').textContent='一次完整動作檢視完成；策略更新 0 次。';}if(job.summary?.search_stop_reason==='OBJECTIVE_PLATEAU')$('progress-text').textContent=`搜尋趨於穩定，提前停止（${job.episodes_completed} / ${job.episodes_requested} 回合）`;}}
   }catch(error){clearInterval(pollTimer);pollTimer=null;showError(`${error.message} 搜尋可能仍在執行，請確認本機伺服器後重新整理頁面，系統會恢復進度。`);$('status-subtitle').textContent='與伺服器的連線中斷';}
 }
 form.addEventListener('submit',async event=>{
   event.preventDefault();showError('');
-  const payload={model:$('model').value,max_power_w:number('power'),max_latency_ms:number('latency'),max_area_mm2:number('area'),preference:preference(),episodes:number('episodes'),seed:number('seed'),input_size:number('input-size'),max_scope:number('scope'),early_stop:$('early-stop').checked,warmup_episodes:number('warmup'),patience:number('patience'),relative_improvement:number('threshold')/100};
+  if(formLocked)return;
+  if($('backend').value==='gemmini_cnn'&&(costChecking||costError)){
+    showError(costError||'成本檔仍在檢查中，請稍候。');return;
+  }
+  const payload={backend:$('backend').value,model:$('model').value,max_power_w:number('power'),max_latency_ms:number('latency'),max_area_mm2:number('area'),preference:preference(),episodes:number('episodes'),seed:number('seed'),input_size:number('input-size'),max_scope:number('scope'),early_stop:$('early-stop').checked,warmup_episodes:number('warmup'),patience:number('patience'),relative_improvement:number('threshold')/100};
   if(payload.preference==='custom')payload.weights=customWeights();
+  if(loadedCost&&payload.backend==='gemmini_cnn')payload.cost_profile=loadedCost;
   if([payload.max_power_w,payload.max_latency_ms,payload.max_area_mm2].some(x=>!Number.isFinite(x)||x<=0)){showError('三項 PPA 限制需為大於零的有限數值。');return;}
   if(payload.weights&&(payload.weights.some(x=>!Number.isFinite(x)||x<0)||payload.weights.reduce((a,b)=>a+b,0)<=0)){showError('自訂權重需非負，且總和大於零。');return;}
   try{
@@ -104,6 +119,37 @@ $('download').addEventListener('click',()=>{
   const blob=new Blob([JSON.stringify({report:completedJob.report,summary:completedJob.summary,design_view:completedJob.design_view},null,2)],{type:'application/json'});
   const url=URL.createObjectURL(blob),link=document.createElement('a');link.href=url;link.download=`race-rl-${completedJob.id}-report.json`;link.click();URL.revokeObjectURL(url);
 });
+function updateCostStatus(){
+  const legacy=$('backend').value==='legacy_synthetic';
+  $('cost-status').textContent=legacy?'舊合成模型僅供比較；不代表新版硬體結果。':costChecking?'正在檢查成本係數、來源與硬體識別碼…':costError?costError:loadedCost?'成本檔格式與硬體識別檢查通過；證據狀態由提供者宣告，時序仍未經 RTL 校準。':'未提供成本檔：只檢視一次完整動作、cycles 與傳輸圖；PPA 留空，策略不更新。';
+  $('start').textContent=legacy?'開始 PPA 設計搜尋 ↗':costChecking?'正在檢查成本檔…':costError?'成本檔未通過檢查':loadedCost?'開始 PPA 設計搜尋 ↗':'檢視一次完整設計 ↗';
+  $('start').disabled=!config||formLocked||(!legacy&&(costChecking||Boolean(costError)));
+  $('clear-cost').hidden=!loadedCost&&!costError&&!costChecking;
+}
+function clearCost(){
+  ++costSelection;loadedCost=null;costError='';costChecking=false;
+  $('cost-profile').value='';showError('');updateCostStatus();
+}
+async function checkCostRecord(record,selection){
+  const checked=await api('/api/validate-cost-profile',record);
+  if(selection!==costSelection)return;
+  if(!checked.valid)throw new Error('成本檔未通過檢查。');
+  loadedCost=record;costChecking=false;updateCostStatus();
+}
+$('clear-cost').addEventListener('click',clearCost);
+$('backend').addEventListener('change',updateCostStatus);
+$('cost-profile').addEventListener('change',async()=>{
+  const selection=++costSelection;
+  loadedCost=null;costError='';showError('');
+  const file=$('cost-profile').files[0];
+  costChecking=Boolean(file);updateCostStatus();
+  try{if(file){
+    if(file.size>50000)throw new Error('成本 JSON 請小於 50 KB。');
+    let record;try{record=JSON.parse(await file.text());}catch{throw new Error('成本檔不是有效的 JSON，請檢查格式。');}
+    if(selection===costSelection)await checkCostRecord(record,selection);
+  }}catch(error){if(selection===costSelection){costError=error.message;showError(costError);}}
+  if(selection===costSelection){costChecking=false;updateCostStatus();}
+});
 async function init(){
   try{
     config=await api('/api/config');
@@ -116,16 +162,18 @@ async function init(){
       label.append(input,name,hint);$('preference-options').append(label);input.addEventListener('change',updateWeights);
     }
     for(const id of ['weight-power','weight-performance','weight-area'])$(id).addEventListener('input',updateWeights);
-    updateWeights();stoppingControls();$('start').disabled=false;
+    updateWeights();stoppingControls();updateCostStatus();
     const saved=sessionStorage.getItem('race-job');
-    if(saved){try{const existing=await api(`/api/jobs/${saved}`);jobId=saved;if(existing.request)restoreRequest(existing.request);if(['RUNNING','CANCELLING'].includes(existing.status)){lockForm(true);await poll();pollTimer=setInterval(poll,1500);}else{await poll();}}catch{sessionStorage.removeItem('race-job');}}
+    if(saved){try{const existing=await api(`/api/jobs/${saved}`);jobId=saved;if(existing.request)await restoreRequest(existing.request);if(['RUNNING','CANCELLING'].includes(existing.status)){lockForm(true);await poll();pollTimer=setInterval(poll,1500);}else{await poll();}}catch{sessionStorage.removeItem('race-job');}}
   }catch(error){showError(`無法載入本機介面：${error.message}`);}
 }
 init();
 function bytes(value){return value>=1048576?`${fmt(value/1048576)} MiB`:value>=1024?`${fmt(value/1024)} KiB`:`${fmt(value)} B`;}
 function renderDesign(view){
   $('design-card').hidden=false;
-  $('design-caption').textContent=`${view.compute_count} 顆運算 chiplet · ${view.compliant?'達標候選':'未達標的最佳搜尋進度'} · ${view.transfer_count} 筆資料傳輸。線條表示一次推論的累計傳輸量，不是瞬時頻寬。`;
+  const access=view.hierarchy_access_bytes||{};
+  $('hierarchy-feedback').textContent=view.backend==='gemmini_cnn'?`DRAM → GB → LB → RF → PE；LB ↔ ACC。模型 cycles：${view.modeled_cycles===null?'物理限制未通過':fmt(view.modeled_cycles,8)}。逐層端點存取：${Object.entries(access).map(([level,n])=>`${level.toUpperCase()} ${bytes(n)}`).join('／')}`:'';
+  $('design-caption').textContent=`${view.compute_count} 顆運算 chiplet · ${view.physical_feasible===false?'所提出方案被容量限制拒絕':view.compliant?'達標候選':view.backend==='gemmini_cnn'&&!completedJob.summary.ppa_available?'未提供成本的設計檢視':'未達標的最佳搜尋進度'} · ${view.transfer_count} 筆資料傳輸。線條表示一次推論的累計傳輸量，不是瞬時頻寬。`;
   const NS='http://www.w3.org/2000/svg';
   const make=(tag,attrs={},text)=>{const e=document.createElementNS(NS,tag);for(const [k,v] of Object.entries(attrs))e.setAttribute(k,v);if(text!==undefined)e.textContent=text;return e;};
   const xs=[...new Set(view.nodes.map(n=>n.x_mm))].sort((a,b)=>a-b),ys=[...new Set(view.nodes.map(n=>n.y_mm))].sort((a,b)=>a-b);
@@ -143,7 +191,7 @@ function renderDesign(view){
       const from=forward?a:b,to=forward?b:a,sign=forward?1:-1;
       const line=make('line',{x1:from.x+sign*ux*pad-uy*6*sign,y1:from.y+sign*uy*pad+ux*6*sign,x2:to.x-sign*ux*pad-uy*6*sign,y2:to.y-sign*uy*pad+ux*6*sign,stroke:'#4b9980','stroke-width':1.5+3*amount/maxTraffic,'marker-end':'url(#traffic-arrow)',class:'flow-line'});
       line.append(make('title',{},`${forward?link.a:link.b} → ${forward?link.b:link.a}：${bytes(amount)}`));
-      line.addEventListener('click',()=>detail(`${link.id} · ${link.a} → ${link.b}：${bytes(link.a_to_b_bytes)}；${link.b} → ${link.a}：${bytes(link.b_to_a_bytes)}。共 ${link.flows} 次使用此鏈路，服務頻寬 ${bytes(link.bandwidth_Bps)}/s。`));svg.append(line);
+      line.addEventListener('click',()=>detail(`${link.id} · ${link.a} → ${link.b}：${bytes(link.a_to_b_bytes)}；${link.b} → ${link.a}：${bytes(link.b_to_a_bytes)}。共 ${link.flows} 次使用此鏈路，服務頻寬 ${view.coordinate_unit==='grid'?`${link.bytes_per_cycle} bytes/cycle`:`${bytes(link.bandwidth_Bps)}/s`}。`));svg.append(line);
     }
     if(link.a_to_b_bytes+link.b_to_a_bytes){
       const x=(a.x+b.x)/2+(dx?0:38),y=(a.y+b.y)/2+(dx?-43:0);
@@ -169,12 +217,12 @@ function renderDesign(view){
     group.append(make('text',{x:p.x,y:p.y-5,'text-anchor':'middle','font-size':16,'font-weight':650,fill:ink},node.id));
     group.append(make('text',{x:p.x,y:p.y+16,'text-anchor':'middle','font-size':10,fill:ink},`${node.tile_count} Tiles · ${Object.keys(node.operators).length} 層`));
     const descriptions=Object.entries(node.operators).map(([op,n])=>`${op} ×${n}`);
-    group.append(make('title',{},`${node.id} · 原點 (${node.x_mm}, ${node.y_mm}) mm · ${descriptions.join('、')||'沒有配置工作'}`));
-    const show=()=>detail(`${node.id} · 原點 (${node.x_mm}, ${node.y_mm}) mm · ${node.tile_count} 個 Tile。${descriptions.join('；')||'目前沒有配置模型工作。'}`);
+    group.append(make('title',{},`${node.id} · ${view.coordinate_unit==='grid'?'格點':'原點'} (${node.x_mm}, ${node.y_mm}) ${view.coordinate_unit==='grid'?'':'mm'} · ${descriptions.join('、')||'沒有配置工作'}`));
+    const show=()=>detail(`${node.id} · ${view.coordinate_unit==='grid'?'格點':'原點'} (${node.x_mm}, ${node.y_mm}) ${view.coordinate_unit==='grid'?'':'mm'} · ${node.tile_count} 個 Tile。${descriptions.join('；')||'目前沒有配置模型工作。'}`);
     group.addEventListener('click',show);group.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();show();}});svg.append(group);
   }
   svg.append(make('text',{x:w/2,y:h-15,'text-anchor':'middle','font-size':11,fill:'#7c8f84'},`Mesh hop 傳輸總量：${bytes(view.total_mesh_hop_bytes)}（配置示意，非實體尺寸比例）`));
-  $('design-diagram').replaceChildren(svg);detail('點選晶粒查看模型配置；點選綠色箭頭查看實際傳輸量。灰色鏈路表示本次推論沒有使用。');
+  $('design-diagram').replaceChildren(svg);detail('點選晶粒查看模型配置；點選綠色箭頭查看模型記錄的傳輸量。灰色鏈路表示本次推論沒有使用。');
   function row(tbody,values){const tr=document.createElement('tr');for(const value of values){const td=document.createElement('td');td.textContent=value;tr.append(td);}tbody.append(tr);}
   $('placement-table').replaceChildren();for(const item of view.operator_placement)row($('placement-table'),[item.operator,Object.entries(item.tiles_by_node).map(([node,n])=>`${node}：${n} Tiles`).join(' / ')]);
   $('transfer-table').replaceChildren();for(const f of view.largest_transfers)row($('transfer-table'),[f.tensor,`${f.source} → ${f.destination}`,bytes(f.bytes),f.route.length?f.route.map(hop=>`${hop.from}→${hop.to}`).join(' / '):'0 個 mesh hop（仍有記憶體服務）']);

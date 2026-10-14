@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="739.8pt" height="263.88pt" viewBox="0 0 739.8 263.88" xmlns="http://www.w3.org/2000/svg" version="1.1">
+ <metadata>
+  <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <cc:Work>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:date>2026-10-14T20:48:27.002331</dc:date>
+    <dc:format>image/svg+xml</dc:format>
+    <dc:creator>
+     <cc:Agent>
+      <dc:title>Matplotlib v3.11.2, https://matplotlib.org/</dc:title>
+     </cc:Agent>
+    </dc:creator>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="figure_1">
+  <g id="patch_1">
+   <path d="M 0 263.88 
+L 739.8 263.88 
+L 739.8 0 
+L 0 0 
+z
+" style="fill: #ffffff"/>
+  </g>
+  <g id="axes_1">
+   <g id="patch_2">
+    <path d="M 25.614 179.064 
+L 153.396 179.064 
+Q 157.86 179.064 157.86 174.6288 
+L 157.86 94.7952 
+Q 157.86 90.36 153.396 90.36 
+L 25.614 90.36 
+Q 21.15 90.36 21.15 94.7952 
+L 21.15 174.6288 
+Q 21.15 179.064 25.614 179.064 
+z
+" clip-path="url(#p0caec15304)" style="fill: #edf4f6; stroke: #183c4a; stroke-width: 1.2; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_3">
+    <path d="M 181.854 179.064 
+L 323.586 179.064 
+Q 328.05 179.064 328.05 174.6288 
+L 328.05 94.7952 
+Q 328.05 90.36 323.586 90.36 
+L 181.854 90.36 
+Q 177.39 90.36 177.39 94.7952 
+L 177.39 174.6288 
+Q 177.39 179.064 181.854 179.064 
+z
+" clip-path="url(#p0caec15304)" style="fill: #eaf4ef; stroke: #183c4a; stroke-width: 1.2; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_4">
+    <path d="M 352.044 179.064 
+L 482.616 179.064 
+Q 487.08 179.064 487.08 174.6288 
+L 487.08 94.7952 
+Q 487.08 90.36 482.616 90.36 
+L 352.044 90.36 
+Q 347.58 90.36 347.58 94.7952 
+L 347.58 174.6288 
+Q 347.58 179.064 352.044 179.064 
+z
+" clip-path="url(#p0caec15304)" style="fill: #eaf4ef; stroke: #183c4a; stroke-width: 1.2; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_5">
+    <path d="M 511.074 179.064 
+L 711.396 179.064 
+Q 715.86 179.064 715.86 174.6288 
+L 715.86 94.7952 
+Q 715.86 90.36 711.396 90.36 
+L 511.074 90.36 
+Q 506.61 90.36 506.61 94.7952 
+L 506.61 174.6288 
+Q 506.61 179.064 511.074 179.064 
+z
+" clip-path="url(#p0caec15304)" style="fill: #fff3df; stroke: #183c4a; stroke-width: 1.2; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_6">
+    <path d="M 159.85782 134.712 
+Q 167.624456 134.712 173.602237 134.712 
+" clip-path="url(#p0caec15304)" style="fill: none; stroke: #176a75; stroke-width: 1.6; stroke-linecap: round"/>
+    <path d="M 168.402237 132.112 
+L 173.602237 134.712 
+L 168.402237 137.312 
+z
+" clip-path="url(#p0caec15304)" style="fill: #176a75; stroke: #176a75; stroke-width: 1.6; stroke-linecap: round"/>
+   </g>
+   <g id="patch_7">
+    <path d="M 330.04782 134.712 
+Q 337.814456 134.712 343.792237 134.712 
+" clip-path="url(#p0caec15304)" style="fill: none; stroke: #176a75; stroke-width: 1.6; stroke-linecap: round"/>
+    <path d="M 338.592237 132.112 
+L 343.792237 134.712 
+L 338.592237 137.312 
+z
+" clip-path="url(#p0caec15304)" style="fill: #176a75; stroke: #176a75; stroke-width: 1.6; stroke-linecap: round"/>
+   </g>
+   <g id="patch_8">
+    <path d="M 489.07782 134.712 
+Q 496.844456 134.712 502.822237 134.712 
+" clip-path="url(#p0caec15304)" style="fill: none; stroke: #176a75; stroke-width: 1.6; stroke-linecap: round"/>
+    <path d="M 497.622237 132.112 
+L 502.822237 134.712 
+L 497.622237 137.312 
+z
+" clip-path="url(#p0caec15304)" style="fill: #176a75; stroke: #176a75; stroke-width: 1.6; stroke-linecap: round"/>
+   </g>
+   <g id="patch_9">
+    <path d="M 90.9 62.421407 
+Q 90.9 75.38973 90.9 86.569198 
+" clip-path="url(#p0caec15304)" style="fill: none; stroke: #176a75; stroke-width: 1.6; stroke-linecap: round"/>
+    <path d="M 93.5 81.369198 
+L 90.9 86.569198 
+L 88.3 81.369198 
+z
+" clip-path="url(#p0caec15304)" style="fill: #176a75; stroke: #176a75; stroke-width: 1.6; stroke-linecap: round"/>
+   </g>
+   <g id="patch_10">
+    <path d="M 252.72 213.098489 
+Q 252.72 197.080426 252.72 182.851217 
+" clip-path="url(#p0caec15304)" style="fill: none; stroke: #176a75; stroke-width: 1.6; stroke-linecap: round"/>
+    <path d="M 250.12 188.051217 
+L 252.72 182.851217 
+L 255.32 188.051217 
+z
+" clip-path="url(#p0caec15304)" style="fill: #176a75; stroke: #176a75; stroke-width: 1.6; stroke-linecap: round"/>
+   </g>
+   <g id="line2d_1">
+    <path d="M 609.84 90.36 
+L 609.84 60.4224 
+L 90.9 60.4224 
+" clip-path="url(#p0caec15304)" style="fill: none; stroke: #176a75; stroke-width: 1.6; stroke-linecap: square"/>
+   </g>
+   <g id="line2d_2">
+    <path d="M 609.84 179.064 
+L 609.84 215.1 
+L 252.72 215.1 
+" clip-path="url(#p0caec15304)" style="fill: none; stroke: #176a75; stroke-width: 1.6; stroke-linecap: square"/>
+   </g>
+   <g id="text_1">
+    <text style="font-size: 22px; font-family: 'Times New Roman', 'DFKai-SB'; text-anchor: middle; fill: #183c4a" x="369.9" y="27.7128" transform="rotate(-0 369.9 27.7128)">RACE-RL：完整 CNN 的單一 Agent 聯合修改</text>
+   </g>
+   <g id="text_2">
+    <text style="font-size: 17px; font-family: 'Times New Roman', 'DFKai-SB'; text-anchor: middle; fill: #183c4a" x="89.505" y="113.6448" transform="rotate(-0 89.505 113.6448)">State</text>
+   </g>
+   <g id="text_3">
+    <text style="font-size: 12.5px; font-family: 'Times New Roman', 'DFKai-SB'; fill: #183c4a" transform="translate(52.005 130.83887)">完整當前配置</text>
+    <text style="font-size: 12.5px; font-family: 'Times New Roman', 'DFKai-SB'; fill: #183c4a" transform="translate(59.863398 147.342166)">PPA／流量</text>
+    <text style="font-size: 12.5px; font-family: 'Times New Roman', 'DFKai-SB'; fill: #183c4a" transform="translate(45.592891 163.625735)">上一有效 reward</text>
+   </g>
+   <g id="text_4">
+    <text style="font-size: 17px; font-family: 'Times New Roman', 'DFKai-SB'; text-anchor: middle; fill: #183c4a" x="252.72" y="113.6448" transform="rotate(-0 252.72 113.6448)">Single RL Agent</text>
+   </g>
+   <g id="text_5">
+    <text style="font-size: 12.5px; font-family: 'Times New Roman', 'DFKai-SB'; fill: #183c4a" transform="translate(183.981719 138.809756)">共享 Encoder＋Joint Actor</text>
+    <text style="font-size: 12.5px; font-family: 'Times New Roman', 'DFKai-SB'; fill: #183c4a" transform="translate(190.580352 155.459536)">一次 forward；無 Critic</text>
+   </g>
+   <g id="text_6">
+    <text style="font-size: 17px; font-family: 'Times New Roman', 'DFKai-SB'; text-anchor: middle; fill: #183c4a" x="417.33" y="113.6448" transform="rotate(-0 417.33 113.6448)">Complete Action</text>
+   </g>
+   <g id="text_7">
+    <text style="font-size: 12.5px; font-family: 'Times New Roman', 'DFKai-SB'; fill: #183c4a" transform="translate(366.462813 130.759768)">1–16 顆＋H/W/C/K</text>
+    <text style="font-size: 12.5px; font-family: 'Times New Roman', 'DFKai-SB'; fill: #183c4a" transform="translate(392.33 147.48865)">相依算子</text>
+    <text style="font-size: 12.5px; font-family: 'Times New Roman', 'DFKai-SB'; fill: #183c4a" transform="translate(376.011641 163.473391)">Mapping／駐留</text>
+   </g>
+   <g id="text_8">
+    <text style="font-size: 17px; font-family: 'Times New Roman', 'DFKai-SB'; text-anchor: middle; fill: #183c4a" x="611.235" y="113.6448" transform="rotate(-0 611.235 113.6448)">Environment</text>
+   </g>
+   <g id="text_9">
+    <text style="font-size: 12.5px; font-family: 'Times New Roman', 'DFKai-SB'; fill: #183c4a" transform="translate(528.941055 139.102725)">GB → LB → RF → PE／Vector</text>
+    <text style="font-size: 12.5px; font-family: 'Times New Roman', 'DFKai-SB'; fill: #183c4a" transform="translate(510.186172 155.557192)">ACC、DRAM、mesh、來源明確成本</text>
+   </g>
+   <g id="text_10">
+    <text style="font-size: 13px; font-family: 'Times New Roman', 'DFKai-SB'; text-anchor: middle; fill: #176a75" x="364.32" y="54.324" transform="rotate(-0 364.32 54.324)">環境實算 → 新 state＋reward；缺成本時不訓練</text>
+   </g>
+   <g id="text_11">
+    <text style="font-size: 13px; font-family: 'Times New Roman', 'DFKai-SB'; text-anchor: middle; fill: #176a75" x="442.44" y="205.6752" transform="rotate(-0 442.44 205.6752)">整回合 trajectory → 一次 REINFORCE 更新</text>
+   </g>
+   <g id="text_12">
+    <text style="font-size: 11.5px; font-family: 'Times New Roman', 'DFKai-SB'; text-anchor: middle; fill: #526b76" x="369.9" y="246.7008" transform="rotate(-0 369.9 246.7008)">組成完整 action 期間零環境／PPA 評估；目前硬體與時間為分析式研究模型，尚未 RTL／PPA 校準。</text>
+   </g>
+  </g>
+ </g>
+ <defs>
+  <clipPath id="p0caec15304">
+   <rect x="7.2" y="7.2" width="725.4" height="249.48"/>
+  </clipPath>
+ </defs>
+</svg>

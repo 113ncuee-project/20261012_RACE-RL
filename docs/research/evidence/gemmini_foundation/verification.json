@@ -1,0 +1,26 @@
+{
+  "status": "PASSED",
+  "test_count": 177,
+  "elapsed_s": 8.759,
+  "new_gemmini_tests": 17,
+  "command": "python -m unittest discover -s tests -v",
+  "platform": {
+    "machine": "arm64",
+    "numpy": "2.5.4",
+    "python": "3.12.14 (main, Aug 25 2026, 13:50:33) [Clang 22.1.3 ]",
+    "system": "Darwin"
+  },
+  "source_audit": {
+    "claim_scope": "source identity and configuration facts; not RTL/PPA validation",
+    "commit": "8c3f9923a44a2fe2c7930587be297d6d4f8c09ca",
+    "dependency": "Gemmini reference",
+    "files_checked": 7,
+    "mismatches": [],
+    "parameters_checked": 21,
+    "status": "PASSED"
+  },
+  "packaged_profile_verified": true,
+  "windows_checkout_lf_regression": "Git core.autocrlf simulation passed on macOS; not a Windows runtime execution",
+  "initial_sandbox_run": "Six existing localhost GUI tests could not bind sockets; unrestricted local rerun passed all tests",
+  "claim_scope": "source, functional, capacity, resource and existing application regressions; no RTL or silicon PPA validation"
+}

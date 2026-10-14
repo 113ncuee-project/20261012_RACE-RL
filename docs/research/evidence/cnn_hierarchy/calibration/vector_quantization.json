@@ -1,0 +1,83 @@
+{
+  "accuracy_validated": false,
+  "activation_scales": {
+    "adapt": 0.01331291813403368,
+    "add": 0.034803714603185654,
+    "avg": 0.008160620927810669,
+    "bn": 0.02664295770227909,
+    "max_1": 0.026643089950084686,
+    "relu": 0.02664295770227909,
+    "x": 0.026643089950084686
+  },
+  "calibration": "one seeded input; source weights are seeded random initialization; no accuracy/representativeness claim",
+  "parameters": {
+    "mean:bn": {
+      "bytes": 12,
+      "dtype": "float32",
+      "sha256": "951cd8cbb637d6439c58b8cacdde55368a5f537a7dbeb8a42b5bac189dc9b370",
+      "shape": [
+        3
+      ]
+    },
+    "scale:bn": {
+      "bytes": 12,
+      "dtype": "float32",
+      "sha256": "d504cff0d1cc76634455f2aeca99ed6a292905d918cdd99ebed941c74fa4e50f",
+      "shape": [
+        3
+      ]
+    },
+    "shift:bn": {
+      "bytes": 12,
+      "dtype": "float32",
+      "sha256": "951cd8cbb637d6439c58b8cacdde55368a5f537a7dbeb8a42b5bac189dc9b370",
+      "shape": [
+        3
+      ]
+    },
+    "variance:bn": {
+      "bytes": 12,
+      "dtype": "float32",
+      "sha256": "d504cff0d1cc76634455f2aeca99ed6a292905d918cdd99ebed941c74fa4e50f",
+      "shape": [
+        3
+      ]
+    }
+  },
+  "protocol": "symmetric per-tensor signed INT8 [-127,127]; FP32 reciprocal; nearest-even; saturation; INT32 MAC, FP32 postops",
+  "source_parameter_manifest": {
+    "mean:bn": {
+      "bytes": 12,
+      "dtype": "float32",
+      "sha256": "951cd8cbb637d6439c58b8cacdde55368a5f537a7dbeb8a42b5bac189dc9b370",
+      "shape": [
+        3
+      ]
+    },
+    "scale:bn": {
+      "bytes": 12,
+      "dtype": "float32",
+      "sha256": "d504cff0d1cc76634455f2aeca99ed6a292905d918cdd99ebed941c74fa4e50f",
+      "shape": [
+        3
+      ]
+    },
+    "shift:bn": {
+      "bytes": 12,
+      "dtype": "float32",
+      "sha256": "951cd8cbb637d6439c58b8cacdde55368a5f537a7dbeb8a42b5bac189dc9b370",
+      "shape": [
+        3
+      ]
+    },
+    "variance:bn": {
+      "bytes": 12,
+      "dtype": "float32",
+      "sha256": "d504cff0d1cc76634455f2aeca99ed6a292905d918cdd99ebed941c74fa4e50f",
+      "shape": [
+        3
+      ]
+    }
+  },
+  "weight_scales": {}
+}

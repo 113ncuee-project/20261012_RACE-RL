@@ -12,7 +12,7 @@ def existing_gui_url(port,workspace):
         # Local discovery must not go through a configured HTTP proxy.
         with build_opener(ProxyHandler({})).open(url+'/api/identity',timeout=.2) as response:
             data=json.loads(response.read(4097).decode('utf-8'))
-        if (data.get('application')=='race-rl-gui' and data.get('protocol')==1 and
+        if (data.get('application')=='race-rl-gui' and data.get('protocol')==2 and
                 isinstance(data.get('workspace'),str) and
                 os.path.normcase(data['workspace'])==os.path.normcase(str(workspace.resolve()))):
             return url

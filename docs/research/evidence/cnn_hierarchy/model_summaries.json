@@ -1,0 +1,2316 @@
+[
+  {
+    "accuracy_validated": false,
+    "completed_actions": 16,
+    "cost_evidence_status": "TEST_FIXTURE",
+    "model": "resnet18",
+    "model_cycles": 47839143,
+    "numerical_validation": {
+      "accuracy_validated": false,
+      "dequantized_max_abs_error": 0.09428100287914276,
+      "dequantized_rmse": 0.027630025437376762,
+      "int8_output_sha256": "2973a27b07ba643fb962af0e104dc0c4cf521fd0093d76428704a877ca546a77",
+      "interpretation": "numerical execution/overflow/shape checks; errors versus seeded FP32 network, not dataset accuracy or proof of acceptable quantization",
+      "operator_count": 69,
+      "requantized_values": 673256,
+      "saturated_values": 18,
+      "status": "EXECUTED_WITH_EXPLICIT_QUANTIZATION"
+    },
+    "operations": {
+      "gather_references": 7342704,
+      "logical_macs": 148557824,
+      "padded_macs": 257818624,
+      "vector_ops": 19499744
+    },
+    "physically_calibrated": false,
+    "policy_hash": "6ec38c652e1a5cf8ed1eff1ec1195b9133ce4fd30ed60ce02aabc5e0a390bdd2",
+    "policy_updates": 2,
+    "report_sha256": "ce393fb34c6a0a8d199860f294d41e0de31862d1a47f89b7282f82bc590a4300",
+    "selected_compute_count": 1,
+    "sessions": [
+      {
+        "action_selection_time_s": 0.11941037443466485,
+        "algorithm": "reinforce",
+        "archive_assessment": {
+          "feasible": false,
+          "metrics": {
+            "area_mm2": null,
+            "average_power_w": null,
+            "latency_s": null
+          },
+          "physical_feasible": false,
+          "search_merit": null,
+          "violations": [
+            "No physically valid action result has been measured"
+          ],
+          "weighted_cost": null
+        },
+        "assessment": {
+          "feasible": true,
+          "metrics": {
+            "area_mm2": 8,
+            "average_power_w": 0.016999262619601545,
+            "latency_s": 0.49254903
+          },
+          "physical_feasible": true,
+          "search_merit": 0.25178604145456557,
+          "violation_excess": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "violations": [],
+          "weighted_cost": 0.33651609753986717
+        },
+        "best_objective": 0.2011414356098684,
+        "cache_hits": 0,
+        "critic_used": false,
+        "environment_step_time_s": 0.8782083760015666,
+        "episode": 0,
+        "episode_number": 1,
+        "initial_action_support": 104169472,
+        "max_action_support": 104169472,
+        "mean_action_support": 104169472.0,
+        "oracle_evaluations": 4,
+        "oracle_requests": 4,
+        "parameter_updates": 0,
+        "phase": "baseline",
+        "phase_seed": 17,
+        "policy_hash_after": "dd1d776d065a99ad4d5e5f82f227b1890598de2302541adc0780928f2d923aba",
+        "policy_hash_before": "dd1d776d065a99ad4d5e5f82f227b1890598de2302541adc0780928f2d923aba",
+        "policy_update_time_s": 0.0,
+        "return": 1.6037469586249198,
+        "seed": 17,
+        "steps": 4,
+        "termination": "request_limit",
+        "wall_time_s": 1.0090474169701338
+      },
+      {
+        "action_selection_time_s": 0.11105529102496803,
+        "algorithm": "reinforce",
+        "archive_assessment": {
+          "feasible": true,
+          "metrics": {
+            "area_mm2": 1,
+            "average_power_w": 0.010120351662654157,
+            "latency_s": 0.47839143
+          },
+          "physical_feasible": true,
+          "search_merit": 0.1551703614468605,
+          "violation_excess": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "violations": [],
+          "weighted_cost": 0.18367059388755136
+        },
+        "assessment": {
+          "feasible": true,
+          "metrics": {
+            "area_mm2": 1,
+            "average_power_w": 0.010120351662654157,
+            "latency_s": 0.47839143
+          },
+          "physical_feasible": true,
+          "search_merit": 0.1551703614468605,
+          "violation_excess": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "violations": [],
+          "weighted_cost": 0.18367059388755136
+        },
+        "best_objective": 0.13432682020382547,
+        "cache_hits": 0,
+        "critic_used": false,
+        "entropy": 16.9522187500105,
+        "environment_step_time_s": 0.6697857920080423,
+        "episode": 0,
+        "episode_number": 1,
+        "first_step_reward_fraction": 0.794473585325533,
+        "gradient_clip_limit": 0.5,
+        "gradient_norm_before_clip": 39.73490385992418,
+        "initial_action_support": 104169472,
+        "max_action_support": 104169472,
+        "mean_action_support": 104169472.0,
+        "nonzero_reward_steps": 2,
+        "normalized_entropy": 0.9182456196027718,
+        "oracle_evaluations": 4,
+        "oracle_requests": 4,
+        "parameter_updates": 1,
+        "phase": "train",
+        "phase_seed": 7,
+        "policy_hash_after": "5fbcb4ca0da182e6181233f279d797b2fbe385cbd2248a65599cd0d7f2024e0d",
+        "policy_hash_before": "dd1d776d065a99ad4d5e5f82f227b1890598de2302541adc0780928f2d923aba",
+        "policy_loss": 56.835144859254655,
+        "policy_update_time_s": 0.6792600830085576,
+        "return": 2.0074794917140375,
+        "seed": 7,
+        "steps": 4,
+        "termination": "request_limit",
+        "wall_time_s": 1.468343083979562
+      },
+      {
+        "action_selection_time_s": 0.07538783270865679,
+        "algorithm": "reinforce",
+        "archive_assessment": {
+          "feasible": true,
+          "metrics": {
+            "area_mm2": 1,
+            "average_power_w": 0.010120351662654157,
+            "latency_s": 0.47839143
+          },
+          "physical_feasible": true,
+          "search_merit": 0.1551703614468605,
+          "violation_excess": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "violations": [],
+          "weighted_cost": 0.18367059388755136
+        },
+        "assessment": {
+          "feasible": true,
+          "metrics": {
+            "area_mm2": 2,
+            "average_power_w": 0.01067796033706009,
+            "latency_s": 0.50855383
+          },
+          "physical_feasible": true,
+          "search_merit": 0.17678123330280102,
+          "violation_excess": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "violations": [],
+          "weighted_cost": 0.21474393011235335
+        },
+        "best_objective": 0.15022438181363565,
+        "cache_hits": 0,
+        "critic_used": false,
+        "entropy": 16.725323619909823,
+        "environment_step_time_s": 0.6236298750154674,
+        "episode": 1,
+        "episode_number": 2,
+        "first_step_reward_fraction": 0.889978118056066,
+        "gradient_clip_limit": 0.5,
+        "gradient_norm_before_clip": 29.55481248116463,
+        "initial_action_support": 104169472,
+        "max_action_support": 104169472,
+        "mean_action_support": 104169472.0,
+        "nonzero_reward_steps": 2,
+        "normalized_entropy": 0.9059554608691831,
+        "oracle_evaluations": 4,
+        "oracle_requests": 4,
+        "parameter_updates": 1,
+        "phase": "train",
+        "phase_seed": 7,
+        "policy_hash_after": "6ec38c652e1a5cf8ed1eff1ec1195b9133ce4fd30ed60ce02aabc5e0a390bdd2",
+        "policy_hash_before": "5fbcb4ca0da182e6181233f279d797b2fbe385cbd2248a65599cd0d7f2024e0d",
+        "policy_loss": 39.29021918807318,
+        "policy_update_time_s": 0.4259937920141965,
+        "return": 1.8956252238404367,
+        "seed": 7,
+        "steps": 4,
+        "termination": "request_limit",
+        "wall_time_s": 1.132895000046119
+      },
+      {
+        "action_selection_time_s": 0.09782774886116385,
+        "algorithm": "reinforce",
+        "archive_assessment": {
+          "feasible": true,
+          "metrics": {
+            "area_mm2": 1,
+            "average_power_w": 0.010120351662654157,
+            "latency_s": 0.47839143
+          },
+          "physical_feasible": true,
+          "search_merit": 0.1551703614468605,
+          "violation_excess": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "violations": [],
+          "weighted_cost": 0.18367059388755136
+        },
+        "assessment": {
+          "feasible": true,
+          "metrics": {
+            "area_mm2": 8,
+            "average_power_w": 0.016999262619601545,
+            "latency_s": 0.49254903
+          },
+          "physical_feasible": true,
+          "search_merit": 0.25178604145456557,
+          "violation_excess": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "violations": [],
+          "weighted_cost": 0.33651609753986717
+        },
+        "best_objective": 0.2011414356098684,
+        "cache_hits": 0,
+        "critic_used": false,
+        "environment_step_time_s": 0.7131361647043377,
+        "episode": 2,
+        "episode_number": 1,
+        "initial_action_support": 104169472,
+        "max_action_support": 104169472,
+        "mean_action_support": 104169472.0,
+        "oracle_evaluations": 4,
+        "oracle_requests": 4,
+        "parameter_updates": 0,
+        "phase": "final",
+        "phase_seed": 17,
+        "policy_hash_after": "6ec38c652e1a5cf8ed1eff1ec1195b9133ce4fd30ed60ce02aabc5e0a390bdd2",
+        "policy_hash_before": "6ec38c652e1a5cf8ed1eff1ec1195b9133ce4fd30ed60ce02aabc5e0a390bdd2",
+        "policy_update_time_s": 0.0,
+        "return": 1.6037469586249198,
+        "seed": 17,
+        "steps": 4,
+        "termination": "request_limit",
+        "wall_time_s": 0.8213800000958145
+      }
+    ],
+    "source_identity": "4350650f1fc21a0be25b224daf9fdbc0f95775ad978402afca9f2578f9aac5e8",
+    "status": "INTEGRATION_TEST_ONLY",
+    "storage": {
+      "external_static_allocation_bytes": 13458124,
+      "gb_activation_capacity_bytes": 65536,
+      "gb_activation_peak_bytes_by_node": [
+        16384
+      ]
+    },
+    "traffic": {
+      "by_operand": {
+        "activation": 7870208,
+        "constants": 124780,
+        "output": 644584,
+        "weights": 13557760
+      },
+      "directed_link_byte_hops": 0,
+      "dma_bus_bytes": 64881808,
+      "dma_transactions": 2031246,
+      "external_bytes": 22197332,
+      "hierarchy_movement_bytes": {
+        "accumulator->lb": 64454656,
+        "dram->gb": 21552748,
+        "gb->dram": 644584,
+        "gb->lb": 32813996,
+        "lb->accumulator": 64454656,
+        "lb->gb": 3549672,
+        "lb->rf": 96786348,
+        "rf->lb": 67005928
+      },
+      "storage_access_bytes": {
+        "accumulator": 128909312,
+        "gb": 81820840,
+        "lb": 329065256,
+        "rf": 2980513728
+      }
+    },
+    "training_episodes_completed": 2,
+    "wall_time_s": 6.003030041931197
+  },
+  {
+    "accuracy_validated": false,
+    "completed_actions": 16,
+    "cost_evidence_status": "TEST_FIXTURE",
+    "model": "resnet34",
+    "model_cycles": 94326867,
+    "numerical_validation": {
+      "accuracy_validated": false,
+      "dequantized_max_abs_error": 1.4973182678222656,
+      "dequantized_rmse": 0.42097447155384743,
+      "int8_output_sha256": "a60c95206992e433b9236b79e188ce53fd4b1adec5a33ff92d0ba486ac1787e4",
+      "interpretation": "numerical execution/overflow/shape checks; errors versus seeded FP32 network, not dataset accuracy or proof of acceptable quantization",
+      "operator_count": 125,
+      "requantized_values": 1031656,
+      "saturated_values": 55,
+      "status": "EXECUTED_WITH_EXPLICIT_QUANTIZATION"
+    },
+    "operations": {
+      "gather_references": 14719984,
+      "logical_macs": 299552768,
+      "padded_macs": 465436672,
+      "vector_ops": 34650848
+    },
+    "physically_calibrated": false,
+    "policy_hash": "39c2ee23a0afa324c5dd31645108f45125cd699c3475716c01b006e80e56970d",
+    "policy_updates": 2,
+    "report_sha256": "7b1bf3499c6da9465f0a0d5bcacf50d757637bffaa04f5ad9805e187dc47085e",
+    "selected_compute_count": 2,
+    "sessions": [
+      {
+        "action_selection_time_s": 0.12567924964241683,
+        "algorithm": "reinforce",
+        "archive_assessment": {
+          "feasible": false,
+          "metrics": {
+            "area_mm2": null,
+            "average_power_w": null,
+            "latency_s": null
+          },
+          "physical_feasible": false,
+          "search_merit": null,
+          "violations": [
+            "No physically valid action result has been measured"
+          ],
+          "weighted_cost": null
+        },
+        "assessment": {
+          "feasible": true,
+          "metrics": {
+            "area_mm2": 5,
+            "average_power_w": 0.013279123614263394,
+            "latency_s": 0.97672151
+          },
+          "physical_feasible": true,
+          "search_merit": 0.30273107305044444,
+          "violation_excess": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "violations": [],
+          "weighted_cost": 0.43416687787142105
+        },
+        "best_objective": 0.2323818624680353,
+        "cache_hits": 0,
+        "critic_used": false,
+        "environment_step_time_s": 1.1243181659374386,
+        "episode": 0,
+        "episode_number": 1,
+        "initial_action_support": 189956096,
+        "max_action_support": 189956096,
+        "mean_action_support": 189956096.0,
+        "oracle_evaluations": 4,
+        "oracle_requests": 4,
+        "parameter_updates": 0,
+        "phase": "baseline",
+        "phase_seed": 17,
+        "policy_hash_after": "dd1d776d065a99ad4d5e5f82f227b1890598de2302541adc0780928f2d923aba",
+        "policy_hash_before": "dd1d776d065a99ad4d5e5f82f227b1890598de2302541adc0780928f2d923aba",
+        "policy_update_time_s": 0.0,
+        "return": 1.4593733015076875,
+        "seed": 17,
+        "steps": 4,
+        "termination": "request_limit",
+        "wall_time_s": 1.2603979168925434
+      },
+      {
+        "action_selection_time_s": 0.07976704114116728,
+        "algorithm": "reinforce",
+        "archive_assessment": {
+          "feasible": true,
+          "metrics": {
+            "area_mm2": 2,
+            "average_power_w": 0.010467520684218209,
+            "latency_s": 0.94326867
+          },
+          "physical_feasible": true,
+          "search_merit": 0.2644780491437613,
+          "violation_excess": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "violations": [],
+          "weighted_cost": 0.35957873022807274
+        },
+        "assessment": {
+          "feasible": true,
+          "metrics": {
+            "area_mm2": 2,
+            "average_power_w": 0.010467520684218209,
+            "latency_s": 0.94326867
+          },
+          "physical_feasible": true,
+          "search_merit": 0.2644780491437613,
+          "violation_excess": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "violations": [],
+          "weighted_cost": 0.35957873022807274
+        },
+        "best_objective": 0.20915985795313097,
+        "cache_hits": 0,
+        "critic_used": false,
+        "entropy": 16.454292193565134,
+        "environment_step_time_s": 0.9600612085778266,
+        "episode": 0,
+        "episode_number": 1,
+        "first_step_reward_fraction": 0.8877543018013098,
+        "gradient_clip_limit": 0.5,
+        "gradient_norm_before_clip": 33.53509752331643,
+        "initial_action_support": 189956096,
+        "max_action_support": 189956096,
+        "mean_action_support": 189956096.0,
+        "nonzero_reward_steps": 4,
+        "normalized_entropy": 0.8631848804576507,
+        "oracle_evaluations": 4,
+        "oracle_requests": 4,
+        "parameter_updates": 1,
+        "phase": "train",
+        "phase_seed": 7,
+        "policy_hash_after": "91117d634f3f2b76e6a9e5bce206bc59e9cc7b5aa0f16537b369d8e6283d105f",
+        "policy_hash_before": "dd1d776d065a99ad4d5e5f82f227b1890598de2302541adc0780928f2d923aba",
+        "policy_loss": 33.55716732014509,
+        "policy_update_time_s": 0.4886858749669045,
+        "return": 1.5646564487926207,
+        "seed": 7,
+        "steps": 4,
+        "termination": "request_limit",
+        "wall_time_s": 1.5381033329758793
+      },
+      {
+        "action_selection_time_s": 0.15375383524224162,
+        "algorithm": "reinforce",
+        "archive_assessment": {
+          "feasible": true,
+          "metrics": {
+            "area_mm2": 2,
+            "average_power_w": 0.010467520684218209,
+            "latency_s": 0.94326867
+          },
+          "physical_feasible": true,
+          "search_merit": 0.2644780491437613,
+          "violation_excess": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "violations": [],
+          "weighted_cost": 0.35957873022807274
+        },
+        "assessment": {
+          "feasible": true,
+          "metrics": {
+            "area_mm2": 3,
+            "average_power_w": 0.011274485319573271,
+            "latency_s": 0.97225137
+          },
+          "physical_feasible": true,
+          "search_merit": 0.2807524805501001,
+          "violation_excess": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "violations": [],
+          "weighted_cost": 0.3903419517731911
+        },
+        "best_objective": 0.21920900784007322,
+        "cache_hits": 0,
+        "critic_used": false,
+        "entropy": 18.064289518328273,
+        "environment_step_time_s": 1.251416166080162,
+        "episode": 1,
+        "episode_number": 2,
+        "first_step_reward_fraction": 0.8519378266035632,
+        "gradient_clip_limit": 0.5,
+        "gradient_norm_before_clip": 28.24052531604833,
+        "initial_action_support": 189956096,
+        "max_action_support": 189956096,
+        "mean_action_support": 189956096.0,
+        "nonzero_reward_steps": 2,
+        "normalized_entropy": 0.9476446270067178,
+        "oracle_evaluations": 4,
+        "oracle_requests": 4,
+        "parameter_updates": 1,
+        "phase": "train",
+        "phase_seed": 7,
+        "policy_hash_after": "39c2ee23a0afa324c5dd31645108f45125cd699c3475716c01b006e80e56970d",
+        "policy_hash_before": "91117d634f3f2b76e6a9e5bce206bc59e9cc7b5aa0f16537b369d8e6283d105f",
+        "policy_loss": 38.3677212522837,
+        "policy_update_time_s": 0.9699673340655863,
+        "return": 1.5177296305917005,
+        "seed": 7,
+        "steps": 4,
+        "termination": "request_limit",
+        "wall_time_s": 2.3854036249686033
+      },
+      {
+        "action_selection_time_s": 0.12596195912919939,
+        "algorithm": "reinforce",
+        "archive_assessment": {
+          "feasible": true,
+          "metrics": {
+            "area_mm2": 2,
+            "average_power_w": 0.010467520684218209,
+            "latency_s": 0.94326867
+          },
+          "physical_feasible": true,
+          "search_merit": 0.2644780491437613,
+          "violation_excess": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "violations": [],
+          "weighted_cost": 0.35957873022807274
+        },
+        "assessment": {
+          "feasible": true,
+          "metrics": {
+            "area_mm2": 5,
+            "average_power_w": 0.013279123614263394,
+            "latency_s": 0.97672151
+          },
+          "physical_feasible": true,
+          "search_merit": 0.30273107305044444,
+          "violation_excess": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "violations": [],
+          "weighted_cost": 0.43416687787142105
+        },
+        "best_objective": 0.2323818624680353,
+        "cache_hits": 0,
+        "critic_used": false,
+        "environment_step_time_s": 1.1213288761209697,
+        "episode": 2,
+        "episode_number": 1,
+        "initial_action_support": 189956096,
+        "max_action_support": 189956096,
+        "mean_action_support": 189956096.0,
+        "oracle_evaluations": 4,
+        "oracle_requests": 4,
+        "parameter_updates": 0,
+        "phase": "final",
+        "phase_seed": 17,
+        "policy_hash_after": "39c2ee23a0afa324c5dd31645108f45125cd699c3475716c01b006e80e56970d",
+        "policy_hash_before": "39c2ee23a0afa324c5dd31645108f45125cd699c3475716c01b006e80e56970d",
+        "policy_update_time_s": 0.0,
+        "return": 1.4593733015076875,
+        "seed": 17,
+        "steps": 4,
+        "termination": "request_limit",
+        "wall_time_s": 1.2592918330337852
+      }
+    ],
+    "source_identity": "b17b158210fba29daa611bc54f3b6cca476609bd6fcf6ece8966877cf2c2f44c",
+    "status": "INTEGRATION_TEST_ONLY",
+    "storage": {
+      "external_static_allocation_bytes": 24634732,
+      "gb_activation_capacity_bytes": 65536,
+      "gb_activation_peak_bytes_by_node": [
+        16384,
+        12288
+      ]
+    },
+    "traffic": {
+      "by_operand": {
+        "activation": 14829312,
+        "constants": 201284,
+        "output": 986600,
+        "weights": 24764416
+      },
+      "directed_link_byte_hops": 21330244,
+      "dma_bus_bytes": 135462320,
+      "dma_transactions": 4269600,
+      "external_bytes": 40781612,
+      "hierarchy_movement_bytes": {
+        "accumulator->lb": 116359168,
+        "dram->gb": 39795012,
+        "gb->dram": 986600,
+        "gb->gb": 537600,
+        "gb->lb": 59084420,
+        "lb->accumulator": 116359168,
+        "lb->gb": 5390824,
+        "lb->rf": 174281348,
+        "rf->lb": 120292840
+      },
+      "storage_access_bytes": {
+        "accumulator": 232718336,
+        "gb": 150009432,
+        "lb": 591767768,
+        "rf": 5371721072
+      }
+    },
+    "training_episodes_completed": 2,
+    "wall_time_s": 7.891616666922346
+  },
+  {
+    "accuracy_validated": false,
+    "completed_actions": 16,
+    "cost_evidence_status": "TEST_FIXTURE",
+    "model": "resnet50",
+    "model_cycles": 137164523,
+    "numerical_validation": {
+      "accuracy_validated": false,
+      "dequantized_max_abs_error": 1.065708041191101,
+      "dequantized_rmse": 0.2818027107953,
+      "int8_output_sha256": "bb9bbf9b261eed7b11f79a75504445e44af3bba66cb3e249d3c11925473736df",
+      "interpretation": "numerical execution/overflow/shape checks; errors versus seeded FP32 network, not dataset accuracy or proof of acceptable quantization",
+      "operator_count": 175,
+      "requantized_values": 3068904,
+      "saturated_values": 103,
+      "status": "EXECUTED_WITH_EXPLICIT_QUANTIZATION"
+    },
+    "operations": {
+      "gather_references": 21138416,
+      "logical_macs": 335691776,
+      "padded_macs": 540540928,
+      "vector_ops": 50524896
+    },
+    "physically_calibrated": false,
+    "policy_hash": "3c615a51cd30d8a251701a4947f559892d37a95a2e29bad3c1c456d9d5b5f2c0",
+    "policy_updates": 2,
+    "report_sha256": "55683c3c817d60da5cd59b0e5acd75e3746f849434f93eb6242121522c7430f7",
+    "selected_compute_count": 2,
+    "sessions": [
+      {
+        "action_selection_time_s": 0.20862141577526927,
+        "algorithm": "reinforce",
+        "archive_assessment": {
+          "feasible": false,
+          "metrics": {
+            "area_mm2": null,
+            "average_power_w": null,
+            "latency_s": null
+          },
+          "physical_feasible": false,
+          "search_merit": null,
+          "violations": [
+            "No physically valid action result has been measured"
+          ],
+          "weighted_cost": null
+        },
+        "assessment": {
+          "feasible": false,
+          "metrics": {
+            "area_mm2": 1,
+            "average_power_w": 0.008131213413493328,
+            "latency_s": 1.3768464
+          },
+          "physical_feasible": true,
+          "search_merit": 2.7023067483664387,
+          "violation_excess": [
+            0.0,
+            0.3768464,
+            0.0
+          ],
+          "violations": [
+            "latency_s=1.3768464 exceeds limit 1"
+          ],
+          "weighted_cost": 0.48249253780449775
+        },
+        "best_objective": 0.7298981235303563,
+        "cache_hits": 0,
+        "critic_used": false,
+        "environment_step_time_s": 3.8478952501900494,
+        "episode": 0,
+        "episode_number": 1,
+        "initial_action_support": 266551296,
+        "max_action_support": 266551296,
+        "mean_action_support": 266551296.0,
+        "oracle_evaluations": 4,
+        "oracle_requests": 4,
+        "parameter_updates": 0,
+        "phase": "baseline",
+        "phase_seed": 17,
+        "policy_hash_after": "dd1d776d065a99ad4d5e5f82f227b1890598de2302541adc0780928f2d923aba",
+        "policy_hash_before": "dd1d776d065a99ad4d5e5f82f227b1890598de2302541adc0780928f2d923aba",
+        "policy_update_time_s": 0.0,
+        "return": 0.3148503113863888,
+        "seed": 17,
+        "steps": 4,
+        "termination": "request_limit",
+        "wall_time_s": 4.066304124891758
+      },
+      {
+        "action_selection_time_s": 0.18068274878896773,
+        "algorithm": "reinforce",
+        "archive_assessment": {
+          "feasible": false,
+          "metrics": {
+            "area_mm2": 8,
+            "average_power_w": 0.015393812152679655,
+            "latency_s": 1.33704915
+          },
+          "physical_feasible": true,
+          "search_merit": 2.7188038613074945,
+          "violation_excess": [
+            0.0,
+            0.3370491499999999,
+            0.0
+          ],
+          "violations": [
+            "latency_s=1.33704915 exceeds limit 1"
+          ],
+          "weighted_cost": 0.6174809873842265
+        },
+        "assessment": {
+          "feasible": false,
+          "metrics": {
+            "area_mm2": 8,
+            "average_power_w": 0.015393812152679655,
+            "latency_s": 1.33704915
+          },
+          "physical_feasible": true,
+          "search_merit": 2.7188038613074945,
+          "violation_excess": [
+            0.0,
+            0.3370491499999999,
+            0.0
+          ],
+          "violations": [
+            "latency_s=1.33704915 exceeds limit 1"
+          ],
+          "weighted_cost": 0.6174809873842265
+        },
+        "best_objective": 0.73109633169833,
+        "cache_hits": 0,
+        "critic_used": false,
+        "entropy": 18.719309715538056,
+        "environment_step_time_s": 4.214135334361345,
+        "episode": 0,
+        "episode_number": 1,
+        "first_step_reward_fraction": 0.9900843804918608,
+        "gradient_clip_limit": 0.5,
+        "gradient_norm_before_clip": 5.6238842722329165,
+        "initial_action_support": 266551296,
+        "max_action_support": 266551296,
+        "mean_action_support": 266551296.0,
+        "nonzero_reward_steps": 2,
+        "normalized_entropy": 0.9648592942259804,
+        "oracle_evaluations": 4,
+        "oracle_requests": 4,
+        "parameter_updates": 1,
+        "phase": "train",
+        "phase_seed": 7,
+        "policy_hash_after": "b7a4f0ce02ebce88576ad58473641187ddfc70026f35f5c69a2de3c9a198afcc",
+        "policy_hash_before": "dd1d776d065a99ad4d5e5f82f227b1890598de2302541adc0780928f2d923aba",
+        "policy_loss": 5.946350748745621,
+        "policy_update_time_s": 1.187174417078495,
+        "return": 0.3132100472056036,
+        "seed": 7,
+        "steps": 4,
+        "termination": "request_limit",
+        "wall_time_s": 5.5987016670405865
+      },
+      {
+        "action_selection_time_s": 0.14511641580611467,
+        "algorithm": "reinforce",
+        "archive_assessment": {
+          "feasible": false,
+          "metrics": {
+            "area_mm2": 2,
+            "average_power_w": 0.009171779966748398,
+            "latency_s": 1.37164523
+          },
+          "physical_feasible": true,
+          "search_merit": 2.7058392300306093,
+          "violation_excess": [
+            0.0,
+            0.37164522999999994,
+            0.0
+          ],
+          "violations": [
+            "latency_s=1.37164523 exceeds limit 1"
+          ],
+          "weighted_cost": 0.5019390033222494
+        },
+        "assessment": {
+          "feasible": false,
+          "metrics": {
+            "area_mm2": 2,
+            "average_power_w": 0.009171779966748398,
+            "latency_s": 1.37164523
+          },
+          "physical_feasible": true,
+          "search_merit": 2.7058392300306093,
+          "violation_excess": [
+            0.0,
+            0.37164522999999994,
+            0.0
+          ],
+          "violations": [
+            "latency_s=1.37164523 exceeds limit 1"
+          ],
+          "weighted_cost": 0.5019390033222494
+        },
+        "best_objective": 0.7301555901571747,
+        "cache_hits": 0,
+        "critic_used": false,
+        "entropy": 17.910724138014377,
+        "environment_step_time_s": 4.221155876060948,
+        "episode": 1,
+        "episode_number": 2,
+        "first_step_reward_fraction": 0.9717677681041907,
+        "gradient_clip_limit": 0.5,
+        "gradient_norm_before_clip": 5.253475971321365,
+        "initial_action_support": 266551296,
+        "max_action_support": 266551296,
+        "mean_action_support": 266551296.0,
+        "nonzero_reward_steps": 2,
+        "normalized_entropy": 0.9231819395848945,
+        "oracle_evaluations": 4,
+        "oracle_requests": 4,
+        "parameter_updates": 1,
+        "phase": "train",
+        "phase_seed": 7,
+        "policy_hash_after": "3c615a51cd30d8a251701a4947f559892d37a95a2e29bad3c1c456d9d5b5f2c0",
+        "policy_hash_before": "b7a4f0ce02ebce88576ad58473641187ddfc70026f35f5c69a2de3c9a198afcc",
+        "policy_loss": 6.441159243356704,
+        "policy_update_time_s": 0.8987750001251698,
+        "return": 0.3144976303485975,
+        "seed": 7,
+        "steps": 4,
+        "termination": "request_limit",
+        "wall_time_s": 5.277067958842963
+      },
+      {
+        "action_selection_time_s": 0.19431666657328606,
+        "algorithm": "reinforce",
+        "archive_assessment": {
+          "feasible": false,
+          "metrics": {
+            "area_mm2": 2,
+            "average_power_w": 0.009171779966748398,
+            "latency_s": 1.37164523
+          },
+          "physical_feasible": true,
+          "search_merit": 2.7058392300306093,
+          "violation_excess": [
+            0.0,
+            0.37164522999999994,
+            0.0
+          ],
+          "violations": [
+            "latency_s=1.37164523 exceeds limit 1"
+          ],
+          "weighted_cost": 0.5019390033222494
+        },
+        "assessment": {
+          "feasible": false,
+          "metrics": {
+            "area_mm2": 1,
+            "average_power_w": 0.008131213413493328,
+            "latency_s": 1.3768464
+          },
+          "physical_feasible": true,
+          "search_merit": 2.7023067483664387,
+          "violation_excess": [
+            0.0,
+            0.3768464,
+            0.0
+          ],
+          "violations": [
+            "latency_s=1.3768464 exceeds limit 1"
+          ],
+          "weighted_cost": 0.48249253780449775
+        },
+        "best_objective": 0.7298981235303563,
+        "cache_hits": 0,
+        "critic_used": false,
+        "environment_step_time_s": 3.7784709581173956,
+        "episode": 2,
+        "episode_number": 1,
+        "initial_action_support": 266551296,
+        "max_action_support": 266551296,
+        "mean_action_support": 266551296.0,
+        "oracle_evaluations": 4,
+        "oracle_requests": 4,
+        "parameter_updates": 0,
+        "phase": "final",
+        "phase_seed": 17,
+        "policy_hash_after": "3c615a51cd30d8a251701a4947f559892d37a95a2e29bad3c1c456d9d5b5f2c0",
+        "policy_hash_before": "3c615a51cd30d8a251701a4947f559892d37a95a2e29bad3c1c456d9d5b5f2c0",
+        "policy_update_time_s": 0.0,
+        "return": 0.3148503113863888,
+        "seed": 17,
+        "steps": 4,
+        "termination": "request_limit",
+        "wall_time_s": 3.9838357910048217
+      }
+    ],
+    "source_identity": "c9869eb224a6fd275c9ca880683ef512677473d060b0abca7a49714802dbe959",
+    "status": "INTEGRATION_TEST_ONLY",
+    "storage": {
+      "external_static_allocation_bytes": 34172868,
+      "gb_activation_capacity_bytes": 65536,
+      "gb_activation_peak_bytes_by_node": [
+        4096,
+        12288
+      ]
+    },
+    "traffic": {
+      "by_operand": {
+        "activation": 23686400,
+        "constants": 601604,
+        "output": 3044328,
+        "weights": 28721152
+      },
+      "directed_link_byte_hops": 28049580,
+      "dma_bus_bytes": 204718768,
+      "dma_transactions": 6218480,
+      "external_bytes": 56053484,
+      "hierarchy_movement_bytes": {
+        "accumulator->lb": 135135232,
+        "dram->gb": 53009156,
+        "gb->dram": 3044328,
+        "gb->gb": 12288,
+        "gb->lb": 78553668,
+        "lb->accumulator": 135135232,
+        "lb->gb": 15921128,
+        "lb->rf": 209774148,
+        "rf->lb": 146846696
+      },
+      "storage_access_bytes": {
+        "accumulator": 270270464,
+        "gb": 205010392,
+        "lb": 721366104,
+        "rf": 6388957936
+      }
+    },
+    "training_episodes_completed": 2,
+    "wall_time_s": 20.592786208027974
+  },
+  {
+    "accuracy_validated": false,
+    "completed_actions": 16,
+    "cost_evidence_status": "TEST_FIXTURE",
+    "model": "vgg16",
+    "model_cycles": 312129287,
+    "numerical_validation": {
+      "accuracy_validated": false,
+      "dequantized_max_abs_error": 0.0096237538382411,
+      "dequantized_rmse": 0.0028381118089138855,
+      "int8_output_sha256": "3e288be58adcae7ee1b6296e28b70700ac944d3cc9c3afd31a805a05d72f6fd0",
+      "interpretation": "numerical execution/overflow/shape checks; errors versus seeded FP32 network, not dataset accuracy or proof of acceptable quantization",
+      "operator_count": 40,
+      "requantized_values": 2379240,
+      "saturated_values": 26,
+      "status": "EXECUTED_WITH_EXPLICIT_QUANTIZATION"
+    },
+    "operations": {
+      "gather_references": 66757936,
+      "logical_macs": 1376419840,
+      "padded_macs": 3232759808,
+      "vector_ops": 121081760
+    },
+    "physically_calibrated": false,
+    "policy_hash": "b0f6ae0206ddfef2405f7aa048540634092d344aa8dfb20358bb2019e4fa254c",
+    "policy_updates": 2,
+    "report_sha256": "0817d0a7f85bccc0637906a540b4e7d2990ebc45217c84eb566c146170b47a99",
+    "selected_compute_count": 9,
+    "sessions": [
+      {
+        "action_selection_time_s": 0.03400587406940758,
+        "algorithm": "reinforce",
+        "archive_assessment": {
+          "feasible": false,
+          "metrics": {
+            "area_mm2": null,
+            "average_power_w": null,
+            "latency_s": null
+          },
+          "physical_feasible": false,
+          "search_merit": null,
+          "violations": [
+            "No physically valid action result has been measured"
+          ],
+          "weighted_cost": null
+        },
+        "assessment": {
+          "feasible": false,
+          "metrics": {
+            "area_mm2": 4,
+            "average_power_w": 0.018441044828904903,
+            "latency_s": 3.54956719
+          },
+          "physical_feasible": true,
+          "search_merit": 5.1095559878024295,
+          "violation_excess": [
+            0.0,
+            2.54956719,
+            0.0
+          ],
+          "violations": [
+            "latency_s=3.54956719 exceeds limit 1"
+          ],
+          "weighted_cost": 1.2726694116096349
+        },
+        "best_objective": 0.836321984445928,
+        "cache_hits": 0,
+        "critic_used": false,
+        "environment_step_time_s": 4.458343165693805,
+        "episode": 0,
+        "episode_number": 1,
+        "initial_action_support": 56680448,
+        "max_action_support": 56680448,
+        "mean_action_support": 56680448.0,
+        "oracle_evaluations": 4,
+        "oracle_requests": 4,
+        "parameter_updates": 0,
+        "phase": "baseline",
+        "phase_seed": 17,
+        "policy_hash_after": "dd1d776d065a99ad4d5e5f82f227b1890598de2302541adc0780928f2d923aba",
+        "policy_hash_before": "dd1d776d065a99ad4d5e5f82f227b1890598de2302541adc0780928f2d923aba",
+        "policy_update_time_s": 0.0,
+        "return": 0.17874159118945288,
+        "seed": 17,
+        "steps": 4,
+        "termination": "request_limit",
+        "wall_time_s": 4.499996500089765
+      },
+      {
+        "action_selection_time_s": 0.040082624880596995,
+        "algorithm": "reinforce",
+        "archive_assessment": {
+          "feasible": false,
+          "metrics": {
+            "area_mm2": 9,
+            "average_power_w": 0.024926132525333967,
+            "latency_s": 3.12129287
+          },
+          "physical_feasible": true,
+          "search_merit": 4.674113609865431,
+          "violation_excess": [
+            0.0,
+            2.12129287,
+            0.0
+          ],
+          "violations": [
+            "latency_s=3.12129287 exceeds limit 1"
+          ],
+          "weighted_cost": 1.2362396675084446
+        },
+        "assessment": {
+          "feasible": false,
+          "metrics": {
+            "area_mm2": 9,
+            "average_power_w": 0.024926132525333967,
+            "latency_s": 3.12129287
+          },
+          "physical_feasible": true,
+          "search_merit": 4.674113609865431,
+          "violation_excess": [
+            0.0,
+            2.12129287,
+            0.0
+          ],
+          "violations": [
+            "latency_s=3.12129287 exceeds limit 1"
+          ],
+          "weighted_cost": 1.2362396675084446
+        },
+        "best_objective": 0.8237610191200038,
+        "cache_hits": 0,
+        "critic_used": false,
+        "entropy": 17.09376614328064,
+        "environment_step_time_s": 3.8990381679032,
+        "episode": 0,
+        "episode_number": 1,
+        "first_step_reward_fraction": 0.0,
+        "gradient_clip_limit": 0.5,
+        "gradient_norm_before_clip": 6.129744676696503,
+        "initial_action_support": 56680448,
+        "max_action_support": 56680448,
+        "mean_action_support": 56680448.0,
+        "nonzero_reward_steps": 3,
+        "normalized_entropy": 0.9574762622437919,
+        "oracle_evaluations": 4,
+        "oracle_requests": 4,
+        "parameter_updates": 1,
+        "phase": "train",
+        "phase_seed": 7,
+        "policy_hash_after": "7b6c1169629ea7b58284ea0cde0e17ebd9b0b4aee2fd367acad2bc719aaeb352",
+        "policy_hash_before": "dd1d776d065a99ad4d5e5f82f227b1890598de2302541adc0780928f2d923aba",
+        "policy_loss": 7.475454882898937,
+        "policy_update_time_s": 0.25223429198376834,
+        "return": 0.19387481647794907,
+        "seed": 7,
+        "steps": 4,
+        "termination": "request_limit",
+        "wall_time_s": 4.1983299581333995
+      },
+      {
+        "action_selection_time_s": 0.08369803987443447,
+        "algorithm": "reinforce",
+        "archive_assessment": {
+          "feasible": false,
+          "metrics": {
+            "area_mm2": 9,
+            "average_power_w": 0.024926132525333967,
+            "latency_s": 3.12129287
+          },
+          "physical_feasible": true,
+          "search_merit": 4.674113609865431,
+          "violation_excess": [
+            0.0,
+            2.12129287,
+            0.0
+          ],
+          "violations": [
+            "latency_s=3.12129287 exceeds limit 1"
+          ],
+          "weighted_cost": 1.2362396675084446
+        },
+        "assessment": {
+          "feasible": false,
+          "metrics": {
+            "area_mm2": 16,
+            "average_power_w": 0.030986859327625748,
+            "latency_s": 3.39765567
+          },
+          "physical_feasible": true,
+          "search_merit": 4.993813381431629,
+          "violation_excess": [
+            0.0,
+            2.39765567,
+            0.0
+          ],
+          "violations": [
+            "latency_s=3.39765567 exceeds limit 1"
+          ],
+          "weighted_cost": 1.4762141764425416
+        },
+        "best_objective": 0.8331613054390511,
+        "cache_hits": 0,
+        "critic_used": false,
+        "entropy": 16.150691633721777,
+        "environment_step_time_s": 3.57422374910675,
+        "episode": 1,
+        "episode_number": 2,
+        "first_step_reward_fraction": 0.9813929769770239,
+        "gradient_clip_limit": 0.5,
+        "gradient_norm_before_clip": 3.695873247935668,
+        "initial_action_support": 56680448,
+        "max_action_support": 56680448,
+        "mean_action_support": 56680448.0,
+        "nonzero_reward_steps": 2,
+        "normalized_entropy": 0.904651656544786,
+        "oracle_evaluations": 4,
+        "oracle_requests": 4,
+        "parameter_updates": 1,
+        "phase": "train",
+        "phase_seed": 7,
+        "policy_hash_after": "b0f6ae0206ddfef2405f7aa048540634092d344aa8dfb20358bb2019e4fa254c",
+        "policy_hash_before": "7b6c1169629ea7b58284ea0cde0e17ebd9b0b4aee2fd367acad2bc719aaeb352",
+        "policy_loss": 3.3833095552015386,
+        "policy_update_time_s": 0.4852156669367105,
+        "return": 0.18252801157741558,
+        "seed": 7,
+        "steps": 4,
+        "termination": "request_limit",
+        "wall_time_s": 4.15146049996838
+      },
+      {
+        "action_selection_time_s": 0.03275358281098306,
+        "algorithm": "reinforce",
+        "archive_assessment": {
+          "feasible": false,
+          "metrics": {
+            "area_mm2": 9,
+            "average_power_w": 0.024926132525333967,
+            "latency_s": 3.12129287
+          },
+          "physical_feasible": true,
+          "search_merit": 4.674113609865431,
+          "violation_excess": [
+            0.0,
+            2.12129287,
+            0.0
+          ],
+          "violations": [
+            "latency_s=3.12129287 exceeds limit 1"
+          ],
+          "weighted_cost": 1.2362396675084446
+        },
+        "assessment": {
+          "feasible": false,
+          "metrics": {
+            "area_mm2": 4,
+            "average_power_w": 0.018441044828904903,
+            "latency_s": 3.54956719
+          },
+          "physical_feasible": true,
+          "search_merit": 5.1095559878024295,
+          "violation_excess": [
+            0.0,
+            2.54956719,
+            0.0
+          ],
+          "violations": [
+            "latency_s=3.54956719 exceeds limit 1"
+          ],
+          "weighted_cost": 1.2726694116096349
+        },
+        "best_objective": 0.836321984445928,
+        "cache_hits": 0,
+        "critic_used": false,
+        "environment_step_time_s": 4.365470750955865,
+        "episode": 2,
+        "episode_number": 1,
+        "initial_action_support": 56680448,
+        "max_action_support": 56680448,
+        "mean_action_support": 56680448.0,
+        "oracle_evaluations": 4,
+        "oracle_requests": 4,
+        "parameter_updates": 0,
+        "phase": "final",
+        "phase_seed": 17,
+        "policy_hash_after": "b0f6ae0206ddfef2405f7aa048540634092d344aa8dfb20358bb2019e4fa254c",
+        "policy_hash_before": "b0f6ae0206ddfef2405f7aa048540634092d344aa8dfb20358bb2019e4fa254c",
+        "policy_update_time_s": 0.0,
+        "return": 0.17874159118945288,
+        "seed": 17,
+        "steps": 4,
+        "termination": "request_limit",
+        "wall_time_s": 4.405284459004179
+      }
+    ],
+    "source_identity": "bc2ebb4fdb5a8a8921994dae48d1d4af99154fc4bad6da19afd47cf15d26264c",
+    "status": "INTEGRATION_TEST_ONLY",
+    "storage": {
+      "external_static_allocation_bytes": 143056752,
+      "gb_activation_capacity_bytes": 65536,
+      "gb_activation_peak_bytes_by_node": [
+        29696,
+        29696,
+        29696,
+        29696,
+        28672,
+        28672,
+        28672,
+        28672,
+        28672
+      ]
+    },
+    "traffic": {
+      "by_operand": {
+        "activation": 64812080,
+        "constants": 134676,
+        "output": 2108904,
+        "weights": 166395904
+      },
+      "directed_link_byte_hops": 462163000,
+      "dma_bus_bytes": 502979952,
+      "dma_transactions": 14034652,
+      "external_bytes": 233451564,
+      "hierarchy_movement_bytes": {
+        "accumulator->lb": 808189952,
+        "dram->gb": 231342660,
+        "gb->dram": 2108904,
+        "gb->gb": 2055792,
+        "gb->lb": 287756820,
+        "lb->accumulator": 808189952,
+        "lb->gb": 12448232,
+        "lb->rf": 1183471124,
+        "rf->lb": 815625704
+      },
+      "storage_access_bytes": {
+        "accumulator": 1616379904,
+        "gb": 712762936,
+        "lb": 3915681784,
+        "rf": 35791570320
+      }
+    },
+    "training_episodes_completed": 2,
+    "wall_time_s": 22.95366641599685
+  },
+  {
+    "accuracy_validated": false,
+    "completed_actions": 16,
+    "cost_evidence_status": "TEST_FIXTURE",
+    "model": "vgg19",
+    "model_cycles": 399212621,
+    "numerical_validation": {
+      "accuracy_validated": false,
+      "dequantized_max_abs_error": 0.00878753513097763,
+      "dequantized_rmse": 0.0021841250095326788,
+      "int8_output_sha256": "e5e34a7662c7b26fd2b92fea6ecaf17bca1b7966f99e7f708193395a1ab4ff22",
+      "interpretation": "numerical execution/overflow/shape checks; errors versus seeded FP32 network, not dataset accuracy or proof of acceptable quantization",
+      "operator_count": 46,
+      "requantized_values": 2592232,
+      "saturated_values": 32,
+      "status": "EXECUTED_WITH_EXPLICIT_QUANTIZATION"
+    },
+    "operations": {
+      "gather_references": 97155608,
+      "logical_macs": 1716158464,
+      "padded_macs": 3572498432,
+      "vector_ops": 235548576
+    },
+    "physically_calibrated": false,
+    "policy_hash": "b9e0dc70b7f99a4c150ead56e7e50af6b268ed4786cc8d4086eac82d3a63e932",
+    "policy_updates": 2,
+    "report_sha256": "cdc61d262b28b81cbdbf6ac361990f58aab41fa8eaf63d784630c103ecdd27a6",
+    "selected_compute_count": 5,
+    "sessions": [
+      {
+        "action_selection_time_s": 0.09782779309898615,
+        "algorithm": "reinforce",
+        "archive_assessment": {
+          "feasible": false,
+          "metrics": {
+            "area_mm2": null,
+            "average_power_w": null,
+            "latency_s": null
+          },
+          "physical_feasible": false,
+          "search_merit": null,
+          "violations": [
+            "No physically valid action result has been measured"
+          ],
+          "weighted_cost": null
+        },
+        "assessment": {
+          "feasible": false,
+          "metrics": {
+            "area_mm2": 9,
+            "average_power_w": 0.02257518446867625,
+            "latency_s": 4.22475927
+          },
+          "physical_feasible": true,
+          "search_merit": 5.840628208389155,
+          "violation_excess": [
+            0.0,
+            3.22475927,
+            0.0
+          ],
+          "violations": [
+            "latency_s=4.22475927 exceeds limit 1"
+          ],
+          "weighted_cost": 1.6032781514895587
+        },
+        "best_objective": 0.8538145957452229,
+        "cache_hits": 0,
+        "critic_used": false,
+        "environment_step_time_s": 5.617269623791799,
+        "episode": 0,
+        "episode_number": 1,
+        "initial_action_support": 65871872,
+        "max_action_support": 65871872,
+        "mean_action_support": 65871872.0,
+        "oracle_evaluations": 4,
+        "oracle_requests": 4,
+        "parameter_updates": 0,
+        "phase": "baseline",
+        "phase_seed": 17,
+        "policy_hash_after": "dd1d776d065a99ad4d5e5f82f227b1890598de2302541adc0780928f2d923aba",
+        "policy_hash_before": "dd1d776d065a99ad4d5e5f82f227b1890598de2302541adc0780928f2d923aba",
+        "policy_update_time_s": 0.0,
+        "return": 0.15804120976431066,
+        "seed": 17,
+        "steps": 4,
+        "termination": "request_limit",
+        "wall_time_s": 5.724274834152311
+      },
+      {
+        "action_selection_time_s": 0.057209791848436,
+        "algorithm": "reinforce",
+        "archive_assessment": {
+          "feasible": false,
+          "metrics": {
+            "area_mm2": 9,
+            "average_power_w": 0.02235415555297419,
+            "latency_s": 4.29669303
+          },
+          "physical_feasible": true,
+          "search_merit": 5.916057105431908,
+          "violation_excess": [
+            0.0,
+            3.29669303,
+            0.0
+          ],
+          "violations": [
+            "latency_s=4.29669303 exceeds limit 1"
+          ],
+          "weighted_cost": 1.6271823951843247
+        },
+        "assessment": {
+          "feasible": false,
+          "metrics": {
+            "area_mm2": 9,
+            "average_power_w": 0.02235415555297419,
+            "latency_s": 4.29669303
+          },
+          "physical_feasible": true,
+          "search_merit": 5.916057105431908,
+          "violation_excess": [
+            0.0,
+            3.29669303,
+            0.0
+          ],
+          "violations": [
+            "latency_s=4.29669303 exceeds limit 1"
+          ],
+          "weighted_cost": 1.6271823951843247
+        },
+        "best_objective": 0.8554089440333575,
+        "cache_hits": 0,
+        "critic_used": false,
+        "entropy": 17.090466159340885,
+        "environment_step_time_s": 3.0472640418447554,
+        "episode": 0,
+        "episode_number": 1,
+        "first_step_reward_fraction": 0.9986926802112965,
+        "gradient_clip_limit": 0.5,
+        "gradient_norm_before_clip": 2.802874909564648,
+        "initial_action_support": 65871872,
+        "max_action_support": 65871872,
+        "mean_action_support": 65871872.0,
+        "nonzero_reward_steps": 2,
+        "normalized_entropy": 0.9493004132016295,
+        "oracle_evaluations": 4,
+        "oracle_requests": 4,
+        "parameter_updates": 1,
+        "phase": "train",
+        "phase_seed": 7,
+        "policy_hash_after": "60de3ec762ff2e6fa9693dedac3e564eeb17e2d0dff6eb221fe8311c6ddf1de3",
+        "policy_hash_before": "dd1d776d065a99ad4d5e5f82f227b1890598de2302541adc0780928f2d923aba",
+        "policy_loss": 2.4526137738120277,
+        "policy_update_time_s": 0.40179274999536574,
+        "return": 0.15617562727794407,
+        "seed": 7,
+        "steps": 4,
+        "termination": "request_limit",
+        "wall_time_s": 3.5142842079512775
+      },
+      {
+        "action_selection_time_s": 0.03951129177585244,
+        "algorithm": "reinforce",
+        "archive_assessment": {
+          "feasible": false,
+          "metrics": {
+            "area_mm2": 5,
+            "average_power_w": 0.019334065485369513,
+            "latency_s": 3.99212621
+          },
+          "physical_feasible": true,
+          "search_merit": 5.58251175454732,
+          "violation_excess": [
+            0.0,
+            2.99212621,
+            0.0
+          ],
+          "violations": [
+            "latency_s=3.99212621 exceeds limit 1"
+          ],
+          "weighted_cost": 1.4413200918284563
+        },
+        "assessment": {
+          "feasible": false,
+          "metrics": {
+            "area_mm2": 5,
+            "average_power_w": 0.019334065485369513,
+            "latency_s": 3.99212621
+          },
+          "physical_feasible": true,
+          "search_merit": 5.58251175454732,
+          "violation_excess": [
+            0.0,
+            2.99212621,
+            0.0
+          ],
+          "violations": [
+            "latency_s=3.99212621 exceeds limit 1"
+          ],
+          "weighted_cost": 1.4413200918284563
+        },
+        "best_objective": 0.8480823069842326,
+        "cache_hits": 0,
+        "critic_used": false,
+        "entropy": 15.63757555225546,
+        "environment_step_time_s": 4.5291521260514855,
+        "episode": 1,
+        "episode_number": 2,
+        "first_step_reward_fraction": 0.0,
+        "gradient_clip_limit": 0.5,
+        "gradient_norm_before_clip": 6.471376217908278,
+        "initial_action_support": 65871872,
+        "max_action_support": 65871872,
+        "mean_action_support": 65871872.0,
+        "nonzero_reward_steps": 3,
+        "normalized_entropy": 0.8685987143255496,
+        "oracle_evaluations": 4,
+        "oracle_requests": 4,
+        "parameter_updates": 1,
+        "phase": "train",
+        "phase_seed": 7,
+        "policy_hash_after": "b9e0dc70b7f99a4c150ead56e7e50af6b268ed4786cc8d4086eac82d3a63e932",
+        "policy_hash_before": "60de3ec762ff2e6fa9693dedac3e564eeb17e2d0dff6eb221fe8311c6ddf1de3",
+        "policy_loss": 5.7440399882095186,
+        "policy_update_time_s": 0.20575854205526412,
+        "return": 0.16477758777734713,
+        "seed": 7,
+        "steps": 4,
+        "termination": "request_limit",
+        "wall_time_s": 4.78209412493743
+      },
+      {
+        "action_selection_time_s": 0.05397712509147823,
+        "algorithm": "reinforce",
+        "archive_assessment": {
+          "feasible": false,
+          "metrics": {
+            "area_mm2": 5,
+            "average_power_w": 0.019334065485369513,
+            "latency_s": 3.99212621
+          },
+          "physical_feasible": true,
+          "search_merit": 5.58251175454732,
+          "violation_excess": [
+            0.0,
+            2.99212621,
+            0.0
+          ],
+          "violations": [
+            "latency_s=3.99212621 exceeds limit 1"
+          ],
+          "weighted_cost": 1.4413200918284563
+        },
+        "assessment": {
+          "feasible": false,
+          "metrics": {
+            "area_mm2": 9,
+            "average_power_w": 0.02257518446867625,
+            "latency_s": 4.22475927
+          },
+          "physical_feasible": true,
+          "search_merit": 5.840628208389155,
+          "violation_excess": [
+            0.0,
+            3.22475927,
+            0.0
+          ],
+          "violations": [
+            "latency_s=4.22475927 exceeds limit 1"
+          ],
+          "weighted_cost": 1.6032781514895587
+        },
+        "best_objective": 0.8538145957452229,
+        "cache_hits": 0,
+        "critic_used": false,
+        "environment_step_time_s": 5.593642709078267,
+        "episode": 2,
+        "episode_number": 1,
+        "initial_action_support": 65871872,
+        "max_action_support": 65871872,
+        "mean_action_support": 65871872.0,
+        "oracle_evaluations": 4,
+        "oracle_requests": 4,
+        "parameter_updates": 0,
+        "phase": "final",
+        "phase_seed": 17,
+        "policy_hash_after": "b9e0dc70b7f99a4c150ead56e7e50af6b268ed4786cc8d4086eac82d3a63e932",
+        "policy_hash_before": "b9e0dc70b7f99a4c150ead56e7e50af6b268ed4786cc8d4086eac82d3a63e932",
+        "policy_update_time_s": 0.0,
+        "return": 0.15804120976431066,
+        "seed": 17,
+        "steps": 4,
+        "termination": "request_limit",
+        "wall_time_s": 5.6554154579062015
+      }
+    ],
+    "source_identity": "e23dfc7e3ae15a8dcf04d141d71e24dc34963062ff8fd977db186493ccf29482",
+    "status": "INTEGRATION_TEST_ONLY",
+    "storage": {
+      "external_static_allocation_bytes": 149091256,
+      "gb_activation_capacity_bytes": 65536,
+      "gb_activation_peak_bytes_by_node": [
+        53248,
+        53248,
+        49152,
+        53248,
+        53248
+      ]
+    },
+    "traffic": {
+      "by_operand": {
+        "activation": 88286744,
+        "constants": 151956,
+        "output": 2330088,
+        "weights": 173221888
+      },
+      "directed_link_byte_hops": 536818082,
+      "dma_bus_bytes": 626488176,
+      "dma_transactions": 17976060,
+      "external_bytes": 263990676,
+      "hierarchy_movement_bytes": {
+        "accumulator->lb": 893124608,
+        "dram->gb": 261660588,
+        "gb->dram": 2330088,
+        "gb->gb": 7368256,
+        "gb->lb": 414037396,
+        "lb->accumulator": 893124608,
+        "lb->gb": 13513192,
+        "lb->rf": 1301985684,
+        "rf->lb": 901199336
+      },
+      "storage_access_bytes": {
+        "accumulator": 1786249216,
+        "gb": 1025072040,
+        "lb": 4416984824,
+        "rf": 40767622288
+      }
+    },
+    "training_episodes_completed": 2,
+    "wall_time_s": 25.09645629208535
+  },
+  {
+    "accuracy_validated": false,
+    "completed_actions": 16,
+    "cost_evidence_status": "TEST_FIXTURE",
+    "model": "mobilenet_v2",
+    "model_cycles": 30351746,
+    "numerical_validation": {
+      "accuracy_validated": false,
+      "dequantized_max_abs_error": 1.0530221139504192e-10,
+      "dequantized_rmse": 2.7684579361513466e-11,
+      "int8_output_sha256": "0bb4ae5071d7a130f1c48a425c8f468e1dfe592fef5ea9636d37a6bd8b068608",
+      "interpretation": "numerical execution/overflow/shape checks; errors versus seeded FP32 network, not dataset accuracy or proof of acceptable quantization",
+      "operator_count": 153,
+      "requantized_values": 1608680,
+      "saturated_values": 61,
+      "status": "EXECUTED_WITH_EXPLICIT_QUANTIZATION"
+    },
+    "operations": {
+      "gather_references": 4030646,
+      "logical_macs": 25728512,
+      "padded_macs": 122290176,
+      "vector_ops": 16798080
+    },
+    "physically_calibrated": false,
+    "policy_hash": "a770cc4042e55d96b9e2f6816d769b0ccc2baa11c4fe70ee6d8cb136cc52579c",
+    "policy_updates": 2,
+    "report_sha256": "7d727d1173cacd6a426e2ec8abfe2186db697d56d662dc29f0855353208d7994",
+    "selected_compute_count": 3,
+    "sessions": [
+      {
+        "action_selection_time_s": 0.13830733275972307,
+        "algorithm": "reinforce",
+        "archive_assessment": {
+          "feasible": false,
+          "metrics": {
+            "area_mm2": null,
+            "average_power_w": null,
+            "latency_s": null
+          },
+          "physical_feasible": false,
+          "search_merit": null,
+          "violations": [
+            "No physically valid action result has been measured"
+          ],
+          "weighted_cost": null
+        },
+        "assessment": {
+          "feasible": true,
+          "metrics": {
+            "area_mm2": 2,
+            "average_power_w": 0.009937168443888032,
+            "latency_s": 0.2986591
+          },
+          "physical_feasible": true,
+          "search_merit": 0.12628050432976345,
+          "violation_excess": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "violations": [],
+          "weighted_cost": 0.144532089481296
+        },
+        "best_objective": 0.11212171732024388,
+        "cache_hits": 0,
+        "critic_used": false,
+        "environment_step_time_s": 1.6826393741648644,
+        "episode": 0,
+        "episode_number": 1,
+        "initial_action_support": 231317504,
+        "max_action_support": 231317504,
+        "mean_action_support": 231317504.0,
+        "oracle_evaluations": 4,
+        "oracle_requests": 4,
+        "parameter_updates": 0,
+        "phase": "baseline",
+        "phase_seed": 17,
+        "policy_hash_after": "dd1d776d065a99ad4d5e5f82f227b1890598de2302541adc0780928f2d923aba",
+        "policy_hash_before": "dd1d776d065a99ad4d5e5f82f227b1890598de2302541adc0780928f2d923aba",
+        "policy_update_time_s": 0.0,
+        "return": 2.1881702359972506,
+        "seed": 17,
+        "steps": 4,
+        "termination": "request_limit",
+        "wall_time_s": 1.8303789589554071
+      },
+      {
+        "action_selection_time_s": 0.1350318738259375,
+        "algorithm": "reinforce",
+        "archive_assessment": {
+          "feasible": true,
+          "metrics": {
+            "area_mm2": 3,
+            "average_power_w": 0.010850575202494116,
+            "latency_s": 0.30351746
+          },
+          "physical_feasible": true,
+          "search_merit": 0.14331437682901543,
+          "violation_excess": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "violations": [],
+          "weighted_cost": 0.16728934506749804
+        },
+        "assessment": {
+          "feasible": true,
+          "metrics": {
+            "area_mm2": 3,
+            "average_power_w": 0.010850575202494116,
+            "latency_s": 0.30351746
+          },
+          "physical_feasible": true,
+          "search_merit": 0.14331437682901543,
+          "violation_excess": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "violations": [],
+          "weighted_cost": 0.16728934506749804
+        },
+        "best_objective": 0.1253499297599127,
+        "cache_hits": 0,
+        "critic_used": false,
+        "entropy": 18.222801271631962,
+        "environment_step_time_s": 1.825396333122626,
+        "episode": 0,
+        "episode_number": 1,
+        "first_step_reward_fraction": 0.8339729474633881,
+        "gradient_clip_limit": 0.5,
+        "gradient_norm_before_clip": 35.16790842680693,
+        "initial_action_support": 231317504,
+        "max_action_support": 231317504,
+        "mean_action_support": 231317504.0,
+        "nonzero_reward_steps": 2,
+        "normalized_entropy": 0.9461818221641982,
+        "oracle_evaluations": 4,
+        "oracle_requests": 4,
+        "parameter_updates": 1,
+        "phase": "train",
+        "phase_seed": 7,
+        "policy_hash_after": "e59606ad42133829845dac72e868d53f2f0336d337972cc8fd040a25585e1424",
+        "policy_hash_before": "dd1d776d065a99ad4d5e5f82f227b1890598de2302541adc0780928f2d923aba",
+        "policy_loss": 48.480029838729095,
+        "policy_update_time_s": 0.8491094170603901,
+        "return": 2.0766460147297057,
+        "seed": 7,
+        "steps": 4,
+        "termination": "request_limit",
+        "wall_time_s": 2.8200385000091046
+      },
+      {
+        "action_selection_time_s": 0.09614970814436674,
+        "algorithm": "reinforce",
+        "archive_assessment": {
+          "feasible": true,
+          "metrics": {
+            "area_mm2": 3,
+            "average_power_w": 0.010850575202494116,
+            "latency_s": 0.30351746
+          },
+          "physical_feasible": true,
+          "search_merit": 0.14331437682901543,
+          "violation_excess": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "violations": [],
+          "weighted_cost": 0.16728934506749804
+        },
+        "assessment": {
+          "feasible": true,
+          "metrics": {
+            "area_mm2": 3,
+            "average_power_w": 0.010793195691123128,
+            "latency_s": 0.30618466
+          },
+          "physical_feasible": true,
+          "search_merit": 0.14395235937127482,
+          "violation_excess": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "violations": [],
+          "weighted_cost": 0.16815928523037438
+        },
+        "best_objective": 0.12583772234220678,
+        "cache_hits": 0,
+        "critic_used": false,
+        "entropy": 17.48278713931574,
+        "environment_step_time_s": 1.5116435838863254,
+        "episode": 1,
+        "episode_number": 2,
+        "first_step_reward_fraction": 0.8891836193046849,
+        "gradient_clip_limit": 0.5,
+        "gradient_norm_before_clip": 40.70239672019665,
+        "initial_action_support": 231317504,
+        "max_action_support": 231317504,
+        "mean_action_support": 231317504.0,
+        "nonzero_reward_steps": 3,
+        "normalized_entropy": 0.9077580963217711,
+        "oracle_evaluations": 4,
+        "oracle_requests": 4,
+        "parameter_updates": 1,
+        "phase": "train",
+        "phase_seed": 7,
+        "policy_hash_after": "a770cc4042e55d96b9e2f6816d769b0ccc2baa11c4fe70ee6d8cb136cc52579c",
+        "policy_hash_before": "e59606ad42133829845dac72e868d53f2f0336d337972cc8fd040a25585e1424",
+        "policy_loss": 43.27391634150956,
+        "policy_update_time_s": 0.5535224168561399,
+        "return": 2.0727621200287283,
+        "seed": 7,
+        "steps": 4,
+        "termination": "request_limit",
+        "wall_time_s": 2.1723552912008017
+      },
+      {
+        "action_selection_time_s": 0.13688733405433595,
+        "algorithm": "reinforce",
+        "archive_assessment": {
+          "feasible": true,
+          "metrics": {
+            "area_mm2": 3,
+            "average_power_w": 0.010850575202494116,
+            "latency_s": 0.30351746
+          },
+          "physical_feasible": true,
+          "search_merit": 0.14331437682901543,
+          "violation_excess": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "violations": [],
+          "weighted_cost": 0.16728934506749804
+        },
+        "assessment": {
+          "feasible": true,
+          "metrics": {
+            "area_mm2": 2,
+            "average_power_w": 0.009937168443888032,
+            "latency_s": 0.2986591
+          },
+          "physical_feasible": true,
+          "search_merit": 0.12628050432976345,
+          "violation_excess": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "violations": [],
+          "weighted_cost": 0.144532089481296
+        },
+        "best_objective": 0.11212171732024388,
+        "cache_hits": 0,
+        "critic_used": false,
+        "environment_step_time_s": 1.6610822090879083,
+        "episode": 2,
+        "episode_number": 1,
+        "initial_action_support": 231317504,
+        "max_action_support": 231317504,
+        "mean_action_support": 231317504.0,
+        "oracle_evaluations": 4,
+        "oracle_requests": 4,
+        "parameter_updates": 0,
+        "phase": "final",
+        "phase_seed": 17,
+        "policy_hash_after": "a770cc4042e55d96b9e2f6816d769b0ccc2baa11c4fe70ee6d8cb136cc52579c",
+        "policy_hash_before": "a770cc4042e55d96b9e2f6816d769b0ccc2baa11c4fe70ee6d8cb136cc52579c",
+        "policy_update_time_s": 0.0,
+        "return": 2.1881702359972506,
+        "seed": 17,
+        "steps": 4,
+        "termination": "request_limit",
+        "wall_time_s": 1.808726791990921
+      }
+    ],
+    "source_identity": "bfea23684bb4068038d8bef832af169b7b4c169a910d59f116cdd278aaffde52",
+    "status": "INTEGRATION_TEST_ONLY",
+    "storage": {
+      "external_static_allocation_bytes": 9970876,
+      "gb_activation_capacity_bytes": 65536,
+      "gb_activation_peak_bytes_by_node": [
+        32768,
+        12288,
+        0
+      ]
+    },
+    "traffic": {
+      "by_operand": {
+        "activation": 4265268,
+        "constants": 390664,
+        "output": 1563624,
+        "weights": 6315008
+      },
+      "directed_link_byte_hops": 12261661,
+      "dma_bus_bytes": 45026656,
+      "dma_transactions": 1376879,
+      "external_bytes": 12534564,
+      "hierarchy_movement_bytes": {
+        "accumulator->lb": 30572544,
+        "dram->gb": 10970940,
+        "gb->dram": 1563624,
+        "gb->gb": 20480,
+        "gb->lb": 36110984,
+        "lb->accumulator": 30572544,
+        "lb->gb": 22286824,
+        "lb->rf": 50255496,
+        "rf->lb": 36431336
+      },
+      "storage_access_bytes": {
+        "accumulator": 61145088,
+        "gb": 81842760,
+        "lb": 206229728,
+        "rf": 1521140472
+      }
+    },
+    "training_episodes_completed": 2,
+    "wall_time_s": 9.876321709016338
+  },
+  {
+    "accuracy_validated": false,
+    "completed_actions": 16,
+    "cost_evidence_status": "TEST_FIXTURE",
+    "model": "alexnet",
+    "model_cycles": 43893031,
+    "numerical_validation": {
+      "accuracy_validated": false,
+      "dequantized_max_abs_error": 0.00038157030940055847,
+      "dequantized_rmse": 0.00012330786446204163,
+      "int8_output_sha256": "1d36806d1f9477d6ebe9c1df192db5a0576b65cdcbb611ba5274e7fe3c5b8508",
+      "interpretation": "numerical execution/overflow/shape checks; errors versus seeded FP32 network, not dataset accuracy or proof of acceptable quantization",
+      "operator_count": 22,
+      "requantized_values": 95464,
+      "saturated_values": 8,
+      "status": "EXECUTED_WITH_EXPLICIT_QUANTIZATION"
+    },
+    "operations": {
+      "gather_references": 5349296,
+      "logical_macs": 98144960,
+      "padded_macs": 998375424,
+      "vector_ops": 62630944
+    },
+    "physically_calibrated": false,
+    "policy_hash": "d7b3b6e784f442d0a8813f6ae53dfc400d48819bb4b1dd9446edd6828f6041e5",
+    "policy_updates": 2,
+    "report_sha256": "930082bb856bd91de24674244ab9b339d6d8b898694fee8ba9c267592e4b62b1",
+    "selected_compute_count": 4,
+    "sessions": [
+      {
+        "action_selection_time_s": 0.026365792145952582,
+        "algorithm": "reinforce",
+        "archive_assessment": {
+          "feasible": false,
+          "metrics": {
+            "area_mm2": null,
+            "average_power_w": null,
+            "latency_s": null
+          },
+          "physical_feasible": false,
+          "search_merit": null,
+          "violations": [
+            "No physically valid action result has been measured"
+          ],
+          "weighted_cost": null
+        },
+        "assessment": {
+          "feasible": true,
+          "metrics": {
+            "area_mm2": 5,
+            "average_power_w": 0.0399397396929567,
+            "latency_s": 0.43375315
+          },
+          "physical_feasible": true,
+          "search_merit": 0.2076473419600958,
+          "violation_excess": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "violations": [],
+          "weighted_cost": 0.2620642965643189
+        },
+        "best_objective": 0.17194369146134145,
+        "cache_hits": 0,
+        "critic_used": false,
+        "environment_step_time_s": 2.452420414891094,
+        "episode": 0,
+        "episode_number": 1,
+        "initial_action_support": 29106176,
+        "max_action_support": 29106176,
+        "mean_action_support": 29106176.0,
+        "oracle_evaluations": 4,
+        "oracle_requests": 4,
+        "parameter_updates": 0,
+        "phase": "baseline",
+        "phase_seed": 17,
+        "policy_hash_after": "dd1d776d065a99ad4d5e5f82f227b1890598de2302541adc0780928f2d923aba",
+        "policy_hash_before": "dd1d776d065a99ad4d5e5f82f227b1890598de2302541adc0780928f2d923aba",
+        "policy_update_time_s": 0.0,
+        "return": 1.7605882309924101,
+        "seed": 17,
+        "steps": 4,
+        "termination": "request_limit",
+        "wall_time_s": 2.4850489581003785
+      },
+      {
+        "action_selection_time_s": 0.025531501043587923,
+        "algorithm": "reinforce",
+        "archive_assessment": {
+          "feasible": true,
+          "metrics": {
+            "area_mm2": 4,
+            "average_power_w": 0.03839562675450688,
+            "latency_s": 0.43893031
+          },
+          "physical_feasible": true,
+          "search_merit": 0.19513344126481494,
+          "violation_excess": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "violations": [],
+          "weighted_cost": 0.24244197891816896
+        },
+        "assessment": {
+          "feasible": true,
+          "metrics": {
+            "area_mm2": 4,
+            "average_power_w": 0.03839562675450688,
+            "latency_s": 0.43893031
+          },
+          "physical_feasible": true,
+          "search_merit": 0.19513344126481494,
+          "violation_excess": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "violations": [],
+          "weighted_cost": 0.24244197891816896
+        },
+        "best_objective": 0.16327335051247865,
+        "cache_hits": 0,
+        "critic_used": false,
+        "entropy": 15.97061541334045,
+        "environment_step_time_s": 3.347086874768138,
+        "episode": 0,
+        "episode_number": 1,
+        "first_step_reward_fraction": 0.8940550508289943,
+        "gradient_clip_limit": 0.5,
+        "gradient_norm_before_clip": 32.19660872782091,
+        "initial_action_support": 29106176,
+        "max_action_support": 29106176,
+        "mean_action_support": 29106176.0,
+        "nonzero_reward_steps": 2,
+        "normalized_entropy": 0.9292556196432151,
+        "oracle_evaluations": 4,
+        "oracle_requests": 4,
+        "parameter_updates": 1,
+        "phase": "train",
+        "phase_seed": 7,
+        "policy_hash_after": "1ea5c40ebd514affa18651ef855faad178be57fa904430b428f517e1c258e617",
+        "policy_hash_before": "dd1d776d065a99ad4d5e5f82f227b1890598de2302541adc0780928f2d923aba",
+        "policy_loss": 35.096137498853054,
+        "policy_update_time_s": 0.15294512500986457,
+        "return": 1.8123294857556786,
+        "seed": 7,
+        "steps": 4,
+        "termination": "request_limit",
+        "wall_time_s": 3.5316081249620765
+      },
+      {
+        "action_selection_time_s": 0.04664016794413328,
+        "algorithm": "reinforce",
+        "archive_assessment": {
+          "feasible": true,
+          "metrics": {
+            "area_mm2": 4,
+            "average_power_w": 0.03839562675450688,
+            "latency_s": 0.43893031
+          },
+          "physical_feasible": true,
+          "search_merit": 0.19513344126481494,
+          "violation_excess": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "violations": [],
+          "weighted_cost": 0.24244197891816896
+        },
+        "assessment": {
+          "feasible": true,
+          "metrics": {
+            "area_mm2": 7,
+            "average_power_w": 0.031960606478096815,
+            "latency_s": 0.61805035
+          },
+          "physical_feasible": true,
+          "search_merit": 0.2660570131939472,
+          "violation_excess": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "violations": [],
+          "weighted_cost": 0.3625036521593656
+        },
+        "best_objective": 0.21014615488977978,
+        "cache_hits": 0,
+        "critic_used": false,
+        "entropy": 16.868672312831833,
+        "environment_step_time_s": 2.2825092910788953,
+        "episode": 1,
+        "episode_number": 2,
+        "first_step_reward_fraction": 0.8546687976949628,
+        "gradient_clip_limit": 0.5,
+        "gradient_norm_before_clip": 25.56244081967998,
+        "initial_action_support": 29106176,
+        "max_action_support": 29106176,
+        "mean_action_support": 29106176.0,
+        "nonzero_reward_steps": 3,
+        "normalized_entropy": 0.9815093618449491,
+        "oracle_evaluations": 4,
+        "oracle_requests": 4,
+        "parameter_updates": 1,
+        "phase": "train",
+        "phase_seed": 7,
+        "policy_hash_after": "d7b3b6e784f442d0a8813f6ae53dfc400d48819bb4b1dd9446edd6828f6041e5",
+        "policy_hash_before": "1ea5c40ebd514affa18651ef855faad178be57fa904430b428f517e1c258e617",
+        "policy_loss": 34.01301453664274,
+        "policy_update_time_s": 0.26836237497627735,
+        "return": 1.5599520146778,
+        "seed": 7,
+        "steps": 4,
+        "termination": "request_limit",
+        "wall_time_s": 2.6039871668908745
+      },
+      {
+        "action_selection_time_s": 0.025250501232221723,
+        "algorithm": "reinforce",
+        "archive_assessment": {
+          "feasible": true,
+          "metrics": {
+            "area_mm2": 4,
+            "average_power_w": 0.03839562675450688,
+            "latency_s": 0.43893031
+          },
+          "physical_feasible": true,
+          "search_merit": 0.19513344126481494,
+          "violation_excess": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "violations": [],
+          "weighted_cost": 0.24244197891816896
+        },
+        "assessment": {
+          "feasible": true,
+          "metrics": {
+            "area_mm2": 5,
+            "average_power_w": 0.0399397396929567,
+            "latency_s": 0.43375315
+          },
+          "physical_feasible": true,
+          "search_merit": 0.2076473419600958,
+          "violation_excess": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "violations": [],
+          "weighted_cost": 0.2620642965643189
+        },
+        "best_objective": 0.17194369146134145,
+        "cache_hits": 0,
+        "critic_used": false,
+        "environment_step_time_s": 2.466133459005505,
+        "episode": 2,
+        "episode_number": 1,
+        "initial_action_support": 29106176,
+        "max_action_support": 29106176,
+        "mean_action_support": 29106176.0,
+        "oracle_evaluations": 4,
+        "oracle_requests": 4,
+        "parameter_updates": 0,
+        "phase": "final",
+        "phase_seed": 17,
+        "policy_hash_after": "d7b3b6e784f442d0a8813f6ae53dfc400d48819bb4b1dd9446edd6828f6041e5",
+        "policy_hash_before": "d7b3b6e784f442d0a8813f6ae53dfc400d48819bb4b1dd9446edd6828f6041e5",
+        "policy_update_time_s": 0.0,
+        "return": 1.7605882309924101,
+        "seed": 17,
+        "steps": 4,
+        "termination": "request_limit",
+        "wall_time_s": 2.498064916115254
+      }
+    ],
+    "source_identity": "fae110f4532ce0ac48f8413d875433de5898b156aa50bc119d2ba8561953babf",
+    "status": "INTEGRATION_TEST_ONLY",
+    "storage": {
+      "external_static_allocation_bytes": 61430424,
+      "gb_activation_capacity_bytes": 65536,
+      "gb_activation_peak_bytes_by_node": [
+        0,
+        2304,
+        0,
+        0
+      ]
+    },
+    "traffic": {
+      "by_operand": {
+        "activation": 6194000,
+        "constants": 57300,
+        "output": 93160,
+        "weights": 61595648
+      },
+      "directed_link_byte_hops": 67102056,
+      "dma_bus_bytes": 92327536,
+      "dma_transactions": 1906128,
+      "external_bytes": 67940108,
+      "hierarchy_movement_bytes": {
+        "accumulator->lb": 249593856,
+        "dram->gb": 67846948,
+        "gb->dram": 93160,
+        "gb->gb": 2304,
+        "gb->lb": 124830292,
+        "lb->accumulator": 249593856,
+        "lb->gb": 1073896,
+        "lb->rf": 373958228,
+        "rf->lb": 249906920
+      },
+      "storage_access_bytes": {
+        "accumulator": 499187712,
+        "gb": 262053400,
+        "lb": 1248957048,
+        "rf": 11359778576
+      }
+    },
+    "training_episodes_completed": 2,
+    "wall_time_s": 12.485126750078052
+  }
+]

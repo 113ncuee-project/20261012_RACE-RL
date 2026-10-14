@@ -36,8 +36,12 @@ def export(folder,env,summary):
 
 
 def main(argv=None):
+    raw=list(sys.argv[1:] if argv is None else argv)
+    if raw and raw[0]=='search-cnn':
+        from .accelerators.cnn_search import main as cnn_main
+        return cnn_main(raw[1:])
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("command",choices=("evaluate","train","benchmark","validate-cnn","search-mesh"))
+    parser.add_argument("command",choices=("evaluate","train","benchmark","validate-cnn","search-mesh","search-cnn"))
     parser.add_argument("--model",choices=("resnet18","resnet34","resnet50","vgg16","vgg19","mobilenet_v2","alexnet"))
     parser.add_argument("--input-size",type=int,default=224)
     parser.add_argument("--reference-tiles",type=int,default=2)
@@ -76,6 +80,7 @@ def main(argv=None):
     if args.command != 'search-mesh' and (args.compute_counts is not None or ppa_inputs):
         parser.error('vendor PPA inputs and compute-counts are search-mesh options')
     if args.command == 'search-mesh':
+        print('舊合成硬體比較模型；新版分層記憶體請使用 search-cnn。',flush=True)
         from .vendor_input import requirements_from_args
         try:
             vendor_requirements = requirements_from_args(args)
