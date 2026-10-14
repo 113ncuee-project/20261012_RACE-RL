@@ -42,7 +42,7 @@ def interaction_records(env):
     rows = []
     for index, trace in enumerate(env.trace, 1):
         next_state = dict(state)
-        if trace['physical_feasible']:
+        if trace['physical_feasible'] and trace.get('controller_accepted',True):
             next_state.update(hardware_hash=trace['candidate_hardware_hash'],
                               mapping_hash=trace['candidate_mapping_hash'],
                               ppa=trace['ppa_assessment'])
@@ -100,7 +100,8 @@ class CompactRecorder:
     def record(self, phase, seed, episode, env, stats, *, trainer=None, retain_winner=False):
         if env.oracle.requests != len(env.trace):
             raise ValueError('interaction accounting mismatch')
-        before = self.get('winner_assessment') if retain_winner else None
+        winner_key='winner' if phase=='train' else f'winner_{phase}'
+        before = self.get(winner_key+'_assessment') if retain_winner else None
         assessment = env.scorer.assess(env.best_record)
         winner = None
         if retain_winner and assessment_better(assessment, before):
@@ -121,8 +122,8 @@ class CompactRecorder:
             if checkpoint is not None:
                 self.db.execute('INSERT OR REPLACE INTO metadata VALUES (?,?)', ('checkpoint', checkpoint))
             if winner is not None:
-                self.put('winner', winner)
-                self.put('winner_assessment', assessment)
+                self.put(winner_key, winner)
+                self.put(winner_key+'_assessment', assessment)
 
     def close(self):
         self.db.close()

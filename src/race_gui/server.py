@@ -138,6 +138,11 @@ class JobManager:
                     log.seek(0,2);log.seek(max(0,log.tell()-12000))
                     tail=log.read().decode('utf-8',errors='replace')
             live_path=job['folder']/'results'/'search'/'progress.json'
+            constraint_path=job['folder']/'results'/'constraint_check.json'
+            constraint=None
+            try:
+                if constraint_path.exists():constraint=json.loads(constraint_path.read_text(encoding='utf-8'))
+            except (OSError,ValueError):pass
             live=None
             try:
                 if live_path.exists():live=json.loads(live_path.read_text(encoding='utf-8'))
@@ -151,7 +156,7 @@ class JobManager:
             return {'id':jid,'status':job['status'],'request':job['request'],'elapsed_s':elapsed,'episodes_completed':len(history),
                 'episodes_requested':job['settings']['episodes'],'training_curve':history,'live_progress':live,
                 'output_folder':str(job['folder']),'report':job['report'],'summary':job['summary'],
-                'design_view':job['design_view'],'error':job['error'],'log':tail,'exit_code':job.get('exit_code')}
+                'constraint_check':constraint,'design_view':job['design_view'],'error':job['error'],'log':tail,'exit_code':job.get('exit_code')}
 
     def stop_all(self):
         with self.lock:

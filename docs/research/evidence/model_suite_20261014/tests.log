@@ -1,0 +1,202 @@
+test_all_candidates_structurally_valid (test_actions_rewards.ActionRewardTests.test_all_candidates_structurally_valid) ... ok
+test_atomic_transaction_original_unchanged (test_actions_rewards.ActionRewardTests.test_atomic_transaction_original_unchanged) ... ok
+test_budget_one_allows_one_action_and_reset_does_not_test_limits (test_actions_rewards.ActionRewardTests.test_budget_one_allows_one_action_and_reset_does_not_test_limits) ... ok
+test_cache_request_limit_terminal_reward (test_actions_rewards.ActionRewardTests.test_cache_request_limit_terminal_reward) ... ok
+test_dense_and_potential_telescope (test_actions_rewards.ActionRewardTests.test_dense_and_potential_telescope) ... ok
+test_physical_failure_reward_telescope (test_actions_rewards.ActionRewardTests.test_physical_failure_reward_telescope) ... ok
+test_retile_coverage_and_routes_rebuilt (test_actions_rewards.ActionRewardTests.test_retile_coverage_and_routes_rebuilt) ... ok
+test_worse_feasible_current_does_not_replace_archive (test_actions_rewards.ActionRewardTests.test_worse_feasible_current_does_not_replace_archive) ... ok
+test_windows_autocrlf_preserves_pinned_sources_with_attributes (test_checkout_line_endings.CheckoutLineEndingTests.test_windows_autocrlf_preserves_pinned_sources_with_attributes) ... ok
+test_checkpoints_cannot_cross_learning_algorithms (test_comparison_ppo.ComparisonPPOTests.test_checkpoints_cannot_cross_learning_algorithms) ... ok
+test_comparison_uses_same_actor_initialization_and_environment (test_comparison_ppo.ComparisonPPOTests.test_comparison_uses_same_actor_initialization_and_environment) ... ok
+test_formal_has_no_critic_or_ppo_configuration (test_comparison_ppo.ComparisonPPOTests.test_formal_has_no_critic_or_ppo_configuration) ... ok
+test_formal_update_matches_reward_to_go_policy_gradient (test_comparison_ppo.ComparisonPPOTests.test_formal_update_matches_reward_to_go_policy_gradient) ... ok
+test_failed_multi_tile_edit_rolls_back_entire_transaction (test_coupled_transactions.CoupledTransactionTests.test_failed_multi_tile_edit_rolls_back_entire_transaction) ... ok
+test_fast_masks_equal_independent_full_compilation_in_order (test_coupled_transactions.CoupledTransactionTests.test_fast_masks_equal_independent_full_compilation_in_order) ... ok
+test_repartitioned_partial_ownership_masks_match_reference (test_coupled_transactions.CoupledTransactionTests.test_repartitioned_partial_ownership_masks_match_reference) ... ok
+test_two_layer_edit_is_complete_before_one_environment_query (test_coupled_transactions.CoupledTransactionTests.test_two_layer_edit_is_complete_before_one_environment_query) ... ok
+test_external_access_costs_remain_even_without_mesh_hops (test_external_memory.ExternalMemoryTests.test_external_access_costs_remain_even_without_mesh_hops) ... ok
+test_external_capacity_checked_separately_from_die_area (test_external_memory.ExternalMemoryTests.test_external_capacity_checked_separately_from_die_area) ... ok
+test_logical_memory_relations_are_distinct_from_physical_links (test_external_memory.ExternalMemoryTests.test_logical_memory_relations_are_distinct_from_physical_links) ... ok
+test_native_mesh_contains_compute_dies_only (test_external_memory.ExternalMemoryTests.test_native_mesh_contains_compute_dies_only) ... ok
+test_ports_attach_to_gateways_and_never_relay (test_external_memory.ExternalMemoryTests.test_ports_attach_to_gateways_and_never_relay) ... ok
+test_single_compute_mesh_without_links_has_finite_neural_policy (test_external_memory.ExternalMemoryTests.test_single_compute_mesh_without_links_has_finite_neural_policy) ... ok
+test_functional_pooling_and_tensor_flatten (test_frontend.FrontendTests.test_functional_pooling_and_tensor_flatten) ... ok
+test_imported_cnn_reaches_oracle_and_neural_policy (test_frontend.FrontendTests.test_imported_cnn_reaches_oracle_and_neural_policy) ... ok
+test_inplace_alias_is_rejected (test_frontend.FrontendTests.test_inplace_alias_is_rejected) ... ok
+test_model_identity_and_seed_repeat (test_frontend.FrontendTests.test_model_identity_and_seed_repeat) ... ok
+test_multiple_tensor_outputs (test_frontend.FrontendTests.test_multiple_tensor_outputs) ... ok
+test_nonbatch_flatten_and_scaled_add_rejected (test_frontend.FrontendTests.test_nonbatch_flatten_and_scaled_add_rejected) ... ok
+test_numerical_validator_detects_changed_parameter_values (test_frontend.FrontendTests.test_numerical_validator_detects_changed_parameter_values) ... ok
+test_residual_complete_numerical_and_parameter_snapshot (test_frontend.FrontendTests.test_residual_complete_numerical_and_parameter_snapshot) ... ok
+test_resnet18_full_architecture_reduced_input (test_frontend.FrontendTests.test_resnet18_full_architecture_reduced_input) ... ok
+test_training_mode_is_rejected (test_frontend.FrontendTests.test_training_mode_is_rejected) ... ok
+test_unfixed_batchnorm_statistics_are_rejected (test_frontend.FrontendTests.test_unfixed_batchnorm_statistics_are_rejected) ... ok
+test_unsupported_function_fails_with_node_context (test_frontend.FrontendTests.test_unsupported_function_fails_with_node_context) ... ok
+test_compiler_determinism_and_schedule_identity (test_guarded_memory.GuardedMemoryTests.test_compiler_determinism_and_schedule_identity) ... ok
+test_compiler_fits_local_tiles_and_distributes_external_constants (test_guarded_memory.GuardedMemoryTests.test_compiler_fits_local_tiles_and_distributes_external_constants) ... ok
+test_control_dependencies_do_not_become_tensor_link_attribution (test_guarded_memory.GuardedMemoryTests.test_control_dependencies_do_not_become_tensor_link_attribution) ... ok
+test_guarded_environment_only_counts_actions (test_guarded_memory.GuardedMemoryTests.test_guarded_environment_only_counts_actions) ... ok
+test_no_free_shared_read_under_tile_admission (test_guarded_memory.GuardedMemoryTests.test_no_free_shared_read_under_tile_admission) ... ok
+test_unfittable_working_set_and_memory_object_fail_explicitly (test_guarded_memory.GuardedMemoryTests.test_unfittable_working_set_and_memory_object_fail_explicitly) ... ok
+test_active_job_exclusion_and_cancellation (test_gui.GuiTests.test_active_job_exclusion_and_cancellation) ... ok
+test_command_uses_current_python_and_exact_frozen_request (test_gui.GuiTests.test_command_uses_current_python_and_exact_frozen_request) ... ok
+test_http_static_contract_and_local_request_validation (test_gui.GuiTests.test_http_static_contract_and_local_request_validation) ... ok
+test_job_reports_process_failure_and_preserves_requirements (test_gui.GuiTests.test_job_reports_process_failure_and_preserves_requirements) ... ok
+test_reject_missing_nan_zero_and_unknown_inputs_before_start (test_gui.GuiTests.test_reject_missing_nan_zero_and_unknown_inputs_before_start) ... ok
+test_same_requirements_contract_and_ms_conversion (test_gui.GuiTests.test_same_requirements_contract_and_ms_conversion) ... ok
+test_explicit_fixed_port_reports_collision (test_gui_startup.GuiStartupTests.test_explicit_fixed_port_reports_collision) ... ok
+test_never_reuses_race_gui_from_another_workspace (test_gui_startup.GuiStartupTests.test_never_reuses_race_gui_from_another_workspace) ... ok
+test_other_app_is_left_running_and_free_port_is_selected (test_gui_startup.GuiStartupTests.test_other_app_is_left_running_and_free_port_is_selected) ... ok
+test_port_zero_uses_os_assigned_port (test_gui_startup.GuiStartupTests.test_port_zero_uses_os_assigned_port) ... ok
+test_reuses_same_workspace_without_creating_or_stopping_server (test_gui_startup.GuiStartupTests.test_reuses_same_workspace_without_creating_or_stopping_server) ... ok
+test_unrelated_bind_errors_are_not_hidden (test_gui_startup.GuiStartupTests.test_unrelated_bind_errors_are_not_hidden) ... ok
+test_windows_reserved_port_uses_a_free_port (test_gui_startup.GuiStartupTests.test_windows_reserved_port_uses_a_free_port) ... ok
+test_parameter_counts_match_state_variants_and_frozen_policy_does_not_update (test_hypothesis_controls.HypothesisControlTests.test_parameter_counts_match_state_variants_and_frozen_policy_does_not_update) ... ok
+test_reward_variants_telescope_over_same_cross_hardware_trajectory (test_hypothesis_controls.HypothesisControlTests.test_reward_variants_telescope_over_same_cross_hardware_trajectory) ... ok
+test_single_edits_change_one_design_variable (test_hypothesis_controls.HypothesisControlTests.test_single_edits_change_one_design_variable) ... ok
+test_sixteen_compute_mesh_is_real_reachable_state (test_hypothesis_controls.HypothesisControlTests.test_sixteen_compute_mesh_is_real_reachable_state) ... ok
+test_state_ablation_switches_change_actual_action_probabilities (test_hypothesis_controls.HypothesisControlTests.test_state_ablation_switches_change_actual_action_probabilities) ... ok
+test_caller_list_mutation_cannot_change_cached_workload (test_identity_invariants.IdentityInvariantTests.test_caller_list_mutation_cannot_change_cached_workload) ... ok
+test_hardware_cache_does_not_change_identity_or_expose_mutation (test_identity_invariants.IdentityInvariantTests.test_hardware_cache_does_not_change_identity_or_expose_mutation) ... ok
+test_actor_updates_without_critic (test_learning.LearningTests.test_actor_updates_without_critic) ... ok
+test_checkpoint_resume_episode_boundary (test_learning.LearningTests.test_checkpoint_resume_episode_boundary) ... ok
+test_distribution_normalization_and_attribution (test_learning.LearningTests.test_distribution_normalization_and_attribution) ... ok
+test_fixed_seed_trace (test_learning.LearningTests.test_fixed_seed_trace) ... ok
+test_mask_zero_probability (test_learning.LearningTests.test_mask_zero_probability) ... ok
+test_compact_and_full_recording_have_identical_training_and_feedback (test_model_suite.ModelSuiteTests.test_compact_and_full_recording_have_identical_training_and_feedback) ... Unified REINFORCE episode 1: selected compute=1, PPA cost=0.33548969257788536, compliant=True, evaluations=3, resize=1, retile=1
+Unified REINFORCE episode 2: selected compute=1, PPA cost=0.3354182453333333, compliant=True, evaluations=3, resize=2, retile=1
+Unified REINFORCE episode 1: selected compute=1, PPA cost=0.33548969257788536, compliant=True, evaluations=3, resize=1, retile=1
+Unified REINFORCE episode 2: selected compute=1, PPA cost=0.3354182453333333, compliant=True, evaluations=3, resize=2, retile=1
+ok
+test_compact_state_preserves_unchanged_design_on_a_physical_failure (test_model_suite.ModelSuiteTests.test_compact_state_preserves_unchanged_design_on_a_physical_failure) ... ok
+test_episode_boundary_resume_matches_uninterrupted_training (test_model_suite.ModelSuiteTests.test_episode_boundary_resume_matches_uninterrupted_training) ... ok
+test_frozen_before_test_preserves_the_training_rng_and_policy (test_model_suite.ModelSuiteTests.test_frozen_before_test_preserves_the_training_rng_and_policy) ... ok
+test_identity_mismatch_refuses_resume (test_model_suite.ModelSuiteTests.test_identity_mismatch_refuses_resume) ... ok
+test_progress_alignment_and_chinese_width_do_not_wrap (test_model_suite.ModelSuiteTests.test_progress_alignment_and_chinese_width_do_not_wrap) ... ok
+test_progress_uses_all_interactions_and_does_not_double_count_commits (test_model_suite.ModelSuiteTests.test_progress_uses_all_interactions_and_does_not_double_count_commits) ... ok
+test_redirected_output_has_no_live_control_codes_or_progress_flood (test_model_suite.ModelSuiteTests.test_redirected_output_has_no_live_control_codes_or_progress_flood) ... ok
+test_terminal_default_runs_the_seven_model_suite_and_optional_single_model (test_model_suite.ModelSuiteTests.test_terminal_default_runs_the_seven_model_suite_and_optional_single_model) ... ok
+test_terminal_updates_same_row_and_finishes_with_one_summary (test_model_suite.ModelSuiteTests.test_terminal_updates_same_row_and_finishes_with_one_summary) ... ok
+test_adaptive_pool_nondivisible_and_upsampling (test_operator_extensions.ExtendedOperatorTests.test_adaptive_pool_nondivisible_and_upsampling) ... ok
+test_avgpool_ceil_divisor_and_padding (test_operator_extensions.ExtendedOperatorTests.test_avgpool_ceil_divisor_and_padding) ... ok
+test_batchnorm_affine_and_nonaffine (test_operator_extensions.ExtendedOperatorTests.test_batchnorm_affine_and_nonaffine) ... ok
+test_batchnorm_invalid_constants (test_operator_extensions.ExtendedOperatorTests.test_batchnorm_invalid_constants) ... ok
+test_bias_and_batchnorm_constant_traffic_and_storage (test_operator_extensions.ExtendedOperatorTests.test_bias_and_batchnorm_constant_traffic_and_storage) ... ok
+test_depthwise_multiplier_bias_and_mac_count (test_operator_extensions.ExtendedOperatorTests.test_depthwise_multiplier_bias_and_mac_count) ... ok
+test_flatten_exact_coordinate_and_ownership (test_operator_extensions.ExtendedOperatorTests.test_flatten_exact_coordinate_and_ownership) ... ok
+test_grouped_dilated_conv_cross_group_output_tiles (test_operator_extensions.ExtendedOperatorTests.test_grouped_dilated_conv_cross_group_output_tiles) ... ok
+test_invalid_shape_and_groups_fail (test_operator_extensions.ExtendedOperatorTests.test_invalid_shape_and_groups_fail) ... ok
+test_linear_bias (test_operator_extensions.ExtendedOperatorTests.test_linear_bias) ... ok
+test_maxpool_dilation_ceil_padding (test_operator_extensions.ExtendedOperatorTests.test_maxpool_dilation_ceil_padding) ... ok
+test_relu_relu6_identity (test_operator_extensions.ExtendedOperatorTests.test_relu_relu6_identity) ... ok
+test_buffer_capacity_violation (test_oracle.OracleTests.test_buffer_capacity_violation) ... ok
+test_cache_initial_and_failed_budget_accounting (test_oracle.OracleTests.test_cache_initial_and_failed_budget_accounting) ... ok
+test_connectivity_failure (test_oracle.OracleTests.test_connectivity_failure) ... ok
+test_deterministic_trace (test_oracle.OracleTests.test_deterministic_trace) ... ok
+test_fanout_read_shared_same_destination (test_oracle.OracleTests.test_fanout_read_shared_same_destination) ... ok
+test_generic_topologies_and_phy_ceiling (test_oracle.OracleTests.test_generic_topologies_and_phy_ceiling) ... ok
+test_hand_calculated_linear_job_energy_and_time (test_oracle.OracleTests.test_hand_calculated_linear_job_energy_and_time) ... ok
+test_ledger_and_native_backend (test_oracle.OracleTests.test_ledger_and_native_backend) ... ok
+test_unit_checks (test_oracle.OracleTests.test_unit_checks) ... ok
+test_all_research_tasks_have_witnesses_and_source_drift_is_rejected (test_research_protocol.ResearchProtocolTests.test_all_research_tasks_have_witnesses_and_source_drift_is_rejected) ... ok
+test_frozen_evaluation_restores_all_rngs_even_on_error (test_research_protocol.ResearchProtocolTests.test_frozen_evaluation_restores_all_rngs_even_on_error) ... ok
+test_frozen_summary_requires_multiple_pairs_for_uncertainty (test_research_protocol.ResearchProtocolTests.test_frozen_summary_requires_multiple_pairs_for_uncertainty) ... ok
+test_limits_are_checked_without_oracle_calls_or_count_pruning (test_research_protocol.ResearchProtocolTests.test_limits_are_checked_without_oracle_calls_or_count_pruning) ... ok
+test_periodic_stages_and_progress_include_all_additional_queries (test_research_protocol.ResearchProtocolTests.test_periodic_stages_and_progress_include_all_additional_queries) ... ok
+test_random_and_sa_each_charge_every_complete_proposal (test_research_protocol.ResearchProtocolTests.test_random_and_sa_each_charge_every_complete_proposal) ... ok
+test_report_reader_closes_sqlite_before_windows_cleanup (test_research_protocol.ResearchProtocolTests.test_report_reader_closes_sqlite_before_windows_cleanup) ... ok
+test_reward_diagnostics_do_not_change_policy_gradient (test_research_protocol.ResearchProtocolTests.test_reward_diagnostics_do_not_change_policy_gradient) ... ok
+test_action_selection_does_not_call_ppa_and_transition_calls_environment (test_rl_flow.RLFlowTests.test_action_selection_does_not_call_ppa_and_transition_calls_environment) ... ok
+test_all_failed_actions_do_not_invent_a_best_design (test_rl_flow.RLFlowTests.test_all_failed_actions_do_not_invent_a_best_design) ... Unified REINFORCE episode 1: selected compute=None, PPA cost=None, compliant=False, evaluations=1, resize=1, retile=0
+ok
+test_candidate_generation_does_not_query_oracle (test_rl_flow.RLFlowTests.test_candidate_generation_does_not_query_oracle) ... ok
+test_one_action_budget_observes_reward_and_terminates (test_rl_flow.RLFlowTests.test_one_action_budget_observes_reward_and_terminates) ... ok
+test_reset_has_no_oracle_or_native_setup_and_unknown_features_are_marked (test_rl_flow.RLFlowTests.test_reset_has_no_oracle_or_native_setup_and_unknown_features_are_marked) ... ok
+test_training_updates_shared_parameters_but_frozen_policy_does_not (test_rl_flow.RLFlowTests.test_training_updates_shared_parameters_but_frozen_policy_does_not) ... ok
+test_all_critical_chains (test_schedule.GoldenScheduleTests.test_all_critical_chains) ... ok
+test_buffer_release_at_equal_time (test_schedule.GoldenScheduleTests.test_buffer_release_at_equal_time) ... ok
+test_calendar_gap (test_schedule.GoldenScheduleTests.test_calendar_gap) ... ok
+test_cycles_and_unknown_dependencies (test_schedule.GoldenScheduleTests.test_cycles_and_unknown_dependencies) ... ok
+test_dependent_jobs (test_schedule.GoldenScheduleTests.test_dependent_jobs) ... ok
+test_invalid_duration (test_schedule.GoldenScheduleTests.test_invalid_duration) ... ok
+test_multi_resource_contention (test_schedule.GoldenScheduleTests.test_multi_resource_contention) ... ok
+test_parallel_jobs (test_schedule.GoldenScheduleTests.test_parallel_jobs) ... ok
+test_shared_resource (test_schedule.GoldenScheduleTests.test_shared_resource) ... ok
+test_single_compute (test_schedule.GoldenScheduleTests.test_single_compute) ... ok
+test_slack_and_resource_precedence (test_schedule.GoldenScheduleTests.test_slack_and_resource_precedence) ... ok
+test_coverage_rejects_overlap_gap_and_out_of_bounds (test_semantics.SemanticsTests.test_coverage_rejects_overlap_gap_and_out_of_bounds) ... ok
+test_invalid_dag (test_semantics.SemanticsTests.test_invalid_dag) ... ok
+test_linear_numerical (test_semantics.SemanticsTests.test_linear_numerical) ... ok
+test_pooling_numerical (test_semantics.SemanticsTests.test_pooling_numerical) ... ok
+test_residual_conv_and_halo_numerical (test_semantics.SemanticsTests.test_residual_conv_and_halo_numerical) ... ok
+test_unknown_operator_and_shape_fail_loudly (test_semantics.SemanticsTests.test_unknown_operator_and_shape_fail_loudly) ... ok
+test_baselines_enforce_actual_oracle_budget (test_statistics_baselines.StatisticsBaselineTests.test_baselines_enforce_actual_oracle_budget) ... ok
+test_constant_paired_difference_ci (test_statistics_baselines.StatisticsBaselineTests.test_constant_paired_difference_ci) ... ok
+test_rejects_unpaired_or_missing_statistics (test_statistics_baselines.StatisticsBaselineTests.test_rejects_unpaired_or_missing_statistics) ... ok
+test_one_chiplet_still_shows_external_memory_without_fake_mesh_links (test_stopping_design_view.StoppingAndViewTests.test_one_chiplet_still_shows_external_memory_without_fake_mesh_links) ... ok
+test_real_mapping_and_routes_aggregate_exactly (test_stopping_design_view.StoppingAndViewTests.test_real_mapping_and_routes_aggregate_exactly) ... ok
+test_real_search_plateau_reduces_evaluations_without_convergence_claim (test_stopping_design_view.StoppingAndViewTests.test_real_search_plateau_reduces_evaluations_without_convergence_claim) ... Unified REINFORCE episode 1: selected compute=2, PPA cost=0.6691105097257006, compliant=True, evaluations=2, resize=0, retile=0
+Unified REINFORCE episode 2: selected compute=2, PPA cost=0.669084912, compliant=True, evaluations=2, resize=0, retile=1
+Unified REINFORCE episode 3: selected compute=2, PPA cost=0.6694833656528995, compliant=True, evaluations=2, resize=0, retile=1
+ok
+test_small_improvements_accumulate_and_feasibility_resets (test_stopping_design_view.StoppingAndViewTests.test_small_improvements_accumulate_and_feasibility_resets) ... ok
+test_warmup_and_patience_both_required (test_stopping_design_view.StoppingAndViewTests.test_warmup_and_patience_both_required) ... ok
+test_actual_capacity_failure_does_not_mask_repartition (test_unified_design.UnifiedDesignTests.test_actual_capacity_failure_does_not_mask_repartition) ... ok
+test_complete_mesh_and_constant_per_die_specs (test_unified_design.UnifiedDesignTests.test_complete_mesh_and_constant_per_die_specs) ... ok
+test_exploration_floor_masks_and_double_checkpoint (test_unified_design.UnifiedDesignTests.test_exploration_floor_masks_and_double_checkpoint) ... ok
+test_frontier_uses_absolute_ppa (test_unified_design.UnifiedDesignTests.test_frontier_uses_absolute_ppa) ... ok
+test_global_budget_cache_distinguishes_hardware (test_unified_design.UnifiedDesignTests.test_global_budget_cache_distinguishes_hardware) ... ok
+test_hard_area_mask_and_failed_candidate_counts (test_unified_design.UnifiedDesignTests.test_hard_area_mask_and_failed_candidate_counts) ... ok
+test_one_float64_policy_updates_count_retile_mapping_without_critic (test_unified_design.UnifiedDesignTests.test_one_float64_policy_updates_count_retile_mapping_without_critic) ... ok
+test_poor_mapping_does_not_prune_count_or_reject_worse_state (test_unified_design.UnifiedDesignTests.test_poor_mapping_does_not_prune_count_or_reject_worse_state) ... ok
+test_resize_updates_state_and_revisits_paid_cache (test_unified_design.UnifiedDesignTests.test_resize_updates_state_and_revisits_paid_cache) ... ok
+test_whole_operator_retile_and_shrink_preserve_exact_coverage (test_unified_design.UnifiedDesignTests.test_whole_operator_retile_and_shrink_preserve_exact_coverage) ... ok
+test_whole_operator_retiling_keeps_independent_numerical_semantics (test_unified_design.UnifiedDesignTests.test_whole_operator_retiling_keeps_independent_numerical_semantics) ... ok
+test_compliance_dominates_any_weighted_improvement_and_boundaries (test_vendor_requirements.VendorRequirementsTests.test_compliance_dominates_any_weighted_improvement_and_boundaries) ... ok
+test_custom_wizard_retries_invalid_input_and_converts_ms (test_vendor_requirements.VendorRequirementsTests.test_custom_wizard_retries_invalid_input_and_converts_ms) ... ok
+test_exact_five_choices_and_normalization (test_vendor_requirements.VendorRequirementsTests.test_exact_five_choices_and_normalization) ... ok
+test_file_requires_all_limits_and_explicit_preference (test_vendor_requirements.VendorRequirementsTests.test_file_requires_all_limits_and_explicit_preference) ... ok
+test_initial_over_limit_can_resize_into_compliance (test_vendor_requirements.VendorRequirementsTests.test_initial_over_limit_can_resize_into_compliance) ... ok
+test_missing_vendor_input_fails_before_model_import_or_output (test_vendor_requirements.VendorRequirementsTests.test_missing_vendor_input_fails_before_model_import_or_output) ... usage: python -m unittest [-h]
+                          [--model {resnet18,resnet34,resnet50,vgg16,vgg19,mobilenet_v2,alexnet}]
+                          [--input-size INPUT_SIZE]
+                          [--reference-tiles REFERENCE_TILES]
+                          [--precision {float32,float64}] [--analytical-check]
+                          [--guarded-memory] [--budget BUDGET]
+                          [--episodes EPISODES] [--seed SEED]
+                          [--max-scope MAX_SCOPE]
+                          [--state {full,compact,dnngraph,hardwaregraph,no_attribution,no_criticality}]
+                          [--reward {dense,terminal,potential}]
+                          [--topology {chain,star,ring,mesh}]
+                          [--compute-count COMPUTE_COUNT]
+                          [--compute-counts COMPUTE_COUNTS [COMPUTE_COUNTS ...]]
+                          [--max-area-mm2 MAX_AREA_MM2]
+                          [--max-power-w MAX_POWER_W]
+                          [--max-latency-s MAX_LATENCY_S]
+                          [--preference {balanced,power,performance,area,custom}]
+                          [--ppa-weights POWER PERFORMANCE AREA]
+                          [--requirements REQUIREMENTS] [--interactive]
+                          [--action-mode {coupled,independent}]
+                          [--recording {compact,full}]
+                          [--bottleneck-weight BOTTLENECK_WEIGHT]
+                          [--early-stop] [--min-episodes MIN_EPISODES]
+                          [--patience PATIENCE]
+                          [--min-improvement MIN_IMPROVEMENT] [--out OUT]
+                          {evaluate,train,benchmark,validate-cnn,search-mesh}
+python -m unittest: error: choose a PPA preference or use --interactive / --requirements
+ok
+test_no_compliant_design_report_has_no_best_artifacts (test_vendor_requirements.VendorRequirementsTests.test_no_compliant_design_report_has_no_best_artifacts) ... Unified REINFORCE episode 1: selected compute=4, PPA cost=3155905078.0454454, compliant=False, evaluations=2, resize=1, retile=0
+ok
+test_preferences_reverse_tradeoff_without_changing_raw_ppa (test_vendor_requirements.VendorRequirementsTests.test_preferences_reverse_tradeoff_without_changing_raw_ppa) ... ok
+test_successful_vendor_report_contains_raw_metrics_and_weights (test_vendor_requirements.VendorRequirementsTests.test_successful_vendor_report_contains_raw_metrics_and_weights) ... Unified REINFORCE episode 1: selected compute=4, PPA cost=0.6189265978662727, compliant=True, evaluations=2, resize=1, retile=0
+ok
+test_units_cancel_when_limits_and_metrics_change_units_together (test_vendor_requirements.VendorRequirementsTests.test_units_cancel_when_limits_and_metrics_change_units_together) ... ok
+test_vendor_violation_is_accepted_for_exploration_but_not_feasible_archive (test_vendor_requirements.VendorRequirementsTests.test_vendor_violation_is_accepted_for_exploration_but_not_feasible_archive) ... ok
+test_weights_and_limits_condition_same_policy_probabilities (test_vendor_requirements.VendorRequirementsTests.test_weights_and_limits_condition_same_policy_probabilities) ... ok
+test_zero_weight_tie_does_not_keep_dominated_design (test_vendor_requirements.VendorRequirementsTests.test_zero_weight_tie_does_not_keep_dominated_design) ... ok
+
+----------------------------------------------------------------------
+Ran 160 tests in 9.664s
+
+OK

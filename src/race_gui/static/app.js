@@ -82,7 +82,7 @@ async function poll(){
       $('status-subtitle').textContent=stages[live.stage]||'搜尋執行中';
       $('progress-text').textContent=`第 ${live.episode} / ${job.episodes_requested} 回合 · 已完成 ${live.requests} 次完整動作與環境互動`;
     }
-    if(!active){clearInterval(pollTimer);pollTimer=null;lockForm(false);if(job.error)showError(job.error);if(job.status==='COMPLETED'){result(job);if(job.summary?.search_stop_reason==='OBJECTIVE_PLATEAU')$('progress-text').textContent=`搜尋趨於穩定，提前停止（${job.episodes_completed} / ${job.episodes_requested} 回合）`;}}
+    if(!active){clearInterval(pollTimer);pollTimer=null;lockForm(false);if(job.error)showError(job.constraint_check?.warnings?.join(' ')||job.error);if(job.status==='COMPLETED'){result(job);if(job.summary?.search_stop_reason==='OBJECTIVE_PLATEAU')$('progress-text').textContent=`搜尋趨於穩定，提前停止（${job.episodes_completed} / ${job.episodes_requested} 回合）`;}}
   }catch(error){clearInterval(pollTimer);pollTimer=null;showError(`${error.message} 搜尋可能仍在執行，請確認本機伺服器後重新整理頁面，系統會恢復進度。`);$('status-subtitle').textContent='與伺服器的連線中斷';}
 }
 form.addEventListener('submit',async event=>{

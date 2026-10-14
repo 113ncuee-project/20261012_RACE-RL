@@ -1,0 +1,13 @@
+{
+  "completed_actions": 27776,
+  "completed_models": 7,
+  "completed_training_episodes": 420,
+  "elapsed_active_s": 36339.197785958066,
+  "estimated_remaining_s": 0.0,
+  "failed_models": [],
+  "progress_fraction": 1.0,
+  "status": "COMPLETED",
+  "total_actions": 27776,
+  "total_models": 7,
+  "total_training_episodes": 420
+}

@@ -38,16 +38,37 @@ def session_stats(env, stats, elapsed, before, after):
 
 def frozen_episode(trainer, env, seed):
     import torch
+    import numpy as np
+    import random
     state = torch.get_rng_state()
+    numpy_state, python_state=np.random.get_state(),random.getstate()
     before = policy_hash(trainer.policy)
     try:
         torch.manual_seed(seed)
+        np.random.seed(seed)
+        random.seed(seed)
         stats = trainer.run_episode(env, learn=False)
     finally:
         torch.set_rng_state(state)
+        np.random.set_state(numpy_state)
+        random.setstate(python_state)
     if policy_hash(trainer.policy) != before or stats['parameter_updates'] != 0:
         raise RuntimeError('frozen evaluation updated the policy')
     return stats
+
+
+def suite_stages(config):
+    seed=config['seed']
+    stages=[('baseline',s,1) for s in config['evaluation_seeds']]
+    for n in range(1,config['episodes']+1):
+        stages.append(('train',seed,n))
+        interval=config.get('evaluation_interval',0)
+        if interval and n<config['episodes'] and n%interval==0:
+            stages += [('periodic',s,n) for s in config['evaluation_seeds']]
+    stages += [('final',s,1) for s in config['evaluation_seeds']]
+    for method in config.get('comparisons',[]):
+        stages += [(method,seed,n) for n in range(1,config['episodes']+1)]
+    return stages
 
 
 def worker(run, model):
@@ -92,16 +113,24 @@ def worker(run, model):
     try:
         checkpoint = recorder.checkpoint()
         trainer = RACETrainer.load(checkpoint, experiment_identity=identity) if checkpoint else RACETrainer(
-            seed=seed, width=32, precision='float64')
-        requirements = PPARequirements(**config['requirements'])
+            seed=seed, width=32, precision='float64',lr=config.get('learning_rate',3e-4),
+            entropy_coefficient=config.get('entropy_coefficient',0.0))
+        from .feasibility import constraint_check,verify_task
+        from .experiment_diagnostics import comparison_episode,platform_snapshot
+        task=config.get('tasks',{}).get(model)
+        requirements = PPARequirements(**(task['requirements'] if task else config['requirements']))
+        feasibility=verify_task(workload,task,COUNTS) if task else constraint_check(workload,requirements,COUNTS)
+        save_json(folder/'constraint_check.json',feasibility)
+        if feasibility['status']=='PROVEN_IMPOSSIBLE':
+            raise ValueError(' '.join(feasibility['warnings']))
+        if not (folder/'platform_at_start.json').exists():
+            save_json(folder/'platform_at_start.json',{'captured_at_utc':timestamp(),**platform_snapshot()})
         common = dict(compute_counts=COUNTS, budget=config['steps_per_episode'], max_scope=2,
-                      requirements=requirements)
+                      requirements=requirements,reward_variant=config.get('reward_variant','dense'))
         previous = recorder.sessions()
         committed = sum(r['steps'] for r in previous)
         status.update(completed_actions=committed, training_completed=trainer.episodes)
-        stages = [('baseline', evaluation_seed, 1) for evaluation_seed in config['evaluation_seeds']]
-        stages += [('train', seed, n) for n in range(1, config['episodes']+1)]
-        stages += [('final', evaluation_seed, 1) for evaluation_seed in config['evaluation_seeds']]
+        stages=suite_stages(config)
         for phase, sample_seed, number in stages:
             if recorder.has(phase, sample_seed, number): continue
             if phase == 'baseline' and trainer.episodes:
@@ -115,13 +144,17 @@ def worker(run, model):
             env.progress_context = {'phase': phase, 'phase_token': token, 'model': model}
             before = policy_hash(trainer.policy)
             episode_start = time.perf_counter()
-            stats = trainer.run_episode(env) if phase == 'train' else frozen_episode(trainer, env, sample_seed)
+            if phase=='train': stats=trainer.run_episode(env)
+            elif phase in ('random','sa'):
+                stats=comparison_episode(env,phase,sample_seed+number-1)
+            else: stats=frozen_episode(trainer,env,sample_seed)
             stats = session_stats(env, stats, time.perf_counter()-episode_start,
                                   before, policy_hash(trainer.policy))
+            stats['training_episode_at_measurement']=trainer.episodes
             if stats['steps'] != config['steps_per_episode']:
                 raise RuntimeError('episode ended before its fixed interaction budget')
             recorder.record(phase, sample_seed, number, env, stats, trainer=trainer,
-                            retain_winner=phase == 'train')
+                            retain_winner=phase in ('train','random','sa'))
             committed += stats['steps']
             status.update(completed_actions=committed, training_completed=trainer.episodes,
                           phase_token='committed', elapsed_s=time.perf_counter()-started)
@@ -162,11 +195,11 @@ def progress_clock(seconds):
 
 def progress_line(index, model, config, total, status, active, columns):
     phase = status.get('phase','validation')
-    label = {'validation':'驗證','baseline':'前測','train':'訓練',
-             'final':'後測','completed':'完成'}.get(phase,'準備')
+    label = {'validation':'驗證','baseline':'前測','train':'訓練','periodic':'測試',
+             'random':'隨機','sa':'退火','final':'後測','completed':'完成'}.get(phase,'準備')
     if active.get('stage') == 'UPDATING_POLICY': label = '更新'
     number = status.get('current_episode',0)
-    limit = config['episodes'] if phase == 'train' else 1
+    limit = config['episodes'] if phase in ('train','random','sa','periodic') else 1
     steps = active.get('requests',0)
     eta = progress_clock(total['estimated_remaining_s'])
     line = (f'[{index}/{total["total_models"]}] {model:<12} {label}{number:02d}/{limit:02d}  '
@@ -235,7 +268,10 @@ class LiveProgress:
 
 def progress_state(run, protocol, elapsed):
     config = protocol['config']
-    per_model = (config['episodes']+2*len(config['evaluation_seeds']))*config['steps_per_episode']
+    interval=config.get('evaluation_interval',0)
+    periodic=(config['episodes']-1)//interval if interval else 0
+    per_model = (config['episodes']*(1+len(config.get('comparisons',[])))+
+                 (2+periodic)*len(config['evaluation_seeds']))*config['steps_per_episode']
     total, actions, train, completed = per_model*len(config['models']), 0, 0, 0
     for model in config['models']:
         s = read_json(run/model/'status.json', {})
@@ -279,7 +315,8 @@ def run_suite(run, protocol):
         model_started = None
     print(f'輸出：{run}\n固定 REINFORCE；每模型 {protocol["config"]["episodes"]} 回合；'
           f'輸入 {protocol["config"]["input_size"]}；scope=2；顆數由 RL 選 1–16。')
-    print('訓練前後另做等預算凍結策略測試；不更新參數。總進度按實際互動數計算。')
+    print('凍結測試不更新參數；選用的隨機／退火比較各使用與訓練相同的互動預算。')
+    print('所有額外測試／比較都計入進度與時間；一次僅執行一個模型。')
     print('ETA 依已跑速度暫估，跨模型、切分增長與策略更新可能讓預估變動。Ctrl+C 可停止並保留完整回合。')
     with (run/'terminal.log').open('a', encoding='utf-8') as terminal_log:
         screen = LiveProgress(sys.stdout)
@@ -361,9 +398,15 @@ def run_suite(run, protocol):
 def main(argv=None):
     from .frontend import SUPPORTED_MODELS
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('--requirements', type=Path, default=ROOT/'configs/vendor_requirements.json')
+    parser.add_argument('--requirements', type=Path, help='廠商限制；顯式指定時覆蓋研究任務，不自動放寬')
+    parser.add_argument('--tasks',type=Path,default=ROOT/'configs/model_suite_tasks.json',help='各模型具量測可行設計的研究限制')
     parser.add_argument('--seed', type=int, default=7)
-    parser.add_argument('--evaluation-seeds', type=int, nargs='+', default=[1007])
+    parser.add_argument('--evaluation-seeds', type=int, nargs='+', default=list(range(1007,1017)))
+    parser.add_argument('--evaluation-interval',type=int,default=0,help='選用中途凍結測試；0 表示只做前後測')
+    parser.add_argument('--comparisons',nargs='*',choices=('random','sa'),default=[],help='選用額外等預算比較；每種增加 3840 次互動／模型')
+    parser.add_argument('--reward',choices=('dense','terminal'),default='dense',help='預先指定 reward 消融；不宣稱 terminal 較好')
+    parser.add_argument('--learning-rate',type=float,default=3e-4)
+    parser.add_argument('--entropy-coefficient',type=float,default=0.0)
     parser.add_argument('--out', type=Path)
     parser.add_argument('--resume', type=Path)
     parser.add_argument('--smoke', action='store_true', help='all seven models, 1 episode/2 actions; verification only')
@@ -384,7 +427,15 @@ def main(argv=None):
             parser.error('缺少 protocol 或來源已變更，不能接續此實驗。')
     else:
         from .vendor_input import load_requirements
-        req = load_requirements(args.requirements)
+        from .feasibility import load_tasks
+        selected_models=[args.model] if args.model else list(SUPPORTED_MODELS)
+        tasks=load_tasks(args.tasks,selected_models) if args.requirements is None else {}
+        req=load_requirements(args.requirements) if args.requirements else None
+        if args.evaluation_interval<0 or len(set(args.comparisons))!=len(args.comparisons):
+            parser.error('測試間隔需非負；比較方法不可重複')
+        import math
+        if not math.isfinite(args.learning_rate) or args.learning_rate<=0 or not math.isfinite(args.entropy_coefficient) or args.entropy_coefficient<0:
+            parser.error('learning rate must be positive and finite; entropy coefficient nonnegative and finite')
         if not 0 <= args.seed <= 2**31-1 or any(not 0 <= s <= 2**31-1 for s in args.evaluation_seeds) or len(set(args.evaluation_seeds)) != len(args.evaluation_seeds):
             parser.error('seeds must be distinct nonnegative integers')
         stamp = datetime.datetime.now(datetime.timezone.utc).strftime('%Y%m%dT%H%M%S%fZ')
@@ -393,12 +444,19 @@ def main(argv=None):
         run = (args.out or base/stamp).resolve()
         if run.exists() and any(run.iterdir()): parser.error('輸出目錄必須為空，接續請用 --resume。')
         run.mkdir(parents=True, exist_ok=True)
-        config = {'models': [args.model] if args.model else list(SUPPORTED_MODELS), 'episodes': 1 if args.smoke else 60,
+        config = {'models': selected_models, 'episodes': 1 if args.smoke else 60,
                   'steps_per_episode': 2 if args.smoke else 64, 'input_size': 64,
                   'seed': args.seed, 'evaluation_seeds': args.evaluation_seeds,
-                  'requirements': plain(req), 'max_scope': 2, 'compute_counts': COUNTS,
+                  'requirements': plain(req), 'tasks':tasks,'reward_variant':args.reward,
+                  'learning_rate':args.learning_rate,'entropy_coefficient':args.entropy_coefficient,
+                  'evaluation_interval':0 if args.smoke else args.evaluation_interval,
+                  'comparisons':args.comparisons,'max_scope': 2, 'compute_counts': COUNTS,
                   'algorithm': 'reinforce', 'precision': 'float64', 'early_stopping': False}
-        protocol = {'schema': 1, 'started_at_utc': timestamp(), 'config': config,
+        from .experiment_diagnostics import platform_snapshot
+        protocol = {'schema': 2, 'started_at_utc': timestamp(), 'config': config,
+                    'platform_at_start':platform_snapshot(),
+                    'task_source':'Measured pilot-derived synthetic feasibility tasks' if tasks else 'Explicit vendor requirements',
+                    'fairness':'Same complete-action REQUEST budget and resets per comparison; new PPA evaluations and cache hits reported separately. Test rollouts are additional, not part of training.',
                     'source_hashes': code_hashes(), 'smoke_only': args.smoke,
                     'claims': 'same-workload learning diagnostic; synthetic uncalibrated PPA; '
                               'one training seed; paired frozen policy tests, not generalization proof',

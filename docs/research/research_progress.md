@@ -1,6 +1,10 @@
 # 目前研究進度
 
-版本 0.8.0。正式版本已切換為 **REINFORCE，沒有 PPO、沒有 Critic**；PPO 只保留為[比較模型](comparison_models.md)。廠商 PPA 限制、五種偏好、compute-only mesh、Agent 自行選 1–16 顆、Python 本機 GUI 與搜尋結果圖保留。
+版本 0.9.0。正式版本仍為 **REINFORCE，沒有 PPO、沒有 Critic**；PPO 只保留為[比較模型](comparison_models.md)。廠商 PPA 限制、五種偏好、compute-only mesh、Agent 自行選 1–16 顆、Python 本機 GUI 與搜尋結果圖保留。
+
+七模型 0.8.0 的 60 回合正式執行已完成，總耗時 10:05:39；原始評分／reward／狀態／計費核對通過，但全部未達 100 ms，凍結策略前後測只有 1 改善、3 持平、3 退步。見[實際基準、平台與修正](model_suite_20261014.md)。0.9.0 預設模型別任務具已量測可行憑證，前後各 10 evaluation seeds；中途測試與等預算比較明確選用，不預設增加四倍預算。新完整長訓練尚未執行。
+
+已畫出[現行硬體與資料流](hardware_model.md)。目前 H-only retile、spill-all 與未校準 PPA 尚不足以稱為完整 DSE；擴展 W/C/reduction/dataflow、224×224 及加速前，先釐清微架構、精度與記憶體重用。
 
 ## 已實作
 
@@ -10,7 +14,7 @@ reset 不評估 PPA、不建立原生後端。起始 observation 只有結構、
 
 ## 驗證範圍
 
-自動測試核對 reset／Actor 零評估、一步一次環境入口、reward 與 PPA 回到 observation、快速 mask 與逐候選編譯的 action 支援及順序一致、聯合動作中間零評估／一次完整回饋、正式 REINFORCE 梯度、Actor 更新與凍結不更新、PPO 模型隔離、checkpoint 不能跨算法、全部動作失敗不輸出假最佳設計。最新 152 個自動測試通過；流程 audit 位於 `evidence/`。
+自動測試核對 reset／Actor 零評估、一步一次環境入口、reward 與 PPA 回到 observation、快速 mask 與逐候選編譯的 action 支援及順序一致、聯合動作中間零評估／一次完整回饋、正式 REINFORCE 梯度、Actor 更新與凍結不更新、PPO 模型隔離、checkpoint 不能跨算法、全部動作失敗不輸出假最佳設計。最新 160 個自動測試通過；流程 audit 位於 `evidence/`。
 
 現行小型 smoke 與 GUI 測試只證明流程可執行；尚未建立 PPO 或 REINFORCE 的比較優勢，也未證明收斂。0.7.0 PPO 的完整 CNN 短搜尋與 H1/H2/H3 pilot 已移到比較模型紀錄，不能充當新正式模型的成果。
 
@@ -38,7 +42,7 @@ Mac／Windows 啟動器改為自動選空閒連接埠，並以專案身分重用
 
 已實作終端入口 tools/train_model_suite.py，預設依序七模型各 60 回合、輸入 64；PPA／演算法／scope／更新規則沿用正式設定，停用提前停止以跑滿研究預算。新增相同預算凍結策略前後測，不更新權重並還原 RNG。輸出同一批次資料夾，包含實測進度／時間、逐回合曲線、PPA／達標判定與 HTML 報告；來源一致才能接續完整回合。
 
-GUI／CLI 預設壓縮的精簡 SQLite；逐 action feedback 保留，最終完整選中設計保留，所有候選帳本只在明確 full 模式輸出。測試確認兩種紀錄下動作、PPA、reward、policy 及 RNG 一致。60 回合正式結果仍待使用者執行，不以 smoke 宣稱收斂或成效。
+GUI／CLI 預設壓縮的精簡 SQLite；逐 action feedback 保留，最終完整選中設計保留，所有候選帳本只在明確 full 模式輸出。測試確認兩種紀錄下動作、PPA、reward、policy 及 RNG 一致。0.8.0 的 60 回合資料已保存；0.9.0 新條件的完整訓練待使用者執行，不以 smoke 宣稱收斂或成效。
 
 依使用者要求，在驗證後刪除舊的大型訓練 raw（約 4.55 GiB）；歷史小型證據保留，舊 raw manifest 的路徑已不再存在。清理紀錄見 evidence/training_output_cleanup.json，流程驗證見 evidence/model_suite_validation.json。
 

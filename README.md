@@ -4,6 +4,8 @@
 
 ![RL 架構](docs/research/figures/rl_architecture.png)
 
+[現行硬體與資料流](docs/research/hardware_model.md)｜[七模型完整訓練基準與研究修正](docs/research/model_suite_20261014.md)
+
 [本機 GUI 使用方法](docs/research/gui.md)｜[評分公平性核對](docs/research/scoring_review.md)｜[廠商 PPA 輸入與評分](docs/research/vendor_requirements.md)｜[RL 架構定義](docs/research/rl_architecture.md)｜[中文研究進度](docs/research/research_progress.md)｜[核心假說驗證](docs/research/hypothesis_results.md)
 
 研究名稱：**Relational Attribution and Coupled-Edit Reinforcement Learning**。一次 action 聯合修改相依範圍，完整後立即交給環境評估一次；動作產生中間零 PPA 評估。正式預設最多 2 個相依 Tile，單項修改作比較設定。
@@ -70,7 +72,9 @@ Windows（在專案資料夾）：
 .venv\Scripts\python.exe tools\train_model_suite.py
 ```
 
-PPA 讀取原有 `configs/vendor_requirements.json`；預設 1 W／100 ms／16 mm²、PPA 平均。終端在同一行對齊並刷新模型、回合、互動、總進度、已用與暫估剩餘時間；寬視窗同列顯示 PPA，完成模型才換行。結果集中在 `experiments/runs/model_suite/training/<時間>/`，完成後開啟其中的 `report.html`。前後另各做一次相同 64 次互動的凍結策略測試，不更新參數，也不改變訓練亂數序列；這些測試時間另記。
+預設使用 `configs/model_suite_tasks.json` 的各模型合成研究限制，具有先導實測的可行設計憑證；數值與出處見[研究修正紀錄](docs/research/model_suite_20261014.md)。不再對全部 CNN 套用已證明不合理的 100 ms。指定 `--requirements <檔案>` 則完全採廠商限制，不自動放寬；GUI 也保留使用者自行輸入。
+
+終端同一行對齊顯示模型、回合、互動、進度、已用與暫估剩餘時間。結果集中在 `experiments/runs/model_suite/training/<時間>/`，完成後開啟 `report.html`。前後各做 10 個配對 seed、各 64 次互動的凍結策略測試，還原所有 RNG、零參數更新；每模型總 5,120 次互動。比較方法及中途測試預設停用；選用 `--comparisons random sa --evaluation-interval 10` 才增加相關預算。時間與查詢均另計，不能把額外實驗成本當成訓練器變慢。
 
 中斷後使用終端印出的目錄接續：`python tools/train_model_suite.py --resume <輸出目錄>`。只接續最後完整提交的回合，來源或條件不一致會拒絕。詳細紀錄與精簡保存規則見 [實驗說明](experiments/README.md)。正式訓練由使用者啟動；`--smoke` 是短流程驗證，不能當成 60 回合成果。
 

@@ -1,6 +1,7 @@
 """Formal REINFORCE policy gradient using only action-triggered environment rewards."""
 import random
 import time
+import math
 import numpy as np
 import torch
 from .policy import AutoregressivePolicy
@@ -98,9 +99,14 @@ class RACETrainer:
         loss = policy_loss-self.config['entropy_coefficient']*entropy
         self.optimizer.zero_grad()
         loss.backward()
-        torch.nn.utils.clip_grad_norm_(self.policy.parameters(),0.5)
+        gradient_norm=torch.nn.utils.clip_grad_norm_(self.policy.parameters(),0.5)
         self.optimizer.step()
         stats.update(parameter_updates=1,policy_loss=policy_loss.item(),entropy=entropy.item(),
+            normalized_entropy=float(torch.stack([e/math.log(len(s[0].legal_actions))
+                if len(s[0].legal_actions)>1 else e*0 for e,s in zip(entropies,samples)]).mean().detach()),
+            gradient_norm_before_clip=float(gradient_norm),gradient_clip_limit=0.5,
+            nonzero_reward_steps=sum(abs(s[4])>1e-12 for s in samples),
+            first_step_reward_fraction=samples[0][4]/sum(s[4] for s in samples) if sum(s[4] for s in samples) else 0.0,
             algorithm='reinforce',critic_used=False)
 
     def save(self,path,*,experiment_identity):

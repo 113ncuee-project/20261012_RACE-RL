@@ -1,0 +1,44 @@
+[
+  {
+    "finished_at_utc": "2026-10-13T17:29:36.600566+00:00",
+    "model": "resnet18",
+    "outcome": "COMPLETED",
+    "wall_s": 2763.1361156249186
+  },
+  {
+    "finished_at_utc": "2026-10-13T19:04:42.858023+00:00",
+    "model": "resnet34",
+    "outcome": "COMPLETED",
+    "wall_s": 5706.044814791996
+  },
+  {
+    "finished_at_utc": "2026-10-13T21:58:37.007156+00:00",
+    "model": "resnet50",
+    "outcome": "COMPLETED",
+    "wall_s": 10433.907643332961
+  },
+  {
+    "finished_at_utc": "2026-10-13T22:48:53.610483+00:00",
+    "model": "vgg16",
+    "outcome": "COMPLETED",
+    "wall_s": 3016.521164875012
+  },
+  {
+    "finished_at_utc": "2026-10-13T23:51:45.074892+00:00",
+    "model": "vgg19",
+    "outcome": "COMPLETED",
+    "wall_s": 3771.365746208001
+  },
+  {
+    "finished_at_utc": "2026-10-14T02:17:51.088288+00:00",
+    "model": "mobilenet_v2",
+    "outcome": "COMPLETED",
+    "wall_s": 8765.73045920895
+  },
+  {
+    "finished_at_utc": "2026-10-14T02:49:13.515442+00:00",
+    "model": "alexnet",
+    "outcome": "COMPLETED",
+    "wall_s": 1882.3610350000672
+  }
+]

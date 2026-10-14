@@ -1,0 +1,156 @@
+{
+  "version": "0.9.0",
+  "local_tests": 160,
+  "local_test_result": "PASSED",
+  "native_source_files_verified": 4,
+  "witness_re_evaluations": 7,
+  "witnesses_passed": 7,
+  "new_full_training": "NOT_RUN_BY_AGENT",
+  "windows_ci": "PENDING_PUSH",
+  "windows_confirmed_cause": "User-provided WinError 32 in test_model_suite: SQLite connection not closed before TemporaryDirectory cleanup",
+  "prior_partial_smoke": "Source freeze guard correctly refused later models after source changed during development; not counted as successful suite validation",
+  "hardware_figure_scope": "Current source-backed analytical service model, not calibrated microarchitecture",
+  "seven_model_smoke": {
+    "status": "PASSED",
+    "smoke_only": true,
+    "config": {
+      "algorithm": "reinforce",
+      "comparisons": [],
+      "compute_counts": [
+        2,
+        1,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "early_stopping": false,
+      "entropy_coefficient": 0.0,
+      "episodes": 1,
+      "evaluation_interval": 0,
+      "evaluation_seeds": [
+        1007
+      ],
+      "input_size": 64,
+      "learning_rate": 0.0003,
+      "max_scope": 2,
+      "models": [
+        "resnet18",
+        "resnet34",
+        "resnet50",
+        "vgg16",
+        "vgg19",
+        "mobilenet_v2",
+        "alexnet"
+      ],
+      "precision": "float64",
+      "requirements": null,
+      "reward_variant": "dense",
+      "seed": 7,
+      "steps_per_episode": 2
+    },
+    "total_interactions": 42,
+    "elapsed_s": 60.47653412504587,
+    "source_hashes": {
+      "__init__.py": "28006beed45d885e7cc435efe7d265a0520168b3b62d95d78c6d81754e040d7f",
+      "actions.py": "e74cdff3a96658b2fac62d9a2a58daaabe4bd899d254ece3120cf08ce3c674ec",
+      "architecture.py": "f4eb072bf4fcefafe91b1cb202c61b96434b423a46729b450ec3a015f20a287f",
+      "baselines.py": "ece021a57a45b88518576cc54f0f35e8ff7bb46d4acad1d92c7d6d126f20f78b",
+      "cli.py": "86a43d1a2d0d03ea09b0cb9a476458e8328669b76ced035533e8a77cecd3470d",
+      "cnn_fixture.py": "a955a1dba481253c85d8787b67a29d4b035892eb12bfbd7d84d24b167682fc5e",
+      "comparisons/__init__.py": "daaf5783f462971429e785ab746781fe61d2b0576a7691f8f5ec9334da0de8f1",
+      "comparisons/ppo.py": "99a6af517797d122dcd262f17c54e0f7698e1bad678bebcf7ba79ab007c1e698",
+      "environment.py": "d0266f30e8f7d3133c3b56e262d78f42c10a0de80a1f0a3f4792baefd396f6fb",
+      "examples.py": "cc016a3444cfe399050f9628b656a29e0bd45a98f6266bcfbc8191aa3f87e41d",
+      "experiment_diagnostics.py": "8ada2466f62a2a3a34cf8b2f8ccb11741363ed08d6c2a7c144749fdb5b8dfa54",
+      "feasibility.py": "8d95c34846533dbb43caaf23d0771807c4d93326389420f8511d6ee289798abd",
+      "frontend.py": "790134b5c9853b0b62b24b561dc3aa8d96ed0fad76583d018b28be44526ad3db",
+      "hardware.py": "ba74fef0c8f4e95d0ec5a9abd97ef90e5a38126cb85b545404525d792969f2d8",
+      "initialization.py": "bfa4124a6e3f1372af22a3a8c2f39b51fb5e90b402cccfbff0d10024490e2a7a",
+      "mapping.py": "dffe139aacb76409ecbec94af60e95af23fd8c7cf5769e20e1a4a79e729bb8ca",
+      "mesh.py": "08c36358ad23e80aa76db10885e0c813fe516ea7411e36d66fcd22952bf573bf",
+      "model_suite.py": "29ff93e41607fd80302bce61b5280baac04b280e514ff565f80bc92bb352c0d0",
+      "model_validation.py": "01d565999d3a2046fcafe1b63e5db451326880ed726463705cbd951f3d70e899",
+      "network.py": "284e4e63647fbc5f980b602db2ef989570069cebc14bd56a1128e8e848312efa",
+      "observation.py": "d627527084ded3b9b71ad4fa680c998207ade76173202bac83ebb107b13068a0",
+      "oracle.py": "2c6056d910c62629a1fc6443628743c1ea19388aaca6529f0988b83d6400429a",
+      "parameters.py": "abb59819a0e3000c4381a8b1df4c70c6fd4e0c54d54a2517adea3589c3939126",
+      "policy.py": "3ea6ab897f8998e963af7496c0c15382432ebbfb879908f4fe370a8c57e89615",
+      "recording.py": "f190ff32d33a8d00102e491856e4fe30ca7df9bb2a430d48a519d83a084f9a55",
+      "reference.py": "caab84d5d1574953c4af7ea1b0a2e14fa4562cdd255594dd3b7939a15ab8daf4",
+      "requirements.py": "6f2df88d768ef944a9427a6f2d32be8f63a171ce33830f0cd23cf4e679fd9aac",
+      "rewards.py": "2c0ce3ef0068cc2193dab28cabee7858a283e612d387ba09cd8481a90ee3e9ce",
+      "schedule.py": "e061b5af06f53dfb71d36a773e32f7997994062d3cf500dea574cf000fc5f5dd",
+      "serialization.py": "4f4b82cd1dfa267002f483427440cdb8462ad52ceaaa21ab050b73f6f9b11c6f",
+      "statistics.py": "717af83f3ee87b2b25b6e6a9702ceaf520b8e90546b54beb9b6ed8d6ca20866a",
+      "stopping.py": "55e02902442765010eb81c409161c37c9e561d82061577e6a142a0f6fa2d5365",
+      "suite_report.py": "14a4c5c925d2e5a47bfe705de078187082682a6eedb72a2d3a160d6f6301de28",
+      "tiles.py": "2a1d0ffa325c3a384cd880beef6891fe2af80897b9259fce549a2f8cce2b5c08",
+      "training.py": "bb614539d2a159ff6847dec37e718f4f9708e26264d6af340565d77587f70639",
+      "vendor_input.py": "b41b296a903ae8d34d2884fec76f0b4dad58b82ad42f91c0e8a6f073a34ccbda",
+      "workload.py": "7ae1e8a0fe48717d78b3541df2a832ba88da2e14c5db279b0b26b31ab27ee391"
+    },
+    "models": [
+      {
+        "model": "resnet18",
+        "training_steps": 2,
+        "policy_updates": 1,
+        "frozen_policy_unchanged": true,
+        "plot_status": "PASSED"
+      },
+      {
+        "model": "resnet34",
+        "training_steps": 2,
+        "policy_updates": 1,
+        "frozen_policy_unchanged": true,
+        "plot_status": "PASSED"
+      },
+      {
+        "model": "resnet50",
+        "training_steps": 2,
+        "policy_updates": 1,
+        "frozen_policy_unchanged": true,
+        "plot_status": "PASSED"
+      },
+      {
+        "model": "vgg16",
+        "training_steps": 2,
+        "policy_updates": 1,
+        "frozen_policy_unchanged": true,
+        "plot_status": "PASSED"
+      },
+      {
+        "model": "vgg19",
+        "training_steps": 2,
+        "policy_updates": 1,
+        "frozen_policy_unchanged": true,
+        "plot_status": "PASSED"
+      },
+      {
+        "model": "mobilenet_v2",
+        "training_steps": 2,
+        "policy_updates": 1,
+        "frozen_policy_unchanged": true,
+        "plot_status": "PASSED"
+      },
+      {
+        "model": "alexnet",
+        "training_steps": 2,
+        "policy_updates": 1,
+        "frozen_policy_unchanged": true,
+        "plot_status": "PASSED"
+      }
+    ],
+    "scope": "One training episode of 2 actions per model plus paired 2-action frozen tests; no full training or convergence claim."
+  }
+}

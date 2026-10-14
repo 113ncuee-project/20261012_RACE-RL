@@ -4,6 +4,7 @@ from pathlib import Path
 import sqlite3
 import tempfile
 import unittest
+from contextlib import closing
 import torch
 
 from race_rl.architecture import DesignEnvironment, search_mesh
@@ -67,7 +68,7 @@ class ModelSuiteTests(unittest.TestCase):
             self.assertEqual(json.loads((root/'full/candidate_metrics.json').read_text()),
                              json.loads((root/'compact/candidate_metrics.json').read_text()))
             self.assertEqual(summaries[0]['selected_assessment'], summaries[1]['selected_assessment'])
-            with sqlite3.connect(root/'compact/history.sqlite') as db:
+            with closing(sqlite3.connect(root/'compact/history.sqlite')) as db:
                 sessions = db.execute('SELECT episode,interactions FROM episodes ORDER BY episode').fetchall()
             for number, compressed in sessions:
                 recorded = unpacked(compressed)

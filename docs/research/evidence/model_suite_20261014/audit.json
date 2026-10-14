@@ -1,0 +1,935 @@
+{
+  "status": "PASSED",
+  "errors": [],
+  "protocol_identity": "ea66dd1efa39cc865a205d29e9648b528af05bf74e7fb2839362005f5645f6b3",
+  "baseline_source_hashes": {
+    "__init__.py": "ea1b9326507a7d1db9977d92c1b9641e49f6a7453242249f732f9141fcc85433",
+    "actions.py": "e74cdff3a96658b2fac62d9a2a58daaabe4bd899d254ece3120cf08ce3c674ec",
+    "architecture.py": "f4eb072bf4fcefafe91b1cb202c61b96434b423a46729b450ec3a015f20a287f",
+    "baselines.py": "ece021a57a45b88518576cc54f0f35e8ff7bb46d4acad1d92c7d6d126f20f78b",
+    "cli.py": "f3d7bc8e6182c5d1cac57c0a985db6866db7c0cb03af2a7c236fb0f179da6322",
+    "cnn_fixture.py": "a955a1dba481253c85d8787b67a29d4b035892eb12bfbd7d84d24b167682fc5e",
+    "comparisons/__init__.py": "daaf5783f462971429e785ab746781fe61d2b0576a7691f8f5ec9334da0de8f1",
+    "comparisons/ppo.py": "99a6af517797d122dcd262f17c54e0f7698e1bad678bebcf7ba79ab007c1e698",
+    "environment.py": "d0266f30e8f7d3133c3b56e262d78f42c10a0de80a1f0a3f4792baefd396f6fb",
+    "examples.py": "cc016a3444cfe399050f9628b656a29e0bd45a98f6266bcfbc8191aa3f87e41d",
+    "frontend.py": "790134b5c9853b0b62b24b561dc3aa8d96ed0fad76583d018b28be44526ad3db",
+    "hardware.py": "ba74fef0c8f4e95d0ec5a9abd97ef90e5a38126cb85b545404525d792969f2d8",
+    "initialization.py": "bfa4124a6e3f1372af22a3a8c2f39b51fb5e90b402cccfbff0d10024490e2a7a",
+    "mapping.py": "dffe139aacb76409ecbec94af60e95af23fd8c7cf5769e20e1a4a79e729bb8ca",
+    "mesh.py": "08c36358ad23e80aa76db10885e0c813fe516ea7411e36d66fcd22952bf573bf",
+    "model_suite.py": "03c9ccddbd860dc39695fc0e465fb22fbba60c5dab9e7a7ad4ad5192dae64f81",
+    "model_validation.py": "01d565999d3a2046fcafe1b63e5db451326880ed726463705cbd951f3d70e899",
+    "network.py": "284e4e63647fbc5f980b602db2ef989570069cebc14bd56a1128e8e848312efa",
+    "observation.py": "d627527084ded3b9b71ad4fa680c998207ade76173202bac83ebb107b13068a0",
+    "oracle.py": "2c6056d910c62629a1fc6443628743c1ea19388aaca6529f0988b83d6400429a",
+    "parameters.py": "abb59819a0e3000c4381a8b1df4c70c6fd4e0c54d54a2517adea3589c3939126",
+    "policy.py": "3ea6ab897f8998e963af7496c0c15382432ebbfb879908f4fe370a8c57e89615",
+    "recording.py": "48f0e81a551caea825be7479e59292b9071244e8696f53c969c7e342d3256b3f",
+    "reference.py": "caab84d5d1574953c4af7ea1b0a2e14fa4562cdd255594dd3b7939a15ab8daf4",
+    "requirements.py": "6f2df88d768ef944a9427a6f2d32be8f63a171ce33830f0cd23cf4e679fd9aac",
+    "rewards.py": "2c0ce3ef0068cc2193dab28cabee7858a283e612d387ba09cd8481a90ee3e9ce",
+    "schedule.py": "e061b5af06f53dfb71d36a773e32f7997994062d3cf500dea574cf000fc5f5dd",
+    "serialization.py": "4f4b82cd1dfa267002f483427440cdb8462ad52ceaaa21ab050b73f6f9b11c6f",
+    "statistics.py": "717af83f3ee87b2b25b6e6a9702ceaf520b8e90546b54beb9b6ed8d6ca20866a",
+    "stopping.py": "55e02902442765010eb81c409161c37c9e561d82061577e6a142a0f6fa2d5365",
+    "suite_report.py": "480bd0b2d52397b34a4486f1591513bce3fdde9ce15d2fc83b8de15d2a9cfcb4",
+    "tiles.py": "2a1d0ffa325c3a384cd880beef6891fe2af80897b9259fce549a2f8cce2b5c08",
+    "training.py": "ecbfe524ed5c866f7be9e418469464f3c41ab2db29187260d05087bb93731d43",
+    "vendor_input.py": "b41b296a903ae8d34d2884fec76f0b4dad58b82ad42f91c0e8a6f073a34ccbda",
+    "workload.py": "7ae1e8a0fe48717d78b3541df2a832ba88da2e14c5db279b0b26b31ab27ee391"
+  },
+  "models": [
+    {
+      "model": "resnet18",
+      "steps": 3840,
+      "evaluations": 3807,
+      "cache_hits": 33,
+      "zero_reward": 3638,
+      "current_improvements": 1628,
+      "current_regressions": 2019,
+      "improvements_without_reward": 1426,
+      "compliant": 0,
+      "physical_failures": 0,
+      "first_reward_fraction_mean": 0.9522399726718609,
+      "zero_reward_fraction": 0.9473958333333333,
+      "sampled_counts": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "best_training_episode": 41,
+      "selected_assessment": {
+        "feasible": false,
+        "metrics": {
+          "area_mm2": 8,
+          "average_power_w": 0.013302183354890773,
+          "latency_s": 0.4527190720000006
+        },
+        "physical_feasible": true,
+        "search_merit": 6.154079265757163,
+        "violation_excess": [
+          0.0,
+          3.5271907200000054,
+          0.0
+        ],
+        "violations": [
+          "latency_s=0.452719072 exceeds limit 0.1"
+        ],
+        "weighted_cost": 1.6801643011182987
+      },
+      "selected_compute_count": 8,
+      "policy_comparisons": [
+        {
+          "after": {
+            "feasible": false,
+            "metrics": {
+              "area_mm2": 7,
+              "average_power_w": 0.012518073298051232,
+              "latency_s": 0.5109253980000006
+            },
+            "physical_feasible": true,
+            "search_merit": 6.758756883831174,
+            "violation_excess": [
+              0.0,
+              4.109253980000005,
+              0.0
+            ],
+            "violations": [
+              "latency_s=0.510925398 exceeds limit 0.1"
+            ],
+            "weighted_cost": 1.8530906844326855
+          },
+          "after_compute": 7,
+          "after_objective": 0.8711133735761272,
+          "after_steps": 64,
+          "before": {
+            "feasible": false,
+            "metrics": {
+              "area_mm2": 7,
+              "average_power_w": 0.012518073298051232,
+              "latency_s": 0.5109253980000006
+            },
+            "physical_feasible": true,
+            "search_merit": 6.758756883831174,
+            "violation_excess": [
+              0.0,
+              4.109253980000005,
+              0.0
+            ],
+            "violations": [
+              "latency_s=0.510925398 exceeds limit 0.1"
+            ],
+            "weighted_cost": 1.8530906844326855
+          },
+          "before_compute": 7,
+          "before_objective": 0.8711133735761272,
+          "before_steps": 64,
+          "evaluation_seed": 1007,
+          "frozen_parameters_unchanged": true,
+          "objective_relative_improvement": 0.0
+        }
+      ],
+      "parameter_read_lower_bound_s": 0.046796448,
+      "critical_chain_memory_read_fraction": 0.45264965775508564,
+      "critical_chain_note": "One deterministic longest chain, not the union of critical jobs; memory_read includes external, network and local service.",
+      "timing_s": {
+        "action_selection_time_s": 278.1265829867916,
+        "environment_step_time_s": 1533.6438276149565,
+        "policy_update_time_s": 869.1899542582687,
+        "wall_s": 2699.8669828746933
+      }
+    },
+    {
+      "model": "resnet34",
+      "steps": 3840,
+      "evaluations": 3798,
+      "cache_hits": 42,
+      "zero_reward": 3627,
+      "current_improvements": 1449,
+      "current_regressions": 2221,
+      "improvements_without_reward": 1236,
+      "compliant": 0,
+      "physical_failures": 0,
+      "first_reward_fraction_mean": 0.9547357818762445,
+      "zero_reward_fraction": 0.94453125,
+      "sampled_counts": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "best_training_episode": 20,
+      "selected_assessment": {
+        "feasible": false,
+        "metrics": {
+          "area_mm2": 8,
+          "average_power_w": 0.013021135871294788,
+          "latency_s": 0.8736995859999979
+        },
+        "physical_feasible": true,
+        "search_merit": 10.492098240591684,
+        "violation_excess": [
+          0.0,
+          7.736995859999977,
+          0.0
+        ],
+        "violations": [
+          "latency_s=0.873699586 exceeds limit 0.1"
+        ],
+        "weighted_cost": 3.0833389986237574
+      },
+      "selected_compute_count": 8,
+      "policy_comparisons": [
+        {
+          "after": {
+            "feasible": false,
+            "metrics": {
+              "area_mm2": 1,
+              "average_power_w": 0.00600212540785868,
+              "latency_s": 0.9059682319999978
+            },
+            "physical_feasible": true,
+            "search_merit": 10.812324604300336,
+            "violation_excess": [
+              0.0,
+              8.059682319999977,
+              0.0
+            ],
+            "violations": [
+              "latency_s=0.905968232 exceeds limit 0.1"
+            ],
+            "weighted_cost": 3.0427281484692785
+          },
+          "after_compute": 1,
+          "after_objective": 0.9153426583251916,
+          "after_steps": 64,
+          "before": {
+            "feasible": false,
+            "metrics": {
+              "area_mm2": 1,
+              "average_power_w": 0.005969912753985419,
+              "latency_s": 0.8776295439999975
+            },
+            "physical_feasible": true,
+            "search_merit": 10.52301900009967,
+            "violation_excess": [
+              0.0,
+              7.7762954399999735,
+              0.0
+            ],
+            "violations": [
+              "latency_s=0.877629544 exceeds limit 0.1"
+            ],
+            "weighted_cost": 2.9482551175846528
+          },
+          "before_compute": 1,
+          "before_objective": 0.9132171872673862,
+          "before_steps": 64,
+          "evaluation_seed": 1007,
+          "frozen_parameters_unchanged": true,
+          "objective_relative_improvement": -0.0023274540683639504
+        }
+      ],
+      "parameter_read_lower_bound_s": 0.087258784,
+      "critical_chain_memory_read_fraction": 0.4227445152984198,
+      "critical_chain_note": "One deterministic longest chain, not the union of critical jobs; memory_read includes external, network and local service.",
+      "timing_s": {
+        "action_selection_time_s": 407.1905604007188,
+        "environment_step_time_s": 3720.7798212018097,
+        "policy_update_time_s": 1401.0960611680057,
+        "wall_s": 5556.204223204986
+      }
+    },
+    {
+      "model": "resnet50",
+      "steps": 3840,
+      "evaluations": 3807,
+      "cache_hits": 33,
+      "zero_reward": 3609,
+      "current_improvements": 1352,
+      "current_regressions": 2207,
+      "improvements_without_reward": 1121,
+      "compliant": 0,
+      "physical_failures": 0,
+      "first_reward_fraction_mean": 0.9394892573134713,
+      "zero_reward_fraction": 0.93984375,
+      "sampled_counts": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "best_training_episode": 22,
+      "selected_assessment": {
+        "feasible": false,
+        "metrics": {
+          "area_mm2": 6,
+          "average_power_w": 0.011474307569617195,
+          "latency_s": 1.0923383690000001
+        },
+        "physical_feasible": true,
+        "search_merit": 12.713738003752834,
+        "violation_excess": [
+          0.0,
+          9.923383690000001,
+          0.0
+        ],
+        "violations": [
+          "latency_s=1.092338369 exceeds limit 0.1"
+        ],
+        "weighted_cost": 3.7699526658565397
+      },
+      "selected_compute_count": 6,
+      "policy_comparisons": [
+        {
+          "after": {
+            "feasible": false,
+            "metrics": {
+              "area_mm2": 1,
+              "average_power_w": 0.006082915048162196,
+              "latency_s": 1.114730728
+            },
+            "physical_feasible": true,
+            "search_merit": 12.93627582443593,
+            "violation_excess": [
+              0.0,
+              10.14730728,
+              0.0
+            ],
+            "violations": [
+              "latency_s=1.114730728 exceeds limit 0.1"
+            ],
+            "weighted_cost": 3.7386300650160535
+          },
+          "after_compute": 1,
+          "after_objective": 0.9282448185872875,
+          "after_steps": 64,
+          "before": {
+            "feasible": false,
+            "metrics": {
+              "area_mm2": 1,
+              "average_power_w": 0.006082915048162196,
+              "latency_s": 1.114730728
+            },
+            "physical_feasible": true,
+            "search_merit": 12.93627582443593,
+            "violation_excess": [
+              0.0,
+              10.14730728,
+              0.0
+            ],
+            "violations": [
+              "latency_s=1.114730728 exceeds limit 0.1"
+            ],
+            "weighted_cost": 3.7386300650160535
+          },
+          "before_compute": 1,
+          "before_objective": 0.9282448185872875,
+          "before_steps": 64,
+          "evaluation_seed": 1007,
+          "frozen_parameters_unchanged": true,
+          "objective_relative_improvement": 0.0
+        }
+      ],
+      "parameter_read_lower_bound_s": 0.102440608,
+      "critical_chain_memory_read_fraction": 0.47013941977533896,
+      "critical_chain_note": "One deterministic longest chain, not the union of critical jobs; memory_read includes external, network and local service.",
+      "timing_s": {
+        "action_selection_time_s": 526.384976700996,
+        "environment_step_time_s": 7565.077400734415,
+        "policy_update_time_s": 2011.9710961675737,
+        "wall_s": 10140.825732247904
+      }
+    },
+    {
+      "model": "vgg16",
+      "steps": 3840,
+      "evaluations": 3777,
+      "cache_hits": 63,
+      "zero_reward": 3509,
+      "current_improvements": 1920,
+      "current_regressions": 1596,
+      "improvements_without_reward": 1589,
+      "compliant": 0,
+      "physical_failures": 160,
+      "first_reward_fraction_mean": 0.7716716414983957,
+      "zero_reward_fraction": 0.9138020833333333,
+      "sampled_counts": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "best_training_episode": 50,
+      "selected_assessment": {
+        "feasible": false,
+        "metrics": {
+          "area_mm2": 2,
+          "average_power_w": 0.007913315544699229,
+          "latency_s": 4.368216592999998
+        },
+        "physical_feasible": true,
+        "search_merit": 45.618084013481905,
+        "violation_excess": [
+          0.0,
+          42.682165929999975,
+          0.0
+        ],
+        "violations": [
+          "latency_s=4.368216593 exceeds limit 0.1"
+        ],
+        "weighted_cost": 14.605026415181557
+      },
+      "selected_compute_count": 2,
+      "policy_comparisons": [
+        {
+          "after": {
+            "feasible": false,
+            "metrics": {
+              "area_mm2": 16,
+              "average_power_w": 0.02162673177712664,
+              "latency_s": 4.828584533999991
+            },
+            "physical_feasible": true,
+            "search_merit": 50.22849215734403,
+            "violation_excess": [
+              0.0,
+              47.28584533999991,
+              0.0
+            ],
+            "violations": [
+              "latency_s=4.828584534 exceeds limit 0.1"
+            ],
+            "weighted_cost": 16.435824023925676
+          },
+          "after_compute": 16,
+          "after_objective": 0.9804796128504313,
+          "after_steps": 64,
+          "before": {
+            "feasible": false,
+            "metrics": {
+              "area_mm2": 16,
+              "average_power_w": 0.02162673177712664,
+              "latency_s": 4.828584533999991
+            },
+            "physical_feasible": true,
+            "search_merit": 50.22849215734403,
+            "violation_excess": [
+              0.0,
+              47.28584533999991,
+              0.0
+            ],
+            "violations": [
+              "latency_s=4.828584534 exceeds limit 0.1"
+            ],
+            "weighted_cost": 16.435824023925676
+          },
+          "before_compute": 16,
+          "before_objective": 0.9804796128504313,
+          "before_steps": 64,
+          "evaluation_seed": 1007,
+          "frozen_parameters_unchanged": true,
+          "objective_relative_improvement": 0.0
+        }
+      ],
+      "parameter_read_lower_bound_s": 0.553430176,
+      "critical_chain_memory_read_fraction": 0.6212358431009696,
+      "critical_chain_note": "One deterministic longest chain, not the union of critical jobs; memory_read includes external, network and local service.",
+      "timing_s": {
+        "action_selection_time_s": 336.995419620187,
+        "environment_step_time_s": 1333.2233489117352,
+        "policy_update_time_s": 1270.1212847908027,
+        "wall_s": 2959.6566871252144
+      }
+    },
+    {
+      "model": "vgg19",
+      "steps": 3840,
+      "evaluations": 3796,
+      "cache_hits": 44,
+      "zero_reward": 3495,
+      "current_improvements": 1953,
+      "current_regressions": 1516,
+      "improvements_without_reward": 1608,
+      "compliant": 0,
+      "physical_failures": 169,
+      "first_reward_fraction_mean": 0.8280221459589601,
+      "zero_reward_fraction": 0.91015625,
+      "sampled_counts": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "best_training_episode": 13,
+      "selected_assessment": {
+        "feasible": false,
+        "metrics": {
+          "area_mm2": 2,
+          "average_power_w": 0.007694078217245447,
+          "latency_s": 5.098415620999994
+        },
+        "physical_feasible": true,
+        "search_merit": 52.92872061121652,
+        "violation_excess": [
+          0.0,
+          49.98415620999994,
+          0.0
+        ],
+        "violations": [
+          "latency_s=5.098415621 exceeds limit 0.1"
+        ],
+        "weighted_cost": 17.038950096072394
+      },
+      "selected_compute_count": 2,
+      "policy_comparisons": [
+        {
+          "after": {
+            "feasible": false,
+            "metrics": {
+              "area_mm2": 1,
+              "average_power_w": 0.006096635209802825,
+              "latency_s": 5.709182824000025
+            },
+            "physical_feasible": true,
+            "search_merit": 59.041961570903034,
+            "violation_excess": [
+              0.0,
+              56.09182824000025,
+              0.0
+            ],
+            "violations": [
+              "latency_s=5.709182824 exceeds limit 0.1"
+            ],
+            "weighted_cost": 19.05347495840335
+          },
+          "after_compute": 1,
+          "after_objective": 0.983344981179219,
+          "after_steps": 64,
+          "before": {
+            "feasible": false,
+            "metrics": {
+              "area_mm2": 2,
+              "average_power_w": 0.00794043775237147,
+              "latency_s": 4.97311850699999
+            },
+            "physical_feasible": true,
+            "search_merit": 51.67443581005877,
+            "violation_excess": [
+              0.0,
+              48.731185069999896,
+              0.0
+            ],
+            "violations": [
+              "latency_s=4.973118507 exceeds limit 0.1"
+            ],
+            "weighted_cost": 16.621375169250754
+          },
+          "before_compute": 2,
+          "before_objective": 0.9810154587396827,
+          "before_steps": 64,
+          "evaluation_seed": 1007,
+          "frozen_parameters_unchanged": true,
+          "objective_relative_improvement": -0.002374603191808086
+        }
+      ],
+      "parameter_read_lower_bound_s": 0.57466896,
+      "critical_chain_memory_read_fraction": 0.5833867832879057,
+      "critical_chain_note": "One deterministic longest chain, not the union of critical jobs; memory_read includes external, network and local service.",
+      "timing_s": {
+        "action_selection_time_s": 378.8039879987482,
+        "environment_step_time_s": 1722.8703759721247,
+        "policy_update_time_s": 1499.2743707456393,
+        "wall_s": 3621.807596256258
+      }
+    },
+    {
+      "model": "mobilenet_v2",
+      "steps": 3840,
+      "evaluations": 3812,
+      "cache_hits": 28,
+      "zero_reward": 3617,
+      "current_improvements": 1335,
+      "current_regressions": 2368,
+      "improvements_without_reward": 1112,
+      "compliant": 0,
+      "physical_failures": 0,
+      "first_reward_fraction_mean": 0.9585018142591496,
+      "zero_reward_fraction": 0.9419270833333333,
+      "sampled_counts": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "best_training_episode": 12,
+      "selected_assessment": {
+        "feasible": false,
+        "metrics": {
+          "area_mm2": 1,
+          "average_power_w": 0.006547266445378034,
+          "latency_s": 0.1919351439999997
+        },
+        "physical_feasible": true,
+        "search_merit": 3.317956047100913,
+        "violation_excess": [
+          0.0,
+          0.9193514399999969,
+          0.0
+        ],
+        "violations": [
+          "latency_s=0.191935144 exceeds limit 0.1"
+        ],
+        "weighted_cost": 0.6627995688151249
+      },
+      "selected_compute_count": 1,
+      "policy_comparisons": [
+        {
+          "after": {
+            "feasible": false,
+            "metrics": {
+              "area_mm2": 1,
+              "average_power_w": 0.006550905090970051,
+              "latency_s": 0.1935120399999999
+            },
+            "physical_feasible": true,
+            "search_merit": 3.33562053936414,
+            "violation_excess": [
+              0.0,
+              0.9351203999999991,
+              0.0
+            ],
+            "violations": [
+              "latency_s=0.19351204 exceeds limit 0.1"
+            ],
+            "weighted_cost": 0.6680571016969896
+          },
+          "after_compute": 1,
+          "after_objective": 0.7693525088460211,
+          "after_steps": 64,
+          "before": {
+            "feasible": false,
+            "metrics": {
+              "area_mm2": 3,
+              "average_power_w": 0.008917110297269196,
+              "latency_s": 0.20506494099999992
+            },
+            "physical_feasible": true,
+            "search_merit": 3.47890136975788,
+            "violation_excess": [
+              0.0,
+              1.0506494099999992,
+              0.0
+            ],
+            "violations": [
+              "latency_s=0.205064941 exceeds limit 0.1"
+            ],
+            "weighted_cost": 0.7490221734324227
+          },
+          "before_compute": 3,
+          "before_objective": 0.7767309620274006,
+          "before_steps": 64,
+          "evaluation_seed": 1007,
+          "frozen_parameters_unchanged": true,
+          "objective_relative_improvement": 0.009499367917715542
+        }
+      ],
+      "parameter_read_lower_bound_s": 0.014155936,
+      "critical_chain_memory_read_fraction": 0.431743839471108,
+      "critical_chain_note": "One deterministic longest chain, not the union of critical jobs; memory_read includes external, network and local service.",
+      "timing_s": {
+        "action_selection_time_s": 482.0512173230527,
+        "environment_step_time_s": 6166.7828867965145,
+        "policy_update_time_s": 1795.9606979220407,
+        "wall_s": 8479.125929248868
+      }
+    },
+    {
+      "model": "alexnet",
+      "steps": 3840,
+      "evaluations": 3802,
+      "cache_hits": 38,
+      "zero_reward": 3402,
+      "current_improvements": 1790,
+      "current_regressions": 1763,
+      "improvements_without_reward": 1352,
+      "compliant": 0,
+      "physical_failures": 90,
+      "first_reward_fraction_mean": 0.8835127493146774,
+      "zero_reward_fraction": 0.8859375,
+      "sampled_counts": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "best_training_episode": 12,
+      "selected_assessment": {
+        "feasible": false,
+        "metrics": {
+          "area_mm2": 2,
+          "average_power_w": 0.009194045677222977,
+          "latency_s": 1.3626211919999964
+        },
+        "physical_feasible": true,
+        "search_merit": 15.447218642262923,
+        "violation_excess": [
+          0.0,
+          12.626211919999964,
+          0.0
+        ],
+        "violations": [
+          "latency_s=1.362621192 exceeds limit 0.1"
+        ],
+        "weighted_cost": 4.5868019885590625
+      },
+      "selected_compute_count": 2,
+      "policy_comparisons": [
+        {
+          "after": {
+            "feasible": false,
+            "metrics": {
+              "area_mm2": 3,
+              "average_power_w": 0.00978331833445181,
+              "latency_s": 1.6291248089999992
+            },
+            "physical_feasible": true,
+            "search_merit": 18.13731140092156,
+            "violation_excess": [
+              0.0,
+              15.291248089999993,
+              0.0
+            ],
+            "violations": [
+              "latency_s=1.629124809 exceeds limit 0.1"
+            ],
+            "weighted_cost": 5.4961771361114815
+          },
+          "after_compute": 3,
+          "after_objective": 0.9477460559087811,
+          "after_steps": 64,
+          "before": {
+            "feasible": false,
+            "metrics": {
+              "area_mm2": 2,
+              "average_power_w": 0.008186280903245125,
+              "latency_s": 1.5461954660000006
+            },
+            "physical_feasible": true,
+            "search_merit": 17.30062219096768,
+            "violation_excess": [
+              0.0,
+              14.461954660000005,
+              0.0
+            ],
+            "violations": [
+              "latency_s=1.546195466 exceeds limit 0.1"
+            ],
+            "weighted_cost": 5.198380313634416
+          },
+          "before_compute": 2,
+          "before_objective": 0.9453570490901915,
+          "before_steps": 64,
+          "evaluation_seed": 1007,
+          "frozen_parameters_unchanged": true,
+          "objective_relative_improvement": -0.0025270947319733215
+        }
+      ],
+      "parameter_read_lower_bound_s": 0.24440336,
+      "critical_chain_memory_read_fraction": 0.9088850843294385,
+      "critical_chain_note": "One deterministic longest chain, not the union of critical jobs; memory_read includes external, network and local service.",
+      "timing_s": {
+        "action_selection_time_s": 262.5584599702852,
+        "environment_step_time_s": 573.7124344737967,
+        "policy_update_time_s": 994.2778096700786,
+        "wall_s": 1847.9787969995523
+      }
+    }
+  ],
+  "original_output_sha256": {
+    "alexnet/checkpoint.pt": "5588cf8b8a80b2ab96859103ef7ce68ad0d47d01bd66985d58b55cdd8dab7719",
+    "alexnet/history.sqlite": "a02eea9e0435b9c47fb17aca0e2d1dcf5718035f96aa9c698d830fe917353f3c",
+    "alexnet/numerical_validation.json": "f58eec8f93ed8543aaaee01b25c6e3a6136f9db3465e073a7581765adbf9e6d6",
+    "alexnet/parameter_manifest.json": "39a87d15265bdacfc3dd6de0c110e3d26aa1d10eb832e4d07e02b8eb29ba0cfd",
+    "alexnet/policy_comparison.json": "1cc74a5b59711bf11b23e0896ead4b20a54ac9a6c50c30d0f115df03b65a6b62",
+    "alexnet/progress.json": "0ab75d091deebe539eb58041139a2911801afa6c5aaa854d3a7f7b4350654588",
+    "alexnet/result.json": "0c5aabe95225b4d01dd6953190cb864b4fb5d65a95e94d96041480c4d96fe08a",
+    "alexnet/selected_design.json.gz": "c383cbb5c3dd38a81fac2d4c5e9f86db3aca19622b3a2dd54eecb31cf4d3d035",
+    "alexnet/status.json": "f71d942bff1d3eddf4bec42019058c58f4b7f5ff9f5fce1d547983e7574ed8c0",
+    "alexnet/training_curve.json": "6c65f6ea214f390b592db8538218932ca5f5730e56c20795887330215601056d",
+    "alexnet/training_curve.png": "9d18fc27a4144812b22ef49f2b48d5a2154c09362964b94be713433f5de63817",
+    "alexnet/training_curve.svg": "91363e89c3c170b24bd0808cf4c0028877c62a2f1b6872130864c8cd1296f2fb",
+    "alexnet/workload.json": "f54006988bcced6c1a798fe8402fa3b1eefb5d141119077c6d44acfb57bec3e4",
+    "mobilenet_v2/checkpoint.pt": "883b70d716500788de8545b945a8f79ff2be2f65fcca53fb437f78beb5d42aa9",
+    "mobilenet_v2/history.sqlite": "00d7a318443dc90bf445d37eb76d5cb696f321df4944d6dc4dc267cb9e67d13f",
+    "mobilenet_v2/numerical_validation.json": "c6bf244ce330570a470723dd3e0bd7f2a695fd9703daf634e1b8bf7089ed9ad9",
+    "mobilenet_v2/parameter_manifest.json": "7a05c6151514c363ad9f62bdb89d29ae959fce1aa741d1beebd6fb4eefea5f97",
+    "mobilenet_v2/policy_comparison.json": "effbc0260aa6321cd850d2e7672250b7890b58302a8c5357bb25777373f11bb3",
+    "mobilenet_v2/progress.json": "2437fc856b79fdd6a63e8a577adbe76a3ec3eb71756f9574bf0cac0daff60d55",
+    "mobilenet_v2/result.json": "1c96f22b0bd5a0234935c6a254a0364b101a897bf53128381f1e1942d515bd45",
+    "mobilenet_v2/selected_design.json.gz": "b85157553f56d8d7e4084cf885a292cb49bfe086cf222177954d93c56401bdd2",
+    "mobilenet_v2/status.json": "2473e16d9eb1eea78635c835278549683f8f01d45001130374db7b9d2bc1b4a2",
+    "mobilenet_v2/training_curve.json": "8f80616ce807d738ecb37dda37724e13fbdfd14289c6ddf9c719a90b2c865bf5",
+    "mobilenet_v2/training_curve.png": "22046f7206d3dcea6f1a52085f88dd06ad90ed849ba5463857c9377f098b09f7",
+    "mobilenet_v2/training_curve.svg": "d5dd7954b273efe3f64cb84a1e8851dd7a1033822dba6f598c3b938bb3e63a52",
+    "mobilenet_v2/workload.json": "ac11d33d114d66f7c6fbabcd4a66bd1c615d4d0a41e529e6734495b8d5ad63ec",
+    "model_times.json": "e6949385d2fe59d8612b268da218b55ed43ca2f8e37ffe3937b4b72c8d16b621",
+    "platform_snapshot.json": "ea1f3b5b0353287b0a10d4c98c536cf656a19db848ad8cee62b575df1a150947",
+    "protocol.json": "b20d9b4a19642d4b27b25be18861d0ba71658e8588dda412903c2d5825ed2faf",
+    "report.html": "2b8d092b8b13ec783f451a57486921041f4086567c833dfb1b1c6f04bed5cc8b",
+    "resnet18/checkpoint.pt": "1793f94e8c7a06844607cb6e94eeb854d790a3b31492601446ded526ebe3da77",
+    "resnet18/history.sqlite": "9aa6397364595128435d0e7e062fdb3cf4b98ab805494282ff613006de75e5e0",
+    "resnet18/numerical_validation.json": "f2827c0ddf4c6af2f500df6dddb6cc661a85311cbd621fd234999fe257c59809",
+    "resnet18/parameter_manifest.json": "014d479b22e6627042d432fd54229f85025e551f388cac06845872c06fccd327",
+    "resnet18/policy_comparison.json": "7760dffd968d0ffd62d81392b4b07f0979eba4ed9b523687f7302d95fd078638",
+    "resnet18/progress.json": "98f8913f25c52e5405aa41b416a3d023dae04cc691874ec63fec884b505f9851",
+    "resnet18/result.json": "24ee29d0a0116c0a06bb1cc16593b3dc7b14600f3a636240883e2d27da711505",
+    "resnet18/selected_design.json.gz": "df310072905ca6f3f29679f4e4c40d8ea6064275a53b5abada96b2f62fb2e518",
+    "resnet18/status.json": "8f285268cd448218b08442e9c99bf868f5cfd11ee981c8bb37fe71bffa5e8d6c",
+    "resnet18/training_curve.json": "8170d0da3b2274be04919c09610d786eee5de032eedf2405e4c9ab492b28bc36",
+    "resnet18/training_curve.png": "e17370c9f85a16575f74bd5edec2aeb23ae80371f0bc35cf4115dbab6f4752a1",
+    "resnet18/training_curve.svg": "5529c4a7e153e3e2313dfb43232186535b8909383d70ad95d528e77ad89b0397",
+    "resnet18/workload.json": "1d5c1f027c5808600c2fb04a2766bed2081403f80260d176f9fcc9cc2c108972",
+    "resnet34/checkpoint.pt": "9840c1f57e56c883fc152ea3f4f400b9d4b102019065421721ac7fca02ceb282",
+    "resnet34/history.sqlite": "1e59cb71c9bb2947e461c6958162f2814877be9995f1d52b86116e39eb86e6de",
+    "resnet34/numerical_validation.json": "91514fdd66a9b7cfc51f5a2387faafda38ceed446c848ec692f3f61439ae3072",
+    "resnet34/parameter_manifest.json": "3756ea66ef5718867a68bf50ff484c28bd78f2f6ffeb80024b0a210093e44e77",
+    "resnet34/policy_comparison.json": "de76288abc23a09ca3b3e9e7a272fe0533f74ff0642264c830db68d97cdfb170",
+    "resnet34/progress.json": "bab6802adcf39f9cf37bf9bccac6d8c73a7e74af781e85cd52f0a3b11efb9b4e",
+    "resnet34/result.json": "c7b70b5b1ac96929a7a066a652bd83ef7482c74db92abdd399a7240ea31d0895",
+    "resnet34/selected_design.json.gz": "bbf57ca0366778321af6e03602c57087f7a2e8281e2231f3278abff4c96adc42",
+    "resnet34/status.json": "2219214d0a4f53cb4befafffde805b47b8c2eae578a78aa0f53f708e3b4c8862",
+    "resnet34/training_curve.json": "bb6713c76fc4396a3ea0ed654a951a668d252fed8e59b5aaf2cf25adddfc74b4",
+    "resnet34/training_curve.png": "25f94a519a1fadd2cdbf12812062400329df9d185f4972010d833b08505fad0b",
+    "resnet34/training_curve.svg": "abc8173684af572fc3ddedf5a30a22b87c8fc279e9b3d716ccf966c20164abbd",
+    "resnet34/workload.json": "20ea3f59f1c962ddeba195d66e3afeb7ebf38e958d22516a5481980ed62be953",
+    "resnet50/checkpoint.pt": "5ad0389f6e7d6c57e35f348def83e41aeaaeedd37cc3ab7dc0013582cbbb3103",
+    "resnet50/history.sqlite": "ed05d53f4a20f1a64ffd07829ae64c6beff4da60b1b0ee8cd98fc9f36d49647b",
+    "resnet50/numerical_validation.json": "ee1ce77de9462f313f43c0985e134d1b4ef68a7d6b6c0cc841ae718cf74f5561",
+    "resnet50/parameter_manifest.json": "c5577d082cb6855308f353784a596b8ba4b8f0df7bb2b1b9914f5149bd9c84c7",
+    "resnet50/policy_comparison.json": "ae768009c2956b22ab6c1292f62375c930ee8a7193082eee69ae66ef21e59afc",
+    "resnet50/progress.json": "e8c9f0da46f37f71b49359461876550be73f594eb59b2cc4e6682e8c21678538",
+    "resnet50/result.json": "6664ed6958d35014a2907439e0226785bd7f81aaf176df2203faaa6e878f0e70",
+    "resnet50/selected_design.json.gz": "32290c608378ddae2ffad5f597dcdddb9ba9fb3046e6403a06013eb6f5c5503f",
+    "resnet50/status.json": "6fca42ef9cc57f2cba7fb20d0569cbf1b13029b9b8c3042414919e0449e95a69",
+    "resnet50/training_curve.json": "9210bab8878f03af41a6919783cfd64d147b9076231c6e4a2d798655a3cac331",
+    "resnet50/training_curve.png": "d9867a69af057a29aed8e6afdd23855c441b68571c6a8d269ce9ed405840cef0",
+    "resnet50/training_curve.svg": "279c8d5d8383315ece9a1d57e4f9ae2bad27d3b7ea2d2babcc6dab94e644809b",
+    "resnet50/workload.json": "101e60d84f80b0806081900f00c290df312d852f32ad6527547c7bcc657c4ee6",
+    "results.json": "b344eb1070c905de5a82f49e6cb1563f5fd5f35487b2e0e05f7f707b88c2fa9d",
+    "status.json": "7509852f7160407958713f2fd26fd4867b39c3b164c0318109d22b4f5096e005",
+    "vgg16/checkpoint.pt": "422d7c6c507ce7bbb49667e53b8666c38804e6742cd0955fa79cf35fc33c4e67",
+    "vgg16/history.sqlite": "99ac7b46bc5e2bef94a0c98bcc8767fa1d4bd1f7b6b89ad868f56c1ff4252379",
+    "vgg16/numerical_validation.json": "10b370dffe00c2e84c4ce1b7a810808b37d4251a699b61573b3c80e0c0d3870d",
+    "vgg16/parameter_manifest.json": "5a0e0084df27938c99ac3502de4e2d7d836b8b1409b635aa82a6d1808f234b6a",
+    "vgg16/policy_comparison.json": "fe258babbe01795b0ba765fff306aa6996e106a3895a8f31b70f7e2ba4f3cceb",
+    "vgg16/progress.json": "98a2fef9ca98228bdde74e3d38945a61d9fa9255404c922f822c675e5ee30b9c",
+    "vgg16/result.json": "9931d41f1aea751b7c1c5155a807f563d7929a70a51b287db6bf0e0f526b3285",
+    "vgg16/selected_design.json.gz": "b84c1e357daa2cfb32524a45fc6fc073c8a86acc38a555b0075d3ec2f7f21ba9",
+    "vgg16/status.json": "cedf8c6d9f238d0499c3afedc294f196f774ddb8fd4847f4e04b85c18a5e41af",
+    "vgg16/training_curve.json": "917db70712d8281c6671c03c63e27afdacc58856246863f73846588aace327ae",
+    "vgg16/training_curve.png": "fc83b003e4857a220e8bb9ac81a751eb8990ee89ce495e00a85d753e1a0d9ac6",
+    "vgg16/training_curve.svg": "78ad05e5c8874f0738bcab688c2fc2b60e024bca82af526f49c9fa0683f9402d",
+    "vgg16/workload.json": "f9ccdd3008631033aea905f3afc952be86ef0029b15745ce60d0d627dbfc19a5",
+    "vgg19/checkpoint.pt": "096c6e980602e02474e269f36f2972405d0a7d38722ee7e4e58ba5aa1fae1bb4",
+    "vgg19/history.sqlite": "73428d52d9c74191af968213c1505d9c7b4857240f136f8b2a53af5cad63f054",
+    "vgg19/numerical_validation.json": "9140995917b62695d1cc2c2b40bc1e70348cb4450792a738815cded900af175d",
+    "vgg19/parameter_manifest.json": "dc6c9689cef77a1f83f702c1d3136fae733c7594b163f42cb7f5b6feff07e04b",
+    "vgg19/policy_comparison.json": "ec82842f1457b6fd19a62880a047484d580d31bc3ff3725d59bc637e55587a26",
+    "vgg19/progress.json": "d8ca8e3624f50a1e9768a6cc6923137580bd7552814cfe06846b05748fc88978",
+    "vgg19/result.json": "bbccabc737d279090931910127bcd9fede1bb30cc0a88c69b0d586a6b327485c",
+    "vgg19/selected_design.json.gz": "bf3b03cc9a0a15dd3b5f2f16766672c3e0926aad357965f8bf1fbb9b4263aba1",
+    "vgg19/status.json": "e526d7681715a77455300ce7cd3cbdecfc37ba215e20ebafb2036d06ecb51b5e",
+    "vgg19/training_curve.json": "856125661d56daa07fbed6738af14befde02695bd5aab63adca54455b94ee32f",
+    "vgg19/training_curve.png": "83370167286584fbdb4c7549168442d97d65e1f7e565c4f9ad0f3924e63962ab",
+    "vgg19/training_curve.svg": "d281b0c3c44fa51175d440abf69f62ef48a60834fcdd6c26099d5ab4fc110670",
+    "vgg19/workload.json": "76adb3b9194b2aabbd93aeaa496ac9340b3f02fea3b08a3ddb1d9ec93c6a3035"
+  },
+  "scope": "Read-only independent scoring, reward, state, budget and frozen-policy accounting; not PPA calibration."
+}

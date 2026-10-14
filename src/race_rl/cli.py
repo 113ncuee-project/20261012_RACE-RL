@@ -134,6 +134,11 @@ def main(argv=None):
         if record['status'] != 'PASSED':
             raise SystemExit(1)
         if args.command == 'search-mesh':
+            from .feasibility import constraint_check
+            check=constraint_check(imported.workload,vendor_requirements,args.compute_counts or tuple(range(1,17)))
+            save_json(args.out/'constraint_check.json',check)
+            if check['status']=='PROVEN_IMPOSSIBLE':
+                parser.error(' '.join(check['warnings']))
             from .architecture import search_mesh
             from .architecture import DEFAULT_COUNTS
             summary = search_mesh(imported.workload,args.out/'search',compute_counts=args.compute_counts or DEFAULT_COUNTS,

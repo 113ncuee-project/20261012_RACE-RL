@@ -14,6 +14,7 @@
 <label for="latency"><span>延遲上限 <small>Performance</small></span><div class="unit-field"><input id="latency" type="number" min="0" step="any" required placeholder="例如 100"><span>ms</span></div><small>單次推論耗時，越低越快</small></label>
 <label for="area"><span>面積上限 <small>Area</small></span><div class="unit-field"><input id="area" type="number" min="0" step="any" required placeholder="例如 16"><span>mm²</span></div><small>運算晶粒的面積總和</small></label>
 </div>
+<p class="hint">開始後先核對解析式必要下界。若限制已被證明不可能，會說明原因並停止；通過下界檢查仍不保證有可行解，也不會自動更改你的限制。</p>
 <div class="separator"></div>
 <div class="section-heading"><span class="step">02</span><div><h2>選擇你的偏好</h2><p>在達標方案中，優先改善你重視的項目。</p></div></div>
 <fieldset id="preferences"><legend class="sr-only">PPA 偏好</legend><div id="preference-options" class="preference-options"></div></fieldset>
