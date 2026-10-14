@@ -4,13 +4,23 @@
 
 ![正式架構](figures/rl_architecture.png)
 
+[SVG 向量圖](figures/rl_architecture.svg)。精簡圖分為狀態、單一 Encoder／Actor、環境三區；完整 action 直接標在 Agent 至環境的箭頭上。上方為環境 reward 回路，下方為新狀態回路。三種 action 是依類別擇一提出，參數完整後立即送環境；回合結束才做一次 REINFORCE 策略更新。神經網路與 mesh 圖示只表示元件關係，不代表精確層數或實驗顆數。
+
+中文使用標楷體（DFKai-SB），英文與數學變數使用 Times New Roman；SVG 將字形轉成向量路徑，方便跨平台分享而不依賴接收者安裝字型。
+
 ## State 與 observation
+
+![Observation 資料格式與編碼流程](figures/observation_format.png)
+
+[資料格式 SVG 向量圖](figures/observation_format.svg)。環境直接傳遞記憶體中的 `DesignObservation`，內含 `GraphObservation`、動作物件、布林合法性旗標與候選特徵。Encoder 將數值 tuple 轉成正式訓練的 float64 Tensor，並按整數索引進行關係訊息傳遞；JSON／SQLite 是紀錄格式。圖中的色塊與索引只示意格式，不代表實驗數值。
 
 完整 state 包括 workload、顆數、Tile／partition、placement／storage、需求與偏好、已測 current／best PPA、快取、requests 與剩餘額度。reset 只有結構與需求，不評估 PPA；未測 best 為空。
 
 神經 observation schema 5 的 Tile 17 維、HW/service 9 維、Link 4 維、Global 10 維、Task 16 維。關係包含 DNN dependency、mesh、placement、dependency-link 歸因與 memory-port。尚未測得的排程／criticality／busy／traffic／PPA 以 placeholder 與有效性 mask 區分。Global 的末兩項為有無有效 current PPA、前一動作 reward。起始不需要完整排程。
 
 這是完整 state 的壓縮表示，尚未證明 Markov sufficiency；快取 hash 與 best hash 是 metadata，不全部輸入網路。正式聯合範圍預設最多 2 個相依 Tile，1 個作比較設定，進階可調 2–4。合法 scope 是固定結構規則生成，尚不是 learned graph expansion。
+
+目前沒有明確編碼完整切分區域座標或每個 tensor 的當前外部記憶體服務歸屬；最佳方案主要以評分與達標旗標輸入，沒有完整的最佳 PPA／mapping 表示。`feature_valid_masks` 在資料物件中保留，Encoder 不逐欄套用全部 mask；神經輸入包含未量測旗標，未測回饋以 placeholder 表示。因此不能把「完整環境 state 有保存」等同「神經網路已完整讀到」。
 
 ## Action
 
