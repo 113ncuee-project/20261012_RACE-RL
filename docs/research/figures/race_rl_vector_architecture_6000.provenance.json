@@ -1,0 +1,19 @@
+{
+  "created_date": "2026-10-16",
+  "method": "Native editable PowerPoint vector diagram authored with @oai/artifact-tool",
+  "presentation": "docs/presentations/RACE-RL_架構圖_向量可編輯_20261016.pptx",
+  "png": "docs/research/figures/race_rl_vector_architecture_6000.png",
+  "canvas_pixels": [2400, 800],
+  "png_pixels": [6000, 2000],
+  "native_shape_count": 464,
+  "embedded_raster_picture_count": 0,
+  "font": "Times New Roman",
+  "visual_reference": "docs/research/figures/race_rl_academic_architecture_20261016.png",
+  "sources": [
+    "docs/research/cnn_hierarchy.md",
+    "configs/cnn_hardware.json",
+    "src/race_rl/accelerators/cnn_environment.py",
+    "src/race_rl/accelerators/cnn_policy.py"
+  ],
+  "interpretation": "Conceptual architecture. One shared encoder/joint actor emits one complete coupled action before environment feedback. REINFORCE updates at episode end. Four chiplets, neural-layer counts, highlighted links, and PPA bar levels are illustrative. Hardware inset simplifies the data path and omits the vector unit, not a complete RTL wiring diagram. The action compute-count range remains 1–16."
+}
