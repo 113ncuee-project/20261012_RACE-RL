@@ -1,0 +1,2322 @@
+{
+  "status": "EXPLORATORY_PPA_LIMIT_SENSITIVITY",
+  "conditions": [
+    "reference_v2",
+    "exploratory_latency_x2",
+    "exploratory_latency_x2_area_x05"
+  ],
+  "method": "reinforce",
+  "selection": "per model and scenario choose actual feasible balanced run closest to component-wise medians after limit normalization; display all preferences using its seed",
+  "notes": [
+    "different limits also change scoring and feasibility",
+    "triangle axes normalized by each scenario limits; do not compare shape across scenarios without raw PPA",
+    "only paired feasible outcomes compared",
+    "model costs are analytical and uncalibrated"
+  ],
+  "rows": [
+    {
+      "condition": "reference_v2",
+      "model": "resnet18",
+      "preference": "balanced",
+      "n_seeds": 5,
+      "feasible_seeds": 5,
+      "median_ppa": {
+        "average_power_w": 0.2518680211909972,
+        "latency_s": 0.090498768,
+        "area_mm2": 5.0
+      },
+      "target": null,
+      "target_lower_than_balanced_count": 0,
+      "paired_feasible": 5,
+      "target_median_reduction_pct": null,
+      "plot_seed": 335,
+      "trials": [
+        {
+          "seed": 331,
+          "feasible": true,
+          "metrics": {
+            "area_mm2": 5.0,
+            "average_power_w": 0.2584456715342105,
+            "latency_s": 0.079973394
+          }
+        },
+        {
+          "seed": 332,
+          "feasible": true,
+          "metrics": {
+            "area_mm2": 5.0,
+            "average_power_w": 0.2518680211909972,
+            "latency_s": 0.083723856
+          }
+        },
+        {
+          "seed": 333,
+          "feasible": true,
+          "metrics": {
+            "area_mm2": 5.0,
+            "average_power_w": 0.24844217444580408,
+            "latency_s": 0.09296125
+          }
+        },
+        {
+          "seed": 334,
+          "feasible": true,
+          "metrics": {
+            "area_mm2": 10.0,
+            "average_power_w": 0.29774004532814646,
+            "latency_s": 0.091008354
+          }
+        },
+        {
+          "seed": 335,
+          "feasible": true,
+          "metrics": {
+            "area_mm2": 5.0,
+            "average_power_w": 0.24763435273726603,
+            "latency_s": 0.090498768
+          }
+        }
+      ]
+    },
+    {
+      "condition": "reference_v2",
+      "model": "resnet18",
+      "preference": "power",
+      "n_seeds": 5,
+      "feasible_seeds": 5,
+      "median_ppa": {
+        "average_power_w": 0.25375652132968163,
+        "latency_s": 0.08286856,
+        "area_mm2": 5.0
+      },
+      "target": "average_power_w",
+      "target_lower_than_balanced_count": 0,
+      "paired_feasible": 5,
+      "target_median_reduction_pct": 0.0,
+      "plot_seed": 335,
+      "trials": [
+        {
+          "seed": 331,
+          "feasible": true,
+          "metrics": {
+            "area_mm2": 5.0,
+            "average_power_w": 0.2584456715342105,
+            "latency_s": 0.079973394
+          }
+        },
+        {
+          "seed": 332,
+          "feasible": true,
+          "metrics": {
+            "area_mm2": 5.0,
+            "average_power_w": 0.2518680211909972,
+            "latency_s": 0.083723856
+          }
+        },
+        {
+          "seed": 333,
+          "feasible": true,
+          "metrics": {
+            "area_mm2": 5.0,
+            "average_power_w": 0.25375652132968163,
+            "latency_s": 0.08286856
+          }
+        },
+        {
+          "seed": 334,
+          "feasible": true,
+          "metrics": {
+            "area_mm2": 10.0,
+            "average_power_w": 0.29774004532814646,
+            "latency_s": 0.091008354
+          }
+        },
+        {
+          "seed": 335,
+          "feasible": true,
+          "metrics": {
+            "area_mm2": 5.0,
+            "average_power_w": 0.2507003238528569,
+            "latency_s": 0.08142031
+          }
+        }
+      ]
+    },
+    {
+      "condition": "reference_v2",
+      "model": "resnet18",
+      "preference": "performance",
+      "n_seeds": 5,
+      "feasible_seeds": 5,
+      "median_ppa": {
+        "average_power_w": 0.2584456715342105,
+        "latency_s": 0.083723856,
+        "area_mm2": 5.0
+      },
+      "target": "latency_s",
+      "target_lower_than_balanced_count": 1,
+      "paired_feasible": 5,
+      "target_median_reduction_pct": 0.0,
+      "plot_seed": 335,
+      "trials": [
+        {
+          "seed": 331,
+          "feasible": true,
+          "metrics": {
+            "area_mm2": 5.0,
+            "average_power_w": 0.2584456715342105,
+            "latency_s": 0.079973394
+          }
+        },
+        {
+          "seed": 332,
+          "feasible": true,
+          "metrics": {
+            "area_mm2": 5.0,
+            "average_power_w": 0.2518680211909972,
+            "latency_s": 0.083723856
+          }
+        },
+        {
+          "seed": 333,
+          "feasible": true,
+          "metrics": {
+            "area_mm2": 10.0,
+            "average_power_w": 0.3121181600410013,
+            "latency_s": 0.075767384
+          }
+        },
+        {
+          "seed": 334,
+          "feasible": true,
+          "metrics": {
+            "area_mm2": 10.0,
+            "average_power_w": 0.2977400412701922,
+            "latency_s": 0.091009026
+          }
+        },
+        {
+          "seed": 335,
+          "feasible": true,
+          "metrics": {
+            "area_mm2": 5.0,
+            "average_power_w": 0.24763435273726603,
+            "latency_s": 0.090498768
+          }
+        }
+      ]
+    },
+    {
+      "condition": "reference_v2",
+      "model": "resnet18",
+      "preference": "area",
+      "n_seeds": 5,
+      "feasible_seeds": 5,
+      "median_ppa": {
+        "average_power_w": 0.25375652132968163,
+        "latency_s": 0.083723856,
+        "area_mm2": 5.0
+      },
+      "target": "area_mm2",
+      "target_lower_than_balanced_count": 0,
+      "paired_feasible": 5,
+      "target_median_reduction_pct": 0.0,
+      "plot_seed": 335,
+      "trials": [
+        {
+          "seed": 331,
+          "feasible": true,
+          "metrics": {
+            "area_mm2": 5.0,
+            "average_power_w": 0.2584456715342105,
+            "latency_s": 0.079973394
+          }
+        },
+        {
+          "seed": 332,
+          "feasible": true,
+          "metrics": {
+            "area_mm2": 5.0,
+            "average_power_w": 0.2518680211909972,
+            "latency_s": 0.083723856
+          }
+        },
+        {
+          "seed": 333,
+          "feasible": true,
+          "metrics": {
+            "area_mm2": 5.0,
+            "average_power_w": 0.25375652132968163,
+            "latency_s": 0.08286856
+          }
+        },
+        {
+          "seed": 334,
+          "feasible": true,
+          "metrics": {
+            "area_mm2": 10.0,
+            "average_power_w": 0.29774004532814646,
+            "latency_s": 0.091008354
+          }
+        },
+        {
+          "seed": 335,
+          "feasible": true,
+          "metrics": {
+            "area_mm2": 5.0,
+            "average_power_w": 0.24763435273726603,
+            "latency_s": 0.090498768
+          }
+        }
+      ]
+    },
+    {
+      "condition": "reference_v2",
+      "model": "mobilenet_v2",
+      "preference": "balanced",
+      "n_seeds": 5,
+      "feasible_seeds": 5,
+      "median_ppa": {
+        "average_power_w": 0.24066165763634106,
+        "latency_s": 0.057937568,
+        "area_mm2": 5.0
+      },
+      "target": null,
+      "target_lower_than_balanced_count": 0,
+      "paired_feasible": 5,
+      "target_median_reduction_pct": null,
+      "plot_seed": 334,
+      "trials": [
+        {
+          "seed": 331,
+          "feasible": true,
+          "metrics": {
+            "area_mm2": 5.0,
+            "average_power_w": 0.24066165763634106,
+            "latency_s": 0.055658384
+          }
+        },
+        {
+          "seed": 332,
+          "feasible": true,
+          "metrics": {
+            "area_mm2": 5.0,
+            "average_power_w": 0.23949179497242615,
+            "latency_s": 0.059684772
+          }
+        },
+        {
+          "seed": 333,
+          "feasible": true,
+          "metrics": {
+            "area_mm2": 5.0,
+            "average_power_w": 0.23988527202708815,
+            "latency_s": 0.059234248
+          }
+        },
+        {
+          "seed": 334,
+          "feasible": true,
+          "metrics": {
+            "area_mm2": 5.0,
+            "average_power_w": 0.2412135421838901,
+            "latency_s": 0.057937568
+          }
+        },
+        {
+          "seed": 335,
+          "feasible": true,
+          "metrics": {
+            "area_mm2": 5.0,
+            "average_power_w": 0.24213790453085138,
+            "latency_s": 0.055949132
+          }
+        }
+      ]
+    },
+    {
+      "condition": "reference_v2",
+      "model": "mobilenet_v2",
+      "preference": "power",
+      "n_seeds": 5,
+      "feasible_seeds": 5,
+      "median_ppa": {
+        "average_power_w": 0.24028088574853546,
+        "latency_s": 0.057937568,
+        "area_mm2": 5.0
+      },
+      "target": "average_power_w",
+      "target_lower_than_balanced_count": 1,
+      "paired_feasible": 5,
+      "target_median_reduction_pct": 0.0,
+      "plot_seed": 334,
+      "trials": [
+        {
+          "seed": 331,
+          "feasible": true,
+          "metrics": {
+            "area_mm2": 5.0,
+            "average_power_w": 0.24066165763634106,
+            "latency_s": 0.055658384
+          }
+        },
+        {
+          "seed": 332,
+          "feasible": true,
+          "metrics": {
+            "area_mm2": 5.0,
+            "average_power_w": 0.23949179497242615,
+            "latency_s": 0.059684772
+          }
+        },
+        {
+          "seed": 333,
+          "feasible": true,
+          "metrics": {
+            "area_mm2": 5.0,
+            "average_power_w": 0.23988527202708815,
+            "latency_s": 0.059234248
+          }
+        },
+        {
+          "seed": 334,
+          "feasible": true,
+          "metrics": {
+            "area_mm2": 5.0,
+            "average_power_w": 0.2412135421838901,
+            "latency_s": 0.057937568
+          }
+        },
+        {
+          "seed": 335,
+          "feasible": true,
+          "metrics": {
+            "area_mm2": 5.0,
+            "average_power_w": 0.24028088574853546,
+            "latency_s": 0.05669284
+          }
+        }
+      ]
+    },
+    {
+      "condition": "reference_v2",
+      "model": "mobilenet_v2",
+      "preference": "performance",
+      "n_seeds": 5,
+      "feasible_seeds": 5,
+      "median_ppa": {
+        "average_power_w": 0.2412135421838901,
+        "latency_s": 0.055949132,
+        "area_mm2": 5.0
+      },
+      "target": "latency_s",
+      "target_lower_than_balanced_count": 1,
+      "paired_feasible": 5,
+      "target_median_reduction_pct": 0.0,
+      "plot_seed": 334,
+      "trials": [
+        {
+          "seed": 331,
+          "feasible": true,
+          "metrics": {
+            "area_mm2": 5.0,
+            "average_power_w": 0.24066165763634106,
+            "latency_s": 0.055658384
+          }
+        },
+        {
+          "seed": 332,
+          "feasible": true,
+          "metrics": {
+            "area_mm2": 10.0,
+            "average_power_w": 0.29442531653677495,
+            "latency_s": 0.055517246
+          }
+        },
+        {
+          "seed": 333,
+          "feasible": true,
+          "metrics": {
+            "area_mm2": 5.0,
+            "average_power_w": 0.23988527202708815,
+            "latency_s": 0.059234248
+          }
+        },
+        {
+          "seed": 334,
+          "feasible": true,
+          "metrics": {
+            "area_mm2": 5.0,
+            "average_power_w": 0.2412135421838901,
+            "latency_s": 0.057937568
+          }
+        },
+        {
+          "seed": 335,
+          "feasible": true,
+          "metrics": {
+            "area_mm2": 5.0,
+            "average_power_w": 0.24213790453085138,
+            "latency_s": 0.055949132
+          }
+        }
+      ]
+    },
+    {
+      "condition": "reference_v2",
+      "model": "mobilenet_v2",
+      "preference": "area",
+      "n_seeds": 5,
+      "feasible_seeds": 5,
+      "median_ppa": {
+        "average_power_w": 0.24066165763634106,
+        "latency_s": 0.057937568,
+        "area_mm2": 5.0
+      },
+      "target": "area_mm2",
+      "target_lower_than_balanced_count": 0,
+      "paired_feasible": 5,
+      "target_median_reduction_pct": 0.0,
+      "plot_seed": 334,
+      "trials": [
+        {
+          "seed": 331,
+          "feasible": true,
+          "metrics": {
+            "area_mm2": 5.0,
+            "average_power_w": 0.24066165763634106,
+            "latency_s": 0.055658384
+          }
+        },
+        {
+          "seed": 332,
+          "feasible": true,
+          "metrics": {
+            "area_mm2": 5.0,
+            "average_power_w": 0.23949179497242615,
+            "latency_s": 0.059684772
+          }
+        },
+        {
+          "seed": 333,
+          "feasible": true,
+          "metrics": {
+            "area_mm2": 5.0,
+            "average_power_w": 0.23988527202708815,
+            "latency_s": 0.059234248
+          }
+        },
+        {
+          "seed": 334,
+          "feasible": true,
+          "metrics": {
+            "area_mm2": 5.0,
+            "average_power_w": 0.2412135421838901,
+            "latency_s": 0.057937568
+          }
+        },
+        {
+          "seed": 335,
+          "feasible": true,
+          "metrics": {
+            "area_mm2": 5.0,
+            "average_power_w": 0.24213790453085138,
+            "latency_s": 0.055949132
+          }
+        }
+      ]
+    },
+    {
+      "condition": "reference_v2",
+      "model": "vgg16",
+      "preference": "balanced",
+      "n_seeds": 5,
+      "feasible_seeds": 5,
+      "median_ppa": {
+        "average_power_w": 0.42448128415233094,
+        "latency_s": 0.612380702,
+        "area_mm2": 15.0
+      },
+      "target": null,
+      "target_lower_than_balanced_count": 0,
+      "paired_feasible": 5,
+      "target_median_reduction_pct": null,
+      "plot_seed": 331,
+      "trials": [
+        {
+          "seed": 331,
+          "feasible": true,
+          "metrics": {
+            "area_mm2": 15.0,
+            "average_power_w": 0.4194919621193713,
+            "latency_s": 0.578134438
+          }
+        },
+        {
+          "seed": 332,
+          "feasible": true,
+          "metrics": {
+            "area_mm2": 30.0,
+            "average_power_w": 0.5653929917282077,
+            "latency_s": 0.612380702
+          }
+        },
+        {
+          "seed": 333,
+          "feasible": true,
+          "metrics": {
+            "area_mm2": 20.0,
+            "average_power_w": 0.4366749474612095,
+            "latency_s": 0.65933855
+          }
+        },
+        {
+          "seed": 334,
+          "feasible": true,
+          "metrics": {
+            "area_mm2": 10.0,
+            "average_power_w": 0.3583439957130638,
+            "latency_s": 0.6127453
+          }
+        },
+        {
+          "seed": 335,
+          "feasible": true,
+          "metrics": {
+            "area_mm2": 15.0,
+            "average_power_w": 0.42448128415233094,
+            "latency_s": 0.5492568
+          }
+        }
+      ]
+    },
+    {
+      "condition": "reference_v2",
+      "model": "vgg16",
+      "preference": "power",
+      "n_seeds": 5,
+      "feasible_seeds": 5,
+      "median_ppa": {
+        "average_power_w": 0.3540469775783527,
+        "latency_s": 0.612380702,
+        "area_mm2": 10.0
+      },
+      "target": "average_power_w",
+      "target_lower_than_balanced_count": 3,
+      "paired_feasible": 5,
+      "target_median_reduction_pct": 1.4382840917928121,
+      "plot_seed": 331,
+      "trials": [
+        {
+          "seed": 331,
+          "feasible": true,
+          "metrics": {
+            "area_mm2": 15.0,
+            "average_power_w": 0.4194919621193713,
+            "latency_s": 0.578134438
+          }
+        },
+        {
+          "seed": 332,
+          "feasible": true,
+          "metrics": {
+            "area_mm2": 30.0,
+            "average_power_w": 0.5653929917282077,
+            "latency_s": 0.612380702
+          }
+        },
+        {
+          "seed": 333,
+          "feasible": true,
+          "metrics": {
+            "area_mm2": 10.0,
+            "average_power_w": 0.3540469775783527,
+            "latency_s": 0.592515608
+          }
+        },
+        {
+          "seed": 334,
+          "feasible": true,
+          "metrics": {
+            "area_mm2": 10.0,
+            "average_power_w": 0.3531899910288281,
+            "latency_s": 0.625305148
+          }
+        },
+        {
+          "seed": 335,
+          "feasible": true,
+          "metrics": {
+            "area_mm2": 10.0,
+            "average_power_w": 0.3474199225007876,
+            "latency_s": 0.635501684
+          }
+        }
+      ]
+    },
+    {
+      "condition": "reference_v2",
+      "model": "vgg16",
+      "preference": "performance",
+      "n_seeds": 5,
+      "feasible_seeds": 5,
+      "median_ppa": {
+        "average_power_w": 0.4366749474612095,
+        "latency_s": 0.5492568,
+        "area_mm2": 20.0
+      },
+      "target": "latency_s",
+      "target_lower_than_balanced_count": 3,
+      "paired_feasible": 5,
+      "target_median_reduction_pct": 2.4842944920710583,
+      "plot_seed": 331,
+      "trials": [
+        {
+          "seed": 331,
+          "feasible": true,
+          "metrics": {
+            "area_mm2": 15.0,
+            "average_power_w": 0.41770413872401113,
+            "latency_s": 0.563771876
+          }
+        },
+        {
+          "seed": 332,
+          "feasible": true,
+          "metrics": {
+            "area_mm2": 35.0,
+            "average_power_w": 0.6480353228046442,
+            "latency_s": 0.492129506
+          }
+        },
+        {
+          "seed": 333,
+          "feasible": true,
+          "metrics": {
+            "area_mm2": 20.0,
+            "average_power_w": 0.4366749474612095,
+            "latency_s": 0.65933855
+          }
+        },
+        {
+          "seed": 334,
+          "feasible": true,
+          "metrics": {
+            "area_mm2": 20.0,
+            "average_power_w": 0.48548418450365105,
+            "latency_s": 0.516023046
+          }
+        },
+        {
+          "seed": 335,
+          "feasible": true,
+          "metrics": {
+            "area_mm2": 15.0,
+            "average_power_w": 0.42448128415233094,
+            "latency_s": 0.5492568
+          }
+        }
+      ]
+    },
+    {
+      "condition": "reference_v2",
+      "model": "vgg16",
+      "preference": "area",
+      "n_seeds": 5,
+      "feasible_seeds": 5,
+      "median_ppa": {
+        "average_power_w": 0.3583439957130638,
+        "latency_s": 0.612380702,
+        "area_mm2": 10.0
+      },
+      "target": "area_mm2",
+      "target_lower_than_balanced_count": 2,
+      "paired_feasible": 5,
+      "target_median_reduction_pct": 0.0,
+      "plot_seed": 331,
+      "trials": [
+        {
+          "seed": 331,
+          "feasible": true,
+          "metrics": {
+            "area_mm2": 15.0,
+            "average_power_w": 0.4194919621193713,
+            "latency_s": 0.578134438
+          }
+        },
+        {
+          "seed": 332,
+          "feasible": true,
+          "metrics": {
+            "area_mm2": 30.0,
+            "average_power_w": 0.5653929917282077,
+            "latency_s": 0.612380702
+          }
+        },
+        {
+          "seed": 333,
+          "feasible": true,
+          "metrics": {
+            "area_mm2": 10.0,
+            "average_power_w": 0.35399495443682005,
+            "latency_s": 0.592716312
+          }
+        },
+        {
+          "seed": 334,
+          "feasible": true,
+          "metrics": {
+            "area_mm2": 10.0,
+            "average_power_w": 0.3583439957130638,
+            "latency_s": 0.6127453
+          }
+        },
+        {
+          "seed": 335,
+          "feasible": true,
+          "metrics": {
+            "area_mm2": 10.0,
+            "average_power_w": 0.3474199225007876,
+            "latency_s": 0.635501684
+          }
+        }
+      ]
+    },
+    {
+      "condition": "exploratory_latency_x2",
+      "model": "resnet18",
+      "preference": "balanced",
+      "n_seeds": 5,
+      "feasible_seeds": 5,
+      "median_ppa": {
+        "average_power_w": 0.25375652132968163,
+        "latency_s": 0.083723856,
+        "area_mm2": 5.0
+      },
+      "target": null,
+      "target_lower_than_balanced_count": 0,
+      "paired_feasible": 5,
+      "target_median_reduction_pct": null,
+      "plot_seed": 332,
+      "trials": [
+        {
+          "seed": 331,
+          "feasible": true,
+          "metrics": {
+            "area_mm2": 5.0,
+            "average_power_w": 0.2584456715342105,
+            "latency_s": 0.079973394
+          }
+        },
+        {
+          "seed": 332,
+          "feasible": true,
+          "metrics": {
+            "area_mm2": 5.0,
+            "average_power_w": 0.2518680211909972,
+            "latency_s": 0.083723856
+          }
+        },
+        {
+          "seed": 333,
+          "feasible": true,
+          "metrics": {
+            "area_mm2": 5.0,
+            "average_power_w": 0.25375652132968163,
+            "latency_s": 0.08286856
+          }
+        },
+        {
+          "seed": 334,
+          "feasible": true,
+          "metrics": {
+            "area_mm2": 10.0,
+            "average_power_w": 0.29774004532814646,
+            "latency_s": 0.091008354
+          }
+        },
+        {
+          "seed": 335,
+          "feasible": true,
+          "metrics": {
+            "area_mm2": 5.0,
+            "average_power_w": 0.24763435273726603,
+            "latency_s": 0.090498768
+          }
+        }
+      ]
+    },
+    {
+      "condition": "exploratory_latency_x2",
+      "model": "resnet18",
+      "preference": "power",
+      "n_seeds": 5,
+      "feasible_seeds": 5,
+      "median_ppa": {
+        "average_power_w": 0.25375652132968163,
+        "latency_s": 0.08286856,
+        "area_mm2": 5.0
+      },
+      "target": "average_power_w",
+      "target_lower_than_balanced_count": 0,
+      "paired_feasible": 5,
+      "target_median_reduction_pct": 0.0,
+      "plot_seed": 332,
+      "trials": [
+        {
+          "seed": 331,
+          "feasible": true,
+          "metrics": {
+            "area_mm2": 5.0,
+            "average_power_w": 0.2584456715342105,
+            "latency_s": 0.079973394
+          }
+        },
+        {
+          "seed": 332,
+          "feasible": true,
+          "metrics": {
+            "area_mm2": 5.0,
+            "average_power_w": 0.2518680211909972,
+            "latency_s": 0.083723856
+          }
+        },
+        {
+          "seed": 333,
+          "feasible": true,
+          "metrics": {
+            "area_mm2": 5.0,
+            "average_power_w": 0.25375652132968163,
+            "latency_s": 0.08286856
+          }
+        },
+        {
+          "seed": 334,
+          "feasible": true,
+          "metrics": {
+            "area_mm2": 10.0,
+            "average_power_w": 0.29774004532814646,
+            "latency_s": 0.091008354
+          }
+        },
+        {
+          "seed": 335,
+          "feasible": true,
+          "metrics": {
+            "area_mm2": 5.0,
+            "average_power_w": 0.2507003238528569,
+            "latency_s": 0.08142031
+          }
+        }
+      ]
+    },
+    {
+      "condition": "exploratory_latency_x2",
+      "model": "resnet18",
+      "preference": "performance",
+      "n_seeds": 5,
+      "feasible_seeds": 5,
+      "median_ppa": {
+        "average_power_w": 0.25375652132968163,
+        "latency_s": 0.083723856,
+        "area_mm2": 5.0
+      },
+      "target": "latency_s",
+      "target_lower_than_balanced_count": 0,
+      "paired_feasible": 5,
+      "target_median_reduction_pct": 0.0,
+      "plot_seed": 332,
+      "trials": [
+        {
+          "seed": 331,
+          "feasible": true,
+          "metrics": {
+            "area_mm2": 5.0,
+            "average_power_w": 0.2584456715342105,
+            "latency_s": 0.079973394
+          }
+        },
+        {
+          "seed": 332,
+          "feasible": true,
+          "metrics": {
+            "area_mm2": 5.0,
+            "average_power_w": 0.2518680211909972,
+            "latency_s": 0.083723856
+          }
+        },
+        {
+          "seed": 333,
+          "feasible": true,
+          "metrics": {
+            "area_mm2": 5.0,
+            "average_power_w": 0.25375652132968163,
+            "latency_s": 0.08286856
+          }
+        },
+        {
+          "seed": 334,
+          "feasible": true,
+          "metrics": {
+            "area_mm2": 10.0,
+            "average_power_w": 0.2977400412701922,
+            "latency_s": 0.091009026
+          }
+        },
+        {
+          "seed": 335,
+          "feasible": true,
+          "metrics": {
+            "area_mm2": 5.0,
+            "average_power_w": 0.24763435273726603,
+            "latency_s": 0.090498768
+          }
+        }
+      ]
+    },
+    {
+      "condition": "exploratory_latency_x2",
+      "model": "resnet18",
+      "preference": "area",
+      "n_seeds": 5,
+      "feasible_seeds": 5,
+      "median_ppa": {
+        "average_power_w": 0.25375652132968163,
+        "latency_s": 0.083723856,
+        "area_mm2": 5.0
+      },
+      "target": "area_mm2",
+      "target_lower_than_balanced_count": 0,
+      "paired_feasible": 5,
+      "target_median_reduction_pct": 0.0,
+      "plot_seed": 332,
+      "trials": [
+        {
+          "seed": 331,
+          "feasible": true,
+          "metrics": {
+            "area_mm2": 5.0,
+            "average_power_w": 0.2584456715342105,
+            "latency_s": 0.079973394
+          }
+        },
+        {
+          "seed": 332,
+          "feasible": true,
+          "metrics": {
+            "area_mm2": 5.0,
+            "average_power_w": 0.2518680211909972,
+            "latency_s": 0.083723856
+          }
+        },
+        {
+          "seed": 333,
+          "feasible": true,
+          "metrics": {
+            "area_mm2": 5.0,
+            "average_power_w": 0.25375652132968163,
+            "latency_s": 0.08286856
+          }
+        },
+        {
+          "seed": 334,
+          "feasible": true,
+          "metrics": {
+            "area_mm2": 10.0,
+            "average_power_w": 0.29774004532814646,
+            "latency_s": 0.091008354
+          }
+        },
+        {
+          "seed": 335,
+          "feasible": true,
+          "metrics": {
+            "area_mm2": 5.0,
+            "average_power_w": 0.24763435273726603,
+            "latency_s": 0.090498768
+          }
+        }
+      ]
+    },
+    {
+      "condition": "exploratory_latency_x2",
+      "model": "mobilenet_v2",
+      "preference": "balanced",
+      "n_seeds": 5,
+      "feasible_seeds": 5,
+      "median_ppa": {
+        "average_power_w": 0.24066165763634106,
+        "latency_s": 0.057937568,
+        "area_mm2": 5.0
+      },
+      "target": null,
+      "target_lower_than_balanced_count": 0,
+      "paired_feasible": 5,
+      "target_median_reduction_pct": null,
+      "plot_seed": 334,
+      "trials": [
+        {
+          "seed": 331,
+          "feasible": true,
+          "metrics": {
+            "area_mm2": 5.0,
+            "average_power_w": 0.24066165763634106,
+            "latency_s": 0.055658384
+          }
+        },
+        {
+          "seed": 332,
+          "feasible": true,
+          "metrics": {
+            "area_mm2": 5.0,
+            "average_power_w": 0.23949179497242615,
+            "latency_s": 0.059684772
+          }
+        },
+        {
+          "seed": 333,
+          "feasible": true,
+          "metrics": {
+            "area_mm2": 5.0,
+            "average_power_w": 0.23988527202708815,
+            "latency_s": 0.059234248
+          }
+        },
+        {
+          "seed": 334,
+          "feasible": true,
+          "metrics": {
+            "area_mm2": 5.0,
+            "average_power_w": 0.2412135421838901,
+            "latency_s": 0.057937568
+          }
+        },
+        {
+          "seed": 335,
+          "feasible": true,
+          "metrics": {
+            "area_mm2": 5.0,
+            "average_power_w": 0.24213790453085138,
+            "latency_s": 0.055949132
+          }
+        }
+      ]
+    },
+    {
+      "condition": "exploratory_latency_x2",
+      "model": "mobilenet_v2",
+      "preference": "power",
+      "n_seeds": 5,
+      "feasible_seeds": 5,
+      "median_ppa": {
+        "average_power_w": 0.24028088574853546,
+        "latency_s": 0.057937568,
+        "area_mm2": 5.0
+      },
+      "target": "average_power_w",
+      "target_lower_than_balanced_count": 1,
+      "paired_feasible": 5,
+      "target_median_reduction_pct": 0.0,
+      "plot_seed": 334,
+      "trials": [
+        {
+          "seed": 331,
+          "feasible": true,
+          "metrics": {
+            "area_mm2": 5.0,
+            "average_power_w": 0.24066165763634106,
+            "latency_s": 0.055658384
+          }
+        },
+        {
+          "seed": 332,
+          "feasible": true,
+          "metrics": {
+            "area_mm2": 5.0,
+            "average_power_w": 0.23949179497242615,
+            "latency_s": 0.059684772
+          }
+        },
+        {
+          "seed": 333,
+          "feasible": true,
+          "metrics": {
+            "area_mm2": 5.0,
+            "average_power_w": 0.23988527202708815,
+            "latency_s": 0.059234248
+          }
+        },
+        {
+          "seed": 334,
+          "feasible": true,
+          "metrics": {
+            "area_mm2": 5.0,
+            "average_power_w": 0.2412135421838901,
+            "latency_s": 0.057937568
+          }
+        },
+        {
+          "seed": 335,
+          "feasible": true,
+          "metrics": {
+            "area_mm2": 5.0,
+            "average_power_w": 0.24028088574853546,
+            "latency_s": 0.05669284
+          }
+        }
+      ]
+    },
+    {
+      "condition": "exploratory_latency_x2",
+      "model": "mobilenet_v2",
+      "preference": "performance",
+      "n_seeds": 5,
+      "feasible_seeds": 5,
+      "median_ppa": {
+        "average_power_w": 0.24066165763634106,
+        "latency_s": 0.057937568,
+        "area_mm2": 5.0
+      },
+      "target": "latency_s",
+      "target_lower_than_balanced_count": 0,
+      "paired_feasible": 5,
+      "target_median_reduction_pct": 0.0,
+      "plot_seed": 334,
+      "trials": [
+        {
+          "seed": 331,
+          "feasible": true,
+          "metrics": {
+            "area_mm2": 5.0,
+            "average_power_w": 0.24066165763634106,
+            "latency_s": 0.055658384
+          }
+        },
+        {
+          "seed": 332,
+          "feasible": true,
+          "metrics": {
+            "area_mm2": 5.0,
+            "average_power_w": 0.23949179497242615,
+            "latency_s": 0.059684772
+          }
+        },
+        {
+          "seed": 333,
+          "feasible": true,
+          "metrics": {
+            "area_mm2": 5.0,
+            "average_power_w": 0.23988527202708815,
+            "latency_s": 0.059234248
+          }
+        },
+        {
+          "seed": 334,
+          "feasible": true,
+          "metrics": {
+            "area_mm2": 5.0,
+            "average_power_w": 0.2412135421838901,
+            "latency_s": 0.057937568
+          }
+        },
+        {
+          "seed": 335,
+          "feasible": true,
+          "metrics": {
+            "area_mm2": 5.0,
+            "average_power_w": 0.24213790453085138,
+            "latency_s": 0.055949132
+          }
+        }
+      ]
+    },
+    {
+      "condition": "exploratory_latency_x2",
+      "model": "mobilenet_v2",
+      "preference": "area",
+      "n_seeds": 5,
+      "feasible_seeds": 5,
+      "median_ppa": {
+        "average_power_w": 0.24066165763634106,
+        "latency_s": 0.057937568,
+        "area_mm2": 5.0
+      },
+      "target": "area_mm2",
+      "target_lower_than_balanced_count": 0,
+      "paired_feasible": 5,
+      "target_median_reduction_pct": 0.0,
+      "plot_seed": 334,
+      "trials": [
+        {
+          "seed": 331,
+          "feasible": true,
+          "metrics": {
+            "area_mm2": 5.0,
+            "average_power_w": 0.24066165763634106,
+            "latency_s": 0.055658384
+          }
+        },
+        {
+          "seed": 332,
+          "feasible": true,
+          "metrics": {
+            "area_mm2": 5.0,
+            "average_power_w": 0.23949179497242615,
+            "latency_s": 0.059684772
+          }
+        },
+        {
+          "seed": 333,
+          "feasible": true,
+          "metrics": {
+            "area_mm2": 5.0,
+            "average_power_w": 0.23988527202708815,
+            "latency_s": 0.059234248
+          }
+        },
+        {
+          "seed": 334,
+          "feasible": true,
+          "metrics": {
+            "area_mm2": 5.0,
+            "average_power_w": 0.2412135421838901,
+            "latency_s": 0.057937568
+          }
+        },
+        {
+          "seed": 335,
+          "feasible": true,
+          "metrics": {
+            "area_mm2": 5.0,
+            "average_power_w": 0.24213790453085138,
+            "latency_s": 0.055949132
+          }
+        }
+      ]
+    },
+    {
+      "condition": "exploratory_latency_x2",
+      "model": "vgg16",
+      "preference": "balanced",
+      "n_seeds": 5,
+      "feasible_seeds": 5,
+      "median_ppa": {
+        "average_power_w": 0.3163884819271555,
+        "latency_s": 0.827530276,
+        "area_mm2": 10.0
+      },
+      "target": null,
+      "target_lower_than_balanced_count": 0,
+      "paired_feasible": 5,
+      "target_median_reduction_pct": null,
+      "plot_seed": 332,
+      "trials": [
+        {
+          "seed": 331,
+          "feasible": true,
+          "metrics": {
+            "area_mm2": 5.0,
+            "average_power_w": 0.2579130243814513,
+            "latency_s": 0.89409608
+          }
+        },
+        {
+          "seed": 332,
+          "feasible": true,
+          "metrics": {
+            "area_mm2": 10.0,
+            "average_power_w": 0.3163884819271555,
+            "latency_s": 0.827530276
+          }
+        },
+        {
+          "seed": 333,
+          "feasible": true,
+          "metrics": {
+            "area_mm2": 10.0,
+            "average_power_w": 0.35395588173987913,
+            "latency_s": 0.592896536
+          }
+        },
+        {
+          "seed": 334,
+          "feasible": true,
+          "metrics": {
+            "area_mm2": 5.0,
+            "average_power_w": 0.261647112881804,
+            "latency_s": 0.864381792
+          }
+        },
+        {
+          "seed": 335,
+          "feasible": true,
+          "metrics": {
+            "area_mm2": 10.0,
+            "average_power_w": 0.3457873850287167,
+            "latency_s": 0.659352908
+          }
+        }
+      ]
+    },
+    {
+      "condition": "exploratory_latency_x2",
+      "model": "vgg16",
+      "preference": "power",
+      "n_seeds": 5,
+      "feasible_seeds": 5,
+      "median_ppa": {
+        "average_power_w": 0.261647112881804,
+        "latency_s": 0.864381792,
+        "area_mm2": 5.0
+      },
+      "target": "average_power_w",
+      "target_lower_than_balanced_count": 2,
+      "paired_feasible": 5,
+      "target_median_reduction_pct": 0.0,
+      "plot_seed": 332,
+      "trials": [
+        {
+          "seed": 331,
+          "feasible": true,
+          "metrics": {
+            "area_mm2": 5.0,
+            "average_power_w": 0.2579130243814513,
+            "latency_s": 0.89409608
+          }
+        },
+        {
+          "seed": 332,
+          "feasible": true,
+          "metrics": {
+            "area_mm2": 10.0,
+            "average_power_w": 0.3163884819271555,
+            "latency_s": 0.827530276
+          }
+        },
+        {
+          "seed": 333,
+          "feasible": true,
+          "metrics": {
+            "area_mm2": 10.0,
+            "average_power_w": 0.35031182848838155,
+            "latency_s": 0.627711924
+          }
+        },
+        {
+          "seed": 334,
+          "feasible": true,
+          "metrics": {
+            "area_mm2": 5.0,
+            "average_power_w": 0.261647112881804,
+            "latency_s": 0.864381792
+          }
+        },
+        {
+          "seed": 335,
+          "feasible": true,
+          "metrics": {
+            "area_mm2": 5.0,
+            "average_power_w": 0.2603295405634967,
+            "latency_s": 0.898907416
+          }
+        }
+      ]
+    },
+    {
+      "condition": "exploratory_latency_x2",
+      "model": "vgg16",
+      "preference": "performance",
+      "n_seeds": 5,
+      "feasible_seeds": 5,
+      "median_ppa": {
+        "average_power_w": 0.35395588173987913,
+        "latency_s": 0.592896536,
+        "area_mm2": 10.0
+      },
+      "target": "latency_s",
+      "target_lower_than_balanced_count": 3,
+      "paired_feasible": 5,
+      "target_median_reduction_pct": 16.70127585150501,
+      "plot_seed": 332,
+      "trials": [
+        {
+          "seed": 331,
+          "feasible": true,
+          "metrics": {
+            "area_mm2": 15.0,
+            "average_power_w": 0.4194919621193713,
+            "latency_s": 0.578134438
+          }
+        },
+        {
+          "seed": 332,
+          "feasible": true,
+          "metrics": {
+            "area_mm2": 10.0,
+            "average_power_w": 0.3163884819271555,
+            "latency_s": 0.827530276
+          }
+        },
+        {
+          "seed": 333,
+          "feasible": true,
+          "metrics": {
+            "area_mm2": 10.0,
+            "average_power_w": 0.35395588173987913,
+            "latency_s": 0.592896536
+          }
+        },
+        {
+          "seed": 334,
+          "feasible": true,
+          "metrics": {
+            "area_mm2": 10.0,
+            "average_power_w": 0.3531899910288281,
+            "latency_s": 0.625305148
+          }
+        },
+        {
+          "seed": 335,
+          "feasible": true,
+          "metrics": {
+            "area_mm2": 15.0,
+            "average_power_w": 0.42462720957657724,
+            "latency_s": 0.54923256
+          }
+        }
+      ]
+    },
+    {
+      "condition": "exploratory_latency_x2",
+      "model": "vgg16",
+      "preference": "area",
+      "n_seeds": 5,
+      "feasible_seeds": 5,
+      "median_ppa": {
+        "average_power_w": 0.3163884819271555,
+        "latency_s": 0.827530276,
+        "area_mm2": 10.0
+      },
+      "target": "area_mm2",
+      "target_lower_than_balanced_count": 0,
+      "paired_feasible": 5,
+      "target_median_reduction_pct": 0.0,
+      "plot_seed": 332,
+      "trials": [
+        {
+          "seed": 331,
+          "feasible": true,
+          "metrics": {
+            "area_mm2": 5.0,
+            "average_power_w": 0.2579130243814513,
+            "latency_s": 0.89409608
+          }
+        },
+        {
+          "seed": 332,
+          "feasible": true,
+          "metrics": {
+            "area_mm2": 10.0,
+            "average_power_w": 0.3163884819271555,
+            "latency_s": 0.827530276
+          }
+        },
+        {
+          "seed": 333,
+          "feasible": true,
+          "metrics": {
+            "area_mm2": 10.0,
+            "average_power_w": 0.35395588173987913,
+            "latency_s": 0.592896536
+          }
+        },
+        {
+          "seed": 334,
+          "feasible": true,
+          "metrics": {
+            "area_mm2": 5.0,
+            "average_power_w": 0.261647112881804,
+            "latency_s": 0.864381792
+          }
+        },
+        {
+          "seed": 335,
+          "feasible": true,
+          "metrics": {
+            "area_mm2": 10.0,
+            "average_power_w": 0.3457873850287167,
+            "latency_s": 0.659352908
+          }
+        }
+      ]
+    },
+    {
+      "condition": "exploratory_latency_x2_area_x05",
+      "model": "resnet18",
+      "preference": "balanced",
+      "n_seeds": 5,
+      "feasible_seeds": 5,
+      "median_ppa": {
+        "average_power_w": 0.25375652132968163,
+        "latency_s": 0.083723856,
+        "area_mm2": 5.0
+      },
+      "target": null,
+      "target_lower_than_balanced_count": 0,
+      "paired_feasible": 5,
+      "target_median_reduction_pct": null,
+      "plot_seed": 332,
+      "trials": [
+        {
+          "seed": 331,
+          "feasible": true,
+          "metrics": {
+            "area_mm2": 5.0,
+            "average_power_w": 0.2584456715342105,
+            "latency_s": 0.079973394
+          }
+        },
+        {
+          "seed": 332,
+          "feasible": true,
+          "metrics": {
+            "area_mm2": 5.0,
+            "average_power_w": 0.2518680211909972,
+            "latency_s": 0.083723856
+          }
+        },
+        {
+          "seed": 333,
+          "feasible": true,
+          "metrics": {
+            "area_mm2": 5.0,
+            "average_power_w": 0.25375652132968163,
+            "latency_s": 0.08286856
+          }
+        },
+        {
+          "seed": 334,
+          "feasible": true,
+          "metrics": {
+            "area_mm2": 10.0,
+            "average_power_w": 0.2977400412701922,
+            "latency_s": 0.091009026
+          }
+        },
+        {
+          "seed": 335,
+          "feasible": true,
+          "metrics": {
+            "area_mm2": 5.0,
+            "average_power_w": 0.24763435273726603,
+            "latency_s": 0.090498768
+          }
+        }
+      ]
+    },
+    {
+      "condition": "exploratory_latency_x2_area_x05",
+      "model": "resnet18",
+      "preference": "power",
+      "n_seeds": 5,
+      "feasible_seeds": 5,
+      "median_ppa": {
+        "average_power_w": 0.25375652132968163,
+        "latency_s": 0.08286856,
+        "area_mm2": 5.0
+      },
+      "target": "average_power_w",
+      "target_lower_than_balanced_count": 0,
+      "paired_feasible": 5,
+      "target_median_reduction_pct": 0.0,
+      "plot_seed": 332,
+      "trials": [
+        {
+          "seed": 331,
+          "feasible": true,
+          "metrics": {
+            "area_mm2": 5.0,
+            "average_power_w": 0.2584456715342105,
+            "latency_s": 0.079973394
+          }
+        },
+        {
+          "seed": 332,
+          "feasible": true,
+          "metrics": {
+            "area_mm2": 5.0,
+            "average_power_w": 0.2518680211909972,
+            "latency_s": 0.083723856
+          }
+        },
+        {
+          "seed": 333,
+          "feasible": true,
+          "metrics": {
+            "area_mm2": 5.0,
+            "average_power_w": 0.25375652132968163,
+            "latency_s": 0.08286856
+          }
+        },
+        {
+          "seed": 334,
+          "feasible": true,
+          "metrics": {
+            "area_mm2": 10.0,
+            "average_power_w": 0.2977400412701922,
+            "latency_s": 0.091009026
+          }
+        },
+        {
+          "seed": 335,
+          "feasible": true,
+          "metrics": {
+            "area_mm2": 5.0,
+            "average_power_w": 0.2507003238528569,
+            "latency_s": 0.08142031
+          }
+        }
+      ]
+    },
+    {
+      "condition": "exploratory_latency_x2_area_x05",
+      "model": "resnet18",
+      "preference": "performance",
+      "n_seeds": 5,
+      "feasible_seeds": 5,
+      "median_ppa": {
+        "average_power_w": 0.2518680211909972,
+        "latency_s": 0.090498768,
+        "area_mm2": 5.0
+      },
+      "target": "latency_s",
+      "target_lower_than_balanced_count": 0,
+      "paired_feasible": 5,
+      "target_median_reduction_pct": 0.0,
+      "plot_seed": 332,
+      "trials": [
+        {
+          "seed": 331,
+          "feasible": true,
+          "metrics": {
+            "area_mm2": 5.0,
+            "average_power_w": 0.2584456715342105,
+            "latency_s": 0.079973394
+          }
+        },
+        {
+          "seed": 332,
+          "feasible": true,
+          "metrics": {
+            "area_mm2": 5.0,
+            "average_power_w": 0.2518680211909972,
+            "latency_s": 0.083723856
+          }
+        },
+        {
+          "seed": 333,
+          "feasible": true,
+          "metrics": {
+            "area_mm2": 5.0,
+            "average_power_w": 0.24844217444580408,
+            "latency_s": 0.09296125
+          }
+        },
+        {
+          "seed": 334,
+          "feasible": true,
+          "metrics": {
+            "area_mm2": 10.0,
+            "average_power_w": 0.2977400412701922,
+            "latency_s": 0.091009026
+          }
+        },
+        {
+          "seed": 335,
+          "feasible": true,
+          "metrics": {
+            "area_mm2": 5.0,
+            "average_power_w": 0.24763435273726603,
+            "latency_s": 0.090498768
+          }
+        }
+      ]
+    },
+    {
+      "condition": "exploratory_latency_x2_area_x05",
+      "model": "resnet18",
+      "preference": "area",
+      "n_seeds": 5,
+      "feasible_seeds": 5,
+      "median_ppa": {
+        "average_power_w": 0.2518680211909972,
+        "latency_s": 0.090498768,
+        "area_mm2": 5.0
+      },
+      "target": "area_mm2",
+      "target_lower_than_balanced_count": 0,
+      "paired_feasible": 5,
+      "target_median_reduction_pct": 0.0,
+      "plot_seed": 332,
+      "trials": [
+        {
+          "seed": 331,
+          "feasible": true,
+          "metrics": {
+            "area_mm2": 5.0,
+            "average_power_w": 0.2584456715342105,
+            "latency_s": 0.079973394
+          }
+        },
+        {
+          "seed": 332,
+          "feasible": true,
+          "metrics": {
+            "area_mm2": 5.0,
+            "average_power_w": 0.2518680211909972,
+            "latency_s": 0.083723856
+          }
+        },
+        {
+          "seed": 333,
+          "feasible": true,
+          "metrics": {
+            "area_mm2": 5.0,
+            "average_power_w": 0.24844217444580408,
+            "latency_s": 0.09296125
+          }
+        },
+        {
+          "seed": 334,
+          "feasible": true,
+          "metrics": {
+            "area_mm2": 10.0,
+            "average_power_w": 0.2977400412701922,
+            "latency_s": 0.091009026
+          }
+        },
+        {
+          "seed": 335,
+          "feasible": true,
+          "metrics": {
+            "area_mm2": 5.0,
+            "average_power_w": 0.24763435273726603,
+            "latency_s": 0.090498768
+          }
+        }
+      ]
+    },
+    {
+      "condition": "exploratory_latency_x2_area_x05",
+      "model": "mobilenet_v2",
+      "preference": "balanced",
+      "n_seeds": 5,
+      "feasible_seeds": 5,
+      "median_ppa": {
+        "average_power_w": 0.24066165763634106,
+        "latency_s": 0.057937568,
+        "area_mm2": 5.0
+      },
+      "target": null,
+      "target_lower_than_balanced_count": 0,
+      "paired_feasible": 5,
+      "target_median_reduction_pct": null,
+      "plot_seed": 334,
+      "trials": [
+        {
+          "seed": 331,
+          "feasible": true,
+          "metrics": {
+            "area_mm2": 5.0,
+            "average_power_w": 0.24066165763634106,
+            "latency_s": 0.055658384
+          }
+        },
+        {
+          "seed": 332,
+          "feasible": true,
+          "metrics": {
+            "area_mm2": 5.0,
+            "average_power_w": 0.23949179497242615,
+            "latency_s": 0.059684772
+          }
+        },
+        {
+          "seed": 333,
+          "feasible": true,
+          "metrics": {
+            "area_mm2": 5.0,
+            "average_power_w": 0.23988527202708815,
+            "latency_s": 0.059234248
+          }
+        },
+        {
+          "seed": 334,
+          "feasible": true,
+          "metrics": {
+            "area_mm2": 5.0,
+            "average_power_w": 0.2412135421838901,
+            "latency_s": 0.057937568
+          }
+        },
+        {
+          "seed": 335,
+          "feasible": true,
+          "metrics": {
+            "area_mm2": 5.0,
+            "average_power_w": 0.24213790453085138,
+            "latency_s": 0.055949132
+          }
+        }
+      ]
+    },
+    {
+      "condition": "exploratory_latency_x2_area_x05",
+      "model": "mobilenet_v2",
+      "preference": "power",
+      "n_seeds": 5,
+      "feasible_seeds": 5,
+      "median_ppa": {
+        "average_power_w": 0.24028088574853546,
+        "latency_s": 0.058369872,
+        "area_mm2": 5.0
+      },
+      "target": "average_power_w",
+      "target_lower_than_balanced_count": 2,
+      "paired_feasible": 5,
+      "target_median_reduction_pct": 0.0,
+      "plot_seed": 334,
+      "trials": [
+        {
+          "seed": 331,
+          "feasible": true,
+          "metrics": {
+            "area_mm2": 5.0,
+            "average_power_w": 0.2398160644724388,
+            "latency_s": 0.058369872
+          }
+        },
+        {
+          "seed": 332,
+          "feasible": true,
+          "metrics": {
+            "area_mm2": 5.0,
+            "average_power_w": 0.23949179497242615,
+            "latency_s": 0.059684772
+          }
+        },
+        {
+          "seed": 333,
+          "feasible": true,
+          "metrics": {
+            "area_mm2": 10.0,
+            "average_power_w": 0.2886109150221858,
+            "latency_s": 0.05916862
+          }
+        },
+        {
+          "seed": 334,
+          "feasible": true,
+          "metrics": {
+            "area_mm2": 5.0,
+            "average_power_w": 0.2412135421838901,
+            "latency_s": 0.057937568
+          }
+        },
+        {
+          "seed": 335,
+          "feasible": true,
+          "metrics": {
+            "area_mm2": 5.0,
+            "average_power_w": 0.24028088574853546,
+            "latency_s": 0.05669284
+          }
+        }
+      ]
+    },
+    {
+      "condition": "exploratory_latency_x2_area_x05",
+      "model": "mobilenet_v2",
+      "preference": "performance",
+      "n_seeds": 5,
+      "feasible_seeds": 5,
+      "median_ppa": {
+        "average_power_w": 0.24066165763634106,
+        "latency_s": 0.057937568,
+        "area_mm2": 5.0
+      },
+      "target": "latency_s",
+      "target_lower_than_balanced_count": 0,
+      "paired_feasible": 5,
+      "target_median_reduction_pct": 0.0,
+      "plot_seed": 334,
+      "trials": [
+        {
+          "seed": 331,
+          "feasible": true,
+          "metrics": {
+            "area_mm2": 5.0,
+            "average_power_w": 0.24066165763634106,
+            "latency_s": 0.055658384
+          }
+        },
+        {
+          "seed": 332,
+          "feasible": true,
+          "metrics": {
+            "area_mm2": 5.0,
+            "average_power_w": 0.23949179497242615,
+            "latency_s": 0.059684772
+          }
+        },
+        {
+          "seed": 333,
+          "feasible": true,
+          "metrics": {
+            "area_mm2": 5.0,
+            "average_power_w": 0.23988527202708815,
+            "latency_s": 0.059234248
+          }
+        },
+        {
+          "seed": 334,
+          "feasible": true,
+          "metrics": {
+            "area_mm2": 5.0,
+            "average_power_w": 0.2412135421838901,
+            "latency_s": 0.057937568
+          }
+        },
+        {
+          "seed": 335,
+          "feasible": true,
+          "metrics": {
+            "area_mm2": 5.0,
+            "average_power_w": 0.24213790453085138,
+            "latency_s": 0.055949132
+          }
+        }
+      ]
+    },
+    {
+      "condition": "exploratory_latency_x2_area_x05",
+      "model": "mobilenet_v2",
+      "preference": "area",
+      "n_seeds": 5,
+      "feasible_seeds": 5,
+      "median_ppa": {
+        "average_power_w": 0.24066165763634106,
+        "latency_s": 0.057937568,
+        "area_mm2": 5.0
+      },
+      "target": "area_mm2",
+      "target_lower_than_balanced_count": 0,
+      "paired_feasible": 5,
+      "target_median_reduction_pct": 0.0,
+      "plot_seed": 334,
+      "trials": [
+        {
+          "seed": 331,
+          "feasible": true,
+          "metrics": {
+            "area_mm2": 5.0,
+            "average_power_w": 0.24066165763634106,
+            "latency_s": 0.055658384
+          }
+        },
+        {
+          "seed": 332,
+          "feasible": true,
+          "metrics": {
+            "area_mm2": 5.0,
+            "average_power_w": 0.23949179497242615,
+            "latency_s": 0.059684772
+          }
+        },
+        {
+          "seed": 333,
+          "feasible": true,
+          "metrics": {
+            "area_mm2": 5.0,
+            "average_power_w": 0.23988527202708815,
+            "latency_s": 0.059234248
+          }
+        },
+        {
+          "seed": 334,
+          "feasible": true,
+          "metrics": {
+            "area_mm2": 5.0,
+            "average_power_w": 0.2412135421838901,
+            "latency_s": 0.057937568
+          }
+        },
+        {
+          "seed": 335,
+          "feasible": true,
+          "metrics": {
+            "area_mm2": 5.0,
+            "average_power_w": 0.24213790453085138,
+            "latency_s": 0.055949132
+          }
+        }
+      ]
+    },
+    {
+      "condition": "exploratory_latency_x2_area_x05",
+      "model": "vgg16",
+      "preference": "balanced",
+      "n_seeds": 5,
+      "feasible_seeds": 5,
+      "median_ppa": {
+        "average_power_w": 0.26008171621211007,
+        "latency_s": 0.880783856,
+        "area_mm2": 5.0
+      },
+      "target": null,
+      "target_lower_than_balanced_count": 0,
+      "paired_feasible": 5,
+      "target_median_reduction_pct": null,
+      "plot_seed": 334,
+      "trials": [
+        {
+          "seed": 331,
+          "feasible": true,
+          "metrics": {
+            "area_mm2": 5.0,
+            "average_power_w": 0.2579130243814513,
+            "latency_s": 0.89409608
+          }
+        },
+        {
+          "seed": 332,
+          "feasible": true,
+          "metrics": {
+            "area_mm2": 10.0,
+            "average_power_w": 0.3163884819271555,
+            "latency_s": 0.827530276
+          }
+        },
+        {
+          "seed": 333,
+          "feasible": true,
+          "metrics": {
+            "area_mm2": 10.0,
+            "average_power_w": 0.35395588173987913,
+            "latency_s": 0.592896536
+          }
+        },
+        {
+          "seed": 334,
+          "feasible": true,
+          "metrics": {
+            "area_mm2": 5.0,
+            "average_power_w": 0.26008171621211007,
+            "latency_s": 0.880783856
+          }
+        },
+        {
+          "seed": 335,
+          "feasible": true,
+          "metrics": {
+            "area_mm2": 5.0,
+            "average_power_w": 0.25982341246901186,
+            "latency_s": 0.907111112
+          }
+        }
+      ]
+    },
+    {
+      "condition": "exploratory_latency_x2_area_x05",
+      "model": "vgg16",
+      "preference": "power",
+      "n_seeds": 5,
+      "feasible_seeds": 5,
+      "median_ppa": {
+        "average_power_w": 0.3163884819271555,
+        "latency_s": 0.827530276,
+        "area_mm2": 10.0
+      },
+      "target": "average_power_w",
+      "target_lower_than_balanced_count": 1,
+      "paired_feasible": 5,
+      "target_median_reduction_pct": 0.0,
+      "plot_seed": 334,
+      "trials": [
+        {
+          "seed": 331,
+          "feasible": true,
+          "metrics": {
+            "area_mm2": 5.0,
+            "average_power_w": 0.2579130243814513,
+            "latency_s": 0.89409608
+          }
+        },
+        {
+          "seed": 332,
+          "feasible": true,
+          "metrics": {
+            "area_mm2": 10.0,
+            "average_power_w": 0.3163884819271555,
+            "latency_s": 0.827530276
+          }
+        },
+        {
+          "seed": 333,
+          "feasible": true,
+          "metrics": {
+            "area_mm2": 10.0,
+            "average_power_w": 0.35031182848838155,
+            "latency_s": 0.627711924
+          }
+        },
+        {
+          "seed": 334,
+          "feasible": true,
+          "metrics": {
+            "area_mm2": 5.0,
+            "average_power_w": 0.261647112881804,
+            "latency_s": 0.864381792
+          }
+        },
+        {
+          "seed": 335,
+          "feasible": true,
+          "metrics": {
+            "area_mm2": 10.0,
+            "average_power_w": 0.35458598437318833,
+            "latency_s": 0.60474524
+          }
+        }
+      ]
+    },
+    {
+      "condition": "exploratory_latency_x2_area_x05",
+      "model": "vgg16",
+      "preference": "performance",
+      "n_seeds": 5,
+      "feasible_seeds": 5,
+      "median_ppa": {
+        "average_power_w": 0.349995106186215,
+        "latency_s": 0.641707212,
+        "area_mm2": 10.0
+      },
+      "target": "latency_s",
+      "target_lower_than_balanced_count": 3,
+      "paired_feasible": 5,
+      "target_median_reduction_pct": 22.009584025913625,
+      "plot_seed": 334,
+      "trials": [
+        {
+          "seed": 331,
+          "feasible": true,
+          "metrics": {
+            "area_mm2": 10.0,
+            "average_power_w": 0.3444360165816357,
+            "latency_s": 0.697309252
+          }
+        },
+        {
+          "seed": 332,
+          "feasible": true,
+          "metrics": {
+            "area_mm2": 10.0,
+            "average_power_w": 0.3163884819271555,
+            "latency_s": 0.827530276
+          }
+        },
+        {
+          "seed": 333,
+          "feasible": true,
+          "metrics": {
+            "area_mm2": 10.0,
+            "average_power_w": 0.35031182848838155,
+            "latency_s": 0.627711924
+          }
+        },
+        {
+          "seed": 334,
+          "feasible": true,
+          "metrics": {
+            "area_mm2": 10.0,
+            "average_power_w": 0.349995106186215,
+            "latency_s": 0.641707212
+          }
+        },
+        {
+          "seed": 335,
+          "feasible": true,
+          "metrics": {
+            "area_mm2": 10.0,
+            "average_power_w": 0.35458598437318833,
+            "latency_s": 0.60474524
+          }
+        }
+      ]
+    },
+    {
+      "condition": "exploratory_latency_x2_area_x05",
+      "model": "vgg16",
+      "preference": "area",
+      "n_seeds": 5,
+      "feasible_seeds": 5,
+      "median_ppa": {
+        "average_power_w": 0.26008171621211007,
+        "latency_s": 0.880783856,
+        "area_mm2": 5.0
+      },
+      "target": "area_mm2",
+      "target_lower_than_balanced_count": 0,
+      "paired_feasible": 5,
+      "target_median_reduction_pct": 0.0,
+      "plot_seed": 334,
+      "trials": [
+        {
+          "seed": 331,
+          "feasible": true,
+          "metrics": {
+            "area_mm2": 5.0,
+            "average_power_w": 0.2579130243814513,
+            "latency_s": 0.89409608
+          }
+        },
+        {
+          "seed": 332,
+          "feasible": true,
+          "metrics": {
+            "area_mm2": 10.0,
+            "average_power_w": 0.3163884819271555,
+            "latency_s": 0.827530276
+          }
+        },
+        {
+          "seed": 333,
+          "feasible": true,
+          "metrics": {
+            "area_mm2": 10.0,
+            "average_power_w": 0.35395588173987913,
+            "latency_s": 0.592896536
+          }
+        },
+        {
+          "seed": 334,
+          "feasible": true,
+          "metrics": {
+            "area_mm2": 5.0,
+            "average_power_w": 0.26008171621211007,
+            "latency_s": 0.880783856
+          }
+        },
+        {
+          "seed": 335,
+          "feasible": true,
+          "metrics": {
+            "area_mm2": 5.0,
+            "average_power_w": 0.25982341246901186,
+            "latency_s": 0.907111112
+          }
+        }
+      ]
+    }
+  ]
+}
